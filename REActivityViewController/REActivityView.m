@@ -40,9 +40,9 @@
             [_scrollView addSubview:view];
             index++;
         }
-        _scrollView.contentSize = CGSizeMake((  page+ 1) * frame.size.width, _scrollView.frame.size.height);
+        _scrollView.contentSize = CGSizeMake((page +1) * frame.size.width, _scrollView.frame.size.height);
         _scrollView.pagingEnabled = YES;
-            //[self addActivity:activity];
+        //[self addActivity:activity];
     }
     return self;
 }

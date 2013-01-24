@@ -21,6 +21,7 @@
     if (self) {
         _activities = activities;
         _activityView = [[REActivityView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.frame.size.width, 417) activities:activities];
+        _activityView.activityViewController = self;
         [self.view addSubview:_activityView];
     }
     return self;
