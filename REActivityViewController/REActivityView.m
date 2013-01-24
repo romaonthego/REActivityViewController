@@ -7,6 +7,7 @@
 //
 
 #import "REActivityView.h"
+#import "REActivityViewController.h"
 
 @implementation REActivityView
 
@@ -46,7 +47,17 @@
         }
         _scrollView.contentSize = CGSizeMake((page +1) * frame.size.width, _scrollView.frame.size.height);
         _scrollView.pagingEnabled = YES;
-        //[self addActivity:activity];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setBackgroundImage:[[UIImage imageNamed:@"Button"] stretchableImageWithLeftCapWidth:22 topCapHeight:47] forState:UIControlStateNormal];
+        button.frame = CGRectMake(22, 352, 276, 47);
+        [button setTitle:@"Cancel" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button setTitleShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4] forState:UIControlStateNormal];
+        [button.titleLabel setShadowOffset:CGSizeMake(0, -1)];
+        [button.titleLabel setFont:[UIFont boldSystemFontOfSize:19]];
+        [button addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:button];
     }
     return self;
 }
@@ -83,6 +94,11 @@
 
 #pragma mark -
 #pragma mark Button action
+
+- (void)cancelButtonPressed
+{
+    [_activityViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)buttonPressed:(UIButton *)button
 {

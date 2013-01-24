@@ -21,7 +21,7 @@
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, 320, 480)];
     imageView.image = [UIImage imageNamed:@"Temp"];
-    [self.view addSubview:imageView];
+   // [self.view addSubview:imageView];
 	
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.frame = CGRectMake(20, 20, 280, 44);
@@ -83,8 +83,26 @@
     };
     self.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self presentViewController:activityViewController animated:YES completion:^{
-        self.modalPresentationStyle = UIModalPresentationFullScreen;
+    //    self.modalPresentationStyle = UIModalPresentationFullScreen;
     }];
+}
+
+#pragma mark -
+#pragma mark Orientation
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
+{
+    return YES;
 }
 
 @end
