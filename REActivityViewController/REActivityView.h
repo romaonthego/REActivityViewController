@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "REActivity.h"
 
-@interface REActivityView : UIView
+@interface REActivityView : UIView <UIScrollViewDelegate> {
+    UIPageControl *_pageControl;
+}
 
 @property (strong, nonatomic) UIImageView *backgroundImageView;
 @property (strong, nonatomic) UIScrollView *scrollView;

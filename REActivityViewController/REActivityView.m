@@ -24,6 +24,7 @@
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 39, frame.size.width, 300)];
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.delegate = self;
       //  _scrollView.backgroundColor = [UIColor blackColor];
         [self addSubview:_scrollView];
         
@@ -47,6 +48,10 @@
         }
         _scrollView.contentSize = CGSizeMake((page +1) * frame.size.width, _scrollView.frame.size.height);
         _scrollView.pagingEnabled = YES;
+        
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 324, frame.size.width, 10)];
+        _pageControl.numberOfPages = page + 1;
+        [self addSubview:_pageControl];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setBackgroundImage:[[UIImage imageNamed:@"Button"] stretchableImageWithLeftCapWidth:22 topCapHeight:47] forState:UIControlStateNormal];
@@ -107,5 +112,14 @@
         activity.actionBlock(activity, _activityViewController);
     }
 }
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    _pageControl.currentPage = scrollView.contentOffset.x / scrollView.frame.size.width;
+}
+
 
 @end
