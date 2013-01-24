@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REActivityView.h"
 #import "REActivity.h"
 #import "REFacebookActivity.h"
 #import "RETwitterActivity.h"
@@ -16,9 +17,10 @@
 
 @interface REActivityViewController : UIViewController
 
-- (id)initWithActivities:(NSArray *)activities;
-
 @property (strong, nonatomic) NSDictionary *datasource;
-@property (strong, nonatomic) UIImageView *backgroundImageView;
+@property (strong, nonatomic) REActivityView *activityView;
+
+- (id)initWithActivities:(NSArray *)activities;
+- (NSInteger)height;
 
 @end

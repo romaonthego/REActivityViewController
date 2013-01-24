@@ -59,7 +59,10 @@
         @"text": @"Hello world!",
         @"url": @"https://github.com/romaonthego/REActivityViewController"
     };
-    [self presentViewController:activityViewController animated:YES completion:nil];
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    [self presentViewController:activityViewController animated:YES completion:^{
+        self.modalPresentationStyle = UIModalPresentationFullScreen;
+    }];
 }
 
 @end

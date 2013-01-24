@@ -14,6 +14,10 @@ typedef void (^REActivityActionBlock)(REActivityViewController *activityViewCont
 
 @interface REActivity : NSObject
 
+@property (strong, readonly, nonatomic) NSString *title;
+@property (strong, readonly, nonatomic) UIImage *image;
+@property (copy, readonly, nonatomic) REActivityActionBlock actionBlock;
+
 - (id)initWithTitle:(NSString *)title image:(UIImage *)image actionBlock:(REActivityActionBlock)actionBlock;
 
 @end

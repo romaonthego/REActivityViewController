@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REActivity.h"
 
 @interface REActivityView : UIView
+
+@property (strong, nonatomic) UIImageView *backgroundImageView;
+@property (strong, nonatomic) UIScrollView *scrollView;
 
 @end

@@ -14,7 +14,9 @@
 {
     self = [super init];
     if (self) {
-        
+        _title = title;
+        _image = image;
+        _actionBlock = [actionBlock copy];
     }
     return self;
 }

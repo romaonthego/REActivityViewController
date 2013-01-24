@@ -7,6 +7,7 @@
 //
 
 #import "REActivityViewController.h"
+#import "REActivityView.h"
 
 @interface REActivityViewController ()
 
@@ -18,18 +19,39 @@
 {
     self = [super init];
     if (self) {
-        self.view.opaque = NO;
-        [self setupUI];
+        _activityView = [[REActivityView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.frame.size.width, 417)];
+        [self.view addSubview:_activityView];
     }
     return self;
 }
 
-- (void)setupUI
+- (void)viewWillAppear:(BOOL)animated
 {
-    _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 417, self.view.frame.size.width, 417)];
-    _backgroundImageView.image = [UIImage imageNamed:@"Background"];
-    _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [self.view addSubview:_backgroundImageView];
+    [super viewWillAppear:animated];
+    
+    self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    NSLog(@"class = %@", NSStringFromClass([self.presentingViewController class]));
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        CGRect frame = _activityView.frame;
+        frame.origin.y = [UIScreen mainScreen].bounds.size.height - self.height;
+        _activityView.frame = frame;
+    }];
+}
+
+/*- (void)presentViewController
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        CGRect frame = _activityView.frame;
+        frame.origin.y = [UIScreen mainScreen].bounds.size.height - self.height;
+        _activityView.frame = frame;
+    }];
+    [[REActivityWindow sharedWindow] addToMainWindow:_activityView];
+}*/
+
+- (NSInteger)height
+{
+    return 417;
 }
 
 - (void)viewDidLoad

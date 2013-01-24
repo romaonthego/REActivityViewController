@@ -25,7 +25,7 @@
 		309664A316B1B96A00440203 /* REMailActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 309664A216B1B96900440203 /* REMailActivity.m */; };
 		309664A616B1CFE800440203 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664A516B1CFE800440203 /* Background@2x.png */; };
 		309664A916B1D62300440203 /* REActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 309664A816B1D62200440203 /* REActivityView.m */; };
-		309664AC16B1D68100440203 /* REActivityWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 309664AB16B1D68000440203 /* REActivityWindow.m */; };
+		309664AE16B1DCA300440203 /* Icon_Mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664AD16B1DCA300440203 /* Icon_Mail@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,8 +59,7 @@
 		309664A516B1CFE800440203 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
 		309664A716B1D62200440203 /* REActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivityView.h; sourceTree = "<group>"; };
 		309664A816B1D62200440203 /* REActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REActivityView.m; sourceTree = "<group>"; };
-		309664AA16B1D68000440203 /* REActivityWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivityWindow.h; sourceTree = "<group>"; };
-		309664AB16B1D68000440203 /* REActivityWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REActivityWindow.m; sourceTree = "<group>"; };
+		309664AD16B1DCA300440203 /* Icon_Mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Mail@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +148,6 @@
 				309664A216B1B96900440203 /* REMailActivity.m */,
 				309664A716B1D62200440203 /* REActivityView.h */,
 				309664A816B1D62200440203 /* REActivityView.m */,
-				309664AA16B1D68000440203 /* REActivityWindow.h */,
-				309664AB16B1D68000440203 /* REActivityWindow.m */,
 			);
 			name = REActivityViewController;
 			path = ../REActivityViewController;
@@ -159,6 +156,7 @@
 		309664A416B1CFE800440203 /* REActivityViewController */ = {
 			isa = PBXGroup;
 			children = (
+				309664AD16B1DCA300440203 /* Icon_Mail@2x.png */,
 				309664A516B1CFE800440203 /* Background@2x.png */,
 			);
 			path = REActivityViewController;
@@ -220,6 +218,7 @@
 				3096648616B1B36B00440203 /* Default@2x.png in Resources */,
 				3096648816B1B36B00440203 /* Default-568h@2x.png in Resources */,
 				309664A616B1CFE800440203 /* Background@2x.png in Resources */,
+				309664AE16B1DCA300440203 /* Icon_Mail@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +239,6 @@
 				309664A016B1B95500440203 /* REMessageActivity.m in Sources */,
 				309664A316B1B96A00440203 /* REMailActivity.m in Sources */,
 				309664A916B1D62300440203 /* REActivityView.m in Sources */,
-				309664AC16B1D68100440203 /* REActivityWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
