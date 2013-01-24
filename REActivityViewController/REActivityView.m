@@ -35,8 +35,10 @@
                 page++;
             }
             NSLog(@"index = %i", index % 9);
-            UIView *view = [self viewForActivity:activity x:(30 + col*80 + col*10) + page * frame.size.width
-                                                             y:row*80 + row*10];
+            UIView *view = [self viewForActivity:activity
+                                           index:index
+                                               x:(30 + col*80 + col*10) + page * frame.size.width
+                                               y:row*80 + row*10];
             [_scrollView addSubview:view];
             index++;
         }
@@ -47,16 +49,29 @@
     return self;
 }
 
-- (UIView *)viewForActivity:(REActivity *)activity x:(NSInteger)x y:(NSInteger)y
+- (UIView *)viewForActivity:(REActivity *)activity index:(NSInteger)index x:(NSInteger)x y:(NSInteger)y
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(x, y, 80, 80)];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 59, 59);
+    button.tag = index;
+    [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:activity.image forState:UIControlStateNormal];
     [view addSubview:button];
     
     return view;
+}
+
+#pragma mark -
+#pragma mark Button action
+
+- (void)buttonPressed:(UIButton *)button
+{
+    REActivity *activity = [_activities objectAtIndex:button.tag];
+    if (activity.actionBlock) {
+        activity.actionBlock(_activityViewController);
+    }
 }
 
 @end
