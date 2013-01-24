@@ -40,7 +40,7 @@
 
 - (NSInteger)height
 {
-    return 417;
+    return 437;
 }
 
 - (void)viewDidLoad

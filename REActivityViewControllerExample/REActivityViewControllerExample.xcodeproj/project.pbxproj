@@ -31,6 +31,7 @@
 		309664BA16B1E8CF00440203 /* Icon_Message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B316B1E8CF00440203 /* Icon_Message@2x.png */; };
 		309664BB16B1E8CF00440203 /* Icon_Print@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B416B1E8CF00440203 /* Icon_Print@2x.png */; };
 		309664BC16B1E8CF00440203 /* Icon_Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */; };
+		309664BF16B1EC8200440203 /* Temp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664BE16B1EC8200440203 /* Temp@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		309664B316B1E8CF00440203 /* Icon_Message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Message@2x.png"; sourceTree = "<group>"; };
 		309664B416B1E8CF00440203 /* Icon_Print@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Print@2x.png"; sourceTree = "<group>"; };
 		309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Twitter@2x.png"; sourceTree = "<group>"; };
+		309664BE16B1EC8200440203 /* Temp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Temp@2x.png"; path = "../../REActivityViewController/Temp@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		3096647716B1B36B00440203 /* REActivityViewControllerExample */ = {
 			isa = PBXGroup;
 			children = (
+				309664BE16B1EC8200440203 /* Temp@2x.png */,
 				3096648016B1B36B00440203 /* AppDelegate.h */,
 				3096648116B1B36B00440203 /* AppDelegate.m */,
 				3096649216B1B3D900440203 /* RootViewController.h */,
@@ -143,19 +146,12 @@
 		3096648E16B1B37900440203 /* REActivityViewController */ = {
 			isa = PBXGroup;
 			children = (
+				309664BD16B1E93C00440203 /* Activities */,
 				309664A416B1CFE800440203 /* REActivityViewController */,
 				3096648F16B1B3CC00440203 /* REActivityViewController.h */,
 				3096649016B1B3CC00440203 /* REActivityViewController.m */,
 				3096649516B1B4C800440203 /* REActivity.h */,
 				3096649616B1B4C800440203 /* REActivity.m */,
-				3096649816B1B60500440203 /* REFacebookActivity.h */,
-				3096649916B1B60500440203 /* REFacebookActivity.m */,
-				3096649B16B1B66700440203 /* RETwitterActivity.h */,
-				3096649C16B1B66700440203 /* RETwitterActivity.m */,
-				3096649E16B1B95500440203 /* REMessageActivity.h */,
-				3096649F16B1B95500440203 /* REMessageActivity.m */,
-				309664A116B1B96900440203 /* REMailActivity.h */,
-				309664A216B1B96900440203 /* REMailActivity.m */,
 				309664A716B1D62200440203 /* REActivityView.h */,
 				309664A816B1D62200440203 /* REActivityView.m */,
 			);
@@ -175,6 +171,21 @@
 				309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */,
 			);
 			path = REActivityViewController;
+			sourceTree = "<group>";
+		};
+		309664BD16B1E93C00440203 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				3096649816B1B60500440203 /* REFacebookActivity.h */,
+				3096649916B1B60500440203 /* REFacebookActivity.m */,
+				3096649B16B1B66700440203 /* RETwitterActivity.h */,
+				3096649C16B1B66700440203 /* RETwitterActivity.m */,
+				3096649E16B1B95500440203 /* REMessageActivity.h */,
+				3096649F16B1B95500440203 /* REMessageActivity.m */,
+				309664A116B1B96900440203 /* REMailActivity.h */,
+				309664A216B1B96900440203 /* REMailActivity.m */,
+			);
+			name = Activities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +250,7 @@
 				309664BA16B1E8CF00440203 /* Icon_Message@2x.png in Resources */,
 				309664BB16B1E8CF00440203 /* Icon_Print@2x.png in Resources */,
 				309664BC16B1E8CF00440203 /* Icon_Twitter@2x.png in Resources */,
+				309664BF16B1EC8200440203 /* Temp@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

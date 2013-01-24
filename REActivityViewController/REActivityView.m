@@ -20,8 +20,10 @@
         _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:_backgroundImageView];
         
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 39, frame.size.width, 417)];
-        _scrollView.backgroundColor = [UIColor blackColor];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 39, frame.size.width, 300)];
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
+      //  _scrollView.backgroundColor = [UIColor blackColor];
         [self addSubview:_scrollView];
         
         NSInteger index = 0;
@@ -37,8 +39,8 @@
             NSLog(@"index = %i", index % 9);
             UIView *view = [self viewForActivity:activity
                                            index:index
-                                               x:(30 + col*80 + col*10) + page * frame.size.width
-                                               y:row*80 + row*10];
+                                               x:(20 + col*80 + col*20) + page * frame.size.width
+                                               y:row*80 + row*20];
             [_scrollView addSubview:view];
             index++;
         }
@@ -54,11 +56,27 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(x, y, 80, 80)];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 59, 59);
+    button.frame = CGRectMake(10, 0, 59, 59);
     button.tag = index;
     [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:activity.image forState:UIControlStateNormal];
     [view addSubview:button];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 59, 80, 30)];
+    label.textAlignment = UITextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];
+    label.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.75];
+    label.shadowOffset = CGSizeMake(0, 1);
+    label.text = activity.title;
+    label.font = [UIFont boldSystemFontOfSize:12];
+    label.numberOfLines = 0;
+    [label setNumberOfLines:0];
+    [label sizeToFit];
+    CGRect frame = label.frame;
+    frame.origin.x = (view.frame.size.width - frame.size.width) / 2.0f;
+    label.frame = frame;
+    [view addSubview:label];
     
     return view;
 }

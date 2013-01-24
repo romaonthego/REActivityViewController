@@ -10,4 +10,5 @@
 
 @interface REMessageActivity : REActivity
 
+
 @end

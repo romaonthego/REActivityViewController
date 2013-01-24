@@ -18,6 +18,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, 320, 480)];
+    imageView.image = [UIImage imageNamed:@"Temp"];
+    [self.view addSubview:imageView];
 	
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.frame = CGRectMake(20, 20, 280, 44);
@@ -45,6 +49,10 @@
                                                        }];
   */
     
+    REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
+    RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
+    REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
+    
     REMailActivity *mailActivity1 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity2 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity3 = [[REMailActivity alloc] init];
@@ -61,7 +69,7 @@
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[mailActivity1, mailActivity2, mailActivity3, mailActivity4, mailActivity5, mailActivity6, mailActivity7, mailActivity8, mailActivity9, mailActivity10];
+    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity1, mailActivity2, mailActivity3, mailActivity4, mailActivity5, mailActivity6, mailActivity7, mailActivity8, mailActivity9, mailActivity10];
     
     //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     //self.modalPresentationStyle = UIModalPresentationCurrentContext;
