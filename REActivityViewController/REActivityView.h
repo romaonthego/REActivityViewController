@@ -13,5 +13,8 @@
 
 @property (strong, nonatomic) UIImageView *backgroundImageView;
 @property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) NSArray *activities;
+
+- (id)initWithFrame:(CGRect)frame activities:(NSArray *)activities;
 
 @end

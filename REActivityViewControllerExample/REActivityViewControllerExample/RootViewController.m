@@ -30,7 +30,7 @@
 {
     // Prepare activities
     //
-    REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
+ /*   REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
     REMailActivity *mailActivity = [[REMailActivity alloc] init];
@@ -43,11 +43,25 @@
                                                            [activityViewController dismissViewControllerAnimated:YES completion:nil];
                                                            NSLog(@"Hey, I'm pressed!");
                                                        }];
+  */
+    
+    REMailActivity *mailActivity1 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity2 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity3 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity4 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity5 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity6 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity7 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity8 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity9 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity10 = [[REMailActivity alloc] init];
     
     // Compile activities into an array, we will pass that array to
     // REActivityViewController on the next step
     //
-    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
+    //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
+    
+    NSArray *activities = @[mailActivity1, mailActivity2, mailActivity3, mailActivity4, mailActivity5, mailActivity6, mailActivity7, mailActivity8, mailActivity9, mailActivity10];
     
     //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     //self.modalPresentationStyle = UIModalPresentationCurrentContext;

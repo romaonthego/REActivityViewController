@@ -10,10 +10,11 @@
 
 @implementation REActivityView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame activities:(NSArray *)activities
 {
     self = [super initWithFrame:frame];
-    if (self) { 
+    if (self) {
+        _activities = activities;
         _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, frame.size.height - 417, frame.size.width, 417)];
         _backgroundImageView.image = [UIImage imageNamed:@"Background"];
         _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -23,17 +24,39 @@
         _scrollView.backgroundColor = [UIColor blackColor];
         [self addSubview:_scrollView];
         
-        [self addActivity:nil];
+        NSInteger index = 0;
+        NSInteger row = -1;
+        NSInteger page = -1;
+        for (REActivity *activity in _activities) {
+            NSInteger col = index%3;
+            if (index % 3 == 0) row++;
+            if (index % 9 == 0) {
+                row = 0;
+                page++;
+            }
+            NSLog(@"index = %i", index % 9);
+            UIView *view = [self viewForActivity:activity x:(30 + col*80 + col*10) + page * frame.size.width
+                                                             y:row*80 + row*10];
+            [_scrollView addSubview:view];
+            index++;
+        }
+        _scrollView.contentSize = CGSizeMake((  page+ 1) * frame.size.width, _scrollView.frame.size.height);
+        _scrollView.pagingEnabled = YES;
+            //[self addActivity:activity];
     }
     return self;
 }
 
-- (void)addActivity:(REActivity *)activity
+- (UIView *)viewForActivity:(REActivity *)activity x:(NSInteger)x y:(NSInteger)y
 {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(x, y, 80, 80)];
+    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(30, 0, 59, 59);
-    [button setBackgroundImage:[UIImage imageNamed:@"Icon_Mail"] forState:UIControlStateNormal];
-    [_scrollView addSubview:button];
+    button.frame = CGRectMake(0, 0, 59, 59);
+    [button setBackgroundImage:activity.image forState:UIControlStateNormal];
+    [view addSubview:button];
+    
+    return view;
 }
 
 @end

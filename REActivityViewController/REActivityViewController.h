@@ -17,6 +17,7 @@
 
 @interface REActivityViewController : UIViewController
 
+@property (strong, readonly, nonatomic) NSArray *activities;
 @property (strong, nonatomic) NSDictionary *datasource;
 @property (strong, nonatomic) REActivityView *activityView;
 
