@@ -49,9 +49,13 @@
         _scrollView.contentSize = CGSizeMake((page +1) * frame.size.width, _scrollView.frame.size.height);
         _scrollView.pagingEnabled = YES;
         
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 324, frame.size.width, 10)];
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 325, frame.size.width, 10)];
         _pageControl.numberOfPages = page + 1;
+        [_pageControl addTarget:self action:@selector(pageControlValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:_pageControl];
+        
+        if (_pageControl.numberOfPages <= 1)
+            _pageControl.hidden = YES;
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setBackgroundImage:[[UIImage imageNamed:@"Button"] stretchableImageWithLeftCapWidth:22 topCapHeight:47] forState:UIControlStateNormal];
@@ -121,5 +125,13 @@
     _pageControl.currentPage = scrollView.contentOffset.x / scrollView.frame.size.width;
 }
 
+#pragma mark -
+
+- (void)pageControlValueChanged:(UIPageControl *)pageControl
+{
+    CGFloat pageWidth = _scrollView.contentSize.width /_pageControl.numberOfPages;
+    CGFloat x = _pageControl.currentPage * pageWidth;
+    [_scrollView scrollRectToVisible:CGRectMake(x, 0, pageWidth, _scrollView.frame.size.height) animated:YES];
+}
 
 @end

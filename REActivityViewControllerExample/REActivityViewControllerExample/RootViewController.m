@@ -69,7 +69,7 @@
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity1, mailActivity2, mailActivity3, mailActivity4, mailActivity5, mailActivity6, mailActivity7, mailActivity8, mailActivity9, mailActivity10];
+    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity1, mailActivity2, mailActivity3, mailActivity4, mailActivity5, mailActivity6, mailActivity7, mailActivity8, mailActivity9, mailActivity10, mailActivity2, mailActivity3, mailActivity4, mailActivity5, mailActivity6, mailActivity7, mailActivity8, mailActivity9, mailActivity10];
     
     //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     //self.modalPresentationStyle = UIModalPresentationCurrentContext;
