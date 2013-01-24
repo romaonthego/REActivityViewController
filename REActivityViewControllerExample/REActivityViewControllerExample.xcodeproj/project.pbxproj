@@ -23,9 +23,14 @@
 		3096649D16B1B66700440203 /* RETwitterActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3096649C16B1B66700440203 /* RETwitterActivity.m */; };
 		309664A016B1B95500440203 /* REMessageActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3096649F16B1B95500440203 /* REMessageActivity.m */; };
 		309664A316B1B96A00440203 /* REMailActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 309664A216B1B96900440203 /* REMailActivity.m */; };
-		309664A616B1CFE800440203 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664A516B1CFE800440203 /* Background@2x.png */; };
 		309664A916B1D62300440203 /* REActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 309664A816B1D62200440203 /* REActivityView.m */; };
-		309664AE16B1DCA300440203 /* Icon_Mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664AD16B1DCA300440203 /* Icon_Mail@2x.png */; };
+		309664B616B1E8CF00440203 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664AF16B1E8CF00440203 /* Background@2x.png */; };
+		309664B716B1E8CF00440203 /* Icon_Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B016B1E8CF00440203 /* Icon_Copy@2x.png */; };
+		309664B816B1E8CF00440203 /* Icon_Facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B116B1E8CF00440203 /* Icon_Facebook@2x.png */; };
+		309664B916B1E8CF00440203 /* Icon_Mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B216B1E8CF00440203 /* Icon_Mail@2x.png */; };
+		309664BA16B1E8CF00440203 /* Icon_Message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B316B1E8CF00440203 /* Icon_Message@2x.png */; };
+		309664BB16B1E8CF00440203 /* Icon_Print@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B416B1E8CF00440203 /* Icon_Print@2x.png */; };
+		309664BC16B1E8CF00440203 /* Icon_Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,10 +61,15 @@
 		3096649F16B1B95500440203 /* REMessageActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMessageActivity.m; sourceTree = "<group>"; };
 		309664A116B1B96900440203 /* REMailActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMailActivity.h; sourceTree = "<group>"; };
 		309664A216B1B96900440203 /* REMailActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMailActivity.m; sourceTree = "<group>"; };
-		309664A516B1CFE800440203 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
 		309664A716B1D62200440203 /* REActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivityView.h; sourceTree = "<group>"; };
 		309664A816B1D62200440203 /* REActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REActivityView.m; sourceTree = "<group>"; };
-		309664AD16B1DCA300440203 /* Icon_Mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Mail@2x.png"; sourceTree = "<group>"; };
+		309664AF16B1E8CF00440203 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		309664B016B1E8CF00440203 /* Icon_Copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Copy@2x.png"; sourceTree = "<group>"; };
+		309664B116B1E8CF00440203 /* Icon_Facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Facebook@2x.png"; sourceTree = "<group>"; };
+		309664B216B1E8CF00440203 /* Icon_Mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Mail@2x.png"; sourceTree = "<group>"; };
+		309664B316B1E8CF00440203 /* Icon_Message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Message@2x.png"; sourceTree = "<group>"; };
+		309664B416B1E8CF00440203 /* Icon_Print@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Print@2x.png"; sourceTree = "<group>"; };
+		309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Twitter@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +166,13 @@
 		309664A416B1CFE800440203 /* REActivityViewController */ = {
 			isa = PBXGroup;
 			children = (
-				309664AD16B1DCA300440203 /* Icon_Mail@2x.png */,
-				309664A516B1CFE800440203 /* Background@2x.png */,
+				309664AF16B1E8CF00440203 /* Background@2x.png */,
+				309664B016B1E8CF00440203 /* Icon_Copy@2x.png */,
+				309664B116B1E8CF00440203 /* Icon_Facebook@2x.png */,
+				309664B216B1E8CF00440203 /* Icon_Mail@2x.png */,
+				309664B316B1E8CF00440203 /* Icon_Message@2x.png */,
+				309664B416B1E8CF00440203 /* Icon_Print@2x.png */,
+				309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */,
 			);
 			path = REActivityViewController;
 			sourceTree = "<group>";
@@ -217,8 +232,13 @@
 				3096648416B1B36B00440203 /* Default.png in Resources */,
 				3096648616B1B36B00440203 /* Default@2x.png in Resources */,
 				3096648816B1B36B00440203 /* Default-568h@2x.png in Resources */,
-				309664A616B1CFE800440203 /* Background@2x.png in Resources */,
-				309664AE16B1DCA300440203 /* Icon_Mail@2x.png in Resources */,
+				309664B616B1E8CF00440203 /* Background@2x.png in Resources */,
+				309664B716B1E8CF00440203 /* Icon_Copy@2x.png in Resources */,
+				309664B816B1E8CF00440203 /* Icon_Facebook@2x.png in Resources */,
+				309664B916B1E8CF00440203 /* Icon_Mail@2x.png in Resources */,
+				309664BA16B1E8CF00440203 /* Icon_Message@2x.png in Resources */,
+				309664BB16B1E8CF00440203 /* Icon_Print@2x.png in Resources */,
+				309664BC16B1E8CF00440203 /* Icon_Twitter@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
