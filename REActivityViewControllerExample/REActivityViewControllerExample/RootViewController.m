@@ -77,9 +77,9 @@
     //
     REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithActivities:activities];
     activityViewController.userInfo = @{
-        @"image": @"Test.jpg",
+        @"image": [UIImage imageNamed:@"Temp@2x.png"],
         @"text": @"Hello world!",
-        @"url": @"https://github.com/romaonthego/REActivityViewController"
+        @"url": [NSURL URLWithString:@"https://github.com/romaonthego/REActivityViewController"]
     };
     self.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self presentViewController:activityViewController animated:YES completion:^{

@@ -15,7 +15,9 @@
 #import "REMailActivity.h"
 #import "REActivityView.h"
 
-@interface REActivityViewController : UIViewController
+@interface REActivityViewController : UIViewController {
+    UIView *_backgroundView;
+}
 
 @property (strong, readonly, nonatomic) NSArray *activities;
 @property (strong, nonatomic) NSDictionary *userInfo;

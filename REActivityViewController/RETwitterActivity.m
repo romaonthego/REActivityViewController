@@ -8,6 +8,7 @@
 
 #import "RETwitterActivity.h"
 #import "REActivityViewController.h"
+#import <Twitter/Twitter.h>
 
 @implementation RETwitterActivity
 
@@ -16,10 +17,22 @@
     self = [super initWithTitle:@"Twitter"
                           image:[UIImage imageNamed:@"Icon_Twitter"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                        
+                        UIViewController *presenter = activityViewController.presentingViewController;
                         NSDictionary *userInfo = activityViewController.userInfo;
-                        NSLog(@"Twitter = %@", userInfo);
+                        
+                        [activityViewController dismissViewControllerAnimated:YES completion:^{
+                            TWTweetComposeViewController *composeController = [[TWTweetComposeViewController alloc] init];
+                            NSString *text = [userInfo objectForKey:@"text"];
+                            UIImage *image = [userInfo objectForKey:@"image"];
+                            NSURL *url = [userInfo objectForKey:@"url"];
+                            if (text)
+                                [composeController setInitialText:text];
+                            if (image)
+                                [composeController addImage:image];
+                            if (url)
+                                [composeController addURL:url];
+                            [presenter presentModalViewController:composeController animated:YES];
+                        }];
                     }];
     
     return self;
