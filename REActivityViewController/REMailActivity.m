@@ -15,7 +15,7 @@
     self = [super initWithTitle:@"Mail"
                           image:[UIImage imageNamed:@"Icon_Mail"]
                     actionBlock:^(REActivityViewController *activityViewController) {
-        
+                        NSLog(@"Send mail");
     }];
     
     return self;
