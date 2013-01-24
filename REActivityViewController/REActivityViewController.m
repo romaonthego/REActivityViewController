@@ -18,15 +18,23 @@
 {
     self = [super init];
     if (self) {
-        
+        self.view.opaque = NO;
+        [self setupUI];
     }
     return self;
+}
+
+- (void)setupUI
+{
+    _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 417, self.view.frame.size.width, 417)];
+    _backgroundImageView.image = [UIImage imageNamed:@"Background"];
+    _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:_backgroundImageView];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

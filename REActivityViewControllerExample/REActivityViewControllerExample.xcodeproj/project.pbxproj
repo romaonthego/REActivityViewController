@@ -23,6 +23,9 @@
 		3096649D16B1B66700440203 /* RETwitterActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3096649C16B1B66700440203 /* RETwitterActivity.m */; };
 		309664A016B1B95500440203 /* REMessageActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3096649F16B1B95500440203 /* REMessageActivity.m */; };
 		309664A316B1B96A00440203 /* REMailActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 309664A216B1B96900440203 /* REMailActivity.m */; };
+		309664A616B1CFE800440203 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664A516B1CFE800440203 /* Background@2x.png */; };
+		309664A916B1D62300440203 /* REActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 309664A816B1D62200440203 /* REActivityView.m */; };
+		309664AC16B1D68100440203 /* REActivityWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 309664AB16B1D68000440203 /* REActivityWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,11 @@
 		3096649F16B1B95500440203 /* REMessageActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMessageActivity.m; sourceTree = "<group>"; };
 		309664A116B1B96900440203 /* REMailActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMailActivity.h; sourceTree = "<group>"; };
 		309664A216B1B96900440203 /* REMailActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMailActivity.m; sourceTree = "<group>"; };
+		309664A516B1CFE800440203 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		309664A716B1D62200440203 /* REActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivityView.h; sourceTree = "<group>"; };
+		309664A816B1D62200440203 /* REActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REActivityView.m; sourceTree = "<group>"; };
+		309664AA16B1D68000440203 /* REActivityWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivityWindow.h; sourceTree = "<group>"; };
+		309664AB16B1D68000440203 /* REActivityWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REActivityWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +134,7 @@
 		3096648E16B1B37900440203 /* REActivityViewController */ = {
 			isa = PBXGroup;
 			children = (
+				309664A416B1CFE800440203 /* REActivityViewController */,
 				3096648F16B1B3CC00440203 /* REActivityViewController.h */,
 				3096649016B1B3CC00440203 /* REActivityViewController.m */,
 				3096649516B1B4C800440203 /* REActivity.h */,
@@ -138,9 +147,21 @@
 				3096649F16B1B95500440203 /* REMessageActivity.m */,
 				309664A116B1B96900440203 /* REMailActivity.h */,
 				309664A216B1B96900440203 /* REMailActivity.m */,
+				309664A716B1D62200440203 /* REActivityView.h */,
+				309664A816B1D62200440203 /* REActivityView.m */,
+				309664AA16B1D68000440203 /* REActivityWindow.h */,
+				309664AB16B1D68000440203 /* REActivityWindow.m */,
 			);
 			name = REActivityViewController;
 			path = ../REActivityViewController;
+			sourceTree = "<group>";
+		};
+		309664A416B1CFE800440203 /* REActivityViewController */ = {
+			isa = PBXGroup;
+			children = (
+				309664A516B1CFE800440203 /* Background@2x.png */,
+			);
+			path = REActivityViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +219,7 @@
 				3096648416B1B36B00440203 /* Default.png in Resources */,
 				3096648616B1B36B00440203 /* Default@2x.png in Resources */,
 				3096648816B1B36B00440203 /* Default-568h@2x.png in Resources */,
+				309664A616B1CFE800440203 /* Background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +239,8 @@
 				3096649D16B1B66700440203 /* RETwitterActivity.m in Sources */,
 				309664A016B1B95500440203 /* REMessageActivity.m in Sources */,
 				309664A316B1B96A00440203 /* REMailActivity.m in Sources */,
+				309664A916B1D62300440203 /* REActivityView.m in Sources */,
+				309664AC16B1D68100440203 /* REActivityWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

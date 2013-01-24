@@ -20,7 +20,7 @@
     [super viewDidLoad];
 	
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(20, 20, 280, 25);
+    button.frame = CGRectMake(20, 20, 280, 44);
     [button setTitle:@"Show REActivityViewController" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
@@ -32,6 +32,8 @@
     //
     REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
+    REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
+    REMailActivity *mailActivity = [[REMailActivity alloc] init];
     
     // Add some custom activity
     //
@@ -45,14 +47,17 @@
     // Compile activities into an array, we will pass that array to
     // REActivityViewController on the next step
     //
-    NSArray *activities = @[facebookActivity, twitterActivity, customActivity];
+    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
+    //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    //self.modalPresentationStyle = UIModalPresentationCurrentContext;
     // Create REActivityViewController controller and assign data source
     //
     REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithActivities:activities];
     activityViewController.datasource = @{
         @"image": @"Test.jpg",
-        @"text": @"Hello world!"
+        @"text": @"Hello world!",
+        @"url": @"https://github.com/romaonthego/REActivityViewController"
     };
     [self presentViewController:activityViewController animated:YES completion:nil];
 }
