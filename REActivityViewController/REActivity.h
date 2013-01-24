@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @class REActivityViewController;
+@class REActivity;
 
-typedef void (^REActivityActionBlock)(REActivityViewController *activityViewController);
+typedef void (^REActivityActionBlock)(REActivity *activity, REActivityViewController *activityViewController);
 
 @interface REActivity : NSObject
 

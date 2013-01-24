@@ -31,25 +31,12 @@
 {
     [super viewWillAppear:animated];
     
-    self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    NSLog(@"class = %@", NSStringFromClass([self.presentingViewController class]));
-    
     [UIView animateWithDuration:0.4 animations:^{
         CGRect frame = _activityView.frame;
         frame.origin.y = [UIScreen mainScreen].bounds.size.height - self.height;
         _activityView.frame = frame;
     }];
 }
-
-/*- (void)presentViewController
-{
-    [UIView animateWithDuration:0.4 animations:^{
-        CGRect frame = _activityView.frame;
-        frame.origin.y = [UIScreen mainScreen].bounds.size.height - self.height;
-        _activityView.frame = frame;
-    }];
-    [[REActivityWindow sharedWindow] addToMainWindow:_activityView];
-}*/
 
 - (NSInteger)height
 {

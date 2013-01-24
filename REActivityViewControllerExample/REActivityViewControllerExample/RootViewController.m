@@ -68,7 +68,7 @@
     // Create REActivityViewController controller and assign data source
     //
     REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithActivities:activities];
-    activityViewController.datasource = @{
+    activityViewController.userInfo = @{
         @"image": @"Test.jpg",
         @"text": @"Hello world!",
         @"url": @"https://github.com/romaonthego/REActivityViewController"

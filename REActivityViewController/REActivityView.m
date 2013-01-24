@@ -70,7 +70,7 @@
 {
     REActivity *activity = [_activities objectAtIndex:button.tag];
     if (activity.actionBlock) {
-        activity.actionBlock(_activityViewController);
+        activity.actionBlock(activity, _activityViewController);
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "REMailActivity.h"
+#import "REActivityViewController.h"
 
 @implementation REMailActivity
 
@@ -14,8 +15,11 @@
 {
     self = [super initWithTitle:@"Mail"
                           image:[UIImage imageNamed:@"Icon_Mail"]
-                    actionBlock:^(REActivityViewController *activityViewController) {
-                        NSLog(@"Send mail");
+                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
+                        [activityViewController dismissViewControllerAnimated:YES completion:nil];
+                        
+                        NSDictionary *userInfo = activityViewController.userInfo;
+                        NSLog(@"Send mail = %@", userInfo);
     }];
     
     return self;
