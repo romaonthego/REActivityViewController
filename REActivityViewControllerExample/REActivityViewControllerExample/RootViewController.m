@@ -56,6 +56,7 @@
     REPrintActivity *printActivity = [[REPrintActivity alloc] init];
     RECopyActivity *copyActivity = [[RECopyActivity alloc] init];
     REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
+    REInstagramActivity *instagramActivity = [[REInstagramActivity alloc] init];
     
     REMailActivity *mailActivity1 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity2 = [[REMailActivity alloc] init];
@@ -73,7 +74,7 @@
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, safariActivity, mapsActivity, printActivity, copyActivity, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1];
+    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, safariActivity, mapsActivity, instagramActivity, printActivity, copyActivity, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1];
     
     //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     //self.modalPresentationStyle = UIModalPresentationCurrentContext;

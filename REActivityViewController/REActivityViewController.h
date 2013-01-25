@@ -17,6 +17,7 @@
 #import "RECopyActivity.h"
 #import "RESafariActivity.h"
 #import "REMapsActivity.h"
+#import "REInstagramActivity.h"
 
 @interface REActivityViewController : UIViewController {
     UIView *_backgroundView;
