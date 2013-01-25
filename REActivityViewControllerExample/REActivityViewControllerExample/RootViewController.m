@@ -90,7 +90,7 @@
     //
     REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self activities:activities];
     activityViewController.userInfo = @{
-        @"image": [UIImage imageNamed:@"Temp@2x.png"],
+        @"image": [UIImage imageNamed:@"Flower.jpg"],
         @"text": @"Hello world!",
         @"url": [NSURL URLWithString:@"https://github.com/romaonthego/REActivityViewController"],
         @"coordinate": @{@"latitude": @(0), @"longitude": @(0)}

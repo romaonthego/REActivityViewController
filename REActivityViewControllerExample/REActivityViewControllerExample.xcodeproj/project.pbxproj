@@ -35,6 +35,7 @@
 		309664C116B1F02900440203 /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664C016B1F02900440203 /* Button@2x.png */; };
 		309664C316B1F40000440203 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C216B1F40000440203 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		309664C516B1F40400440203 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C416B1F40400440203 /* Twitter.framework */; };
+		309664E116B2F40200440203 /* Flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 309664E016B2F40200440203 /* Flower.jpg */; };
 		30A8392416B2251C00E9482B /* RootViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392316B2251C00E9482B /* RootViewController_iPad.m */; };
 		30A8392816B2D75F00E9482B /* REPrintActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392716B2D75F00E9482B /* REPrintActivity.m */; };
 		30A8392B16B2D76800E9482B /* RECopyActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392A16B2D76800E9482B /* RECopyActivity.m */; };
@@ -89,6 +90,7 @@
 		309664C016B1F02900440203 /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
 		309664C216B1F40000440203 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		309664C416B1F40400440203 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		309664E016B2F40200440203 /* Flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Flower.jpg; sourceTree = "<group>"; };
 		30A8392216B2251C00E9482B /* RootViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController_iPad.h; sourceTree = "<group>"; };
 		30A8392316B2251C00E9482B /* RootViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController_iPad.m; sourceTree = "<group>"; };
 		30A8392616B2D75F00E9482B /* REPrintActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REPrintActivity.h; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				309664BE16B1EC8200440203 /* Temp@2x.png */,
+				309664E016B2F40200440203 /* Flower.jpg */,
 				3096648016B1B36B00440203 /* AppDelegate.h */,
 				3096648116B1B36B00440203 /* AppDelegate.m */,
 				3096649216B1B3D900440203 /* RootViewController.h */,
@@ -314,6 +317,7 @@
 				30A8393216B2D8BB00E9482B /* Icon_Maps@2x.png in Resources */,
 				30A8393A16B2DB9600E9482B /* Icon_Instagram@2x.png in Resources */,
 				30A8393C16B2DC8000E9482B /* Icon_Photos@2x.png in Resources */,
+				309664E116B2F40200440203 /* Flower.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
