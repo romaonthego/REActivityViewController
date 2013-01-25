@@ -22,8 +22,9 @@
 @property (strong, readonly, nonatomic) NSArray *activities;
 @property (strong, nonatomic) NSDictionary *userInfo;
 @property (strong, nonatomic) REActivityView *activityView;
+@property (weak, nonatomic) UIPopoverController *presentingPopoverController;
+@property (weak, nonatomic) UIViewController *presentingController;
 
-- (id)initWithActivities:(NSArray *)activities;
-- (NSInteger)height;
+- (id)initWithViewController:(UIViewController *)viewController activities:(NSArray *)activities;
 
 @end

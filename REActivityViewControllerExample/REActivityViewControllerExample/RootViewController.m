@@ -69,13 +69,13 @@
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity1, mailActivity2, mailActivity3, mailActivity4, mailActivity5, mailActivity6, mailActivity7, mailActivity8, mailActivity9, mailActivity10, mailActivity2, mailActivity3, mailActivity4, mailActivity5, mailActivity6, mailActivity7, mailActivity8, mailActivity9, mailActivity10];
+    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1];
     
     //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     //self.modalPresentationStyle = UIModalPresentationCurrentContext;
     // Create REActivityViewController controller and assign data source
     //
-    REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithActivities:activities];
+    REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self activities:activities];
     activityViewController.userInfo = @{
         @"image": [UIImage imageNamed:@"Temp@2x.png"],
         @"text": @"Hello world!",
@@ -83,7 +83,7 @@
     };
     self.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self presentViewController:activityViewController animated:YES completion:^{
-    //    self.modalPresentationStyle = UIModalPresentationFullScreen;
+        self.modalPresentationStyle = UIModalPresentationFullScreen;
     }];
 }
 

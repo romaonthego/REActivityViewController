@@ -15,30 +15,38 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.clipsToBounds = YES;
         _activities = activities;
-        _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, frame.size.height - 417, frame.size.width, 417)];
-        _backgroundImageView.image = [UIImage imageNamed:@"Background"];
-        _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [self addSubview:_backgroundImageView];
         
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 39, frame.size.width, 300)];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 417)];
+            _backgroundImageView.image = [UIImage imageNamed:@"Background"];
+            _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+            [self addSubview:_backgroundImageView];
+        }
+    
+        
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 39, frame.size.width, self.frame.size.height - 104)];
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.delegate = self;
-      //  _scrollView.backgroundColor = [UIColor blackColor];
+        _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+     //   _scrollView.backgroundColor = [UIColor blueColor];
         [self addSubview:_scrollView];
         
         NSInteger index = 0;
         NSInteger row = -1;
         NSInteger page = -1;
         for (REActivity *activity in _activities) {
-            NSInteger col = index%3;
+            NSInteger col;
+            
+            col = index%3;
             if (index % 3 == 0) row++;
             if (index % 9 == 0) {
                 row = 0;
                 page++;
             }
-            NSLog(@"index = %i", index % 9);
+        //    NSLog(@"index = %i", index % 9);
             UIView *view = [self viewForActivity:activity
                                            index:index
                                                x:(20 + col*80 + col*20) + page * frame.size.width
@@ -49,7 +57,7 @@
         _scrollView.contentSize = CGSizeMake((page +1) * frame.size.width, _scrollView.frame.size.height);
         _scrollView.pagingEnabled = YES;
         
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 327, frame.size.width, 10)];
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - (UIInterfaceOrientationIsPortrait([UIDevice currentDevice].orientation) ? 90 : 86), frame.size.width, 10)];
         _pageControl.numberOfPages = page + 1;
         [_pageControl addTarget:self action:@selector(pageControlValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:_pageControl];
@@ -57,16 +65,17 @@
         if (_pageControl.numberOfPages <= 1)
             _pageControl.hidden = YES;
         
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setBackgroundImage:[[UIImage imageNamed:@"Button"] stretchableImageWithLeftCapWidth:22 topCapHeight:47] forState:UIControlStateNormal];
-        button.frame = CGRectMake(22, 352, 276, 47);
-        [button setTitle:@"Cancel" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setTitleShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4] forState:UIControlStateNormal];
-        [button.titleLabel setShadowOffset:CGSizeMake(0, -1)];
-        [button.titleLabel setFont:[UIFont boldSystemFontOfSize:19]];
-        [button addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:button];
+        _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_cancelButton setBackgroundImage:[[UIImage imageNamed:@"Button"] stretchableImageWithLeftCapWidth:22 topCapHeight:47] forState:UIControlStateNormal];
+        _cancelButton.frame = CGRectMake(22, 352, 276, 47);
+        [_cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+        [_cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_cancelButton setTitleShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4] forState:UIControlStateNormal];
+        [_cancelButton.titleLabel setShadowOffset:CGSizeMake(0, -1)];
+        [_cancelButton.titleLabel setFont:[UIFont boldSystemFontOfSize:19]];
+        [_cancelButton addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+      //  _cancelButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        [self addSubview:_cancelButton];
     }
     return self;
 }
@@ -99,6 +108,18 @@
     [view addSubview:label];
     
     return view;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    CGRect frame = _cancelButton.frame;
+    frame.origin.y = self.frame.size.height - 47 - 16;
+    frame.origin.x = (self.frame.size.width - frame.size.width) / 2.0f;
+    _cancelButton.frame = frame;
+    
+   //_scrollView.frame = CGRectMake(_scrollView.frame.origin.x, _scrollView.frame.origin.y, _scrollView.frame.size.width, self.frame.size.height - 104);
 }
 
 #pragma mark -

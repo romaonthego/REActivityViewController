@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "RootViewController_iPad.h"
 
 @implementation AppDelegate
 
@@ -15,7 +16,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.window.rootViewController = [[RootViewController alloc] init];
+    self.window.rootViewController = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? [[RootViewController alloc] init] : [[UINavigationController alloc] initWithRootViewController:[[RootViewController_iPad alloc] init]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

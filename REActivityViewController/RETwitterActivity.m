@@ -17,7 +17,7 @@
     self = [super initWithTitle:@"Twitter"
                           image:[UIImage imageNamed:@"Icon_Twitter"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        UIViewController *presenter = activityViewController.presentingViewController;
+                        UIViewController *presenter = activityViewController.presentingController;
                         NSDictionary *userInfo = activityViewController.userInfo;
                         
                         [activityViewController dismissViewControllerAnimated:YES completion:^{

@@ -11,38 +11,56 @@
 
 @interface REActivityViewController ()
 
+- (NSInteger)height;
+
 @end
 
 @implementation REActivityViewController
 
-- (id)initWithActivities:(NSArray *)activities
+- (id)initWithViewController:(UIViewController *)viewController activities:(NSArray *)activities
 {
     self = [super init];
     if (self) {
-        _backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
-        _backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _backgroundView.backgroundColor = [UIColor blackColor];
-        _backgroundView.alpha = 0;
-        [self.view addSubview:_backgroundView];
+        self.view.frame = CGRectMake(0, 0, 320, 417);
+        self.presentingController = viewController;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            _backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
+            _backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            _backgroundView.backgroundColor = [UIColor blackColor];
+            _backgroundView.alpha = 0;
+            [self.view addSubview:_backgroundView];
+        }
         
         _activities = activities;
-        _activityView = [[REActivityView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.frame.size.width, 417) activities:activities];
+        _activityView = [[REActivityView alloc] initWithFrame:CGRectMake(0, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? [UIScreen mainScreen].bounds.size.height : 0, self.view.frame.size.width, self.height) activities:activities];
+        _activityView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _activityView.activityViewController = self;
         [self.view addSubview:_activityView];
+        
+        self.contentSizeForViewInPopover = CGSizeMake(320, self.height - 60);
     }
     return self;
 }
 
 - (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
 {
-    [UIView animateWithDuration:0.4 animations:^{
-        _backgroundView.alpha = 0;
-        CGRect frame = _activityView.frame;
-        frame.origin.y = [UIScreen mainScreen].bounds.size.height;
-        _activityView.frame = frame;
-    } completion:^(BOOL finished) {
-        [super dismissViewControllerAnimated:NO completion:completion];
-    }];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [UIView animateWithDuration:0.4 animations:^{
+            _backgroundView.alpha = 0;
+            CGRect frame = _activityView.frame;
+            frame.origin.y = [UIScreen mainScreen].bounds.size.height;
+            _activityView.frame = frame;
+        } completion:^(BOOL finished) {
+            [super dismissViewControllerAnimated:NO completion:completion];
+        }];
+    } else {
+        [self.presentingPopoverController dismissPopoverAnimated:YES];
+        [self performBlock:^{
+            if (completion)
+                completion();
+        } afterDelay:0.4];
+    }
 }
 
 - (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay
@@ -59,19 +77,29 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [UIView animateWithDuration:0.4 animations:^{
+            _backgroundView.alpha = 0.4;
+            
+            CGRect frame = _activityView.frame;
+            frame.origin.y = self.view.frame.size.height - self.height;
+            _activityView.frame = frame;
+        }];
+    }
     
-    [UIView animateWithDuration:0.4 animations:^{
-        _backgroundView.alpha = 0.4;
-        CGRect frame = _activityView.frame;
-        frame.origin.y = [UIScreen mainScreen].bounds.size.height - self.height;
-        _activityView.frame = frame;
-    }];
+     [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear: animated];
 }
 
 - (NSInteger)height
-{
-    return 437;
+{   
+    if (_activities.count <= 3) return 204;
+    if (_activities.count <= 6) return 304;
+    return 417;
 }
 
 - (void)viewDidLoad

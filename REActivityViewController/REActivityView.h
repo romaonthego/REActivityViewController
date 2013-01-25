@@ -11,6 +11,7 @@
 
 @interface REActivityView : UIView <UIScrollViewDelegate> {
     UIPageControl *_pageControl;
+    UIButton *_cancelButton;
 }
 
 @property (strong, nonatomic) UIImageView *backgroundImageView;

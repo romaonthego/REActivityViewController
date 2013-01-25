@@ -33,8 +33,9 @@
 		309664BC16B1E8CF00440203 /* Icon_Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */; };
 		309664BF16B1EC8200440203 /* Temp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664BE16B1EC8200440203 /* Temp@2x.png */; };
 		309664C116B1F02900440203 /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664C016B1F02900440203 /* Button@2x.png */; };
-		309664C316B1F40000440203 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C216B1F40000440203 /* Social.framework */; };
+		309664C316B1F40000440203 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C216B1F40000440203 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		309664C516B1F40400440203 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C416B1F40400440203 /* Twitter.framework */; };
+		30A8392416B2251C00E9482B /* RootViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392316B2251C00E9482B /* RootViewController_iPad.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		309664C016B1F02900440203 /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
 		309664C216B1F40000440203 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		309664C416B1F40400440203 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		30A8392216B2251C00E9482B /* RootViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController_iPad.h; sourceTree = "<group>"; };
+		30A8392316B2251C00E9482B /* RootViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController_iPad.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				3096648116B1B36B00440203 /* AppDelegate.m */,
 				3096649216B1B3D900440203 /* RootViewController.h */,
 				3096649316B1B3D900440203 /* RootViewController.m */,
+				30A8392216B2251C00E9482B /* RootViewController_iPad.h */,
+				30A8392316B2251C00E9482B /* RootViewController_iPad.m */,
 				3096647816B1B36B00440203 /* Supporting Files */,
 			);
 			path = REActivityViewControllerExample;
@@ -283,6 +288,7 @@
 				309664A016B1B95500440203 /* REMessageActivity.m in Sources */,
 				309664A316B1B96A00440203 /* REMailActivity.m in Sources */,
 				309664A916B1D62300440203 /* REActivityView.m in Sources */,
+				30A8392416B2251C00E9482B /* RootViewController_iPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +364,7 @@
 				INFOPLIST_FILE = "REActivityViewControllerExample/REActivityViewControllerExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -370,6 +377,7 @@
 				INFOPLIST_FILE = "REActivityViewControllerExample/REActivityViewControllerExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -393,6 +401,7 @@
 				3096648D16B1B36B00440203 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
