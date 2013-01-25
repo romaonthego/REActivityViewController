@@ -28,7 +28,7 @@
 
 - (void)buttonPressed
 {
-    if (_activityPopoverController) {
+    if (_activityPopoverController && _activityPopoverController.isPopoverVisible) {
         [_activityPopoverController dismissPopoverAnimated:YES];
         _activityPopoverController =  nil;
         return;
