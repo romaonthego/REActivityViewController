@@ -89,6 +89,10 @@ self.modalPresentationStyle = UIModalPresentationCurrentContext;
 
 TO DO
 
+## Known Issues
+
+* REActivityViewController doesn't support landscape orientation on iPhone, so you'll need to lock your presenting view controller in portrait orientation.
+
 ## Contact
 
 Roman Efimov
