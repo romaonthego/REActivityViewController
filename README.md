@@ -76,6 +76,9 @@ activityViewController.userInfo = @{
     @"url": [NSURL URLWithString:@"https://github.com/romaonthego/REActivityViewController"],
     @"coordinate": @{@"latitude": @(37.751586275), @"longitude": @(-122.447721511)}
 };
+
+// Present it using current context
+//
 self.modalPresentationStyle = UIModalPresentationCurrentContext;
 [self presentViewController:activityViewController animated:YES completion:^{
     self.modalPresentationStyle = UIModalPresentationFullScreen;
