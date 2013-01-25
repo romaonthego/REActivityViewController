@@ -13,7 +13,10 @@
 #import "RETwitterActivity.h"
 #import "REMessageActivity.h"
 #import "REMailActivity.h"
-#import "REActivityView.h"
+#import "REPrintActivity.h"
+#import "RECopyActivity.h"
+#import "RESafariActivity.h"
+#import "REMapsActivity.h"
 
 @interface REActivityViewController : UIViewController {
     UIView *_backgroundView;

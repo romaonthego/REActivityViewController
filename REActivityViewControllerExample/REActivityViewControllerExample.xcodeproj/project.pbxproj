@@ -36,6 +36,12 @@
 		309664C316B1F40000440203 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C216B1F40000440203 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		309664C516B1F40400440203 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C416B1F40400440203 /* Twitter.framework */; };
 		30A8392416B2251C00E9482B /* RootViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392316B2251C00E9482B /* RootViewController_iPad.m */; };
+		30A8392816B2D75F00E9482B /* REPrintActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392716B2D75F00E9482B /* REPrintActivity.m */; };
+		30A8392B16B2D76800E9482B /* RECopyActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392A16B2D76800E9482B /* RECopyActivity.m */; };
+		30A8392E16B2D77200E9482B /* RESafariActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392D16B2D77200E9482B /* RESafariActivity.m */; };
+		30A8393016B2D8B600E9482B /* Icon_Safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A8392F16B2D8B600E9482B /* Icon_Safari@2x.png */; };
+		30A8393216B2D8BB00E9482B /* Icon_Maps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A8393116B2D8BB00E9482B /* Icon_Maps@2x.png */; };
+		30A8393516B2D8FE00E9482B /* REMapsActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8393416B2D8FE00E9482B /* REMapsActivity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +87,16 @@
 		309664C416B1F40400440203 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		30A8392216B2251C00E9482B /* RootViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController_iPad.h; sourceTree = "<group>"; };
 		30A8392316B2251C00E9482B /* RootViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController_iPad.m; sourceTree = "<group>"; };
+		30A8392616B2D75F00E9482B /* REPrintActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REPrintActivity.h; sourceTree = "<group>"; };
+		30A8392716B2D75F00E9482B /* REPrintActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPrintActivity.m; sourceTree = "<group>"; };
+		30A8392916B2D76800E9482B /* RECopyActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECopyActivity.h; sourceTree = "<group>"; };
+		30A8392A16B2D76800E9482B /* RECopyActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECopyActivity.m; sourceTree = "<group>"; };
+		30A8392C16B2D77200E9482B /* RESafariActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESafariActivity.h; sourceTree = "<group>"; };
+		30A8392D16B2D77200E9482B /* RESafariActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESafariActivity.m; sourceTree = "<group>"; };
+		30A8392F16B2D8B600E9482B /* Icon_Safari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Safari@2x.png"; sourceTree = "<group>"; };
+		30A8393116B2D8BB00E9482B /* Icon_Maps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Maps@2x.png"; sourceTree = "<group>"; };
+		30A8393316B2D8FE00E9482B /* REMapsActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMapsActivity.h; sourceTree = "<group>"; };
+		30A8393416B2D8FE00E9482B /* REMapsActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMapsActivity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +196,10 @@
 				309664C016B1F02900440203 /* Button@2x.png */,
 				309664AF16B1E8CF00440203 /* Background@2x.png */,
 				309664B016B1E8CF00440203 /* Icon_Copy@2x.png */,
+				30A8392F16B2D8B600E9482B /* Icon_Safari@2x.png */,
 				309664B116B1E8CF00440203 /* Icon_Facebook@2x.png */,
 				309664B216B1E8CF00440203 /* Icon_Mail@2x.png */,
+				30A8393116B2D8BB00E9482B /* Icon_Maps@2x.png */,
 				309664B316B1E8CF00440203 /* Icon_Message@2x.png */,
 				309664B416B1E8CF00440203 /* Icon_Print@2x.png */,
 				309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */,
@@ -200,6 +218,14 @@
 				3096649F16B1B95500440203 /* REMessageActivity.m */,
 				309664A116B1B96900440203 /* REMailActivity.h */,
 				309664A216B1B96900440203 /* REMailActivity.m */,
+				30A8392616B2D75F00E9482B /* REPrintActivity.h */,
+				30A8392716B2D75F00E9482B /* REPrintActivity.m */,
+				30A8392916B2D76800E9482B /* RECopyActivity.h */,
+				30A8392A16B2D76800E9482B /* RECopyActivity.m */,
+				30A8392C16B2D77200E9482B /* RESafariActivity.h */,
+				30A8392D16B2D77200E9482B /* RESafariActivity.m */,
+				30A8393316B2D8FE00E9482B /* REMapsActivity.h */,
+				30A8393416B2D8FE00E9482B /* REMapsActivity.m */,
 			);
 			name = Activities;
 			sourceTree = "<group>";
@@ -268,6 +294,8 @@
 				309664BC16B1E8CF00440203 /* Icon_Twitter@2x.png in Resources */,
 				309664BF16B1EC8200440203 /* Temp@2x.png in Resources */,
 				309664C116B1F02900440203 /* Button@2x.png in Resources */,
+				30A8393016B2D8B600E9482B /* Icon_Safari@2x.png in Resources */,
+				30A8393216B2D8BB00E9482B /* Icon_Maps@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +317,10 @@
 				309664A316B1B96A00440203 /* REMailActivity.m in Sources */,
 				309664A916B1D62300440203 /* REActivityView.m in Sources */,
 				30A8392416B2251C00E9482B /* RootViewController_iPad.m in Sources */,
+				30A8392816B2D75F00E9482B /* REPrintActivity.m in Sources */,
+				30A8392B16B2D76800E9482B /* RECopyActivity.m in Sources */,
+				30A8392E16B2D77200E9482B /* RESafariActivity.m in Sources */,
+				30A8393516B2D8FE00E9482B /* REMapsActivity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

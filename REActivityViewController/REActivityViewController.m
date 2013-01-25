@@ -33,7 +33,11 @@
         }
         
         _activities = activities;
-        _activityView = [[REActivityView alloc] initWithFrame:CGRectMake(0, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? [UIScreen mainScreen].bounds.size.height : 0, self.view.frame.size.width, self.height) activities:activities];
+        _activityView = [[REActivityView alloc] initWithFrame:CGRectMake(0,
+                                                                         UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ?
+                                                                         [UIScreen mainScreen].bounds.size.height : 0,
+                                                                         self.view.frame.size.width, self.height)
+                                                   activities:activities];
         _activityView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _activityView.activityViewController = self;
         [self.view addSubview:_activityView];
@@ -61,18 +65,6 @@
                 completion();
         } afterDelay:0.4];
     }
-}
-
-- (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay
-{
-    block = [block copy];
-    [self performSelector:@selector(runBlockAfterDelay:) withObject:block afterDelay:delay];
-}
-
-- (void)runBlockAfterDelay:(void (^)(void))block
-{
-	if (block != nil)
-		block();
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -107,10 +99,19 @@
     [super viewDidLoad];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - 
+#pragma mark Helpers
+
+- (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    block = [block copy];
+    [self performSelector:@selector(runBlockAfterDelay:) withObject:block afterDelay:delay];
+}
+
+- (void)runBlockAfterDelay:(void (^)(void))block
+{
+	if (block != nil)
+		block();
 }
 
 @end

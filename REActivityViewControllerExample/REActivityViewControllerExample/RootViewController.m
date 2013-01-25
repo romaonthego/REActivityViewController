@@ -52,6 +52,10 @@
     REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
+    RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
+    REPrintActivity *printActivity = [[REPrintActivity alloc] init];
+    RECopyActivity *copyActivity = [[RECopyActivity alloc] init];
+    REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
     
     REMailActivity *mailActivity1 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity2 = [[REMailActivity alloc] init];
@@ -69,7 +73,7 @@
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1];
+    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, safariActivity, mapsActivity, printActivity, copyActivity, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1];
     
     //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     //self.modalPresentationStyle = UIModalPresentationCurrentContext;
@@ -79,7 +83,8 @@
     activityViewController.userInfo = @{
         @"image": [UIImage imageNamed:@"Temp@2x.png"],
         @"text": @"Hello world!",
-        @"url": [NSURL URLWithString:@"https://github.com/romaonthego/REActivityViewController"]
+        @"url": [NSURL URLWithString:@"https://github.com/romaonthego/REActivityViewController"],
+        @"coordinate": @{@"latitude": @(0), @"longitude": @(0)}
     };
     self.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self presentViewController:activityViewController animated:YES completion:^{
