@@ -49,6 +49,12 @@ All you need to do is drop `REActivityViewController` files into your project, a
 
 ## Example Usage
 
+### Configuring & presenting REActivityViewController
+
+Presenting `REActivityViewController` is easy as 1-2-3. First, prepare activities that you're going to use.
+You can create custom activities right here in your code, no need to deal with subclassing or providers as in UIActivityViewController.
+Once your activities are ready, prepare data source (userInfo) and present the view controller.
+
 ``` objective-c
 // Prepare activities
 //
@@ -84,6 +90,32 @@ self.modalPresentationStyle = UIModalPresentationCurrentContext;
     self.modalPresentationStyle = UIModalPresentationFullScreen;
 }];
 ```
+
+### iPad specific
+
+On iPad, you should use `UIPopoverController` to present `REActivityViewController`.
+`_popoverViewController` property of UIViewController is still a private API (sigh), so we'll need to pass it manually:
+`activityViewController.presentingPopoverController = _activityPopoverController;`
+
+``` objective-c
+// Create REActivityViewController controller and assign data source
+//
+REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self activities:activities];
+    @"image": [UIImage imageNamed:@"Flower.jpg"],
+    @"text": @"Hello world!",
+    @"url": [NSURL URLWithString:@"https://github.com/romaonthego/REActivityViewController"],
+    @"coordinate": @{@"latitude": @(37.751586275), @"longitude": @(-122.447721511)}
+};
+
+_activityPopoverController = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
+activityViewController.presentingPopoverController = _activityPopoverController;
+[_activityPopoverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem
+                                   permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+```
+
+### Creating custom activities
+
+TO DO
 
 ## Customization
 
