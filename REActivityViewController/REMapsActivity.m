@@ -19,7 +19,15 @@
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
                         
                         NSDictionary *userInfo = activityViewController.userInfo;
-                        NSLog(@"Maps = %@", userInfo);
+                        NSString *url;
+                        
+                        if ([userInfo objectForKey:@"coordinate"]) {
+                            url = [NSString stringWithFormat:@"http://maps.apple.com/?q=%@,%@", [[userInfo objectForKey:@"coordinate"] objectForKey:@"latitude"], [[userInfo objectForKey:@"coordinate"] objectForKey:@"longitude"]];
+                        } else {
+                             url = [NSString stringWithFormat:@"http://maps.apple.com/?q=%@", [userInfo objectForKey:@"text"]];
+                        }
+                        
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
                     }];
     
     return self;

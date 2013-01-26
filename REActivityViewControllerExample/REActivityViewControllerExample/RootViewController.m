@@ -115,7 +115,7 @@
         @"image": [UIImage imageNamed:@"Flower.jpg"],
         @"text": @"Hello world!",
         @"url": [NSURL URLWithString:@"https://github.com/romaonthego/REActivityViewController"],
-        @"coordinate": @{@"latitude": @(0), @"longitude": @(0)}
+        @"coordinate": @{@"latitude": @(37.751586275), @"longitude": @(-122.447721511)}
     };
     self.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self presentViewController:activityViewController animated:YES completion:^{
