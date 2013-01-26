@@ -1,6 +1,7 @@
 # REActivityViewController
 
 Open source alternative to UIActivityViewController, highly customizable and compatible with iOS 5.0.
+It allows to create custom activites with ease, you control their apperance and behavior and no longer restricted to single-color icons as with default `UIActivity`.
 
 ![Screenshot of REActivityViewController](https://github.com/romaonthego/REActivityViewController/raw/master/Screenshot.png "REActivityViewController Screenshot")
 
