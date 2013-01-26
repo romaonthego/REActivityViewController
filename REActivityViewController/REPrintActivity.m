@@ -16,10 +16,32 @@
     self = [super initWithTitle:@"Print"
                           image:[UIImage imageNamed:@"Icon_Print"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                        
                         NSDictionary *userInfo = activityViewController.userInfo;
-                        NSLog(@"Print = %@", userInfo);
+                        [activityViewController dismissViewControllerAnimated:YES completion:^{
+                            UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
+                            
+                            UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+                            printInfo.outputType = UIPrintInfoOutputGeneral;
+                            printInfo.jobName = [userInfo objectForKey:@"text"];
+                            pc.printInfo = printInfo;
+                            
+                            pc.printingItem = [userInfo objectForKey:@"image"];
+                            
+                            void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) =
+                            ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
+                                if (!completed && error) {
+                                    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error."
+                                                                                 message:[NSString stringWithFormat:@"An error occured while printing: %@", error]
+                                                                                delegate:nil
+                                                                       cancelButtonTitle:@"OK"
+                                                                       otherButtonTitles:nil, nil];
+                                    
+                                    [av show];
+                                }
+                            };
+                            
+                            [pc presentAnimated:YES completionHandler:completionHandler];
+                        }];
                     }];
     
     return self;
