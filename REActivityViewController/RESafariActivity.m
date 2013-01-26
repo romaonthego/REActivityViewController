@@ -19,7 +19,9 @@
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
                         
                         NSDictionary *userInfo = activityViewController.userInfo;
-                        NSLog(@"Safari = %@", userInfo);
+                        
+                        if ([[userInfo objectForKey:@"url"] isKindOfClass:[NSURL class]])
+                            [[UIApplication sharedApplication] openURL:[userInfo objectForKey:@"url"]];
                     }];
     
     return self;
