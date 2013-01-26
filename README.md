@@ -73,18 +73,34 @@ Once your activities are ready, prepare data source (userInfo) and present the v
 //
 REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
 RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
+REVKActivity *vkActivity = [[REVKActivity alloc] init];
+RETumblrActivity *tumblrActivity = [[RETumblrActivity alloc] init];
 REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
+REMailActivity *mailActivity = [[REMailActivity alloc] init];
 RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
+REPocketActivity *pocketActivity = [[REPocketActivity alloc] init];
+REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
 RESaveToAlbumActivity *saveToAlbumActivity = [[RESaveToAlbumActivity alloc] init];
+REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
 REPrintActivity *printActivity = [[REPrintActivity alloc] init];
 RECopyActivity *copyActivity = [[RECopyActivity alloc] init];
-REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
-REInstagramActivity *instagramActivity = [[REInstagramActivity alloc] init];
+
+// Create some custom activity
+//
+REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
+                                                         image:[UIImage imageNamed:@"Icon_Custom"]
+                                                   actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
+                                                       [activityViewController dismissViewControllerAnimated:YES completion:^{
+                                                           NSLog(@"Hey, there!");
+                                                       }];
+                                                   }];
 
 // Compile activities into an array, we will pass that array to
 // REActivityViewController on the next step
 //
-NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, saveToAlbumActivity, safariActivity, mapsActivity, instagramActivity, printActivity, copyActivity];
+NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity,
+messageActivity, mailActivity, safariActivity, pocketActivity, instapaperActivity,
+saveToAlbumActivity, mapsActivity, printActivity, copyActivity, customActivity];
 
 // Create REActivityViewController controller and assign data source
 //

@@ -58,19 +58,19 @@
 
     REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
+    REVKActivity *vkActivity = [[REVKActivity alloc] init];
+    RETumblrActivity *tumblrActivity = [[RETumblrActivity alloc] init];
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
     REMailActivity *mailActivity = [[REMailActivity alloc] init];
     RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
+    REPocketActivity *pocketActivity = [[REPocketActivity alloc] init];
+    REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
     RESaveToAlbumActivity *saveToAlbumActivity = [[RESaveToAlbumActivity alloc] init];
+    REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
     REPrintActivity *printActivity = [[REPrintActivity alloc] init];
     RECopyActivity *copyActivity = [[RECopyActivity alloc] init];
-    REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
-    RETumblrActivity *tumblrActivity = [[RETumblrActivity alloc] init];
-    REVKActivity *vkActivity = [[REVKActivity alloc] init];
-    REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
-    REPocketActivity *pocketActivity = [[REPocketActivity alloc] init];
     
-    // Add some custom activity
+    // Create some custom activity
     //
     REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
                                                              image:[UIImage imageNamed:@"Icon_Custom"]
@@ -80,7 +80,6 @@
                                                            }];
                                                        }];
 
-    
     // Compile activities into an array, we will pass that array to
     // REActivityViewController on the next step
     //
