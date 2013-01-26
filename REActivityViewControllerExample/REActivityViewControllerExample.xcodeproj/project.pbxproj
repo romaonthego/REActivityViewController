@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		30659A0716B45E100072F6D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659A0616B45E100072F6D5 /* MessageUI.framework */; };
-		30659A0A16B45F350072F6D5 /* Temp2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659A0916B45F350072F6D5 /* Temp2@2x.png */; };
 		30659A0D16B465C20072F6D5 /* REActivityDelegateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659A0C16B465C20072F6D5 /* REActivityDelegateObject.m */; };
 		30659A2216B468E00072F6D5 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659A2116B468E00072F6D5 /* AssetsLibrary.framework */; };
 		30659A5016B4730F0072F6D5 /* DEFacebookComposeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30659A2816B4730F0072F6D5 /* DEFacebookComposeView.xib */; };
@@ -56,6 +55,12 @@
 		30659AA016B480540072F6D5 /* REComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659A9A16B480540072F6D5 /* REComposeViewController.m */; };
 		30659AA316B480630072F6D5 /* RETumblrActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AA216B480620072F6D5 /* RETumblrActivity.m */; };
 		30659AA516B484030072F6D5 /* Icon_Tumblr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AA416B484030072F6D5 /* Icon_Tumblr@2x.png */; };
+		30659AA716B48AAF0072F6D5 /* Icon_VK@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AA616B48AAF0072F6D5 /* Icon_VK@2x.png */; };
+		30659AAA16B48B6F0072F6D5 /* REVKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AA916B48B6F0072F6D5 /* REVKActivity.m */; };
+		30659AAD16B4985F0072F6D5 /* REInstapaperActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AAC16B4985E0072F6D5 /* REInstapaperActivity.m */; };
+		30659AAF16B499020072F6D5 /* Icon_Instapaper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AAE16B499020072F6D5 /* Icon_Instapaper@2x.png */; };
+		30659AB116B49A070072F6D5 /* Icon_Pocket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AB016B49A070072F6D5 /* Icon_Pocket@2x.png */; };
+		30659AB416B49A150072F6D5 /* REPocketActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AB316B49A150072F6D5 /* REPocketActivity.m */; };
 		3096647216B1B36B00440203 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647116B1B36B00440203 /* UIKit.framework */; };
 		3096647416B1B36B00440203 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647316B1B36B00440203 /* Foundation.framework */; };
 		3096647616B1B36B00440203 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647516B1B36B00440203 /* CoreGraphics.framework */; };
@@ -80,7 +85,6 @@
 		309664BA16B1E8CF00440203 /* Icon_Message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B316B1E8CF00440203 /* Icon_Message@2x.png */; };
 		309664BB16B1E8CF00440203 /* Icon_Print@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B416B1E8CF00440203 /* Icon_Print@2x.png */; };
 		309664BC16B1E8CF00440203 /* Icon_Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */; };
-		309664BF16B1EC8200440203 /* Temp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664BE16B1EC8200440203 /* Temp@2x.png */; };
 		309664C116B1F02900440203 /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664C016B1F02900440203 /* Button@2x.png */; };
 		309664C316B1F40000440203 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C216B1F40000440203 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		309664C516B1F40400440203 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C416B1F40400440203 /* Twitter.framework */; };
@@ -99,7 +103,6 @@
 
 /* Begin PBXFileReference section */
 		30659A0616B45E100072F6D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		30659A0916B45F350072F6D5 /* Temp2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Temp2@2x.png"; path = "../../REActivityViewController/Temp2@2x.png"; sourceTree = "<group>"; };
 		30659A0B16B465C20072F6D5 /* REActivityDelegateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivityDelegateObject.h; sourceTree = "<group>"; };
 		30659A0C16B465C20072F6D5 /* REActivityDelegateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REActivityDelegateObject.m; sourceTree = "<group>"; };
 		30659A2116B468E00072F6D5 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -161,6 +164,16 @@
 		30659AA116B480620072F6D5 /* RETumblrActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETumblrActivity.h; sourceTree = "<group>"; };
 		30659AA216B480620072F6D5 /* RETumblrActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETumblrActivity.m; sourceTree = "<group>"; };
 		30659AA416B484030072F6D5 /* Icon_Tumblr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Tumblr@2x.png"; sourceTree = "<group>"; };
+		30659AA616B48AAF0072F6D5 /* Icon_VK@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_VK@2x.png"; sourceTree = "<group>"; };
+		30659AA816B48B6E0072F6D5 /* REVKActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REVKActivity.h; sourceTree = "<group>"; };
+		30659AA916B48B6F0072F6D5 /* REVKActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REVKActivity.m; sourceTree = "<group>"; };
+		30659AAB16B4985E0072F6D5 /* REInstapaperActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REInstapaperActivity.h; sourceTree = "<group>"; };
+		30659AAC16B4985E0072F6D5 /* REInstapaperActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REInstapaperActivity.m; sourceTree = "<group>"; };
+		30659AAE16B499020072F6D5 /* Icon_Instapaper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Instapaper@2x.png"; sourceTree = "<group>"; };
+		30659AB016B49A070072F6D5 /* Icon_Pocket@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Pocket@2x.png"; sourceTree = "<group>"; };
+		30659AB216B49A140072F6D5 /* REPocketActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REPocketActivity.h; sourceTree = "<group>"; };
+		30659AB316B49A150072F6D5 /* REPocketActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPocketActivity.m; sourceTree = "<group>"; };
+		30659AB516B49A500072F6D5 /* REActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivities.h; sourceTree = "<group>"; };
 		3096646D16B1B36B00440203 /* REActivityViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REActivityViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3096647116B1B36B00440203 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3096647316B1B36B00440203 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,7 +210,6 @@
 		309664B316B1E8CF00440203 /* Icon_Message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Message@2x.png"; sourceTree = "<group>"; };
 		309664B416B1E8CF00440203 /* Icon_Print@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Print@2x.png"; sourceTree = "<group>"; };
 		309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Twitter@2x.png"; sourceTree = "<group>"; };
-		309664BE16B1EC8200440203 /* Temp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Temp@2x.png"; path = "../../REActivityViewController/Temp@2x.png"; sourceTree = "<group>"; };
 		309664C016B1F02900440203 /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
 		309664C216B1F40000440203 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		309664C416B1F40400440203 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -358,8 +370,6 @@
 		3096647716B1B36B00440203 /* REActivityViewControllerExample */ = {
 			isa = PBXGroup;
 			children = (
-				309664BE16B1EC8200440203 /* Temp@2x.png */,
-				30659A0916B45F350072F6D5 /* Temp2@2x.png */,
 				309664E016B2F40200440203 /* Flower.jpg */,
 				3096648016B1B36B00440203 /* AppDelegate.h */,
 				3096648116B1B36B00440203 /* AppDelegate.m */,
@@ -408,12 +418,15 @@
 				309664C016B1F02900440203 /* Button@2x.png */,
 				309664AF16B1E8CF00440203 /* Background@2x.png */,
 				309664B016B1E8CF00440203 /* Icon_Copy@2x.png */,
+				30659AA616B48AAF0072F6D5 /* Icon_VK@2x.png */,
 				30A8392F16B2D8B600E9482B /* Icon_Safari@2x.png */,
 				30A8393B16B2DC8000E9482B /* Icon_Photos@2x.png */,
 				309664B116B1E8CF00440203 /* Icon_Facebook@2x.png */,
 				30A8393916B2DB9600E9482B /* Icon_Instagram@2x.png */,
 				309664B216B1E8CF00440203 /* Icon_Mail@2x.png */,
 				30A8393116B2D8BB00E9482B /* Icon_Maps@2x.png */,
+				30659AB016B49A070072F6D5 /* Icon_Pocket@2x.png */,
+				30659AAE16B499020072F6D5 /* Icon_Instapaper@2x.png */,
 				309664B316B1E8CF00440203 /* Icon_Message@2x.png */,
 				309664B416B1E8CF00440203 /* Icon_Print@2x.png */,
 				309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */,
@@ -425,28 +438,35 @@
 		309664BD16B1E93C00440203 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				3096649816B1B60500440203 /* REFacebookActivity.h */,
-				3096649916B1B60500440203 /* REFacebookActivity.m */,
-				3096649B16B1B66700440203 /* RETwitterActivity.h */,
-				3096649C16B1B66700440203 /* RETwitterActivity.m */,
-				3096649E16B1B95500440203 /* REMessageActivity.h */,
-				3096649F16B1B95500440203 /* REMessageActivity.m */,
-				309664A116B1B96900440203 /* REMailActivity.h */,
-				309664A216B1B96900440203 /* REMailActivity.m */,
-				30A8392616B2D75F00E9482B /* REPrintActivity.h */,
-				30A8392716B2D75F00E9482B /* REPrintActivity.m */,
-				30A8392916B2D76800E9482B /* RECopyActivity.h */,
-				30A8392A16B2D76800E9482B /* RECopyActivity.m */,
-				30A8392C16B2D77200E9482B /* RESafariActivity.h */,
-				30A8392D16B2D77200E9482B /* RESafariActivity.m */,
-				30A8393316B2D8FE00E9482B /* REMapsActivity.h */,
-				30A8393416B2D8FE00E9482B /* REMapsActivity.m */,
-				30A8393D16B2DC9300E9482B /* RESaveToAlbumActivity.h */,
-				30A8393E16B2DC9300E9482B /* RESaveToAlbumActivity.m */,
 				30659A0B16B465C20072F6D5 /* REActivityDelegateObject.h */,
 				30659A0C16B465C20072F6D5 /* REActivityDelegateObject.m */,
+				30A8392916B2D76800E9482B /* RECopyActivity.h */,
+				30A8392A16B2D76800E9482B /* RECopyActivity.m */,
+				3096649816B1B60500440203 /* REFacebookActivity.h */,
+				3096649916B1B60500440203 /* REFacebookActivity.m */,
+				30659AAB16B4985E0072F6D5 /* REInstapaperActivity.h */,
+				30659AAC16B4985E0072F6D5 /* REInstapaperActivity.m */,
+				309664A116B1B96900440203 /* REMailActivity.h */,
+				309664A216B1B96900440203 /* REMailActivity.m */,
+				30A8393316B2D8FE00E9482B /* REMapsActivity.h */,
+				30A8393416B2D8FE00E9482B /* REMapsActivity.m */,
+				3096649E16B1B95500440203 /* REMessageActivity.h */,
+				3096649F16B1B95500440203 /* REMessageActivity.m */,
+				30A8392616B2D75F00E9482B /* REPrintActivity.h */,
+				30A8392716B2D75F00E9482B /* REPrintActivity.m */,
+				30A8392C16B2D77200E9482B /* RESafariActivity.h */,
+				30A8392D16B2D77200E9482B /* RESafariActivity.m */,
+				30A8393D16B2DC9300E9482B /* RESaveToAlbumActivity.h */,
+				30A8393E16B2DC9300E9482B /* RESaveToAlbumActivity.m */,
 				30659AA116B480620072F6D5 /* RETumblrActivity.h */,
 				30659AA216B480620072F6D5 /* RETumblrActivity.m */,
+				3096649B16B1B66700440203 /* RETwitterActivity.h */,
+				3096649C16B1B66700440203 /* RETwitterActivity.m */,
+				30659AA816B48B6E0072F6D5 /* REVKActivity.h */,
+				30659AA916B48B6F0072F6D5 /* REVKActivity.m */,
+				30659AB216B49A140072F6D5 /* REPocketActivity.h */,
+				30659AB316B49A150072F6D5 /* REPocketActivity.m */,
+				30659AB516B49A500072F6D5 /* REActivities.h */,
 			);
 			name = Activities;
 			sourceTree = "<group>";
@@ -513,14 +533,12 @@
 				309664BA16B1E8CF00440203 /* Icon_Message@2x.png in Resources */,
 				309664BB16B1E8CF00440203 /* Icon_Print@2x.png in Resources */,
 				309664BC16B1E8CF00440203 /* Icon_Twitter@2x.png in Resources */,
-				309664BF16B1EC8200440203 /* Temp@2x.png in Resources */,
 				309664C116B1F02900440203 /* Button@2x.png in Resources */,
 				30A8393016B2D8B600E9482B /* Icon_Safari@2x.png in Resources */,
 				30A8393216B2D8BB00E9482B /* Icon_Maps@2x.png in Resources */,
 				30A8393A16B2DB9600E9482B /* Icon_Instagram@2x.png in Resources */,
 				30A8393C16B2DC8000E9482B /* Icon_Photos@2x.png in Resources */,
 				309664E116B2F40200440203 /* Flower.jpg in Resources */,
-				30659A0A16B45F350072F6D5 /* Temp2@2x.png in Resources */,
 				30659A5016B4730F0072F6D5 /* DEFacebookComposeView.xib in Resources */,
 				30659A5616B4730F0072F6D5 /* DEFacebookAttachmentFrame.png in Resources */,
 				30659A5716B4730F0072F6D5 /* DEFacebookAttachmentFrame@2x.png in Resources */,
@@ -549,6 +567,9 @@
 				30659A7916B474910072F6D5 /* FacebookSDKResources.bundle in Resources */,
 				30659A9F16B480540072F6D5 /* REComposeViewController.bundle in Resources */,
 				30659AA516B484030072F6D5 /* Icon_Tumblr@2x.png in Resources */,
+				30659AA716B48AAF0072F6D5 /* Icon_VK@2x.png in Resources */,
+				30659AAF16B499020072F6D5 /* Icon_Instapaper@2x.png in Resources */,
+				30659AB116B49A070072F6D5 /* Icon_Pocket@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +610,9 @@
 				30659A9E16B480540072F6D5 /* REComposeSheetView.m in Sources */,
 				30659AA016B480540072F6D5 /* REComposeViewController.m in Sources */,
 				30659AA316B480630072F6D5 /* RETumblrActivity.m in Sources */,
+				30659AAA16B48B6F0072F6D5 /* REVKActivity.m in Sources */,
+				30659AAD16B4985F0072F6D5 /* REInstapaperActivity.m in Sources */,
+				30659AB416B49A150072F6D5 /* REPocketActivity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

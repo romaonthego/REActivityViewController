@@ -80,34 +80,17 @@
     RECopyActivity *copyActivity = [[RECopyActivity alloc] init];
     REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
     RETumblrActivity *tumblrActivity = [[RETumblrActivity alloc] init];
-    
-    /*
-     Save to Album
-     Pocket
-     Instapaper
-     VKontakte
-     */
-    
-    /*REMailActivity *mailActivity1 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity2 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity3 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity4 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity5 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity6 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity7 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity8 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity9 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity10 = [[REMailActivity alloc] init];*/
+    REVKActivity *vkActivity = [[REVKActivity alloc] init];
+    REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
+    REPocketActivity *pocketActivity = [[REPocketActivity alloc] init];
     
     // Compile activities into an array, we will pass that array to
     // REActivityViewController on the next step
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, tumblrActivity, messageActivity, mailActivity, saveToAlbumActivity, safariActivity, mapsActivity, printActivity, copyActivity];
+    NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity, messageActivity, mailActivity, safariActivity, pocketActivity, instapaperActivity, saveToAlbumActivity, mapsActivity, printActivity, copyActivity];
     
-    //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    //self.modalPresentationStyle = UIModalPresentationCurrentContext;
     // Create REActivityViewController controller and assign data source
     //
     REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self activities:activities];
