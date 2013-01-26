@@ -189,11 +189,12 @@ activityViewController.activityView.backgroundImageView.image = [UIImage imageNa
 [activityViewController.activityView.cancelButton setBackgroundImage:[UIImage imageNamed:@"My_Cool_Button"] forState:UIControlStateNormal];
 ```
 
-Your custom activity icons must be 118x118 pixels and should include gloss, rounded corners and shadows. Easy way to make it:
+Your custom activity icons must be 118x118 pixels and should include gloss, rounded corners and shadows. Easy way to make them:
 
 1. Open your 114x114 icon with rounded corners in Photoshop
 2. Adjust canvas size to be 118x118, so the top part of the icon touches top part of the canvas
 3. Add drop shadow to the icon layer: angle 90, opacity 40%, distance 2px, size 2px
+
 
 ## Known Issues
 
