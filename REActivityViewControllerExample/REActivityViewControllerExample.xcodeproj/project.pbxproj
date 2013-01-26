@@ -48,6 +48,14 @@
 		30659A7716B474710072F6D5 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659A7616B474710072F6D5 /* FacebookSDK.framework */; };
 		30659A7916B474910072F6D5 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30659A7816B474910072F6D5 /* FacebookSDKResources.bundle */; };
 		30659A7B16B474C60072F6D5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659A7A16B474C60072F6D5 /* QuartzCore.framework */; };
+		30659A9B16B480540072F6D5 /* DEComposeRuledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659A9116B480540072F6D5 /* DEComposeRuledView.m */; };
+		30659A9C16B480540072F6D5 /* DEComposeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659A9316B480540072F6D5 /* DEComposeTextView.m */; };
+		30659A9D16B480540072F6D5 /* REComposeBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659A9516B480540072F6D5 /* REComposeBackgroundView.m */; };
+		30659A9E16B480540072F6D5 /* REComposeSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659A9716B480540072F6D5 /* REComposeSheetView.m */; };
+		30659A9F16B480540072F6D5 /* REComposeViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30659A9816B480540072F6D5 /* REComposeViewController.bundle */; };
+		30659AA016B480540072F6D5 /* REComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659A9A16B480540072F6D5 /* REComposeViewController.m */; };
+		30659AA316B480630072F6D5 /* RETumblrActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AA216B480620072F6D5 /* RETumblrActivity.m */; };
+		30659AA516B484030072F6D5 /* Icon_Tumblr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AA416B484030072F6D5 /* Icon_Tumblr@2x.png */; };
 		3096647216B1B36B00440203 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647116B1B36B00440203 /* UIKit.framework */; };
 		3096647416B1B36B00440203 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647316B1B36B00440203 /* Foundation.framework */; };
 		3096647616B1B36B00440203 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647516B1B36B00440203 /* CoreGraphics.framework */; };
@@ -139,6 +147,20 @@
 		30659A7616B474710072F6D5 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../facebook-ios-sdk-master/build/FacebookSDK.framework"; sourceTree = "<group>"; };
 		30659A7816B474910072F6D5 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = "../facebook-ios-sdk-master/build/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle"; sourceTree = "<group>"; };
 		30659A7A16B474C60072F6D5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		30659A9016B480540072F6D5 /* DEComposeRuledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEComposeRuledView.h; sourceTree = "<group>"; };
+		30659A9116B480540072F6D5 /* DEComposeRuledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEComposeRuledView.m; sourceTree = "<group>"; };
+		30659A9216B480540072F6D5 /* DEComposeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEComposeTextView.h; sourceTree = "<group>"; };
+		30659A9316B480540072F6D5 /* DEComposeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEComposeTextView.m; sourceTree = "<group>"; };
+		30659A9416B480540072F6D5 /* REComposeBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REComposeBackgroundView.h; sourceTree = "<group>"; };
+		30659A9516B480540072F6D5 /* REComposeBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REComposeBackgroundView.m; sourceTree = "<group>"; };
+		30659A9616B480540072F6D5 /* REComposeSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REComposeSheetView.h; sourceTree = "<group>"; };
+		30659A9716B480540072F6D5 /* REComposeSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REComposeSheetView.m; sourceTree = "<group>"; };
+		30659A9816B480540072F6D5 /* REComposeViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = REComposeViewController.bundle; sourceTree = "<group>"; };
+		30659A9916B480540072F6D5 /* REComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REComposeViewController.h; sourceTree = "<group>"; };
+		30659A9A16B480540072F6D5 /* REComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REComposeViewController.m; sourceTree = "<group>"; };
+		30659AA116B480620072F6D5 /* RETumblrActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETumblrActivity.h; sourceTree = "<group>"; };
+		30659AA216B480620072F6D5 /* RETumblrActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETumblrActivity.m; sourceTree = "<group>"; };
+		30659AA416B484030072F6D5 /* Icon_Tumblr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Tumblr@2x.png"; sourceTree = "<group>"; };
 		3096646D16B1B36B00440203 /* REActivityViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REActivityViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3096647116B1B36B00440203 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3096647316B1B36B00440203 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -275,14 +297,30 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		30659A8F16B480540072F6D5 /* REComposeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30659A9016B480540072F6D5 /* DEComposeRuledView.h */,
+				30659A9116B480540072F6D5 /* DEComposeRuledView.m */,
+				30659A9216B480540072F6D5 /* DEComposeTextView.h */,
+				30659A9316B480540072F6D5 /* DEComposeTextView.m */,
+				30659A9416B480540072F6D5 /* REComposeBackgroundView.h */,
+				30659A9516B480540072F6D5 /* REComposeBackgroundView.m */,
+				30659A9616B480540072F6D5 /* REComposeSheetView.h */,
+				30659A9716B480540072F6D5 /* REComposeSheetView.m */,
+				30659A9816B480540072F6D5 /* REComposeViewController.bundle */,
+				30659A9916B480540072F6D5 /* REComposeViewController.h */,
+				30659A9A16B480540072F6D5 /* REComposeViewController.m */,
+			);
+			name = REComposeViewController;
+			path = ../REComposeViewController;
+			sourceTree = "<group>";
+		};
 		3096646216B1B36B00440203 = {
 			isa = PBXGroup;
 			children = (
-				30659A7A16B474C60072F6D5 /* QuartzCore.framework */,
-				30659A7816B474910072F6D5 /* FacebookSDKResources.bundle */,
-				30659A7616B474710072F6D5 /* FacebookSDK.framework */,
-				30659A7216B473F20072F6D5 /* Accounts.framework */,
-				30659A7016B473ED0072F6D5 /* AdSupport.framework */,
+				30659A2716B4730F0072F6D5 /* FacebookComposeViewController */,
+				30659A8F16B480540072F6D5 /* REComposeViewController */,
 				3096648E16B1B37900440203 /* REActivityViewController */,
 				3096647716B1B36B00440203 /* REActivityViewControllerExample */,
 				3096647016B1B36B00440203 /* Frameworks */,
@@ -301,6 +339,11 @@
 		3096647016B1B36B00440203 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30659A7A16B474C60072F6D5 /* QuartzCore.framework */,
+				30659A7816B474910072F6D5 /* FacebookSDKResources.bundle */,
+				30659A7616B474710072F6D5 /* FacebookSDK.framework */,
+				30659A7216B473F20072F6D5 /* Accounts.framework */,
+				30659A7016B473ED0072F6D5 /* AdSupport.framework */,
 				30659A2116B468E00072F6D5 /* AssetsLibrary.framework */,
 				30659A0616B45E100072F6D5 /* MessageUI.framework */,
 				309664C416B1F40400440203 /* Twitter.framework */,
@@ -346,7 +389,6 @@
 		3096648E16B1B37900440203 /* REActivityViewController */ = {
 			isa = PBXGroup;
 			children = (
-				30659A2716B4730F0072F6D5 /* FacebookComposeViewController */,
 				309664BD16B1E93C00440203 /* Activities */,
 				309664A416B1CFE800440203 /* REActivityViewController */,
 				3096648F16B1B3CC00440203 /* REActivityViewController.h */,
@@ -375,6 +417,7 @@
 				309664B316B1E8CF00440203 /* Icon_Message@2x.png */,
 				309664B416B1E8CF00440203 /* Icon_Print@2x.png */,
 				309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */,
+				30659AA416B484030072F6D5 /* Icon_Tumblr@2x.png */,
 			);
 			path = REActivityViewController;
 			sourceTree = "<group>";
@@ -402,6 +445,8 @@
 				30A8393E16B2DC9300E9482B /* RESaveToAlbumActivity.m */,
 				30659A0B16B465C20072F6D5 /* REActivityDelegateObject.h */,
 				30659A0C16B465C20072F6D5 /* REActivityDelegateObject.m */,
+				30659AA116B480620072F6D5 /* RETumblrActivity.h */,
+				30659AA216B480620072F6D5 /* RETumblrActivity.m */,
 			);
 			name = Activities;
 			sourceTree = "<group>";
@@ -502,6 +547,8 @@
 				30659A6C16B4730F0072F6D5 /* NavBarLandscape@2x.png in Resources */,
 				30659A6D16B4730F0072F6D5 /* NavBarLandscape@2x1.png in Resources */,
 				30659A7916B474910072F6D5 /* FacebookSDKResources.bundle in Resources */,
+				30659A9F16B480540072F6D5 /* REComposeViewController.bundle in Resources */,
+				30659AA516B484030072F6D5 /* Icon_Tumblr@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +583,12 @@
 				30659A5516B4730F0072F6D5 /* DERuledView.m in Sources */,
 				30659A6E16B4730F0072F6D5 /* UIApplication+DEFacebookComposeViewController.m in Sources */,
 				30659A6F16B4730F0072F6D5 /* UIDevice+DEFacebookComposeViewController.m in Sources */,
+				30659A9B16B480540072F6D5 /* DEComposeRuledView.m in Sources */,
+				30659A9C16B480540072F6D5 /* DEComposeTextView.m in Sources */,
+				30659A9D16B480540072F6D5 /* REComposeBackgroundView.m in Sources */,
+				30659A9E16B480540072F6D5 /* REComposeSheetView.m in Sources */,
+				30659AA016B480540072F6D5 /* REComposeViewController.m in Sources */,
+				30659AA316B480630072F6D5 /* RETumblrActivity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

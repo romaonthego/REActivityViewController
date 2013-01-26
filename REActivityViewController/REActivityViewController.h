@@ -18,6 +18,7 @@
 #import "RESafariActivity.h"
 #import "REMapsActivity.h"
 #import "RESaveToAlbumActivity.h"
+#import "RETumblrActivity.h"
 
 @interface REActivityViewController : UIViewController {
     UIView *_backgroundView;

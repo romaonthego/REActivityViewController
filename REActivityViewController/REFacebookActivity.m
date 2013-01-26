@@ -35,30 +35,13 @@
 {
     DEFacebookComposeViewController *facebookViewComposer = [[DEFacebookComposeViewController alloc] init];
     viewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    [facebookViewComposer setInitialText:text];
-    [facebookViewComposer addURL:url];
-    /*if ([[UIDevice currentDevice].systemVersion floatValue] >= 6) {
-        [facebookViewComposer addURL:(NSString *)url];
-    } else {
-        [facebookViewComposer addURL:[url absoluteString]];
-    }*/
-    [viewController presentViewController:facebookViewComposer animated:YES completion:nil];
-}
-
-- (void)iOS6_shareOnFacebookUsingPresenter:(UIViewController *)presenter userInfo:(NSDictionary *)userInfo
-{
-   /* SLComposeViewController *composeController = [[SLComposeViewController alloc] init];
-    composeController.
-    NSString *text = [userInfo objectForKey:@"text"];
-    UIImage *image = [userInfo objectForKey:@"image"];
-    NSURL *url = [userInfo objectForKey:@"url"];
     if (text)
-        [composeController setInitialText:text];
-    if (image)
-        [composeController addImage:image];
+        [facebookViewComposer setInitialText:text];
     if (url)
-        [composeController addURL:url];
-    [presenter presentModalViewController:composeController animated:YES];*/
+        [facebookViewComposer addURL:url];
+    if (image)
+        [facebookViewComposer addImage:image];
+    [viewController presentViewController:facebookViewComposer animated:YES completion:nil];
 }
 
 @end
