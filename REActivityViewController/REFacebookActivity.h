@@ -7,6 +7,7 @@
 //
 
 #import "REActivity.h"
+#import <Social/Social.h>
 
 @interface REFacebookActivity : REActivity
 

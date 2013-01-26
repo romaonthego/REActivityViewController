@@ -79,7 +79,6 @@
     REPrintActivity *printActivity = [[REPrintActivity alloc] init];
     RECopyActivity *copyActivity = [[RECopyActivity alloc] init];
     REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
-    REInstagramActivity *instagramActivity = [[REInstagramActivity alloc] init];
     
     /*
      Save to Album
@@ -104,7 +103,7 @@
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, saveToAlbumActivity, safariActivity, mapsActivity, instagramActivity, printActivity, copyActivity];
+    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, saveToAlbumActivity, safariActivity, mapsActivity, printActivity, copyActivity];
     
     //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     //self.modalPresentationStyle = UIModalPresentationCurrentContext;

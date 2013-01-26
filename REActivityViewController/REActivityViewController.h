@@ -17,7 +17,6 @@
 #import "RECopyActivity.h"
 #import "RESafariActivity.h"
 #import "REMapsActivity.h"
-#import "REInstagramActivity.h"
 #import "RESaveToAlbumActivity.h"
 
 @interface REActivityViewController : UIViewController {
