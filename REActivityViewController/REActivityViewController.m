@@ -89,8 +89,8 @@
 
 - (NSInteger)height
 {   
-    if (_activities.count <= 3) return 204;
-    if (_activities.count <= 6) return 304;
+    if (_activities.count <= 3) return 214;
+    if (_activities.count <= 6) return 317;
     return 417;
 }
 

@@ -20,14 +20,35 @@
     [super viewDidLoad];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, 320, 480)];
-    imageView.image = [UIImage imageNamed:@"Temp"];
-   // [self.view addSubview:imageView];
+    imageView.image = [UIImage imageNamed:@"Temp2"];
+    [self.view addSubview:imageView];
 	
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.frame = CGRectMake(20, 20, 280, 44);
     [button setTitle:@"Show REActivityViewController" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button2.frame = CGRectMake(20, 70, 280, 44);
+    [button2 setTitle:@"Show UIActivityViewController" forState:UIControlStateNormal];
+    [button2 addTarget:self action:@selector(button2Pressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button2];
+}
+
+- (void)button2Pressed
+{
+    NSArray *activityItems = @[@"Test", [NSURL URLWithString:@"http://google.com"]];
+    
+    UIActivityViewController *activityController =
+    [[UIActivityViewController alloc]
+     initWithActivityItems:activityItems
+     applicationActivities:nil];
+    
+    activityController.excludedActivityTypes = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook];
+    
+    [self presentViewController:activityController
+                       animated:YES completion:nil];
 }
 
 - (void)buttonPressed
@@ -82,7 +103,7 @@
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, saveToAlbumActivity, safariActivity, mapsActivity, instagramActivity, printActivity, copyActivity, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1];
+    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity,/* saveToAlbumActivity, safariActivity, mapsActivity, instagramActivity, printActivity, copyActivity, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1*/];
     
     //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     //self.modalPresentationStyle = UIModalPresentationCurrentContext;

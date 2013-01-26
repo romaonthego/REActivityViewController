@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30659A0716B45E100072F6D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659A0616B45E100072F6D5 /* MessageUI.framework */; };
+		30659A0A16B45F350072F6D5 /* Temp2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659A0916B45F350072F6D5 /* Temp2@2x.png */; };
 		3096647216B1B36B00440203 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647116B1B36B00440203 /* UIKit.framework */; };
 		3096647416B1B36B00440203 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647316B1B36B00440203 /* Foundation.framework */; };
 		3096647616B1B36B00440203 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647516B1B36B00440203 /* CoreGraphics.framework */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30659A0616B45E100072F6D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		30659A0916B45F350072F6D5 /* Temp2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Temp2@2x.png"; path = "../../REActivityViewController/Temp2@2x.png"; sourceTree = "<group>"; };
 		3096646D16B1B36B00440203 /* REActivityViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REActivityViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3096647116B1B36B00440203 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3096647316B1B36B00440203 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30659A0716B45E100072F6D5 /* MessageUI.framework in Frameworks */,
 				309664C516B1F40400440203 /* Twitter.framework in Frameworks */,
 				309664C316B1F40000440203 /* Social.framework in Frameworks */,
 				3096647216B1B36B00440203 /* UIKit.framework in Frameworks */,
@@ -148,6 +153,7 @@
 		3096647016B1B36B00440203 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30659A0616B45E100072F6D5 /* MessageUI.framework */,
 				309664C416B1F40400440203 /* Twitter.framework */,
 				309664C216B1F40000440203 /* Social.framework */,
 				3096647116B1B36B00440203 /* UIKit.framework */,
@@ -161,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				309664BE16B1EC8200440203 /* Temp@2x.png */,
+				30659A0916B45F350072F6D5 /* Temp2@2x.png */,
 				309664E016B2F40200440203 /* Flower.jpg */,
 				3096648016B1B36B00440203 /* AppDelegate.h */,
 				3096648116B1B36B00440203 /* AppDelegate.m */,
@@ -318,6 +325,7 @@
 				30A8393A16B2DB9600E9482B /* Icon_Instagram@2x.png in Resources */,
 				30A8393C16B2DC8000E9482B /* Icon_Photos@2x.png in Resources */,
 				309664E116B2F40200440203 /* Flower.jpg in Resources */,
+				30659A0A16B45F350072F6D5 /* Temp2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
