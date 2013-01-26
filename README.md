@@ -1,9 +1,27 @@
 # REActivityViewController
 
 Open source alternative to UIActivityViewController, highly customizable and compatible with iOS 5.0.
-It allows to create custom activites with ease, you control their apperance and behavior and no longer restricted to single-color icons as with default `UIActivity`.
+It allows to create custom activites with ease, you control their apperance and behavior and no longer restricted to single-color icons as with the default `UIActivity`.
 
 ![Screenshot of REActivityViewController](https://github.com/romaonthego/REActivityViewController/raw/master/Screenshot.png "REActivityViewController Screenshot")
+
+### Included activities
+
+All activites are compatible with iOS 5.0.
+
+* Facebook
+* Twitter
+* VKontakte
+* Tubmlr
+* Message
+* Mail
+* Open in Safari
+* Save to Pocket
+* Save to Instapaper
+* Save to Album
+* Open in Maps
+* Print
+* Copy
 
 ## Requirements
 * Xcode 4.5 or higher

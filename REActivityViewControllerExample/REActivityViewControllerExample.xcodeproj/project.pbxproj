@@ -61,6 +61,7 @@
 		30659AAF16B499020072F6D5 /* Icon_Instapaper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AAE16B499020072F6D5 /* Icon_Instapaper@2x.png */; };
 		30659AB116B49A070072F6D5 /* Icon_Pocket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AB016B49A070072F6D5 /* Icon_Pocket@2x.png */; };
 		30659AB416B49A150072F6D5 /* REPocketActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AB316B49A150072F6D5 /* REPocketActivity.m */; };
+		30659AB916B49D4F0072F6D5 /* Icon_Custom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AB816B49D4F0072F6D5 /* Icon_Custom@2x.png */; };
 		3096647216B1B36B00440203 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647116B1B36B00440203 /* UIKit.framework */; };
 		3096647416B1B36B00440203 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647316B1B36B00440203 /* Foundation.framework */; };
 		3096647616B1B36B00440203 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647516B1B36B00440203 /* CoreGraphics.framework */; };
@@ -174,6 +175,7 @@
 		30659AB216B49A140072F6D5 /* REPocketActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REPocketActivity.h; sourceTree = "<group>"; };
 		30659AB316B49A150072F6D5 /* REPocketActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPocketActivity.m; sourceTree = "<group>"; };
 		30659AB516B49A500072F6D5 /* REActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivities.h; sourceTree = "<group>"; };
+		30659AB816B49D4F0072F6D5 /* Icon_Custom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Custom@2x.png"; sourceTree = "<group>"; };
 		3096646D16B1B36B00440203 /* REActivityViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REActivityViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3096647116B1B36B00440203 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3096647316B1B36B00440203 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -422,6 +424,7 @@
 				30A8392F16B2D8B600E9482B /* Icon_Safari@2x.png */,
 				30A8393B16B2DC8000E9482B /* Icon_Photos@2x.png */,
 				309664B116B1E8CF00440203 /* Icon_Facebook@2x.png */,
+				30659AB816B49D4F0072F6D5 /* Icon_Custom@2x.png */,
 				30A8393916B2DB9600E9482B /* Icon_Instagram@2x.png */,
 				309664B216B1E8CF00440203 /* Icon_Mail@2x.png */,
 				30A8393116B2D8BB00E9482B /* Icon_Maps@2x.png */,
@@ -570,6 +573,7 @@
 				30659AA716B48AAF0072F6D5 /* Icon_VK@2x.png in Resources */,
 				30659AAF16B499020072F6D5 /* Icon_Instapaper@2x.png in Resources */,
 				30659AB116B49A070072F6D5 /* Icon_Pocket@2x.png in Resources */,
+				30659AB916B49D4F0072F6D5 /* Icon_Custom@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

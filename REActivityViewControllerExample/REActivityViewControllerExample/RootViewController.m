@@ -55,21 +55,7 @@
 {
     // Prepare activities
     //
- /*   REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
-    RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
-    REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
-    REMailActivity *mailActivity = [[REMailActivity alloc] init];
-    
-    // Add some custom activity
-    //
-    REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
-                                                             image:[UIImage imageNamed:@"CustomActivity"]
-                                                       actionBlock:^(REActivityViewController *activityViewController){
-                                                           [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                                                           NSLog(@"Hey, I'm pressed!");
-                                                       }];
-  */
-    
+
     REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
@@ -84,12 +70,23 @@
     REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
     REPocketActivity *pocketActivity = [[REPocketActivity alloc] init];
     
+    // Add some custom activity
+    //
+    REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
+                                                             image:[UIImage imageNamed:@"Icon_Custom"]
+                                                       actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
+                                                           [activityViewController dismissViewControllerAnimated:YES completion:^{
+                                                               NSLog(@"Hey, there!");
+                                                           }];
+                                                       }];
+
+    
     // Compile activities into an array, we will pass that array to
     // REActivityViewController on the next step
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity, messageActivity, mailActivity, safariActivity, pocketActivity, instapaperActivity, saveToAlbumActivity, mapsActivity, printActivity, copyActivity];
+    NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity, messageActivity, mailActivity, safariActivity, pocketActivity, instapaperActivity, saveToAlbumActivity, mapsActivity, printActivity, copyActivity, customActivity];
     
     // Create REActivityViewController controller and assign data source
     //
