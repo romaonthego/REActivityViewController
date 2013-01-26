@@ -90,6 +90,8 @@
     // Create REActivityViewController controller and assign data source
     //
     REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self activities:activities];
+    activityViewController.activityView.backgroundImageView.image = [UIImage imageNamed:@"Flower.jpg"];
+    [activityViewController.activityView.cancelButton setBackgroundImage:[UIImage imageNamed:@"Flower.jpg"] forState:UIControlStateNormal];
     activityViewController.userInfo = @{
         @"image": [UIImage imageNamed:@"Flower.jpg"],
         @"text": @"Hello world!",

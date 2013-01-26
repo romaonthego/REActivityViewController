@@ -65,7 +65,7 @@ Add `#include "REActivityViewController.h"` to the top of classes that will use 
 ### Configuring & presenting REActivityViewController
 
 Presenting `REActivityViewController` is easy as 1-2-3. First, prepare activities that you're going to use.
-You can create custom activities right here in your code, no need to deal with subclassing or providers as in UIActivityViewController.
+You can create custom activities right here in your code, no need to wrap your head around subclassing or providers as with `UIActivityViewController`.
 Once your activities are ready, prepare data source (userInfo) and present the view controller.
 
 ``` objective-c
@@ -144,11 +144,51 @@ activityViewController.presentingPopoverController = _activityPopoverController;
 
 ### Creating custom activities
 
-TO DO
+Creating custom activitis is super easy, see yourself:
+
+``` objective-c
+REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
+                                                         image:[UIImage imageNamed:@"Icon_Custom"]
+                                                   actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
+                                                       [activityViewController dismissViewControllerAnimated:YES completion:^{
+                                                           NSLog(@"Hey, there!");
+                                                       }];
+                                                   }];
+```
+
+If you want to subclass an activity, add this code into your `init` function, for example:
+
+``` objective-c
+#import "MyCustomActivity.h"
+#import "REActivityViewController.h"
+
+@implementation MyCustomActivity
+
+- (id)init
+{
+    self = [super initWithTitle:@"My Activity"
+                          image:[UIImage imageNamed:@"My_Icon"]
+                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
+                        // Your code goes here
+                    }];
+
+    return self;
+}
+
+@end
+
+```
 
 ## Customization
 
-TO DO
+All views are exposed for your customization. Say, you want to change controller background and customize cancel button, here is how you would do it:
+
+``` objective-c
+REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self activities:activities];
+
+activityViewController.activityView.backgroundImageView.image = [UIImage imageNamed:@"My_Cool_Background"];
+[activityViewController.activityView.cancelButton setBackgroundImage:[UIImage imageNamed:@"My_Cool_Button"] forState:UIControlStateNormal];
+```
 
 ## Known Issues
 

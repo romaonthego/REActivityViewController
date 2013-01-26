@@ -11,13 +11,13 @@
 
 @interface REActivityView : UIView <UIScrollViewDelegate> {
     UIPageControl *_pageControl;
-    UIButton *_cancelButton;
 }
 
 @property (strong, nonatomic) UIImageView *backgroundImageView;
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) NSArray *activities;
 @property (strong, nonatomic) REActivityViewController *activityViewController;
+@property (strong, nonatomic) UIButton *cancelButton;
 
 - (id)initWithFrame:(CGRect)frame activities:(NSArray *)activities;
 
