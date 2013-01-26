@@ -171,7 +171,6 @@ If you want to subclass an activity, add this code into your `init` function, fo
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         // Your code goes here
                     }];
-
     return self;
 }
 
