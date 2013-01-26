@@ -5,8 +5,6 @@ It allows to create custom activites with ease, you control their apperance and 
 
 ![Screenshot of REActivityViewController](https://github.com/romaonthego/REActivityViewController/raw/master/Screenshot.png "REActivityViewController Screenshot")
 
-### Included activities
-
 All activites are compatible with iOS 5.0.
 
 * Facebook
