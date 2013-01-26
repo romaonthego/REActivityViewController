@@ -33,7 +33,7 @@
     button2.frame = CGRectMake(20, 70, 280, 44);
     [button2 setTitle:@"Show UIActivityViewController" forState:UIControlStateNormal];
     [button2 addTarget:self action:@selector(button2Pressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button2];
+  //  [self.view addSubview:button2];
 }
 
 - (void)button2Pressed
