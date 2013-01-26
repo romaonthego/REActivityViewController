@@ -38,7 +38,7 @@
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
     
-    REMailActivity *mailActivity1 = [[REMailActivity alloc] init];
+   /* REMailActivity *mailActivity1 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity2 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity3 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity4 = [[REMailActivity alloc] init];
@@ -47,14 +47,14 @@
     REMailActivity *mailActivity7 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity8 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity9 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity10 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity10 = [[REMailActivity alloc] init];*/
     
     // Compile activities into an array, we will pass that array to
     // REActivityViewController on the next step
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1];
+    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity];
     
     //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     //self.modalPresentationStyle = UIModalPresentationCurrentContext;

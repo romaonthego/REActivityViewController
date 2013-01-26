@@ -57,7 +57,7 @@
         _scrollView.contentSize = CGSizeMake((page +1) * frame.size.width, _scrollView.frame.size.height);
         _scrollView.pagingEnabled = YES;
         
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - (UIInterfaceOrientationIsPortrait([UIDevice currentDevice].orientation) ? 90 : 86), frame.size.width, 10)];
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - 86, frame.size.width, 10)];
         _pageControl.numberOfPages = page + 1;
         [_pageControl addTarget:self action:@selector(pageControlValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:_pageControl];

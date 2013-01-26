@@ -8,6 +8,7 @@
 
 #import "RESaveToAlbumActivity.h"
 #import "REActivityViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @implementation RESaveToAlbumActivity
 
@@ -17,9 +18,13 @@
                           image:[UIImage imageNamed:@"Icon_Photos"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                        
                         NSDictionary *userInfo = activityViewController.userInfo;
-                        NSLog(@"Save = %@", userInfo);
+                        UIImage *image = [userInfo objectForKey:@"image"];
+                        
+                        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+                        [library writeImageToSavedPhotosAlbum:image.CGImage
+                                                  orientation:(ALAssetOrientation)image.imageOrientation
+                                              completionBlock:nil];
                     }];
     
     return self;

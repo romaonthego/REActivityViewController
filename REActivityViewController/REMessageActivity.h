@@ -7,6 +7,7 @@
 //
 
 #import "REActivity.h"
+#import <MessageUI/MessageUI.h>
 
 @interface REMessageActivity : REActivity
 

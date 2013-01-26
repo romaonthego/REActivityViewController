@@ -8,6 +8,7 @@
 
 #import "REMessageActivity.h"
 #import "REActivityViewController.h"
+#import "REActivityDelegateObject.h"
 
 @implementation REMessageActivity
 
@@ -16,10 +17,25 @@
     self = [super initWithTitle:@"Message"
                           image:[UIImage imageNamed:@"Icon_Message"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                        
                         NSDictionary *userInfo = activityViewController.userInfo;
-                        NSLog(@"Message = %@", userInfo);
+                        NSString *text = [userInfo objectForKey:@"text"];
+                        NSURL *url = [userInfo objectForKey:@"url"];
+                        [activityViewController dismissViewControllerAnimated:YES completion:^{
+                            MFMessageComposeViewController *messageComposeViewController = [[MFMessageComposeViewController alloc] init];
+                            [REActivityDelegateObject sharedObject].controller = activityViewController.presentingController;
+                            messageComposeViewController.messageComposeDelegate = [REActivityDelegateObject sharedObject];
+                            
+                            if (text && !url)
+                                messageComposeViewController.body = text;
+                            
+                            if (!text && url)
+                                messageComposeViewController.body = url.absoluteString;
+                            
+                            if (text && url)
+                                messageComposeViewController.body = [NSString stringWithFormat:@"%@ %@", text, url.absoluteString];
+                            
+                            [activityViewController.presentingController presentViewController:messageComposeViewController animated:YES completion:nil];
+                        }];
                     }];
     
     return self;

@@ -21,7 +21,7 @@
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, 320, 480)];
     imageView.image = [UIImage imageNamed:@"Temp2"];
-    [self.view addSubview:imageView];
+    //[self.view addSubview:imageView];
 	
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.frame = CGRectMake(20, 20, 280, 44);
@@ -38,7 +38,7 @@
 
 - (void)button2Pressed
 {
-    NSArray *activityItems = @[@"Test", [NSURL URLWithString:@"http://google.com"]];
+    NSArray *activityItems = @[@"Test", [NSURL URLWithString:@"http://google.com"], [UIImage imageNamed:@"Flower.jpg"]];
     
     UIActivityViewController *activityController =
     [[UIActivityViewController alloc]
@@ -73,6 +73,7 @@
     REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
+    REMailActivity *mailActivity = [[REMailActivity alloc] init];
     RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
     RESaveToAlbumActivity *saveToAlbumActivity = [[RESaveToAlbumActivity alloc] init];
     REPrintActivity *printActivity = [[REPrintActivity alloc] init];
@@ -87,7 +88,7 @@
      VKontakte
      */
     
-    REMailActivity *mailActivity1 = [[REMailActivity alloc] init];
+    /*REMailActivity *mailActivity1 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity2 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity3 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity4 = [[REMailActivity alloc] init];
@@ -96,14 +97,14 @@
     REMailActivity *mailActivity7 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity8 = [[REMailActivity alloc] init];
     REMailActivity *mailActivity9 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity10 = [[REMailActivity alloc] init];
+    REMailActivity *mailActivity10 = [[REMailActivity alloc] init];*/
     
     // Compile activities into an array, we will pass that array to
     // REActivityViewController on the next step
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity,/* saveToAlbumActivity, safariActivity, mapsActivity, instagramActivity, printActivity, copyActivity, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1, mailActivity1*/];
+    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, saveToAlbumActivity, safariActivity, mapsActivity, instagramActivity, printActivity, copyActivity];
     
     //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     //self.modalPresentationStyle = UIModalPresentationCurrentContext;
