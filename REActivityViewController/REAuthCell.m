@@ -14,7 +14,11 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _textField = [[UITextField alloc] initWithFrame:CGRectMake(120, 0, self.frame.size.width - 140, 44)];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            _textField = [[UITextField alloc] initWithFrame:CGRectMake(120, 0, self.frame.size.width - 140, 44)];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            _textField = [[UITextField alloc] initWithFrame:CGRectMake(140, 0, self.frame.size.width - 180, 44)];
+        
         _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         [_textField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
