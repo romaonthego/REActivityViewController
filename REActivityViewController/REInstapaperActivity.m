@@ -31,6 +31,8 @@
                                     [controller dismissViewControllerAnimated:YES completion:nil];
                                 } error:^{
                                     [controller showLoginButton];
+                                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Instapaper Log In" message:@"Invalid username and/or password." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+                                    [alertView show];
                                 }];
                             };
                             [presenter presentViewController:navigationController animated:YES completion:nil];
