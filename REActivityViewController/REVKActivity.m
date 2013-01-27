@@ -42,7 +42,6 @@
 
 - (void)share
 {
-    NSLog(@"share here = %@", NSStringFromClass([self.activityViewController.presentingController class]));
     UIViewController *presenter = self.activityViewController.presentingController;
     NSDictionary *userInfo = self.activityViewController.userInfo;
 
