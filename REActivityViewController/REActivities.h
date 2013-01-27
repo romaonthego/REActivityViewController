@@ -14,7 +14,7 @@
 #import "RECopyActivity.h"
 #import "RESafariActivity.h"
 #import "REMapsActivity.h"
-#import "RESaveToAlbumActivity.h"
+#import "RESaveToCameraRollActivity.h"
 #import "RETumblrActivity.h"
 #import "REVKActivity.h"
 #import "REInstapaperActivity.h"

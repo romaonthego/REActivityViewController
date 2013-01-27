@@ -74,6 +74,7 @@
 		30659AF416B4D6910072F6D5 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AEB16B4D6910072F6D5 /* UIImageView+AFNetworking.m */; };
 		30659AF616B4D9250072F6D5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659AF516B4D9250072F6D5 /* SystemConfiguration.framework */; };
 		30659AF816B4D92D0072F6D5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659AF716B4D92D0072F6D5 /* MobileCoreServices.framework */; };
+		30659B0316B4F17E0072F6D5 /* RESaveToCameraRollActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659B0216B4F1390072F6D5 /* RESaveToCameraRollActivity.m */; };
 		3096647216B1B36B00440203 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647116B1B36B00440203 /* UIKit.framework */; };
 		3096647416B1B36B00440203 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647316B1B36B00440203 /* Foundation.framework */; };
 		3096647616B1B36B00440203 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647516B1B36B00440203 /* CoreGraphics.framework */; };
@@ -111,7 +112,6 @@
 		30A8393516B2D8FE00E9482B /* REMapsActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8393416B2D8FE00E9482B /* REMapsActivity.m */; };
 		30A8393A16B2DB9600E9482B /* Icon_Instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A8393916B2DB9600E9482B /* Icon_Instagram@2x.png */; };
 		30A8393C16B2DC8000E9482B /* Icon_Photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A8393B16B2DC8000E9482B /* Icon_Photos@2x.png */; };
-		30A8393F16B2DC9300E9482B /* RESaveToAlbumActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8393E16B2DC9300E9482B /* RESaveToAlbumActivity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,6 +211,8 @@
 		30659AEB16B4D6910072F6D5 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		30659AF516B4D9250072F6D5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		30659AF716B4D92D0072F6D5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		30659B0116B4F1380072F6D5 /* RESaveToCameraRollActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RESaveToCameraRollActivity.h; sourceTree = "<group>"; };
+		30659B0216B4F1390072F6D5 /* RESaveToCameraRollActivity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RESaveToCameraRollActivity.m; sourceTree = "<group>"; };
 		3096646D16B1B36B00440203 /* REActivityViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REActivityViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3096647116B1B36B00440203 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3096647316B1B36B00440203 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -265,8 +267,6 @@
 		30A8393416B2D8FE00E9482B /* REMapsActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMapsActivity.m; sourceTree = "<group>"; };
 		30A8393916B2DB9600E9482B /* Icon_Instagram@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Instagram@2x.png"; sourceTree = "<group>"; };
 		30A8393B16B2DC8000E9482B /* Icon_Photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Photos@2x.png"; sourceTree = "<group>"; };
-		30A8393D16B2DC9300E9482B /* RESaveToAlbumActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESaveToAlbumActivity.h; sourceTree = "<group>"; };
-		30A8393E16B2DC9300E9482B /* RESaveToAlbumActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESaveToAlbumActivity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -525,12 +525,12 @@
 				3096649F16B1B95500440203 /* REMessageActivity.m */,
 				30659AB216B49A140072F6D5 /* REPocketActivity.h */,
 				30659AB316B49A150072F6D5 /* REPocketActivity.m */,
+				30659B0116B4F1380072F6D5 /* RESaveToCameraRollActivity.h */,
+				30659B0216B4F1390072F6D5 /* RESaveToCameraRollActivity.m */,
 				30A8392616B2D75F00E9482B /* REPrintActivity.h */,
 				30A8392716B2D75F00E9482B /* REPrintActivity.m */,
 				30A8392C16B2D77200E9482B /* RESafariActivity.h */,
 				30A8392D16B2D77200E9482B /* RESafariActivity.m */,
-				30A8393D16B2DC9300E9482B /* RESaveToAlbumActivity.h */,
-				30A8393E16B2DC9300E9482B /* RESaveToAlbumActivity.m */,
 				30659AA116B480620072F6D5 /* RETumblrActivity.h */,
 				30659AA216B480620072F6D5 /* RETumblrActivity.m */,
 				3096649B16B1B66700440203 /* RETwitterActivity.h */,
@@ -668,7 +668,6 @@
 				30A8392B16B2D76800E9482B /* RECopyActivity.m in Sources */,
 				30A8392E16B2D77200E9482B /* RESafariActivity.m in Sources */,
 				30A8393516B2D8FE00E9482B /* REMapsActivity.m in Sources */,
-				30A8393F16B2DC9300E9482B /* RESaveToAlbumActivity.m in Sources */,
 				30659A0D16B465C20072F6D5 /* REActivityDelegateObject.m in Sources */,
 				30659ABD16B4B9730072F6D5 /* REVKActivityViewController.m in Sources */,
 				30659A5116B4730F0072F6D5 /* DEFacebookComposeViewController.m in Sources */,
@@ -694,6 +693,7 @@
 				30659AF016B4D6910072F6D5 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				30659AF116B4D6910072F6D5 /* AFPropertyListRequestOperation.m in Sources */,
 				30659AF216B4D6910072F6D5 /* AFURLConnectionOperation.m in Sources */,
+				30659B0316B4F17E0072F6D5 /* RESaveToCameraRollActivity.m in Sources */,
 				30659AF316B4D6910072F6D5 /* AFXMLRequestOperation.m in Sources */,
 				30659AF416B4D6910072F6D5 /* UIImageView+AFNetworking.m in Sources */,
 			);

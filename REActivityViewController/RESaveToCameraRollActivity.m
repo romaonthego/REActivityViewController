@@ -1,20 +1,20 @@
 //
-//  RESaveToAlbumActivity.m
+//  RESaveToCameraRollActivity.m
 //  REActivityViewControllerExample
 //
 //  Created by Roman Efimov on 1/25/13.
 //  Copyright (c) 2013 Roman Efimov. All rights reserved.
 //
 
-#import "RESaveToAlbumActivity.h"
+#import "RESaveToCameraRollActivity.h"
 #import "REActivityViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@implementation RESaveToAlbumActivity
+@implementation RESaveToCameraRollActivity
 
 - (id)init
 {
-    return [super initWithTitle:@"Save to Album"
+    return [super initWithTitle:@"Save to Camera Roll"
                           image:[UIImage imageNamed:@"Icon_Photos"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];

@@ -1,5 +1,5 @@
 //
-//  RESaveToAlbumActivity.h
+//  RESaveToCameraRollActivity.h
 //  REActivityViewControllerExample
 //
 //  Created by Roman Efimov on 1/25/13.
@@ -8,6 +8,6 @@
 
 #import "REActivity.h"
 
-@interface RESaveToAlbumActivity : REActivity
+@interface RESaveToCameraRollActivity : REActivity
 
 @end
