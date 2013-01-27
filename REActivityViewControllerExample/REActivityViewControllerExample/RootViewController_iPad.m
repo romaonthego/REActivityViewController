@@ -34,37 +34,48 @@
         return;
     }
     
+    // Prepare activities
+    //
+    
     REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
+    REVKActivity *vkActivity = [[REVKActivity alloc] init];
+    RETumblrActivity *tumblrActivity = [[RETumblrActivity alloc] init];
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
+    REMailActivity *mailActivity = [[REMailActivity alloc] init];
+    RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
+    REPocketActivity *pocketActivity = [[REPocketActivity alloc] init];
+    REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
+    RESaveToAlbumActivity *saveToAlbumActivity = [[RESaveToAlbumActivity alloc] init];
+    REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
+    REPrintActivity *printActivity = [[REPrintActivity alloc] init];
+    RECopyActivity *copyActivity = [[RECopyActivity alloc] init];
     
-   /* REMailActivity *mailActivity1 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity2 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity3 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity4 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity5 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity6 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity7 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity8 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity9 = [[REMailActivity alloc] init];
-    REMailActivity *mailActivity10 = [[REMailActivity alloc] init];*/
+    // Create some custom activity
+    //
+    REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
+                                                             image:[UIImage imageNamed:@"Icon_Custom"]
+                                                       actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
+                                                           [activityViewController dismissViewControllerAnimated:YES completion:^{
+                                                               NSLog(@"Hey, there!");
+                                                           }];
+                                                       }];
     
     // Compile activities into an array, we will pass that array to
     // REActivityViewController on the next step
     //
     //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
     
-    NSArray *activities = @[facebookActivity, twitterActivity, messageActivity];
+    NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity, messageActivity, mailActivity, safariActivity, pocketActivity, instapaperActivity, saveToAlbumActivity, mapsActivity, printActivity, copyActivity, customActivity];
     
-    //self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    //self.modalPresentationStyle = UIModalPresentationCurrentContext;
     // Create REActivityViewController controller and assign data source
     //
     REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self activities:activities];
     activityViewController.userInfo = @{
-    @"image": [UIImage imageNamed:@"Temp@2x.png"],
-    @"text": @"Hello world!",
-    @"url": [NSURL URLWithString:@"https://github.com/romaonthego/REActivityViewController"]
+        @"image": [UIImage imageNamed:@"Flower.jpg"],
+        @"text": @"Hello world!",
+        @"url": [NSURL URLWithString:@"https://github.com/romaonthego/REActivityViewController"],
+        @"coordinate": @{@"latitude": @(37.751586275), @"longitude": @(-122.447721511)}
     };
     
     _activityPopoverController = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
