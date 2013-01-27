@@ -26,11 +26,29 @@
                             controller.labels = @[NSLocalizedString(@"Username", @"Username"), NSLocalizedString(@"Password", @"Password")];
                             controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
                                 NSLog(@"username = %@, password = %@", username, password);
-                                [controller showLoginButton];
+                                //[controller showLoginButton];
+                                [self authenticateUsername:username password:password success:^{
+                                    [controller dismissViewControllerAnimated:YES completion:nil];
+                                } error:^{
+                                    [controller showLoginButton];
+                                }];
                             };
                             [presenter presentViewController:navigationController animated:YES completion:nil];
                         }];
                     }];
+}
+
+- (void)authenticateUsername:(NSString *)username password:(NSString *)password success:(void (^)(void))onSuccess error:(void (^)(void))onError
+{
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://www.instapaper.com/api/authenticate"]];
+    [httpClient setAuthorizationHeaderWithUsername:username password:password];
+    [httpClient postPath:@"" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (onSuccess)
+            onSuccess();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (onError)
+            onError();
+    }];
 }
 
 - (void)saveURL:(NSURL *)url title:(NSString *)title
