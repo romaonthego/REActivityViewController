@@ -64,8 +64,8 @@
         NSArray *userAr = [url componentsSeparatedByString:@"&user_id="];
         NSString *userId = [userAr lastObject];
         
-        [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"VKToken"];
-        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"VKUserId"];
+        [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"REVKActivity_Token"];
+        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"REVKActivity_UserId"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self dismissViewControllerAnimated:YES completion:^{
             [_activity share];

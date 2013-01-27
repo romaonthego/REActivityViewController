@@ -133,6 +133,7 @@
 - (void)buttonPressed:(UIButton *)button
 {
     REActivity *activity = [_activities objectAtIndex:button.tag];
+    activity.activityViewController = _activityViewController;
     if (activity.actionBlock) {
         activity.actionBlock(activity, _activityViewController);
     }
