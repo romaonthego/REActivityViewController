@@ -21,6 +21,8 @@
                         
                         [activityViewController dismissViewControllerAnimated:YES completion:^{
                             REComposeViewController *controller = [[REComposeViewController alloc] init];
+                            controller.title = @"Tumblr";
+                            controller.navigationBar.tintColor = [UIColor colorWithRed:56/255.0f green:86/255.0f blue:114/255.0f alpha:1.0];
                             controller.completionHandler = ^(REComposeResult result){
                                 presenter.modalPresentationStyle = UIModalPresentationFullScreen;
                             };
