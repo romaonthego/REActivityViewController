@@ -121,7 +121,7 @@ self.modalPresentationStyle = UIModalPresentationCurrentContext;
 ### iPad specific
 
 On iPad, you should use `UIPopoverController` to present `REActivityViewController`.
-`_popoverViewController` property of UIViewController is still a private API (sigh), so we'll need to pass it manually:
+`_popoverController` property of UIViewController is still a private API (sigh), so we'll need to pass it manually:
 `activityViewController.presentingPopoverController = _activityPopoverController;`
 
 ``` objective-c
