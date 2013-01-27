@@ -9,6 +9,7 @@
 #import "REInstapaperActivity.h"
 #import "REActivityViewController.h"
 #import "AFNetworking.h"
+#import "REAuthViewController.h"
 
 @implementation REInstapaperActivity
 
@@ -17,21 +18,30 @@
     return [super initWithTitle:@"Send to Instapaper"
                           image:[UIImage imageNamed:@"Icon_Instapaper"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        NSURL *url = [NSURL URLWithString:@"https://www.instapaper.com/api/add"];
-                        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-                
-                        [httpClient setAuthorizationHeaderWithUsername:@"romefimov@gmail.com" password:@""];
-                        NSDictionary *params = @{
-                            @"title": @"TEXT 123",
-                            @"url": @"https://github.com/romaonthego"
-                        };
-                        [httpClient postPath:@"" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                            NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                            NSLog(@"Request Successful, response '%@'", responseStr);
-                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
+                        UIViewController *presenter = activityViewController.presentingController;
+                        [activityViewController dismissViewControllerAnimated:YES completion:^{
+                            REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
+                            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+                            controller.title = @"Instapaper";
+                            [presenter presentViewController:navigationController animated:YES completion:nil];
                         }];
                     }];
+}
+
+- (void)saveURL:(NSURL *)url title:(NSString *)title
+{
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://www.instapaper.com/api/add"]];
+    [httpClient setAuthorizationHeaderWithUsername:@"romefimov@gmail.com" password:@""];
+    NSDictionary *params = @{
+        @"title": title ? title : @"",
+        @"url": url.absoluteString
+    };
+    [httpClient postPath:@"" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"Request Successful, response '%@'", responseStr);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
+    }];
 }
 
 @end
