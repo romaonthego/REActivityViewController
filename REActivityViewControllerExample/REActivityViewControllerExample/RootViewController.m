@@ -55,7 +55,6 @@
 {
     // Prepare activities
     //
-
     REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
     REVKActivity *vkActivity = [[REVKActivity alloc] init];
@@ -83,8 +82,6 @@
     // Compile activities into an array, we will pass that array to
     // REActivityViewController on the next step
     //
-    //NSArray *activities = @[facebookActivity, twitterActivity, messageActivity, mailActivity, customActivity];
-    
     NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity, messageActivity, mailActivity, safariActivity, pocketActivity, instapaperActivity, saveToAlbumActivity, mapsActivity, printActivity, copyActivity, customActivity];
     
     // Create REActivityViewController controller and assign data source
