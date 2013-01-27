@@ -7,6 +7,7 @@
 //
 
 #import "REAuthViewController.h"
+#import "REAuthCell.h"
 
 @interface REAuthViewController ()
 
@@ -26,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _username = @"";
+    _password = @"";
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"Cancel") style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonPressed)];
     
@@ -71,13 +75,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"REAuthCell";
+    REAuthCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[REAuthCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    
+    cell.textLabel.text = [_labels objectAtIndex:indexPath.row];
+    cell.textField.tag = indexPath.row;
+    
+    if (indexPath.row == 0) {
+        cell.textField.text = _username;
+        cell.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        cell.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        cell.textField.secureTextEntry = NO;
+    }
+    
+    if (indexPath.row == 1) {
+        cell.textField.text = _password;
+        cell.textField.secureTextEntry = YES;
+    }
+    
+    cell.onChange = ^(UITextField *textField, NSString *value) {
+        if (textField.tag == 0) _username = value;
+        if (textField.tag == 1) _password = value;
+    };
     
     return cell;
 }
@@ -100,6 +124,8 @@
 - (void)loginButtonPressed
 {
     [self showActivityIndicator];
+    if (_onLoginButtonPressed)
+        _onLoginButtonPressed(self, _username, _password);
 }
 
 @end

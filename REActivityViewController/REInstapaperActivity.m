@@ -23,6 +23,11 @@
                             REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
                             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
                             controller.title = @"Instapaper";
+                            controller.labels = @[NSLocalizedString(@"Username", @"Username"), NSLocalizedString(@"Password", @"Password")];
+                            controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
+                                NSLog(@"username = %@, password = %@", username, password);
+                                [controller showLoginButton];
+                            };
                             [presenter presentViewController:navigationController animated:YES completion:nil];
                         }];
                     }];

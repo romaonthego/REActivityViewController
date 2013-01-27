@@ -2,7 +2,7 @@
 
 #import "REVKActivityViewController.h"
 #import "AppDelegate.h"
-
+#import "REAuthCell.h"
 
 @interface REVKActivityViewController ()
 

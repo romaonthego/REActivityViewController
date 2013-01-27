@@ -12,4 +12,12 @@
     UIActivityIndicatorView *_indicatorView;
 }
 
+@property (strong, nonatomic) NSArray *labels;
+@property (copy, nonatomic) NSString *username;
+@property (copy, nonatomic) NSString *password;
+@property (copy, nonatomic) void (^onLoginButtonPressed)(REAuthViewController *controller, NSString *username, NSString *password);
+
+- (void)showLoginButton;
+- (void)showActivityIndicator;
+
 @end
