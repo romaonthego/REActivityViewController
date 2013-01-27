@@ -508,6 +508,7 @@
 		309664BD16B1E93C00440203 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
+				30659AB516B49A500072F6D5 /* REActivities.h */,
 				30659A0B16B465C20072F6D5 /* REActivityDelegateObject.h */,
 				30659A0C16B465C20072F6D5 /* REActivityDelegateObject.m */,
 				30A8392916B2D76800E9482B /* RECopyActivity.h */,
@@ -522,23 +523,22 @@
 				30A8393416B2D8FE00E9482B /* REMapsActivity.m */,
 				3096649E16B1B95500440203 /* REMessageActivity.h */,
 				3096649F16B1B95500440203 /* REMessageActivity.m */,
+				30659AB216B49A140072F6D5 /* REPocketActivity.h */,
+				30659AB316B49A150072F6D5 /* REPocketActivity.m */,
 				30A8392616B2D75F00E9482B /* REPrintActivity.h */,
 				30A8392716B2D75F00E9482B /* REPrintActivity.m */,
 				30A8392C16B2D77200E9482B /* RESafariActivity.h */,
 				30A8392D16B2D77200E9482B /* RESafariActivity.m */,
 				30A8393D16B2DC9300E9482B /* RESaveToAlbumActivity.h */,
 				30A8393E16B2DC9300E9482B /* RESaveToAlbumActivity.m */,
-				30659ABA16B4B9460072F6D5 /* REVKActivityViewController.h */,
-				30659ABB16B4B9460072F6D5 /* REVKActivityViewController.m */,
 				30659AA116B480620072F6D5 /* RETumblrActivity.h */,
 				30659AA216B480620072F6D5 /* RETumblrActivity.m */,
 				3096649B16B1B66700440203 /* RETwitterActivity.h */,
 				3096649C16B1B66700440203 /* RETwitterActivity.m */,
 				30659AA816B48B6E0072F6D5 /* REVKActivity.h */,
 				30659AA916B48B6F0072F6D5 /* REVKActivity.m */,
-				30659AB216B49A140072F6D5 /* REPocketActivity.h */,
-				30659AB316B49A150072F6D5 /* REPocketActivity.m */,
-				30659AB516B49A500072F6D5 /* REActivities.h */,
+				30659ABA16B4B9460072F6D5 /* REVKActivityViewController.h */,
+				30659ABB16B4B9460072F6D5 /* REVKActivityViewController.m */,
 			);
 			name = Activities;
 			sourceTree = "<group>";

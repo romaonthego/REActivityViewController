@@ -53,7 +53,6 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSString *url = request.URL.absoluteString;
-    NSLog(@"url = %@", url);
     NSRange searchRange = NSMakeRange(0, url.length);
     NSRange foundRange = [url rangeOfString:@"access_token" options:0 range:searchRange];
     if (foundRange.location != NSNotFound) {
@@ -80,6 +79,12 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     _indicatorView.hidden = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _indicatorView.center = CGPointMake(self.view.frame.size.width / 2, 30);
 }
 
 @end
