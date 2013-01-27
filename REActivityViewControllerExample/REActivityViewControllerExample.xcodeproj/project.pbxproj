@@ -72,6 +72,8 @@
 		30659AF216B4D6910072F6D5 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AE716B4D6910072F6D5 /* AFURLConnectionOperation.m */; };
 		30659AF316B4D6910072F6D5 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AE916B4D6910072F6D5 /* AFXMLRequestOperation.m */; };
 		30659AF416B4D6910072F6D5 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AEB16B4D6910072F6D5 /* UIImageView+AFNetworking.m */; };
+		30659AF616B4D9250072F6D5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659AF516B4D9250072F6D5 /* SystemConfiguration.framework */; };
+		30659AF816B4D92D0072F6D5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659AF716B4D92D0072F6D5 /* MobileCoreServices.framework */; };
 		3096647216B1B36B00440203 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647116B1B36B00440203 /* UIKit.framework */; };
 		3096647416B1B36B00440203 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647316B1B36B00440203 /* Foundation.framework */; };
 		3096647616B1B36B00440203 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647516B1B36B00440203 /* CoreGraphics.framework */; };
@@ -207,6 +209,8 @@
 		30659AE916B4D6910072F6D5 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		30659AEA16B4D6910072F6D5 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		30659AEB16B4D6910072F6D5 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		30659AF516B4D9250072F6D5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		30659AF716B4D92D0072F6D5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3096646D16B1B36B00440203 /* REActivityViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REActivityViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3096647116B1B36B00440203 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3096647316B1B36B00440203 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -270,6 +274,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30659AF816B4D92D0072F6D5 /* MobileCoreServices.framework in Frameworks */,
+				30659AF616B4D9250072F6D5 /* SystemConfiguration.framework in Frameworks */,
 				30659A7B16B474C60072F6D5 /* QuartzCore.framework in Frameworks */,
 				30659A7316B473F20072F6D5 /* Accounts.framework in Frameworks */,
 				30659A7116B473ED0072F6D5 /* AdSupport.framework in Frameworks */,
@@ -412,6 +418,8 @@
 		3096647016B1B36B00440203 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30659AF716B4D92D0072F6D5 /* MobileCoreServices.framework */,
+				30659AF516B4D9250072F6D5 /* SystemConfiguration.framework */,
 				30659A7A16B474C60072F6D5 /* QuartzCore.framework */,
 				30659A7816B474910072F6D5 /* FacebookSDKResources.bundle */,
 				30659A7616B474710072F6D5 /* FacebookSDK.framework */,
