@@ -75,6 +75,11 @@
 		30659AF616B4D9250072F6D5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659AF516B4D9250072F6D5 /* SystemConfiguration.framework */; };
 		30659AF816B4D92D0072F6D5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659AF716B4D92D0072F6D5 /* MobileCoreServices.framework */; };
 		30659B0316B4F17E0072F6D5 /* RESaveToCameraRollActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659B0216B4F1390072F6D5 /* RESaveToCameraRollActivity.m */; };
+		30659B1916B5A7030072F6D5 /* PocketAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659B1116B5A7030072F6D5 /* PocketAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		30659B1A16B5A7030072F6D5 /* PocketAPILogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659B1316B5A7030072F6D5 /* PocketAPILogin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		30659B1B16B5A7030072F6D5 /* PocketAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659B1516B5A7030072F6D5 /* PocketAPIOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		30659B1C16B5A7030072F6D5 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659B1816B5A7030072F6D5 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		30659B1E16B5A72C0072F6D5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659B1D16B5A72B0072F6D5 /* Security.framework */; };
 		3096647216B1B36B00440203 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647116B1B36B00440203 /* UIKit.framework */; };
 		3096647416B1B36B00440203 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647316B1B36B00440203 /* Foundation.framework */; };
 		3096647616B1B36B00440203 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647516B1B36B00440203 /* CoreGraphics.framework */; };
@@ -213,6 +218,17 @@
 		30659AF716B4D92D0072F6D5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		30659B0116B4F1380072F6D5 /* RESaveToCameraRollActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RESaveToCameraRollActivity.h; sourceTree = "<group>"; };
 		30659B0216B4F1390072F6D5 /* RESaveToCameraRollActivity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RESaveToCameraRollActivity.m; sourceTree = "<group>"; };
+		30659B0F16B5A7030072F6D5 /* PocketAPI+NSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PocketAPI+NSOperation.h"; sourceTree = "<group>"; };
+		30659B1016B5A7030072F6D5 /* PocketAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPI.h; sourceTree = "<group>"; };
+		30659B1116B5A7030072F6D5 /* PocketAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketAPI.m; sourceTree = "<group>"; };
+		30659B1216B5A7030072F6D5 /* PocketAPILogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPILogin.h; sourceTree = "<group>"; };
+		30659B1316B5A7030072F6D5 /* PocketAPILogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketAPILogin.m; sourceTree = "<group>"; };
+		30659B1416B5A7030072F6D5 /* PocketAPIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPIOperation.h; sourceTree = "<group>"; };
+		30659B1516B5A7030072F6D5 /* PocketAPIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketAPIOperation.m; sourceTree = "<group>"; };
+		30659B1616B5A7030072F6D5 /* PocketAPITypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPITypes.h; sourceTree = "<group>"; };
+		30659B1716B5A7030072F6D5 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		30659B1816B5A7030072F6D5 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		30659B1D16B5A72B0072F6D5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3096646D16B1B36B00440203 /* REActivityViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REActivityViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3096647116B1B36B00440203 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3096647316B1B36B00440203 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -274,6 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30659B1E16B5A72C0072F6D5 /* Security.framework in Frameworks */,
 				30659AF816B4D92D0072F6D5 /* MobileCoreServices.framework in Frameworks */,
 				30659AF616B4D9250072F6D5 /* SystemConfiguration.framework in Frameworks */,
 				30659A7B16B474C60072F6D5 /* QuartzCore.framework in Frameworks */,
@@ -394,9 +411,28 @@
 			path = ../AFNetworking;
 			sourceTree = "<group>";
 		};
+		30659B0E16B5A7020072F6D5 /* PocketSDK */ = {
+			isa = PBXGroup;
+			children = (
+				30659B0F16B5A7030072F6D5 /* PocketAPI+NSOperation.h */,
+				30659B1016B5A7030072F6D5 /* PocketAPI.h */,
+				30659B1116B5A7030072F6D5 /* PocketAPI.m */,
+				30659B1216B5A7030072F6D5 /* PocketAPILogin.h */,
+				30659B1316B5A7030072F6D5 /* PocketAPILogin.m */,
+				30659B1416B5A7030072F6D5 /* PocketAPIOperation.h */,
+				30659B1516B5A7030072F6D5 /* PocketAPIOperation.m */,
+				30659B1616B5A7030072F6D5 /* PocketAPITypes.h */,
+				30659B1716B5A7030072F6D5 /* SFHFKeychainUtils.h */,
+				30659B1816B5A7030072F6D5 /* SFHFKeychainUtils.m */,
+			);
+			name = PocketSDK;
+			path = ../PocketSDK;
+			sourceTree = "<group>";
+		};
 		3096646216B1B36B00440203 = {
 			isa = PBXGroup;
 			children = (
+				30659B0E16B5A7020072F6D5 /* PocketSDK */,
 				30659AD816B4D6910072F6D5 /* AFNetworking */,
 				30659A2716B4730F0072F6D5 /* FacebookComposeViewController */,
 				30659A8F16B480540072F6D5 /* REComposeViewController */,
@@ -418,6 +454,7 @@
 		3096647016B1B36B00440203 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30659B1D16B5A72B0072F6D5 /* Security.framework */,
 				30659AF716B4D92D0072F6D5 /* MobileCoreServices.framework */,
 				30659AF516B4D9250072F6D5 /* SystemConfiguration.framework */,
 				30659A7A16B474C60072F6D5 /* QuartzCore.framework */,
@@ -696,6 +733,10 @@
 				30659B0316B4F17E0072F6D5 /* RESaveToCameraRollActivity.m in Sources */,
 				30659AF316B4D6910072F6D5 /* AFXMLRequestOperation.m in Sources */,
 				30659AF416B4D6910072F6D5 /* UIImageView+AFNetworking.m in Sources */,
+				30659B1916B5A7030072F6D5 /* PocketAPI.m in Sources */,
+				30659B1A16B5A7030072F6D5 /* PocketAPILogin.m in Sources */,
+				30659B1B16B5A7030072F6D5 /* PocketAPIOperation.m in Sources */,
+				30659B1C16B5A7030072F6D5 /* SFHFKeychainUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

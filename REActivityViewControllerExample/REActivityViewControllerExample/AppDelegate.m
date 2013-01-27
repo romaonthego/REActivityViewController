@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "RootViewController_iPad.h"
+#import "PocketAPI.h"
 
 @implementation AppDelegate
 
@@ -51,7 +52,11 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return [FBSession.activeSession handleOpenURL:url];
+    if ([[PocketAPI sharedAPI] handleOpenURL:url]){
+		return YES;
+	} else{
+		return [FBSession.activeSession handleOpenURL:url];
+	}
 }
 
 @end

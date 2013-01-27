@@ -10,4 +10,6 @@
 
 @interface REPocketActivity : REActivity
 
+- (id)initWithConsumerKey:(NSString *)consumerKey;
+
 @end

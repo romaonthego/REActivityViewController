@@ -62,7 +62,7 @@
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
     REMailActivity *mailActivity = [[REMailActivity alloc] init];
     RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
-    REPocketActivity *pocketActivity = [[REPocketActivity alloc] init];
+    REPocketActivity *pocketActivity = [[REPocketActivity alloc] initWithConsumerKey:@"11708-5a8fa563a3485a5133ef1b56"];
     REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
     RESaveToCameraRollActivity *saveToCameraRollActivity = [[RESaveToCameraRollActivity alloc] init];
     REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
