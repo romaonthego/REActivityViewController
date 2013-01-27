@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.dependency 'Facebook-iOS-SDK', '~> 3.1.1'
   s.dependency 'DEComposeViewController', '~> 1.0.0'
   s.dependency 'REComposeViewController', '~> 0.0.1'
+  s.dependency 'PocketAPI', '~> 1.0.1'
 end
