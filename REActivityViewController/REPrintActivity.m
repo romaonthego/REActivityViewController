@@ -13,7 +13,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Print"
+    return [super initWithTitle:@"Print"
                           image:[UIImage imageNamed:@"Icon_Print"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         NSDictionary *userInfo = activityViewController.userInfo;
@@ -43,8 +43,6 @@
                             [pc presentAnimated:YES completionHandler:completionHandler];
                         }];
                     }];
-    
-    return self;
 }
 
 @end

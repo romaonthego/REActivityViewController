@@ -13,7 +13,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Open in Safari"
+    return [super initWithTitle:@"Open in Safari"
                           image:[UIImage imageNamed:@"Icon_Safari"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
@@ -23,8 +23,6 @@
                         if ([[userInfo objectForKey:@"url"] isKindOfClass:[NSURL class]])
                             [[UIApplication sharedApplication] openURL:[userInfo objectForKey:@"url"]];
                     }];
-    
-    return self;
 }
 
 @end

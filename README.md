@@ -166,12 +166,11 @@ If you want to subclass an activity, add this code into your `init` function, fo
 
 - (id)init
 {
-    self = [super initWithTitle:@"My Activity"
+    return [super initWithTitle:@"My Activity"
                           image:[UIImage imageNamed:@"My_Icon"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         // Your code goes here
                     }];
-    return self;
 }
 
 @end

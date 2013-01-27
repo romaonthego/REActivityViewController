@@ -13,7 +13,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Save to Pocket"
+    return [super initWithTitle:@"Save to Pocket"
                           image:[UIImage imageNamed:@"Icon_Pocket"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
@@ -21,8 +21,6 @@
                         
                         
                     }];
-    
-    return self;
 }
 
 @end

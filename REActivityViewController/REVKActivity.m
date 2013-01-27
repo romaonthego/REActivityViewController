@@ -13,7 +13,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"VKontakte"
+    return [super initWithTitle:@"VKontakte"
                           image:[UIImage imageNamed:@"Icon_VK"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
@@ -28,8 +28,6 @@
                             [presenter presentViewController:controller animated:YES completion:nil];
                         }];
                     }];
-    
-    return self;
 }
 
 @end

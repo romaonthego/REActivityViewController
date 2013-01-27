@@ -13,7 +13,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Copy"
+    return [super initWithTitle:@"Copy"
                           image:[UIImage imageNamed:@"Icon_Copy"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
@@ -32,8 +32,6 @@
                                                     forPasteboardType:[UIPasteboardTypeListImage objectAtIndex:0]];
                         }
                     }];
-    
-    return self;
 }
 
 @end

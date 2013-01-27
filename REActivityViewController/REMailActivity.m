@@ -14,7 +14,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Mail"
+    return [super initWithTitle:@"Mail"
                           image:[UIImage imageNamed:@"Icon_Mail"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         NSDictionary *userInfo = activityViewController.userInfo;
@@ -41,8 +41,6 @@
                             [activityViewController.presentingController presentViewController:mailComposeViewController animated:YES completion:nil];
                         }];
     }];
-    
-    return self;
 }
 
 @end

@@ -14,7 +14,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Message"
+    return [super initWithTitle:@"Message"
                           image:[UIImage imageNamed:@"Icon_Message"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         NSDictionary *userInfo = activityViewController.userInfo;
@@ -37,8 +37,6 @@
                             [activityViewController.presentingController presentViewController:messageComposeViewController animated:YES completion:nil];
                         }];
                     }];
-    
-    return self;
 }
 
 @end

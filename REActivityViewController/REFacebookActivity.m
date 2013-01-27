@@ -14,7 +14,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Facebook"
+    return [super initWithTitle:@"Facebook"
                           image:[UIImage imageNamed:@"Icon_Facebook"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
@@ -27,8 +27,6 @@
                                                     image:[userInfo objectForKey:@"image"]];
                         }];
                     }];
-    
-    return self;
 }
 
 - (void)shareFromViewController:(UIViewController *)viewController text:(NSString *)text url:(NSURL *)url image:(UIImage *)image

@@ -13,14 +13,12 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Save to Instapaper"
+    return [super initWithTitle:@"Save to Instapaper"
                           image:[UIImage imageNamed:@"Icon_Instapaper"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
                         NSDictionary *userInfo = activityViewController.userInfo;
                     }];
-    
-    return self;
 }
 
 @end

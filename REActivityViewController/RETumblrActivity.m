@@ -13,7 +13,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Tumblr"
+    return [super initWithTitle:@"Tumblr"
                           image:[UIImage imageNamed:@"Icon_Tumblr"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
@@ -28,8 +28,6 @@
                             [presenter presentViewController:controller animated:YES completion:nil];
                         }];
                     }];
-    
-    return self;
 }
 
 @end

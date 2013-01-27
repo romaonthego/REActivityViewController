@@ -14,7 +14,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Save to Album"
+    return [super initWithTitle:@"Save to Album"
                           image:[UIImage imageNamed:@"Icon_Photos"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
@@ -26,8 +26,6 @@
                                                   orientation:(ALAssetOrientation)image.imageOrientation
                                               completionBlock:nil];
                     }];
-    
-    return self;
 }
 
 @end

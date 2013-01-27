@@ -14,7 +14,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Twitter"
+    return [super initWithTitle:@"Twitter"
                           image:[UIImage imageNamed:@"Icon_Twitter"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
@@ -34,8 +34,6 @@
                             [presenter presentModalViewController:composeController animated:YES];
                         }];
                     }];
-    
-    return self;
 }
 
 @end
