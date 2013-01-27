@@ -28,10 +28,14 @@
         
         [self.view addSubview:_webView];
         
-        _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        _indicatorView.center = CGPointMake(self.view.frame.size.width / 2, 30);
+        _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        _indicatorView.center = CGPointMake(22, 22);
         [_indicatorView startAnimating];
-        [self.view addSubview:_indicatorView];
+       
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 44)];
+        [view addSubview:_indicatorView];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:view];
     }
     return self;
 }
@@ -79,12 +83,6 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     _indicatorView.hidden = YES;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    _indicatorView.center = CGPointMake(self.view.frame.size.width / 2, 30);
 }
 
 @end
