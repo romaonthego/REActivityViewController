@@ -10,7 +10,7 @@ All activites are compatible with iOS 5.0.
 * Facebook
 * Twitter
 * VKontakte
-* Tubmlr
+* Tumblr
 * Message
 * Mail
 * Open in Safari
