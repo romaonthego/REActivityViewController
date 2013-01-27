@@ -134,4 +134,9 @@
         _onLoginButtonPressed(self, _username, _password);
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return [_labels objectAtIndex:2];
+}
+
 @end

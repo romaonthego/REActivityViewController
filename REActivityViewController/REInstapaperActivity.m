@@ -26,7 +26,7 @@
                                 REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
                                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
                                 controller.title = @"Instapaper";
-                                controller.labels = @[NSLocalizedString(@"Username", @"Username"), NSLocalizedString(@"Password", @"Password")];
+                                controller.labels = @[NSLocalizedString(@"Username", @"Username"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We never store your password.", @"We never store your password.")];
                                 controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
                                     [self authenticateUsername:username password:password success:^{
                                         [controller dismissViewControllerAnimated:YES completion:nil];
@@ -35,7 +35,7 @@
                                         [self saveURL:[userInfo objectForKey:@"url"] title:[userInfo objectForKey:@"text"]];
                                     } error:^{
                                         [controller showLoginButton];
-                                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Instapaper Log In" message:@"Invalid username and/or password." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+                                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Instapaper Log In", @"Instapaper Log In") message:NSLocalizedString(@"Please check your username and password. If you're sure they're correct, Instapaper may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
                                         [alertView show];
                                     }];
                                 };
