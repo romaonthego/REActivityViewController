@@ -27,8 +27,6 @@ All activites are compatible with iOS 5.0.
 * iOS 5.0 or higher
 * ARC
 
-If you are not using ARC in your project, add `-fobjc-arc` as a compiler flag for all the files in this project.
-
 ## Demo
 
 Build and run the `REActivityViewControllerExample` project in Xcode to see `REActivityViewController` in action.
