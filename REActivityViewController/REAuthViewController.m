@@ -39,6 +39,12 @@
     _indicatorView.center = CGPointMake(22, 22);
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+}
+
 - (void)showActivityIndicator
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 44)];
