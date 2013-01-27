@@ -57,7 +57,7 @@
     //
     REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
-    REVKActivity *vkActivity = [[REVKActivity alloc] init];
+    REVKActivity *vkActivity = [[REVKActivity alloc] initWithClientId:@"3286015"];
     RETumblrActivity *tumblrActivity = [[RETumblrActivity alloc] init];
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
     REMailActivity *mailActivity = [[REMailActivity alloc] init];

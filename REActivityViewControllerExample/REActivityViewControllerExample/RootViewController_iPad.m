@@ -27,7 +27,7 @@
 }
 
 - (void)buttonPressed
-{
+{    
     if (_activityPopoverController && _activityPopoverController.isPopoverVisible) {
         [_activityPopoverController dismissPopoverAnimated:YES];
         _activityPopoverController =  nil;
@@ -79,6 +79,16 @@
     activityViewController.presentingPopoverController = _activityPopoverController;
     [_activityPopoverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem
                                        permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return YES;
 }
 
 @end

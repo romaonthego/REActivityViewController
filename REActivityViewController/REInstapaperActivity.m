@@ -16,8 +16,8 @@
     return [super initWithTitle:@"Save to Instapaper"
                           image:[UIImage imageNamed:@"Icon_Instapaper"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        UIViewController *presenter = activityViewController.presentingController;
-                        NSDictionary *userInfo = activityViewController.userInfo;
+                      // UIViewController *presenter = activityViewController.presentingController;
+                       // NSDictionary *userInfo = activityViewController.userInfo;
                     }];
 }
 

@@ -62,6 +62,7 @@
 		30659AB116B49A070072F6D5 /* Icon_Pocket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AB016B49A070072F6D5 /* Icon_Pocket@2x.png */; };
 		30659AB416B49A150072F6D5 /* REPocketActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AB316B49A150072F6D5 /* REPocketActivity.m */; };
 		30659AB916B49D4F0072F6D5 /* Icon_Custom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AB816B49D4F0072F6D5 /* Icon_Custom@2x.png */; };
+		30659ABD16B4B9730072F6D5 /* REVKActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659ABB16B4B9460072F6D5 /* REVKActivityViewController.m */; };
 		3096647216B1B36B00440203 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647116B1B36B00440203 /* UIKit.framework */; };
 		3096647416B1B36B00440203 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647316B1B36B00440203 /* Foundation.framework */; };
 		3096647616B1B36B00440203 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647516B1B36B00440203 /* CoreGraphics.framework */; };
@@ -176,6 +177,8 @@
 		30659AB316B49A150072F6D5 /* REPocketActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPocketActivity.m; sourceTree = "<group>"; };
 		30659AB516B49A500072F6D5 /* REActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivities.h; sourceTree = "<group>"; };
 		30659AB816B49D4F0072F6D5 /* Icon_Custom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Custom@2x.png"; sourceTree = "<group>"; };
+		30659ABA16B4B9460072F6D5 /* REVKActivityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = REVKActivityViewController.h; sourceTree = "<group>"; };
+		30659ABB16B4B9460072F6D5 /* REVKActivityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = REVKActivityViewController.m; sourceTree = "<group>"; };
 		3096646D16B1B36B00440203 /* REActivityViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REActivityViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3096647116B1B36B00440203 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3096647316B1B36B00440203 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -461,6 +464,8 @@
 				30A8392D16B2D77200E9482B /* RESafariActivity.m */,
 				30A8393D16B2DC9300E9482B /* RESaveToAlbumActivity.h */,
 				30A8393E16B2DC9300E9482B /* RESaveToAlbumActivity.m */,
+				30659ABA16B4B9460072F6D5 /* REVKActivityViewController.h */,
+				30659ABB16B4B9460072F6D5 /* REVKActivityViewController.m */,
 				30659AA116B480620072F6D5 /* RETumblrActivity.h */,
 				30659AA216B480620072F6D5 /* RETumblrActivity.m */,
 				3096649B16B1B66700440203 /* RETwitterActivity.h */,
@@ -601,6 +606,7 @@
 				30A8393516B2D8FE00E9482B /* REMapsActivity.m in Sources */,
 				30A8393F16B2DC9300E9482B /* RESaveToAlbumActivity.m in Sources */,
 				30659A0D16B465C20072F6D5 /* REActivityDelegateObject.m in Sources */,
+				30659ABD16B4B9730072F6D5 /* REVKActivityViewController.m in Sources */,
 				30659A5116B4730F0072F6D5 /* DEFacebookComposeViewController.m in Sources */,
 				30659A5216B4730F0072F6D5 /* DEFacebookGradientView.m in Sources */,
 				30659A5316B4730F0072F6D5 /* DEFacebookSheetCardView.m in Sources */,

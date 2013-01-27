@@ -17,7 +17,7 @@
                           image:[UIImage imageNamed:@"Icon_Tumblr"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
-                        NSDictionary *userInfo = activityViewController.userInfo;
+                       // NSDictionary *userInfo = activityViewController.userInfo;
                         
                         [activityViewController dismissViewControllerAnimated:YES completion:^{
                             REComposeViewController *controller = [[REComposeViewController alloc] init];

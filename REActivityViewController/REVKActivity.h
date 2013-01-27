@@ -10,4 +10,9 @@
 
 @interface REVKActivity : REActivity
 
+@property (copy, nonatomic) NSString *clientId;
+
+- (id)initWithClientId:(NSString *)clientId;
+- (void)share;
+
 @end
