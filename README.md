@@ -42,7 +42,7 @@ $ [sudo] gem install cocoapods
 $ pod setup
 ```
 
-Edit your Podfile and add REActivityViewController:
+Edit your Podfile and add `REActivityViewController`:
 
 ``` bash
 $ edit Podfile
@@ -121,7 +121,7 @@ self.modalPresentationStyle = UIModalPresentationCurrentContext;
 ### iPad specific
 
 On iPad, you should use `UIPopoverController` to present `REActivityViewController`.
-`_popoverController` property of UIViewController is still a private API (sigh), so we'll need to pass it manually:
+`_popoverController` property of `UIViewController` is still a private API (sigh), so we'll need to pass it manually:
 `activityViewController.presentingPopoverController = _activityPopoverController;`
 
 ``` objective-c
