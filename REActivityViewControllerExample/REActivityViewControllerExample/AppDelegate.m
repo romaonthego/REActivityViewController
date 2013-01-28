@@ -10,6 +10,7 @@
 #import "RootViewController.h"
 #import "RootViewController_iPad.h"
 #import "PocketAPI.h"
+#import "AFOAuth1Client.h"
 
 @implementation AppDelegate
 
@@ -55,7 +56,15 @@
     if ([[PocketAPI sharedAPI] handleOpenURL:url]){
 		return YES;
 	} else{
-		return [FBSession.activeSession handleOpenURL:url];
+		if ([FBSession.activeSession handleOpenURL:url]) {
+            return YES;
+        } else {
+            NSLog(@"URL = %@", url);
+            NSNotification *notification = [NSNotification notificationWithName:kAFApplicationLaunchedWithURLNotification object:nil userInfo:[NSDictionary dictionaryWithObject:url forKey:kAFApplicationLaunchOptionsURLKey]];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+            
+            return YES;
+        }
 	}
 }
 
