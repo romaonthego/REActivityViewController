@@ -63,22 +63,20 @@
                             [self shareUserInfo:userInfo];
                         }*/
                         
-                        AFOAuth1Client *client = [[AFOAuth1Client alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.tumblr.com"]
-                                                                                     key:@"ISY7GdYtCDXfzo4hSfWTlaAVmkRreLBttE15Igedfr4sfaAYxW"
-                                                                                  secret:@"JX994q7T9va9Rm6VNgrMw6hiLgllEQzhsB2T7TtXWhN5yYj2IZ"];
-                        
-                        
-                        
-                        [client authorizeUsingOAuthWithRequestTokenPath:@"/oauth/request_token"
-                                                  userAuthorizationPath:@"/oauth/authorize"
-                                                            callbackURL:[NSURL URLWithString:@"testapp://success"]
-                                                        accessTokenPath:@"/oauth/access_token"
-                                                           accessMethod:@"POST"
-                                                                success:^(AFOAuth1Token *accessToken) {
-                                                                    NSLog(@"Success: %@", accessToken);
-                                                                } failure:^(NSError *error) {
-                                                                    NSLog(@"Error: %@", error);
-                                                                }];
+AFOAuth1Client *client = [[AFOAuth1Client alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.tumblr.com"]
+                                                             key:@"ISY7GdYtCDXfzo4hSfWTlaAVmkRreLBttE15Igedfr4sfaAYxW"
+                                                          secret:@"JX994q7T9va9Rm6VNgrMw6hiLgllEQzhsB2T7TtXWhN5yYj2IZ"];
+
+[client authorizeUsingOAuthWithRequestTokenPath:@"/oauth/request_token"
+                          userAuthorizationPath:@"/oauth/authorize"
+                                    callbackURL:[NSURL URLWithString:@"testapp://success"]
+                                accessTokenPath:@"/oauth/access_token"
+                                   accessMethod:@"GET"
+                                        success:^(AFOAuth1Token *accessToken) {
+                                            NSLog(@"Success: %@", accessToken);
+                                        } failure:^(NSError *error) {
+                                            NSLog(@"**** Error: %@", error);
+                                        }];
                     }];
 }
 

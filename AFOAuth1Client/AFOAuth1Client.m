@@ -114,29 +114,22 @@ static inline NSString * NSStringFromAFOAuthSignatureMethod(AFOAuthSignatureMeth
     }
 }
 
-static inline NSString * AFHMACSHA1Signature(NSURLRequest *request, NSString *consumerSecret, NSString *requestTokenSecret, NSStringEncoding stringEncoding) {
-    NSString* reqSecret = @"";
-    if (requestTokenSecret != nil) {
-        reqSecret = requestTokenSecret;
-    }
-    NSString *secretString = [NSString stringWithFormat:@"%@&%@", consumerSecret, reqSecret];
+static inline NSString * AFHMACSHA1Signature(NSURLRequest *request, NSString *consumerSecret, NSString *tokenSecret, NSStringEncoding stringEncoding) {
+    NSString *secret = tokenSecret ? tokenSecret : @"";
+    NSString *secretString = [NSString stringWithFormat:@"%@&%@", consumerSecret, secret];
     NSData *secretStringData = [secretString dataUsingEncoding:stringEncoding];
-    
+
     NSString *queryString = AFPercentEscapedQueryStringPairMemberFromStringWithEncoding([[[[[request URL] query] componentsSeparatedByString:@"&"] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] componentsJoinedByString:@"&"], stringEncoding);
-    
     NSString *requestString = [NSString stringWithFormat:@"%@&%@&%@", [request HTTPMethod], AFPercentEscapedQueryStringPairMemberFromStringWithEncoding([[[request URL] absoluteString] componentsSeparatedByString:@"?"][0], stringEncoding), queryString];
     NSData *requestStringData = [requestString dataUsingEncoding:stringEncoding];
-    
-    // hmac
+
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
     CCHmacContext cx;
     CCHmacInit(&cx, kCCHmacAlgSHA1, [secretStringData bytes], [secretStringData length]);
     CCHmacUpdate(&cx, [requestStringData bytes], [requestStringData length]);
     CCHmacFinal(&cx, digest);
-    
-    // base 64
-    NSData *data = [NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];
-    return AFEncodeBase64WithData(data);
+
+    return AFEncodeBase64WithData([NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH]);
 }
 
 #pragma mark -
@@ -206,8 +199,6 @@ static inline NSString * AFHMACSHA1Signature(NSURLRequest *request, NSString *co
     [request setHTTPMethod:method];
 
     NSString *tokenSecret = token ? token.secret : nil;
-    
-    NSLog(@"token secret = %@", tokenSecret);
 
     switch (self.signatureMethod) {
         case AFHMACSHA1SignatureMethod:
@@ -248,8 +239,6 @@ static inline NSString * AFHMACSHA1Signature(NSURLRequest *request, NSString *co
         __block AFOAuth1Token *currentRequestToken = requestToken;
         [[NSNotificationCenter defaultCenter] addObserverForName:kAFApplicationLaunchedWithURLNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notification) {
             NSURL *url = [[notification userInfo] valueForKey:kAFApplicationLaunchOptionsURLKey];
-            
-            NSLog(@"verifier = %@", [AFParametersFromQueryString([url query]) valueForKey:@"oauth_verifier"]);
 
             currentRequestToken.verifier = [AFParametersFromQueryString([url query]) valueForKey:@"oauth_verifier"];
 
@@ -315,8 +304,6 @@ static inline NSString * AFHMACSHA1Signature(NSURLRequest *request, NSString *co
     NSMutableDictionary *parameters = [[self OAuthParameters] mutableCopy];
     [parameters setValue:requestToken.key forKey:@"oauth_token"];
     [parameters setValue:requestToken.verifier forKey:@"oauth_verifier"];
-    
-    NSLog(@"parameters = %@", parameters);
 
     NSMutableURLRequest *request = [self requestWithMethod:accessMethod path:path parameters:parameters];
 
@@ -346,14 +333,9 @@ static inline NSString * AFHMACSHA1Signature(NSURLRequest *request, NSString *co
         [mutableParameters addEntriesFromDictionary:[self OAuthParameters]];
         [mutableParameters setValue:self.accessToken.key forKey:@"oauth_token"];
     }
-    
-    NSLog(@"access_token = %@", self.accessToken);
 
-    NSString *sig = [self OAuthSignatureForMethod:method path:path parameters:mutableParameters token:self.accessToken];
-    [mutableParameters setValue:sig forKey:@"oauth_signature"];
+    [mutableParameters setValue:[self OAuthSignatureForMethod:method path:path parameters:mutableParameters token:self.accessToken] forKey:@"oauth_signature"];
 
-    NSLog(@"SIGNATURE = %@", sig);
-    
     NSMutableURLRequest *request = [super requestWithMethod:method path:path parameters:parameters];
     [request setValue:[self authorizationHeaderForParameters:mutableParameters] forHTTPHeaderField:@"Authorization"];
     [request setHTTPShouldHandleCookies:NO];
@@ -383,7 +365,6 @@ static inline NSString * AFHMACSHA1Signature(NSURLRequest *request, NSString *co
 @dynamic expired;
 
 - (id)initWithQueryString:(NSString *)queryString {
-    NSLog(@"init with query string = %@", queryString);
     if (!queryString || [queryString length] == 0) {
         return nil;
     }
@@ -399,7 +380,7 @@ static inline NSString * AFHMACSHA1Signature(NSURLRequest *request, NSString *co
     if (attributes[@"oauth_token_renewable"]) {
         canBeRenewed = AFQueryStringValueIsTrue([attributes objectForKey:@"oauth_token_renewable"]);
     }
-    NSLog(@"token secret = %@", [attributes objectForKey:@"oauth_token_secret"]);
+
     return [self initWithKey:[attributes objectForKey:@"oauth_token"] secret:[attributes objectForKey:@"oauth_token_secret"] session:[attributes objectForKey:@"oauth_session_handle"] expiration:expiration renewable:canBeRenewed];
 }
 
@@ -422,8 +403,6 @@ static inline NSString * AFHMACSHA1Signature(NSURLRequest *request, NSString *co
     self.session = session;
     self.expiration = expiration;
     self.renewable = canBeRenewed;
-    
-    NSLog(@"created with secret = %@", self.secret);
     
     return self;
 }
