@@ -82,7 +82,6 @@
 		30659B1E16B5A72C0072F6D5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30659B1D16B5A72B0072F6D5 /* Security.framework */; };
 		30659B2116B5B5E10072F6D5 /* REAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659B2016B5B5E00072F6D5 /* REAuthViewController.m */; };
 		30659B3716B5BDEB0072F6D5 /* REAuthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659B3616B5BDEA0072F6D5 /* REAuthCell.m */; };
-		30659B3F16B5D0030072F6D5 /* AFOAuth1Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659B3E16B5D0030072F6D5 /* AFOAuth1Client.m */; };
 		3096647216B1B36B00440203 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647116B1B36B00440203 /* UIKit.framework */; };
 		3096647416B1B36B00440203 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647316B1B36B00440203 /* Foundation.framework */; };
 		3096647616B1B36B00440203 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3096647516B1B36B00440203 /* CoreGraphics.framework */; };
@@ -236,8 +235,6 @@
 		30659B2016B5B5E00072F6D5 /* REAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REAuthViewController.m; sourceTree = "<group>"; };
 		30659B3516B5BDE90072F6D5 /* REAuthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REAuthCell.h; sourceTree = "<group>"; };
 		30659B3616B5BDEA0072F6D5 /* REAuthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REAuthCell.m; sourceTree = "<group>"; };
-		30659B3D16B5D0030072F6D5 /* AFOAuth1Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOAuth1Client.h; sourceTree = "<group>"; };
-		30659B3E16B5D0030072F6D5 /* AFOAuth1Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFOAuth1Client.m; sourceTree = "<group>"; };
 		3096646D16B1B36B00440203 /* REActivityViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REActivityViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3096647116B1B36B00440203 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3096647316B1B36B00440203 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -438,20 +435,9 @@
 			path = ../PocketSDK;
 			sourceTree = "<group>";
 		};
-		30659B3C16B5D0030072F6D5 /* AFOAuth1Client */ = {
-			isa = PBXGroup;
-			children = (
-				30659B3D16B5D0030072F6D5 /* AFOAuth1Client.h */,
-				30659B3E16B5D0030072F6D5 /* AFOAuth1Client.m */,
-			);
-			name = AFOAuth1Client;
-			path = ../AFOAuth1Client;
-			sourceTree = "<group>";
-		};
 		3096646216B1B36B00440203 = {
 			isa = PBXGroup;
 			children = (
-				30659B3C16B5D0030072F6D5 /* AFOAuth1Client */,
 				30659B0E16B5A7020072F6D5 /* PocketSDK */,
 				30659AD816B4D6910072F6D5 /* AFNetworking */,
 				30659A2716B4730F0072F6D5 /* FacebookComposeViewController */,
@@ -763,7 +749,6 @@
 				30659B1C16B5A7030072F6D5 /* SFHFKeychainUtils.m in Sources */,
 				30659B2116B5B5E10072F6D5 /* REAuthViewController.m in Sources */,
 				30659B3716B5BDEB0072F6D5 /* REAuthCell.m in Sources */,
-				30659B3F16B5D0030072F6D5 /* AFOAuth1Client.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

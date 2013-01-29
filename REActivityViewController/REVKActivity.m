@@ -69,14 +69,16 @@
         controller.hasAttachment = YES;
         controller.attachmentImage = image;
     }
-    controller.completionHandler = ^(REComposeResult result){
+    controller.completionHandler = ^(REComposeViewController *composeViewController, REComposeResult result) {
+        [composeViewController dismissViewControllerAnimated:YES completion:nil];
+        
         presenter.modalPresentationStyle = UIModalPresentationFullScreen;
         
         if (result == REComposeResultPosted) {
             if (image) {
-                [self shareText:controller.text image:image];
+                [self shareText:composeViewController.text image:image];
             } else {
-                [self shareText:controller.text];
+                [self shareText:composeViewController.text];
             }
         }
     };

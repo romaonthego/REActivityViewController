@@ -11,7 +11,6 @@
 #import "REAuthViewController.h"
 #import "SFHFKeychainUtils.h"
 #import "AFNetworking.h"
-#import "AFOAuth1Client.h"
 
 @implementation RETumblrActivity
 
@@ -34,21 +33,21 @@
                             [presenter presentViewController:controller animated:YES completion:nil];
                         }];*/
                         
-                       // UIViewController *presenter = activityViewController.presentingController;
-                       // NSDictionary *userInfo = activityViewController.userInfo;
-                        /*if (![[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"]) {
+                        UIViewController *presenter = activityViewController.presentingController;
+                        NSDictionary *userInfo = activityViewController.userInfo;
+                        if (![[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"]) {
                             [activityViewController dismissViewControllerAnimated:YES completion:^{
                                 REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
                                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
                                 controller.title = @"Tumblr";
                                 controller.labels = @[NSLocalizedString(@"Email", @"Email"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We never store your password.", @"We never store your password.")];
                                 controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
-                                    [self authenticateUsername:username password:password success:^{
+                                    [self authenticateWithUsername:username password:password success:^{
                                         [controller dismissViewControllerAnimated:YES completion:nil];
                                         [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"RETumblrActivity_Username"];
                                         [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"RETumblrActivity" updateExisting:YES error:nil];
                                         [self shareUserInfo:userInfo];
-                                    } error:^{
+                                    } fail:^(NSError *error){
                                         [controller showLoginButton];
                                         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tumblr Log In", @"Tumblr Log In") message:NSLocalizedString(@"Please check your e-mail and password. If you're sure they're correct, Instapaper may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
                                         [alertView show];
@@ -61,23 +60,13 @@
                         } else {
                             [activityViewController dismissViewControllerAnimated:YES completion:nil];
                             [self shareUserInfo:userInfo];
-                        }*/
-                        
-AFOAuth1Client *client = [[AFOAuth1Client alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.tumblr.com"]
-                                                             key:@"ISY7GdYtCDXfzo4hSfWTlaAVmkRreLBttE15Igedfr4sfaAYxW"
-                                                          secret:@"JX994q7T9va9Rm6VNgrMw6hiLgllEQzhsB2T7TtXWhN5yYj2IZ"];
-
-[client authorizeUsingOAuthWithRequestTokenPath:@"/oauth/request_token"
-                          userAuthorizationPath:@"/oauth/authorize"
-                                    callbackURL:[NSURL URLWithString:@"testapp://success"]
-                                accessTokenPath:@"/oauth/access_token"
-                                   accessMethod:@"GET"
-                                        success:^(AFOAuth1Token *accessToken) {
-                                            NSLog(@"Success: %@", accessToken);
-                                        } failure:^(NSError *error) {
-                                            NSLog(@"**** Error: %@", error);
-                                        }];
+                        }
                     }];
+}
+
+- (void)authenticateWithUsername:(NSString *)username password:(NSString *)password success:(void (^)(void))success fail:(void (^)(NSError *error))fail
+{
+    
 }
 
 - (void)shareUserInfo:(NSDictionary *)userInfo
@@ -107,7 +96,9 @@ AFOAuth1Client *client = [[AFOAuth1Client alloc] initWithBaseURL:[NSURL URLWithS
         controller.hasAttachment = YES;
         controller.attachmentImage = image;
     }
-    controller.completionHandler = ^(REComposeResult result){
+    controller.completionHandler = ^(REComposeViewController *composeViewController, REComposeResult result) {
+        [composeViewController dismissViewControllerAnimated:YES completion:nil];
+        
         presenter.modalPresentationStyle = UIModalPresentationFullScreen;
         if (result == REComposeResultPosted) {
             
