@@ -119,6 +119,7 @@
 		30A8393516B2D8FE00E9482B /* REMapsActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8393416B2D8FE00E9482B /* REMapsActivity.m */; };
 		30A8393A16B2DB9600E9482B /* Icon_Instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A8393916B2DB9600E9482B /* Icon_Instagram@2x.png */; };
 		30A8393C16B2DC8000E9482B /* Icon_Photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A8393B16B2DC8000E9482B /* Icon_Photos@2x.png */; };
+		30D79A1816B8924D00B3B4DB /* AFXAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D79A1716B8924D00B3B4DB /* AFXAuthClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -289,6 +290,8 @@
 		30A8393416B2D8FE00E9482B /* REMapsActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMapsActivity.m; sourceTree = "<group>"; };
 		30A8393916B2DB9600E9482B /* Icon_Instagram@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Instagram@2x.png"; sourceTree = "<group>"; };
 		30A8393B16B2DC8000E9482B /* Icon_Photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Photos@2x.png"; sourceTree = "<group>"; };
+		30D79A1616B8924D00B3B4DB /* AFXAuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXAuthClient.h; sourceTree = "<group>"; };
+		30D79A1716B8924D00B3B4DB /* AFXAuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXAuthClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,6 +441,7 @@
 		3096646216B1B36B00440203 = {
 			isa = PBXGroup;
 			children = (
+				30D79A1516B8924D00B3B4DB /* AFXAuthClient */,
 				30659B0E16B5A7020072F6D5 /* PocketSDK */,
 				30659AD816B4D6910072F6D5 /* AFNetworking */,
 				30659A2716B4730F0072F6D5 /* FacebookComposeViewController */,
@@ -588,6 +592,16 @@
 				30659B3616B5BDEA0072F6D5 /* REAuthCell.m */,
 			);
 			name = Activities;
+			sourceTree = "<group>";
+		};
+		30D79A1516B8924D00B3B4DB /* AFXAuthClient */ = {
+			isa = PBXGroup;
+			children = (
+				30D79A1616B8924D00B3B4DB /* AFXAuthClient.h */,
+				30D79A1716B8924D00B3B4DB /* AFXAuthClient.m */,
+			);
+			name = AFXAuthClient;
+			path = ../AFXAuthClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -749,6 +763,7 @@
 				30659B1C16B5A7030072F6D5 /* SFHFKeychainUtils.m in Sources */,
 				30659B2116B5B5E10072F6D5 /* REAuthViewController.m in Sources */,
 				30659B3716B5BDEB0072F6D5 /* REAuthCell.m in Sources */,
+				30D79A1816B8924D00B3B4DB /* AFXAuthClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
