@@ -144,7 +144,7 @@ activityViewController.presentingPopoverController = _activityPopoverController;
 
 ### Creating custom activities
 
-Creating custom activitis is super easy, see yourself:
+Creating custom activitis is super easy:
 
 ``` objective-c
 REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
