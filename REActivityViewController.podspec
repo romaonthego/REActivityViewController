@@ -23,4 +23,5 @@ Pod::Spec.new do |s|
   s.dependency 'REComposeViewController', '~> 0.0.1'
   s.dependency 'PocketAPI', '~> 1.0.1'
   s.dependency 'SFHFKeychainUtils'
+  s.dependency 'AFXAuthClient', '~> 1.0.2'
 end
