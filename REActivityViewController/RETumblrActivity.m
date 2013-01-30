@@ -51,13 +51,26 @@
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
         controller.title = @"Tumblr";
         controller.labels = @[NSLocalizedString(@"Email", @"Email"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We store your password in safe place.", @"We store your password in safe place.")];
-        controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
+        controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {            
             [self authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
-                [controller dismissViewControllerAnimated:YES completion:^{
+                NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"/v2/user/info" parameters:nil];
+                AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                    NSDictionary *blog = [[[[JSON objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"blogs"] objectAtIndex:0];
+                    NSURL *url = [NSURL URLWithString:[blog objectForKey:@"url"]];
+                  
                     [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"RETumblrActivity_Email"];
+                    [[NSUserDefaults standardUserDefaults] setObject:url.host forKey:@"RETumblrActivity_Blog"];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
                     [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"RETumblrActivity" updateExisting:YES error:nil];
-                    [self shareUserInfo:userInfo client:client];
+                    
+                    [controller dismissViewControllerAnimated:YES completion:^{
+                        [self shareUserInfo:userInfo client:client];
+                    }];
+                } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tumblr Log In", @"Tumblr Log In") message:NSLocalizedString(@"Please check your e-mail and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
+                    [alertView show];
                 }];
+                [client enqueueHTTPRequestOperation:operation];
             } failure:^(NSError *error) {
                 [controller showLoginButton];
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tumblr Log In", @"Tumblr Log In") message:NSLocalizedString(@"Please check your e-mail and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
@@ -118,17 +131,40 @@
         
         presenter.modalPresentationStyle = UIModalPresentationFullScreen;
         if (result == REComposeResultPosted) {
-            NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"/v2/user/info" parameters:nil];
-            AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                NSLog(@"Info: %@", JSON);
-            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                NSLog(@"Error: %@", error);
-            }];
-            [client enqueueHTTPRequestOperation:operation];
+            if (image) {
+                [self shareUsingClient:client text:composeViewController.text image:image];
+            } else {
+                [self shareUsingClient:client text:composeViewController.text];
+            }
         }
     };
     presenter.modalPresentationStyle = UIModalPresentationCurrentContext;
     [presenter presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)shareUsingClient:(AFXAuthClient *)client text:(NSString *)text
+{
+    
+}
+
+- (void)shareUsingClient:(AFXAuthClient *)client text:(NSString *)text image:(UIImage *)image
+{
+    NSString *hostName = [[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Blog"];
+    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"Flower.jpg"], 0.75f);
+    
+    NSDictionary *parameters = @{@"type": @"photo", @"caption": text};
+    
+    NSMutableURLRequest *request = [client multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"/v2/blog/%@/post", hostName] parameters:parameters
+                                                    constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
+                                                        [formData appendPartWithFileData:imageData name:@"data" fileName:@"photo.jpg" mimeType:@"image/jpg"];
+                                                    }];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"response = %@", JSON);
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"error = %@", error);
+    }];
+    [client enqueueHTTPRequestOperation:operation];
 }
 
 @end
