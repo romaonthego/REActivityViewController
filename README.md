@@ -10,7 +10,7 @@ Out of the box activities include:
 * Facebook
 * Twitter
 * VKontakte
-* Tumblr
+* Tumblr (using XAuth)
 * Message
 * Mail
 * Open in Safari
