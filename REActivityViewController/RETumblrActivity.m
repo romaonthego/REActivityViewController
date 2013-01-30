@@ -15,9 +15,9 @@
 
 @implementation RETumblrActivity
 
-- (id)init
+- (id)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret
 {
-    return [super initWithTitle:@"Tumblr"
+    self = [super initWithTitle:@"Tumblr"
                           image:[UIImage imageNamed:@"Icon_Tumblr"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         NSDictionary *userInfo = activityViewController.userInfo;
@@ -40,6 +40,12 @@
                             }];
                         }
                     }];
+    if (!self)
+        return nil;
+    
+    _consumerKey = consumerKey;
+    _consumerSecret = consumerSecret;
+    return self;
 }
 
 - (void)showAuthDialogWithActivityViewController:(REActivityViewController *)activityViewController
@@ -86,8 +92,8 @@
 - (void)authenticateWithUsername:(NSString *)username password:(NSString *)password success:(void (^)(AFXAuthClient *client))success failure:(void (^)(NSError *error))failure
 {
     AFXAuthClient *client = [[AFXAuthClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.tumblr.com"]
-                                                               key:@"o4bYX0gVoi6RcOHCo8FAPgHE07cEMo094j8xSFSM83MG7jQVDq"
-                                                            secret:@""];
+                                                               key:_consumerKey
+                                                            secret:_consumerSecret];
     
     [client authorizeUsingXAuthWithAccessTokenPath:@"/oauth/access_token"
                                       accessMethod:@"POST"
@@ -144,13 +150,19 @@
 
 - (void)shareUsingClient:(AFXAuthClient *)client text:(NSString *)text
 {
+    NSString *hostName = [[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Blog"];    
+    NSDictionary *parameters = @{@"type": @"text", @"body": text};
     
+    NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:[NSString stringWithFormat:@"/v2/blog/%@/post", hostName] parameters:parameters];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:nil failure:nil];
+    [client enqueueHTTPRequestOperation:operation];
 }
 
 - (void)shareUsingClient:(AFXAuthClient *)client text:(NSString *)text image:(UIImage *)image
 {
     NSString *hostName = [[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Blog"];
-    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"Flower.jpg"], 0.75f);
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.8f);
     
     NSDictionary *parameters = @{@"type": @"photo", @"caption": text};
     
@@ -159,11 +171,7 @@
                                                         [formData appendPartWithFileData:imageData name:@"data" fileName:@"photo.jpg" mimeType:@"image/jpg"];
                                                     }];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"response = %@", JSON);
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"error = %@", error);
-    }];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:nil failure:nil];
     [client enqueueHTTPRequestOperation:operation];
 }
 

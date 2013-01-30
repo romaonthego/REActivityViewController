@@ -39,7 +39,7 @@
     REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
     RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
     REVKActivity *vkActivity = [[REVKActivity alloc] initWithClientId:@"3286015"];
-    RETumblrActivity *tumblrActivity = [[RETumblrActivity alloc] init];
+    RETumblrActivity *tumblrActivity = [[RETumblrActivity alloc] initWithConsumerKey:@"INSERT KEY HERE" consumerSecret:@"INSERT SECRET HERE"];
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
     REMailActivity *mailActivity = [[REMailActivity alloc] init];
     RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
