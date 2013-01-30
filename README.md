@@ -91,7 +91,7 @@ REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
                                                          image:[UIImage imageNamed:@"Icon_Custom"]
                                                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                                                        [activityViewController dismissViewControllerAnimated:YES completion:^{
-                                                           NSLog(@"Hey, there!");
+                                                           NSLog(@"Info: %@", activityViewController.userInfo);
                                                        }];
                                                    }];
 
