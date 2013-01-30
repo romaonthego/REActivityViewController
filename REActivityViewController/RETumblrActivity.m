@@ -18,7 +18,7 @@
 - (id)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret
 {
     self = [super initWithTitle:@"Tumblr"
-                          image:[UIImage imageNamed:@"Icon_Tumblr"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Tumblr"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         NSDictionary *userInfo = activityViewController.userInfo;
                         if (![[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"]) {

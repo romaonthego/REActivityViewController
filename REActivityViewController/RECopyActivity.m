@@ -14,7 +14,7 @@
 - (id)init
 {
     return [super initWithTitle:@"Copy"
-                          image:[UIImage imageNamed:@"Icon_Copy"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Copy"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
                         NSDictionary *userInfo = activityViewController.userInfo;

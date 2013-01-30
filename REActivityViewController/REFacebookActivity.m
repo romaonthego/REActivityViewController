@@ -15,7 +15,7 @@
 - (id)init
 {
     return [super initWithTitle:@"Facebook"
-                          image:[UIImage imageNamed:@"Icon_Facebook"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Facebook"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
                         NSDictionary *userInfo = activityViewController.userInfo;

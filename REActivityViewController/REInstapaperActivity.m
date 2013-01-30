@@ -17,7 +17,7 @@
 - (id)init
 {
     return [super initWithTitle:@"Send to Instapaper"
-                          image:[UIImage imageNamed:@"Icon_Instapaper"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Instapaper"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
                         NSDictionary *userInfo = activityViewController.userInfo;

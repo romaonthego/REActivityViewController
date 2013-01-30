@@ -14,7 +14,7 @@
 - (id)init
 {
     return [super initWithTitle:@"Print"
-                          image:[UIImage imageNamed:@"Icon_Print"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Print"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         NSDictionary *userInfo = activityViewController.userInfo;
                         [activityViewController dismissViewControllerAnimated:YES completion:^{

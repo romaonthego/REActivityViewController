@@ -16,7 +16,7 @@
 - (id)initWithClientId:(NSString *)clientId
 {
     self = [super initWithTitle:@"VKontakte"
-                          image:[UIImage imageNamed:@"Icon_VK"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_VK"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
                         [activityViewController dismissViewControllerAnimated:YES completion:^{

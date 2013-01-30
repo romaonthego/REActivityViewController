@@ -15,7 +15,7 @@
 - (id)initWithConsumerKey:(NSString *)consumerKey
 {
     return [super initWithTitle:@"Save to Pocket"
-                          image:[UIImage imageNamed:@"Icon_Pocket"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Pocket"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
                         NSDictionary *userInfo = activityViewController.userInfo;

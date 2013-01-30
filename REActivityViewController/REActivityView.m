@@ -20,7 +20,7 @@
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
             _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 417)];
-            _backgroundImageView.image = [UIImage imageNamed:@"Background"];
+            _backgroundImageView.image = [UIImage imageNamed:@"REActivityViewController.bundle/Background"];
             _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             [self addSubview:_backgroundImageView];
         }
@@ -31,7 +31,6 @@
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.delegate = self;
         _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-     //   _scrollView.backgroundColor = [UIColor blueColor];
         [self addSubview:_scrollView];
         
         NSInteger index = 0;
@@ -46,7 +45,7 @@
                 row = 0;
                 page++;
             }
-        //    NSLog(@"index = %i", index % 9);
+
             UIView *view = [self viewForActivity:activity
                                            index:index
                                                x:(20 + col*80 + col*20) + page * frame.size.width
@@ -66,7 +65,7 @@
             _pageControl.hidden = YES;
         
         _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_cancelButton setBackgroundImage:[[UIImage imageNamed:@"Button"] stretchableImageWithLeftCapWidth:22 topCapHeight:47] forState:UIControlStateNormal];
+        [_cancelButton setBackgroundImage:[[UIImage imageNamed:@"REActivityViewController.bundle/Button"] stretchableImageWithLeftCapWidth:22 topCapHeight:47] forState:UIControlStateNormal];
         _cancelButton.frame = CGRectMake(22, 352, 276, 47);
         [_cancelButton setTitle:NSLocalizedString(@"Cancel", @"Cancel") forState:UIControlStateNormal];
         [_cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -74,7 +73,6 @@
         [_cancelButton.titleLabel setShadowOffset:CGSizeMake(0, -1)];
         [_cancelButton.titleLabel setFont:[UIFont boldSystemFontOfSize:19]];
         [_cancelButton addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-      //  _cancelButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:_cancelButton];
     }
     return self;
@@ -118,8 +116,6 @@
     frame.origin.y = self.frame.size.height - 47 - 16;
     frame.origin.x = (self.frame.size.width - frame.size.width) / 2.0f;
     _cancelButton.frame = frame;
-    
-   //_scrollView.frame = CGRectMake(_scrollView.frame.origin.x, _scrollView.frame.origin.y, _scrollView.frame.size.width, self.frame.size.height - 104);
 }
 
 #pragma mark -

@@ -15,7 +15,7 @@
 - (id)init
 {
     return [super initWithTitle:@"Save to Camera Roll"
-                          image:[UIImage imageNamed:@"Icon_Photos"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Photos"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
                         NSDictionary *userInfo = activityViewController.userInfo;

@@ -14,7 +14,7 @@
 - (id)init
 {
     return [super initWithTitle:@"Open in Maps"
-                          image:[UIImage imageNamed:@"Icon_Maps"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Maps"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
                         

@@ -14,7 +14,7 @@
 - (id)init
 {
     return [super initWithTitle:@"Open in Safari"
-                          image:[UIImage imageNamed:@"Icon_Safari"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Safari"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
                         

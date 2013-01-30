@@ -15,7 +15,7 @@
 - (id)init
 {
     return [super initWithTitle:@"Mail"
-                          image:[UIImage imageNamed:@"Icon_Mail"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Mail"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         NSDictionary *userInfo = activityViewController.userInfo;
                         NSString *text = [userInfo objectForKey:@"text"];

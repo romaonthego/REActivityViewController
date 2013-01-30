@@ -54,14 +54,9 @@
 		30659A9F16B480540072F6D5 /* REComposeViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30659A9816B480540072F6D5 /* REComposeViewController.bundle */; };
 		30659AA016B480540072F6D5 /* REComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659A9A16B480540072F6D5 /* REComposeViewController.m */; };
 		30659AA316B480630072F6D5 /* RETumblrActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AA216B480620072F6D5 /* RETumblrActivity.m */; };
-		30659AA516B484030072F6D5 /* Icon_Tumblr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AA416B484030072F6D5 /* Icon_Tumblr@2x.png */; };
-		30659AA716B48AAF0072F6D5 /* Icon_VK@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AA616B48AAF0072F6D5 /* Icon_VK@2x.png */; };
 		30659AAA16B48B6F0072F6D5 /* REVKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AA916B48B6F0072F6D5 /* REVKActivity.m */; };
 		30659AAD16B4985F0072F6D5 /* REInstapaperActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AAC16B4985E0072F6D5 /* REInstapaperActivity.m */; };
-		30659AAF16B499020072F6D5 /* Icon_Instapaper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AAE16B499020072F6D5 /* Icon_Instapaper@2x.png */; };
-		30659AB116B49A070072F6D5 /* Icon_Pocket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AB016B49A070072F6D5 /* Icon_Pocket@2x.png */; };
 		30659AB416B49A150072F6D5 /* REPocketActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659AB316B49A150072F6D5 /* REPocketActivity.m */; };
-		30659AB916B49D4F0072F6D5 /* Icon_Custom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30659AB816B49D4F0072F6D5 /* Icon_Custom@2x.png */; };
 		30659ABD16B4B9730072F6D5 /* REVKActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659ABB16B4B9460072F6D5 /* REVKActivityViewController.m */; };
 		30659AEC16B4D6910072F6D5 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659ADA16B4D6910072F6D5 /* AFHTTPClient.m */; };
 		30659AED16B4D6910072F6D5 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30659ADC16B4D6910072F6D5 /* AFHTTPRequestOperation.m */; };
@@ -99,14 +94,6 @@
 		309664A016B1B95500440203 /* REMessageActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3096649F16B1B95500440203 /* REMessageActivity.m */; };
 		309664A316B1B96A00440203 /* REMailActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 309664A216B1B96900440203 /* REMailActivity.m */; };
 		309664A916B1D62300440203 /* REActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 309664A816B1D62200440203 /* REActivityView.m */; };
-		309664B616B1E8CF00440203 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664AF16B1E8CF00440203 /* Background@2x.png */; };
-		309664B716B1E8CF00440203 /* Icon_Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B016B1E8CF00440203 /* Icon_Copy@2x.png */; };
-		309664B816B1E8CF00440203 /* Icon_Facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B116B1E8CF00440203 /* Icon_Facebook@2x.png */; };
-		309664B916B1E8CF00440203 /* Icon_Mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B216B1E8CF00440203 /* Icon_Mail@2x.png */; };
-		309664BA16B1E8CF00440203 /* Icon_Message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B316B1E8CF00440203 /* Icon_Message@2x.png */; };
-		309664BB16B1E8CF00440203 /* Icon_Print@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B416B1E8CF00440203 /* Icon_Print@2x.png */; };
-		309664BC16B1E8CF00440203 /* Icon_Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */; };
-		309664C116B1F02900440203 /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309664C016B1F02900440203 /* Button@2x.png */; };
 		309664C316B1F40000440203 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C216B1F40000440203 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		309664C516B1F40400440203 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309664C416B1F40400440203 /* Twitter.framework */; };
 		309664E116B2F40200440203 /* Flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 309664E016B2F40200440203 /* Flower.jpg */; };
@@ -114,12 +101,9 @@
 		30A8392816B2D75F00E9482B /* REPrintActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392716B2D75F00E9482B /* REPrintActivity.m */; };
 		30A8392B16B2D76800E9482B /* RECopyActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392A16B2D76800E9482B /* RECopyActivity.m */; };
 		30A8392E16B2D77200E9482B /* RESafariActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8392D16B2D77200E9482B /* RESafariActivity.m */; };
-		30A8393016B2D8B600E9482B /* Icon_Safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A8392F16B2D8B600E9482B /* Icon_Safari@2x.png */; };
-		30A8393216B2D8BB00E9482B /* Icon_Maps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A8393116B2D8BB00E9482B /* Icon_Maps@2x.png */; };
 		30A8393516B2D8FE00E9482B /* REMapsActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8393416B2D8FE00E9482B /* REMapsActivity.m */; };
-		30A8393A16B2DB9600E9482B /* Icon_Instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A8393916B2DB9600E9482B /* Icon_Instagram@2x.png */; };
-		30A8393C16B2DC8000E9482B /* Icon_Photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A8393B16B2DC8000E9482B /* Icon_Photos@2x.png */; };
 		30D79A1816B8924D00B3B4DB /* AFXAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D79A1716B8924D00B3B4DB /* AFXAuthClient.m */; };
+		30E227DB16B9A03700DAF128 /* REActivityViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30E227DA16B9A03700DAF128 /* REActivityViewController.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,18 +168,13 @@
 		30659A9A16B480540072F6D5 /* REComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REComposeViewController.m; sourceTree = "<group>"; };
 		30659AA116B480620072F6D5 /* RETumblrActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETumblrActivity.h; sourceTree = "<group>"; };
 		30659AA216B480620072F6D5 /* RETumblrActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETumblrActivity.m; sourceTree = "<group>"; };
-		30659AA416B484030072F6D5 /* Icon_Tumblr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Tumblr@2x.png"; sourceTree = "<group>"; };
-		30659AA616B48AAF0072F6D5 /* Icon_VK@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_VK@2x.png"; sourceTree = "<group>"; };
 		30659AA816B48B6E0072F6D5 /* REVKActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REVKActivity.h; sourceTree = "<group>"; };
 		30659AA916B48B6F0072F6D5 /* REVKActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REVKActivity.m; sourceTree = "<group>"; };
 		30659AAB16B4985E0072F6D5 /* REInstapaperActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REInstapaperActivity.h; sourceTree = "<group>"; };
 		30659AAC16B4985E0072F6D5 /* REInstapaperActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REInstapaperActivity.m; sourceTree = "<group>"; };
-		30659AAE16B499020072F6D5 /* Icon_Instapaper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Instapaper@2x.png"; sourceTree = "<group>"; };
-		30659AB016B49A070072F6D5 /* Icon_Pocket@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Pocket@2x.png"; sourceTree = "<group>"; };
 		30659AB216B49A140072F6D5 /* REPocketActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REPocketActivity.h; sourceTree = "<group>"; };
 		30659AB316B49A150072F6D5 /* REPocketActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPocketActivity.m; sourceTree = "<group>"; };
 		30659AB516B49A500072F6D5 /* REActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivities.h; sourceTree = "<group>"; };
-		30659AB816B49D4F0072F6D5 /* Icon_Custom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Custom@2x.png"; sourceTree = "<group>"; };
 		30659ABA16B4B9460072F6D5 /* REVKActivityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = REVKActivityViewController.h; sourceTree = "<group>"; };
 		30659ABB16B4B9460072F6D5 /* REVKActivityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = REVKActivityViewController.m; sourceTree = "<group>"; };
 		30659AD916B4D6910072F6D5 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -265,14 +244,6 @@
 		309664A216B1B96900440203 /* REMailActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMailActivity.m; sourceTree = "<group>"; };
 		309664A716B1D62200440203 /* REActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActivityView.h; sourceTree = "<group>"; };
 		309664A816B1D62200440203 /* REActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REActivityView.m; sourceTree = "<group>"; };
-		309664AF16B1E8CF00440203 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
-		309664B016B1E8CF00440203 /* Icon_Copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Copy@2x.png"; sourceTree = "<group>"; };
-		309664B116B1E8CF00440203 /* Icon_Facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Facebook@2x.png"; sourceTree = "<group>"; };
-		309664B216B1E8CF00440203 /* Icon_Mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Mail@2x.png"; sourceTree = "<group>"; };
-		309664B316B1E8CF00440203 /* Icon_Message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Message@2x.png"; sourceTree = "<group>"; };
-		309664B416B1E8CF00440203 /* Icon_Print@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Print@2x.png"; sourceTree = "<group>"; };
-		309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Twitter@2x.png"; sourceTree = "<group>"; };
-		309664C016B1F02900440203 /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
 		309664C216B1F40000440203 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		309664C416B1F40400440203 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		309664E016B2F40200440203 /* Flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Flower.jpg; sourceTree = "<group>"; };
@@ -284,14 +255,11 @@
 		30A8392A16B2D76800E9482B /* RECopyActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECopyActivity.m; sourceTree = "<group>"; };
 		30A8392C16B2D77200E9482B /* RESafariActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESafariActivity.h; sourceTree = "<group>"; };
 		30A8392D16B2D77200E9482B /* RESafariActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESafariActivity.m; sourceTree = "<group>"; };
-		30A8392F16B2D8B600E9482B /* Icon_Safari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Safari@2x.png"; sourceTree = "<group>"; };
-		30A8393116B2D8BB00E9482B /* Icon_Maps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Maps@2x.png"; sourceTree = "<group>"; };
 		30A8393316B2D8FE00E9482B /* REMapsActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMapsActivity.h; sourceTree = "<group>"; };
 		30A8393416B2D8FE00E9482B /* REMapsActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMapsActivity.m; sourceTree = "<group>"; };
-		30A8393916B2DB9600E9482B /* Icon_Instagram@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Instagram@2x.png"; sourceTree = "<group>"; };
-		30A8393B16B2DC8000E9482B /* Icon_Photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Photos@2x.png"; sourceTree = "<group>"; };
 		30D79A1616B8924D00B3B4DB /* AFXAuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXAuthClient.h; sourceTree = "<group>"; };
 		30D79A1716B8924D00B3B4DB /* AFXAuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXAuthClient.m; sourceTree = "<group>"; };
+		30E227DA16B9A03700DAF128 /* REActivityViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = REActivityViewController.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -516,7 +484,6 @@
 			isa = PBXGroup;
 			children = (
 				309664BD16B1E93C00440203 /* Activities */,
-				309664A416B1CFE800440203 /* REActivityViewController */,
 				3096648F16B1B3CC00440203 /* REActivityViewController.h */,
 				3096649016B1B3CC00440203 /* REActivityViewController.m */,
 				3096649516B1B4C800440203 /* REActivity.h */,
@@ -528,33 +495,10 @@
 			path = ../REActivityViewController;
 			sourceTree = "<group>";
 		};
-		309664A416B1CFE800440203 /* REActivityViewController */ = {
-			isa = PBXGroup;
-			children = (
-				309664C016B1F02900440203 /* Button@2x.png */,
-				309664AF16B1E8CF00440203 /* Background@2x.png */,
-				309664B016B1E8CF00440203 /* Icon_Copy@2x.png */,
-				30659AA616B48AAF0072F6D5 /* Icon_VK@2x.png */,
-				30A8392F16B2D8B600E9482B /* Icon_Safari@2x.png */,
-				30A8393B16B2DC8000E9482B /* Icon_Photos@2x.png */,
-				309664B116B1E8CF00440203 /* Icon_Facebook@2x.png */,
-				30659AB816B49D4F0072F6D5 /* Icon_Custom@2x.png */,
-				30A8393916B2DB9600E9482B /* Icon_Instagram@2x.png */,
-				309664B216B1E8CF00440203 /* Icon_Mail@2x.png */,
-				30A8393116B2D8BB00E9482B /* Icon_Maps@2x.png */,
-				30659AB016B49A070072F6D5 /* Icon_Pocket@2x.png */,
-				30659AAE16B499020072F6D5 /* Icon_Instapaper@2x.png */,
-				309664B316B1E8CF00440203 /* Icon_Message@2x.png */,
-				309664B416B1E8CF00440203 /* Icon_Print@2x.png */,
-				309664B516B1E8CF00440203 /* Icon_Twitter@2x.png */,
-				30659AA416B484030072F6D5 /* Icon_Tumblr@2x.png */,
-			);
-			path = REActivityViewController;
-			sourceTree = "<group>";
-		};
 		309664BD16B1E93C00440203 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
+				30E227DA16B9A03700DAF128 /* REActivityViewController.bundle */,
 				30659AB516B49A500072F6D5 /* REActivities.h */,
 				30659A0B16B465C20072F6D5 /* REActivityDelegateObject.h */,
 				30659A0C16B465C20072F6D5 /* REActivityDelegateObject.m */,
@@ -659,18 +603,6 @@
 				3096648416B1B36B00440203 /* Default.png in Resources */,
 				3096648616B1B36B00440203 /* Default@2x.png in Resources */,
 				3096648816B1B36B00440203 /* Default-568h@2x.png in Resources */,
-				309664B616B1E8CF00440203 /* Background@2x.png in Resources */,
-				309664B716B1E8CF00440203 /* Icon_Copy@2x.png in Resources */,
-				309664B816B1E8CF00440203 /* Icon_Facebook@2x.png in Resources */,
-				309664B916B1E8CF00440203 /* Icon_Mail@2x.png in Resources */,
-				309664BA16B1E8CF00440203 /* Icon_Message@2x.png in Resources */,
-				309664BB16B1E8CF00440203 /* Icon_Print@2x.png in Resources */,
-				309664BC16B1E8CF00440203 /* Icon_Twitter@2x.png in Resources */,
-				309664C116B1F02900440203 /* Button@2x.png in Resources */,
-				30A8393016B2D8B600E9482B /* Icon_Safari@2x.png in Resources */,
-				30A8393216B2D8BB00E9482B /* Icon_Maps@2x.png in Resources */,
-				30A8393A16B2DB9600E9482B /* Icon_Instagram@2x.png in Resources */,
-				30A8393C16B2DC8000E9482B /* Icon_Photos@2x.png in Resources */,
 				309664E116B2F40200440203 /* Flower.jpg in Resources */,
 				30659A5016B4730F0072F6D5 /* DEFacebookComposeView.xib in Resources */,
 				30659A5616B4730F0072F6D5 /* DEFacebookAttachmentFrame.png in Resources */,
@@ -699,11 +631,7 @@
 				30659A6D16B4730F0072F6D5 /* NavBarLandscape@2x1.png in Resources */,
 				30659A7916B474910072F6D5 /* FacebookSDKResources.bundle in Resources */,
 				30659A9F16B480540072F6D5 /* REComposeViewController.bundle in Resources */,
-				30659AA516B484030072F6D5 /* Icon_Tumblr@2x.png in Resources */,
-				30659AA716B48AAF0072F6D5 /* Icon_VK@2x.png in Resources */,
-				30659AAF16B499020072F6D5 /* Icon_Instapaper@2x.png in Resources */,
-				30659AB116B49A070072F6D5 /* Icon_Pocket@2x.png in Resources */,
-				30659AB916B49D4F0072F6D5 /* Icon_Custom@2x.png in Resources */,
+				30E227DB16B9A03700DAF128 /* REActivityViewController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
