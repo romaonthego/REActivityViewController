@@ -4,7 +4,8 @@ Pod::Spec.new do |s|
   s.authors     = { 'Roman Efimov' => 'romefimov@gmail.com' }
   s.homepage    = 'https://github.com/romaonthego/REActivityViewController'
   s.summary     = 'Open source alternative to UIActivityViewController, highly customizable and compatible with iOS 5.0.'
-  s.source      = { :git => 'https://github.com/romaonthego/REActivityViewController.git', :commit => 'fa6121db87f95b2f3a9909416f052f2ebfbd7e5c' }
+  s.source      = { :git => 'https://github.com/romaonthego/REActivityViewController.git',
+                    :commit => 'fa6121db87f95b2f3a9909416f052f2ebfbd7e5c' }
   s.license     = { :type => "MIT", :file => "LICENSE" }
 
   s.platform = :ios, '5.0'
