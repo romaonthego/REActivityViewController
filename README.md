@@ -172,7 +172,7 @@ activityViewController.presentingPopoverController = _activityPopoverController;
                                    permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 ```
 
-Please note, that our presenting view controller is the navigation controller, so we pass it in `initWithViewController`.
+Please note that our presenting view controller is the navigation controller, so we pass it in `initWithViewController`.
 
 ### Creating custom activities
 
