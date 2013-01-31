@@ -103,12 +103,12 @@ Once your activities are ready, prepare data source (userInfo) and present the v
 //
 REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
 RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
-REVKActivity *vkActivity = [[REVKActivity alloc] init];
-RETumblrActivity *tumblrActivity = [[RETumblrActivity alloc] init];
+REVKActivity *vkActivity = [[REVKActivity alloc] initWithClientId:@"VK APP ID"];
+RETumblrActivity *tumblrActivity = [[RETumblrActivity alloc] initWithConsumerKey:@"CONSUMER KEY" consumerSecret:@"CONSUMER SECRET"];
 REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
 REMailActivity *mailActivity = [[REMailActivity alloc] init];
 RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
-REPocketActivity *pocketActivity = [[REPocketActivity alloc] init];
+REPocketActivity *pocketActivity = [[REPocketActivity alloc] initWithConsumerKey:@"CONSUMER KEY"];
 REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
 RESaveToCameraRollActivity *saveToCameraRollActivity = [[RESaveToCameraRollActivity alloc] init];
 REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
