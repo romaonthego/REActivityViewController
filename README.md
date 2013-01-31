@@ -15,7 +15,7 @@ Out of the box activities include:
 * Mail
 * Open in Safari
 * Save to Pocket
-* Save to Instapaper
+* Send to Instapaper
 * Save to Album
 * Open in Maps
 * Print
