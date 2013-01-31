@@ -37,7 +37,7 @@
     self = [super init];
     if (self) {
         self.view.backgroundColor = [UIColor whiteColor];
-        self.title = @"VK Log In";
+        self.title = @"VKontakte";
         self.clientId = clientId;
         
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonPressed)];
