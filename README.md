@@ -74,7 +74,7 @@ Add `#include "REActivityViewController.h"` to the top of classes that will use 
 
 * QuartzCore
 * AssetsLibrary
-* Message UI
+* MessageUI
 * Twitter
 
 The following framework must be added as optional (weak reference):
