@@ -31,7 +31,13 @@ All activites are compatible with iOS 5.0.
 
 ## Demo
 
-Build and run the `REActivityViewControllerExample` project in Xcode to see `REActivityViewController` in action.
+First, you need to install dependencies using [CocoaPods](http://cocoapods.org/) package manager in the demo project:
+
+``` bash
+$ pod install
+```
+
+After that, build and run the `REActivityViewControllerExample` project in Xcode to see `REActivityViewController` in action.
 
 ## Installation
 
