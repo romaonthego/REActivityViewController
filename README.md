@@ -68,6 +68,28 @@ $ pod install
 
 Add `#include "REActivityViewController.h"` to the top of classes that will use it.
 
+### Manual installation
+
+`REActivityViewController` needs to be linked with the following frameworks:
+
+* QuartzCore
+* AssetsLibrary
+* Message UI
+* Twitter
+
+The following framework must be added as optional (weak reference):
+
+* Social
+
+Dependencies:
+
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking) ~> 1.0
+* [Facebook-iOS-SDK](https://github.com/facebook/facebook-ios-sdk) ~> 3.1.1
+* [DEFacebookComposeViewController](https://github.com/sakrist/FacebookSample) ~> 1.0.0
+* [REComposeViewController](https://github.com/romaonthego/REComposeViewController) ~> 1.1
+* [PocketAPI](https://github.com/Pocket/Pocket-ObjC-SDK) ~> 1.0.1
+* [AFXAuthClient](https://github.com/romaonthego/AFXAuthClient) ~> 1.0.2
+
 ## Example Usage
 
 ### Configuring & presenting REActivityViewController
