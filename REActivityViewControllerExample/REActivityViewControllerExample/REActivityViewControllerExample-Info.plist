@@ -34,5 +34,24 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>FacebookAppID</key>
+	<string>397338903692190</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.readitlater</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>pocketapp11708</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb397338903692190</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "PocketAPI.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

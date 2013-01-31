@@ -16,6 +16,9 @@
 		3003A84116BAD54C000E48B9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3003A84016BAD54C000E48B9 /* Default.png */; };
 		3003A84316BAD54C000E48B9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3003A84216BAD54C000E48B9 /* Default@2x.png */; };
 		3003A84516BAD54C000E48B9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3003A84416BAD54C000E48B9 /* Default-568h@2x.png */; };
+		3003A85216BAD909000E48B9 /* Flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3003A85116BAD909000E48B9 /* Flower.jpg */; };
+		3003A85716BAE680000E48B9 /* RootViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A85416BAE680000E48B9 /* RootViewController_iPad.m */; };
+		3003A85816BAE680000E48B9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A85616BAE680000E48B9 /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,11 @@
 		3003A84016BAD54C000E48B9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3003A84216BAD54C000E48B9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		3003A84416BAD54C000E48B9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3003A85116BAD909000E48B9 /* Flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Flower.jpg; sourceTree = "<group>"; };
+		3003A85316BAE680000E48B9 /* RootViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController_iPad.h; sourceTree = "<group>"; };
+		3003A85416BAE680000E48B9 /* RootViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController_iPad.m; sourceTree = "<group>"; };
+		3003A85516BAE680000E48B9 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		3003A85616BAE680000E48B9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,10 @@
 			children = (
 				3003A83D16BAD54C000E48B9 /* AppDelegate.h */,
 				3003A83E16BAD54C000E48B9 /* AppDelegate.m */,
+				3003A85316BAE680000E48B9 /* RootViewController_iPad.h */,
+				3003A85416BAE680000E48B9 /* RootViewController_iPad.m */,
+				3003A85516BAE680000E48B9 /* RootViewController.h */,
+				3003A85616BAE680000E48B9 /* RootViewController.m */,
 				3003A83516BAD54C000E48B9 /* Supporting Files */,
 			);
 			path = REActivityViewControllerExample;
@@ -95,6 +107,7 @@
 				3003A84016BAD54C000E48B9 /* Default.png */,
 				3003A84216BAD54C000E48B9 /* Default@2x.png */,
 				3003A84416BAD54C000E48B9 /* Default-568h@2x.png */,
+				3003A85116BAD909000E48B9 /* Flower.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -109,6 +122,7 @@
 				3003A82716BAD54C000E48B9 /* Sources */,
 				3003A82816BAD54C000E48B9 /* Frameworks */,
 				3003A82916BAD54C000E48B9 /* Resources */,
+				346E96B0FE2247DBA1D9C020 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,10 +168,28 @@
 				3003A84116BAD54C000E48B9 /* Default.png in Resources */,
 				3003A84316BAD54C000E48B9 /* Default@2x.png in Resources */,
 				3003A84516BAD54C000E48B9 /* Default-568h@2x.png in Resources */,
+				3003A85216BAD909000E48B9 /* Flower.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		346E96B0FE2247DBA1D9C020 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3003A82716BAD54C000E48B9 /* Sources */ = {
@@ -166,6 +198,8 @@
 			files = (
 				3003A83B16BAD54C000E48B9 /* main.m in Sources */,
 				3003A83F16BAD54C000E48B9 /* AppDelegate.m in Sources */,
+				3003A85716BAE680000E48B9 /* RootViewController_iPad.m in Sources */,
+				3003A85816BAE680000E48B9 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +279,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "REActivityViewControllerExample/REActivityViewControllerExample-Prefix.pch";
 				INFOPLIST_FILE = "REActivityViewControllerExample/REActivityViewControllerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -256,7 +292,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "REActivityViewControllerExample/REActivityViewControllerExample-Prefix.pch";
 				INFOPLIST_FILE = "REActivityViewControllerExample/REActivityViewControllerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -280,6 +318,7 @@
 				3003A84A16BAD54C000E48B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
