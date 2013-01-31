@@ -39,6 +39,8 @@ $ pod install
 
 After that, build and run the `REActivityViewControllerExample` project in Xcode to see `REActivityViewController` in action.
 
+If you don't have CocoaPods installed, check section "Installation" below.
+
 ## Installation
 
 The recommended approach for installating REActivityViewController is via the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
