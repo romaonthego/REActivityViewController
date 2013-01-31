@@ -110,7 +110,7 @@ REMailActivity *mailActivity = [[REMailActivity alloc] init];
 RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
 REPocketActivity *pocketActivity = [[REPocketActivity alloc] init];
 REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
-RESaveToAlbumActivity *saveToAlbumActivity = [[RESaveToAlbumActivity alloc] init];
+RESaveToCameraRollActivity *saveToCameraRollActivity = [[RESaveToCameraRollActivity alloc] init];
 REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
 REPrintActivity *printActivity = [[REPrintActivity alloc] init];
 RECopyActivity *copyActivity = [[RECopyActivity alloc] init];
@@ -130,7 +130,7 @@ REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
 //
 NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity,
 messageActivity, mailActivity, safariActivity, pocketActivity, instapaperActivity,
-saveToAlbumActivity, mapsActivity, printActivity, copyActivity, customActivity];
+saveToCameraRollActivity, mapsActivity, printActivity, copyActivity, customActivity];
 
 // Create REActivityViewController controller and assign data source
 //
