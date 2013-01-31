@@ -73,7 +73,7 @@
         REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
         controller.title = @"Tumblr";
-        controller.labels = @[NSLocalizedString(@"Email", @"Email"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We store your password in safe place.", @"We store your password in safe place.")];
+        controller.labels = @[NSLocalizedString(@"Email", @"Email"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We store your password in a safe place.", @"We store your password in safe place.")];
         controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {            
             [self authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
                 NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"/v2/user/info" parameters:nil];
