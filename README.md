@@ -159,7 +159,7 @@ On iPad, you should use `UIPopoverController` to present `REActivityViewControll
 ``` objective-c
 // Create REActivityViewController controller and assign data source
 //
-REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self activities:activities];
+REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self.navigationController activities:activities];
     @"image": [UIImage imageNamed:@"Flower.jpg"],
     @"text": @"Hello world!",
     @"url": [NSURL URLWithString:@"https://github.com/romaonthego/REActivityViewController"],
@@ -171,6 +171,8 @@ activityViewController.presentingPopoverController = _activityPopoverController;
 [_activityPopoverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem
                                    permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 ```
+
+Please note, that our presenting view controller is the navigation controller, so we pass it in `initWithViewController`.
 
 ### Creating custom activities
 

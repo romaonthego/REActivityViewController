@@ -34,14 +34,13 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     if ([[PocketAPI sharedAPI] handleOpenURL:url]){
-		return YES;
-	} else{
-		if ([FBSession.activeSession handleOpenURL:url]) {
             return YES;
-        } else {
-            return NO;
-        }
-	}
+	} else{
+            if ([FBSession.activeSession handleOpenURL:url]) {
+                return YES;
+            }
+    }
+    return NO;
 }
 
 @end
