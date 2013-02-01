@@ -1,2 +1,2 @@
 platform :ios, '5.0'
-pod "REActivityViewController", :git => 'https://github.com/romaonthego/REActivityViewController.git', :commit => '4d3f07a695603ce9ef2f1ca4fd455d2909cdba18'
+pod "REActivityViewController", :git => 'https://github.com/romaonthego/REActivityViewController.git', :commit => '39a90894523f9f352d38defdc937198b6500279b'
