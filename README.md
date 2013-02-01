@@ -5,9 +5,9 @@ It allows to create custom activites with ease, you control their apperance and 
 
 ![Screenshot of REActivityViewController](https://github.com/romaonthego/REActivityViewController/raw/master/Screenshot.png "REActivityViewController Screenshot")
 
-Out of the box activities include:
+> Out of the box activities include:
 
-* Facebook
+> * Facebook
 * Twitter
 * VKontakte
 * Tumblr (using XAuth)
@@ -21,7 +21,7 @@ Out of the box activities include:
 * Print
 * Copy
 
-All activites are compatible with iOS 5.0.
+> All activites are compatible with iOS 5.0.
 
 ## Requirements
 * Xcode 4.5 or higher
