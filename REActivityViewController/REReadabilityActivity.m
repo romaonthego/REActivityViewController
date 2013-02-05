@@ -1,5 +1,5 @@
 //
-// REInstapaperActivity.m
+// REReadabilityActivity.m
 // REActivityViewController
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
