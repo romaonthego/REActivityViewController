@@ -25,16 +25,95 @@
 
 #import "REReadabilityActivity.h"
 #import "REActivityViewController.h"
+#import "REAuthViewController.h"
+#import "SFHFKeychainUtils.h"
+#import "AFNetworking.h"
+#import "AFXAuthClient.h"
 
 @implementation REReadabilityActivity
 
-- (id)init
+- (id)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret
 {
-    return [super initWithTitle:@"Save to Readability"
+    self = [super initWithTitle:@"Save to Readability"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Readability"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        
+                        NSDictionary *userInfo = activityViewController.userInfo;
+                        if (![[NSUserDefaults standardUserDefaults] objectForKey:@"REReadabilityActivity_Key"]) {
+                            [self showAuthDialogWithActivityViewController:activityViewController];
+                        } else {
+                            [activityViewController dismissViewControllerAnimated:YES completion:^{
+                                [self bookmark:userInfo];
+                            }];
+                        }
                     }];
+    if (!self)
+        return nil;
+    
+    _consumerKey = consumerKey;
+    _consumerSecret = consumerSecret;
+    
+    return self;
+}
+
+- (void)showAuthDialogWithActivityViewController:(REActivityViewController *)activityViewController
+{
+    UIViewController *presenter = activityViewController.presentingController;
+    NSDictionary *userInfo = activityViewController.userInfo;
+    [activityViewController dismissViewControllerAnimated:YES completion:^{
+        REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+        controller.title = @"Readability";
+        controller.labels = @[NSLocalizedString(@"Username", @"Username"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We never store your password.", @"We never store your password.")];
+        controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
+            [self authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
+                [[NSUserDefaults standardUserDefaults] setObject:client.token.key forKey:@"REReadabilityActivity_Key"];
+                [[NSUserDefaults standardUserDefaults] setObject:client.token.secret forKey:@"REReadabilityActivity_Secret"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                [controller dismissViewControllerAnimated:YES completion:^{
+                    [self bookmark:userInfo];
+                }];
+            } failure:^(NSError *error) {
+                [controller showLoginButton];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Readability Log In", @"Readability Log In") message:NSLocalizedString(@"Please check your username and password. If you're sure they're correct, Readability may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
+                [alertView show];
+            }];
+        };
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+        [presenter presentViewController:navigationController animated:YES completion:nil];
+    }];
+}
+
+- (void)authenticateWithUsername:(NSString *)username password:(NSString *)password success:(void (^)(AFXAuthClient *client))success failure:(void (^)(NSError *error))failure
+{
+    AFXAuthClient *client = [[AFXAuthClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://www.readability.com"]
+                                                               key:_consumerKey
+                                                            secret:_consumerSecret];
+    
+    [client authorizeUsingXAuthWithAccessTokenPath:@"/api/rest/v1/oauth/access_token"
+                                      accessMethod:@"POST"
+                                          username:username
+                                          password:password
+                                           success:^(AFXAuthToken *accessToken) {
+                                               if (success)
+                                                   success(client);
+                                           } failure:failure];
+}
+
+- (void)bookmark:(NSDictionary *)userInfo
+{
+    AFXAuthClient *client = [[AFXAuthClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://www.readability.com"]
+                                                               key:_consumerKey
+                                                            secret:_consumerSecret];
+    NSString *key = [[NSUserDefaults standardUserDefaults] objectForKey:@"REReadabilityActivity_Key"];
+    NSString *secret = [[NSUserDefaults standardUserDefaults] objectForKey:@"REReadabilityActivity_Secret"];
+    client.token = [[AFXAuthToken alloc] initWithKey:key secret:secret];
+    
+    NSURL *url = [userInfo objectForKey:@"url"];
+    NSDictionary *parameters = @{@"url": url.absoluteString};
+    NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"/api/rest/v1/bookmarks" parameters:parameters];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:nil failure:nil];
+    [client enqueueHTTPRequestOperation:operation];
 }
 
 @end
