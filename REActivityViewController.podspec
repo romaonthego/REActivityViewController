@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
   s.dependency 'DEFacebookComposeViewController', '~> 1.0.0'
   s.dependency 'REComposeViewController', '~> 1.1'
   s.dependency 'PocketAPI', '~> 1.0.1'
-  s.dependency 'AFXAuthClient', '~> 1.0.2'
+  s.dependency 'AFXAuthClient', '~> 1.0.3'
 end
