@@ -16,6 +16,7 @@ It allows to create custom activites with ease, you control their apperance and 
 * Open in Safari
 * Save to Pocket
 * Send to Instapaper
+* Save to Readability
 * Save to Album
 * Open in Maps
 * Print
@@ -88,7 +89,7 @@ Dependencies:
 * [DEFacebookComposeViewController](https://github.com/sakrist/FacebookSample) ~> 1.0.0
 * [REComposeViewController](https://github.com/romaonthego/REComposeViewController) ~> 1.1
 * [PocketAPI](https://github.com/Pocket/Pocket-ObjC-SDK) ~> 1.0.1
-* [AFXAuthClient](https://github.com/romaonthego/AFXAuthClient) ~> 1.0.2
+* [AFXAuthClient](https://github.com/romaonthego/AFXAuthClient) ~> 1.0.3
 
 ## Example Usage
 
@@ -110,6 +111,7 @@ REMailActivity *mailActivity = [[REMailActivity alloc] init];
 RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
 REPocketActivity *pocketActivity = [[REPocketActivity alloc] initWithConsumerKey:@"CONSUMER KEY"];
 REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
+REReadabilityActivity *readabilityActivity = [[REReadabilityActivity alloc] initWithConsumerKey:@"CONSUMER KEY" consumerSecret:@"CONSUMER SECRET"];
 RESaveToCameraRollActivity *saveToCameraRollActivity = [[RESaveToCameraRollActivity alloc] init];
 REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
 REPrintActivity *printActivity = [[REPrintActivity alloc] init];
@@ -130,7 +132,8 @@ REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
 //
 NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity,
 messageActivity, mailActivity, safariActivity, pocketActivity, instapaperActivity,
-saveToCameraRollActivity, mapsActivity, printActivity, copyActivity, customActivity];
+readabilityActivity, saveToCameraRollActivity, mapsActivity, printActivity, copyActivity,
+customActivity];
 
 // Create REActivityViewController controller and assign data source
 //
