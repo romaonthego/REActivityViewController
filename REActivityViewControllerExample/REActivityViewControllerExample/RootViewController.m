@@ -34,6 +34,7 @@
     RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
     REPocketActivity *pocketActivity = [[REPocketActivity alloc] initWithConsumerKey:@"11708-5a8fa563a3485a5133ef1b56"];
     REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
+    REReadabilityActivity *readabilityActivity = [[REReadabilityActivity alloc] initWithConsumerKey:@"CONSUMER KEY" consumerSecret:@"CONSUMER SECRET"];
     RESaveToCameraRollActivity *saveToCameraRollActivity = [[RESaveToCameraRollActivity alloc] init];
     REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
     REPrintActivity *printActivity = [[REPrintActivity alloc] init];
@@ -53,8 +54,9 @@
     // REActivityViewController on the next step
     //
     NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity,
-                            messageActivity, mailActivity, safariActivity, pocketActivity, instapaperActivity,
-                            saveToCameraRollActivity, mapsActivity, printActivity, copyActivity, customActivity];
+                            messageActivity, mailActivity, safariActivity, pocketActivity,
+                            instapaperActivity, readabilityActivity, saveToCameraRollActivity,
+                            mapsActivity, printActivity, copyActivity, customActivity];
     
     // Create REActivityViewController controller and assign data source
     //
