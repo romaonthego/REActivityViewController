@@ -31,7 +31,7 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Mail"
+    return [super initWithTitle:NSLocalizedStringFromTable(@"activity.Mail.title",@"REActivityViewController",@"Mail")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Mail"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         NSDictionary *userInfo = activityViewController.userInfo;

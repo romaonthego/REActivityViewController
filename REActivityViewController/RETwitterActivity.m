@@ -31,7 +31,7 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Twitter"
+    return [super initWithTitle:NSLocalizedStringFromTable(@"activity.Twitter.title",@"REActivityViewController",@"Twitter")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Twitter"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;

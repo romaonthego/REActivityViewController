@@ -30,7 +30,7 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Open in Maps"
+    return [super initWithTitle:NSLocalizedStringFromTable(@"activity.Maps.title",@"REActivityViewController",@"Open in Maps")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Maps"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
