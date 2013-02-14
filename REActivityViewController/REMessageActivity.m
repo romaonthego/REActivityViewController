@@ -38,7 +38,7 @@
     if (!self)
         return nil;
     
-    __weak __block __typeof(&*self)weakSelf = self;
+    __weak __typeof(&*self)weakSelf = self;
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         NSString *text = [userInfo objectForKey:@"text"];

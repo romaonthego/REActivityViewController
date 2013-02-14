@@ -42,7 +42,7 @@
     
     _consumerKey = consumerKey;
     _consumerSecret = consumerSecret;
-    __weak __block __typeof(&*self)weakSelf = self;
+    __weak __typeof(&*self)weakSelf = self;
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         if (![[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"]) {
@@ -70,7 +70,7 @@
 
 - (void)showAuthDialogWithActivityViewController:(REActivityViewController *)activityViewController
 {
-    __weak __block __typeof(&*self)weakSelf = self;
+    __weak __typeof(&*self)weakSelf = self;
     UIViewController *presenter = activityViewController.presentingController;
     NSDictionary *userInfo = self.userInfo ? self.userInfo : activityViewController.userInfo;
     [activityViewController dismissViewControllerAnimated:YES completion:^{
@@ -128,7 +128,7 @@
 
 - (void)shareUserInfo:(NSDictionary *)userInfo client:(AFXAuthClient *)client
 {
-    __weak __block __typeof(&*self)weakSelf = self;
+    __weak __typeof(&*self)weakSelf = self;
     UIViewController *presenter = self.activityViewController.presentingController;
     
     NSString *text = [userInfo objectForKey:@"text"];

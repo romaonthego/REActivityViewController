@@ -37,7 +37,7 @@
     if (!self)
         return nil;
     
-    __weak __block __typeof(&*self)weakSelf = self;
+    __weak __typeof(&*self)weakSelf = self;
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
         [activityViewController dismissViewControllerAnimated:YES completion:nil];
         
