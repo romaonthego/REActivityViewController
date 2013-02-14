@@ -1,0 +1,90 @@
+/*
+ REActivityViewController.strings
+ Created by Benoit Pereira da Silva on 02/13/13.
+ http://www.pereira-da-silva.com
+*/
+
+/////////////////////
+// ACTIVITIES
+/////////////////////
+
+/* Mail */
+"activity.Mail.title"="Mail";
+
+/* Copy */
+"activity.Copy.title"="Copy";
+
+/* Save to Diigo */
+"activity.Diigo.title"="Save to Diigo";
+
+/* Facebook */
+"activity.Facebook.title"="Facebook";
+
+/* Send to Instapaper */
+"activity.Instapaper.title"="Send to Instapaper";
+"activity.Instapaper.authentication.title"="Instapaper";
+"activity.Instapaper.authentication.error"="Please check your username and password. If you're sure they're correct, Instapaper may be temporarily experiencing problems. Please try again in a few minutes.";
+
+/* Open in Maps */
+"activity.Maps.title"="Open in Maps";
+
+/* Message */
+"activity.Message.title"="Message";
+
+/* Save to Pocket */
+"activity.Pocket.title"="Save to Pocket";
+
+/* Print */
+"activity.Print.title"="Print";
+"activity.Print.error.title"="Error.";
+"activity.Print.error.message"="An error occured while printing: %@";
+
+/* Save to Readability */
+"activity.Readability.title"="Save to Readability";
+"activity.Readability.authentication.title"="Readability";
+"activity.Readability.authentication.error"="Please check your username and password. If you're sure they're correct, Readability may be temporarily experiencing problems. Please try again in a few minutes.";
+
+/* Open in Safari */
+"activity.Safari.title"="Open in Safari";
+
+/* Save to Camera Roll */
+"activity.CameraRoll.title"="Save to Camera Roll";
+
+/* Tumblr */
+"activity.Tumblr.title"="Tumblr";
+"activity.Tumblr.dialog.Tumblr.title"="Tumblr";
+"activity.Tumblr.authentication.title"="Tumblr";
+"activity.Tumblr.authentication.error"="Please check your username and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.";
+
+/* Twitter */
+"activity.Twitter.title"="Twitter";
+
+/* VKontakte */
+"activity.VKontakte.title"="VKontakte";
+"activity.VKontakte.dialog.title"="VKontakte";
+"activity.VKontakte.authentication.title"="VKontakte";
+
+/////////////////////
+// GENERIC
+/////////////////////
+
+/* Buttons */
+"button.cancel"="Cancel";
+"button.dismiss"="Dismiss";
+"button.login"="Log In";
+
+/* Email */
+"field.email"="Email";
+
+/* Password */
+"field.password"="Password";
+
+/* Username */
+"field.username"="Username";
+
+/* We never store your password. */
+"slogan.never.store.password"="We never store your password.";
+
+/* We save your password in a safe place. */
+"slogan.password.storage.is.safe"="We store your password in a safe place.";
+
