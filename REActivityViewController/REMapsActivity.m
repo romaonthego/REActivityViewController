@@ -30,22 +30,27 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Open in Maps"
-                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Maps"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                        
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        NSString *url;
-                        
-                        if ([userInfo objectForKey:@"coordinate"]) {
-                            url = [NSString stringWithFormat:@"http://maps.apple.com/?q=%@,%@", [[userInfo objectForKey:@"coordinate"] objectForKey:@"latitude"], [[userInfo objectForKey:@"coordinate"] objectForKey:@"longitude"]];
-                        } else {
+    self=[super init];
+    if(self)
+    {
+        [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Maps.title",@"REActivityViewController",@"Open in Maps")
+                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Maps"]
+                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
+                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
+                         
+                         NSDictionary *userInfo = activityViewController.userInfo;
+                         NSString *url;
+                         
+                         if ([userInfo objectForKey:@"coordinate"]) {
+                             url = [NSString stringWithFormat:@"http://maps.apple.com/?q=%@,%@", [[userInfo objectForKey:@"coordinate"] objectForKey:@"latitude"], [[userInfo objectForKey:@"coordinate"] objectForKey:@"longitude"]];
+                         } else {
                              url = [NSString stringWithFormat:@"http://maps.apple.com/?q=%@", [userInfo objectForKey:@"text"]];
-                        }
-                        
-                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-                    }];
+                         }
+                         
+                         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+                     }];
+    }
+    return self;
 }
 
 @end

@@ -34,29 +34,34 @@
 
 - (id)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret
 {
-    self = [super initWithTitle:@"Tumblr"
+    self=[super init];
+    if(self)
+    {
+    __weak RETumblrActivity*weakSelf=self;
+    [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Tumblr.title",@"REActivityViewController",@"Tumblr")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Tumblr"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         NSDictionary *userInfo = activityViewController.userInfo;
                         if (![[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"]) {
-                            [self showAuthDialogWithActivityViewController:activityViewController];
+                            [weakSelf showAuthDialogWithActivityViewController:activityViewController];
                         } else {
                             [activityViewController dismissViewControllerAnimated:YES completion:^{
                                 NSString *email = [[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"];
                                 NSString *password = [SFHFKeychainUtils getPasswordForUsername:email andServiceName:@"RETumblrActivity" error:nil];
                                 
-                                [self authenticateWithUsername:email
+                                [weakSelf authenticateWithUsername:email
                                                       password:password success:^(AFXAuthClient *client) {
-                                                          [self shareUserInfo:userInfo client:client];
+                                                          [weakSelf shareUserInfo:userInfo client:client];
                                                       } failure:^(NSError *error) {
-                                                          [self showAuthDialogWithActivityViewController:activityViewController];
+                                                          [weakSelf showAuthDialogWithActivityViewController:activityViewController];
                                                           
-                                                          UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tumblr Log In", @"Tumblr Log In") message:NSLocalizedString(@"Please check your e-mail and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
+                                                          UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"authentication.Tumblr.title",@"REActivityViewController",@"Tumblr Log In") message:NSLocalizedStringFromTable(@"authentication.Tumblr.check.credentials",@"REActivityViewController",@"Please check your username and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.")  delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"Dismiss",@"REActivityViewController",@"Dismiss") otherButtonTitles:nil];
                                                           [alertView show];
                                                       }];
                             }];
                         }
                     }];
+    }
     if (!self)
         return nil;
     
@@ -69,13 +74,14 @@
 {
     UIViewController *presenter = activityViewController.presentingController;
     NSDictionary *userInfo = activityViewController.userInfo;
+    __weak RETumblrActivity*weakSelf=self;
     [activityViewController dismissViewControllerAnimated:YES completion:^{
         REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
         controller.title = @"Tumblr";
-        controller.labels = @[NSLocalizedString(@"Email", @"Email"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We store your password in a safe place.", @"We store your password in safe place.")];
+        controller.labels = @[NSLocalizedStringFromTable(@"Email",@"REActivityViewController",@"Email"), NSLocalizedStringFromTable(@"Password",@"REActivityViewController",@"Password"),NSLocalizedStringFromTable(@"slogan.password.storage.is.safe",@"REActivityViewController",@"We store your password in a safe place.")];
         controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {            
-            [self authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
+            [weakSelf authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
                 NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"/v2/user/info" parameters:nil];
                 AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                     NSDictionary *blog = [[[[JSON objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"blogs"] objectAtIndex:0];
@@ -87,16 +93,16 @@
                     [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"RETumblrActivity" updateExisting:YES error:nil];
                     
                     [controller dismissViewControllerAnimated:YES completion:^{
-                        [self shareUserInfo:userInfo client:client];
+                        [weakSelf shareUserInfo:userInfo client:client];
                     }];
                 } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tumblr Log In", @"Tumblr Log In") message:NSLocalizedString(@"Please check your e-mail and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"authentication.Tumblr.title",@"REActivityViewController",@"Tumblr Log In") message:NSLocalizedStringFromTable(@"authentication.Tumblr.check.credentials",@"REActivityViewController",@"Please check your username and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.")  delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"Dismiss",@"REActivityViewController",@"Dismiss") otherButtonTitles:nil];
                     [alertView show];
                 }];
                 [client enqueueHTTPRequestOperation:operation];
             } failure:^(NSError *error) {
                 [controller showLoginButton];
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tumblr Log In", @"Tumblr Log In") message:NSLocalizedString(@"Please check your e-mail and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"authentication.Tumblr.title",@"REActivityViewController",@"Tumblr Log In") message:NSLocalizedStringFromTable(@"authentication.Tumblr.check.credentials",@"REActivityViewController",@"Please check your username and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"Dismiss",@"REActivityViewController",@"Dismiss") otherButtonTitles:nil];
                 [alertView show];
             }];
         };

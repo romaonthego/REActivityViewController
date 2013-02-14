@@ -30,16 +30,21 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Open in Safari"
-                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Safari"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                        
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        
-                        if ([[userInfo objectForKey:@"url"] isKindOfClass:[NSURL class]])
-                            [[UIApplication sharedApplication] openURL:[userInfo objectForKey:@"url"]];
-                    }];
+    self=[super init];
+    if(self)
+    {
+        [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Safari.title",@"REActivityViewController",@"Open in Safari")
+                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Safari"]
+                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
+                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
+                         
+                         NSDictionary *userInfo = activityViewController.userInfo;
+                         
+                         if ([[userInfo objectForKey:@"url"] isKindOfClass:[NSURL class]])
+                             [[UIApplication sharedApplication] openURL:[userInfo objectForKey:@"url"]];
+                     }];
+    }
+    return self;
 }
 
 @end

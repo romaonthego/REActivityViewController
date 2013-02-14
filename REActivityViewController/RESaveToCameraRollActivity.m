@@ -31,7 +31,10 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Save to Camera Roll"
+    self=[super init];
+    if(self)
+    {
+        [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Camera.title",@"REActivityViewController",@"Save to Camera Roll")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Photos"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
@@ -43,6 +46,8 @@
                                                   orientation:(ALAssetOrientation)image.imageOrientation
                                               completionBlock:nil];
                     }];
+    }
+    return self;
 }
 
 @end
