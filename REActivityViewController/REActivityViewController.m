@@ -96,7 +96,7 @@
         }];
     }
     
-     [super viewWillAppear:animated];
+    [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -105,7 +105,7 @@
 }
 
 - (NSInteger)height
-{   
+{
     if (_activities.count <= 3) return 214;
     if (_activities.count <= 6) return 317;
     return 417;
@@ -116,7 +116,7 @@
     [super viewDidLoad];
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Helpers
 
 - (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay
@@ -154,5 +154,27 @@
         return YES;
     return (orientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark -
+#pragma mark dataSource
+
+- (NSDictionary*)userInfoFor:(NSString*)activityName
+{
+    if(self.userInfo)
+    {
+        id candidate=[_userInfo objectForKey:activityName];
+        if([candidate isKindOfClass:[NSDictionary class]])
+            return (NSDictionary*)candidate;// We return the specific dictionary
+        if([self.userInfo isKindOfClass:[NSDictionary class]])
+            return self.userInfo;// We return the global dictionary
+        [NSException raise:NSStringFromClass([self class]) format:@"Semantic error in %@",_userInfo];
+    }else{
+        // We prefer to raise an exception if there is no data source
+        [NSException raise:NSStringFromClass([self class]) format:@"No userInfo"];
+    }
+    return nil;
+}
+
+
 
 @end

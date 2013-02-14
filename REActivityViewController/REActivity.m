@@ -27,15 +27,16 @@
 
 @implementation REActivity
 
-- (id)initWithTitle:(NSString *)title image:(UIImage *)image actionBlock:(REActivityActionBlock)actionBlock
+- (void)configureWithTitle:(NSString *)title image:(UIImage *)image actionBlock:(REActivityActionBlock)actionBlock
 {
-    self = [super init];
-    if (self) {
-        _title = title;
-        _image = image;
-        _actionBlock = [actionBlock copy];
-    }
-    return self;
+    _title = title;
+    _image = image;
+    _actionBlock = [actionBlock copy];
+}
+
+-(NSString*)activityName
+{
+    return NSStringFromClass([self class]);
 }
 
 @end

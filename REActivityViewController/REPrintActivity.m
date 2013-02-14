@@ -30,36 +30,42 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Print"
-                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Print"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        [activityViewController dismissViewControllerAnimated:YES completion:^{
-                            UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
-                            
-                            UIPrintInfo *printInfo = [UIPrintInfo printInfo];
-                            printInfo.outputType = UIPrintInfoOutputGeneral;
-                            printInfo.jobName = [userInfo objectForKey:@"text"];
-                            pc.printInfo = printInfo;
-                            
-                            pc.printingItem = [userInfo objectForKey:@"image"];
-                            
-                            void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) =
-                            ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
-                                if (!completed && error) {
-                                    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error."
-                                                                                 message:[NSString stringWithFormat:@"An error occured while printing: %@", error]
-                                                                                delegate:nil
-                                                                       cancelButtonTitle:@"OK"
-                                                                       otherButtonTitles:nil, nil];
-                                    
-                                    [av show];
-                                }
-                            };
-                            
-                            [pc presentAnimated:YES completionHandler:completionHandler];
-                        }];
-                    }];
+    self=[super init];
+    if(self)
+    {
+        __weak REPrintActivity*weakSelf=self;
+        [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Print.title",@"REActivityViewController",@"Print")
+                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Print"]
+                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
+                         NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
+                         [activityViewController dismissViewControllerAnimated:YES completion:^{
+                             UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
+                             
+                             UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+                             printInfo.outputType = UIPrintInfoOutputGeneral;
+                             printInfo.jobName = [userInfo objectForKey:@"text"];
+                             pc.printInfo = printInfo;
+                             
+                             pc.printingItem = [userInfo objectForKey:@"image"];
+                             
+                             void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) =
+                             ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
+                                 if (!completed && error) {
+                                     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error."
+                                                                                  message:[NSString stringWithFormat:NSLocalizedStringFromTable(@"error.printing.format",@"REActivityViewController",@"An error occured while printing format"), error]
+                                                                                 delegate:nil
+                                                                        cancelButtonTitle:@"OK"
+                                                                        otherButtonTitles:nil, nil];
+                                     
+                                     [av show];
+                                 }
+                             };
+                             
+                             [pc presentAnimated:YES completionHandler:completionHandler];
+                         }];
+                     }];
+    }
+    return self;
 }
 
 @end

@@ -39,4 +39,12 @@
 
 - (id)initWithViewController:(UIViewController *)viewController activities:(NSArray *)activities;
 
+/* 
+ * Returns the userInfo according to the activity name
+ * Allowing to variate the shared data  :
+ * Let say i share a short text for Twiter ( and i would include an "via @app" for example)
+ * and longer text for Facebook.
+ */
+- (NSDictionary*)userInfoFor:(NSString*)activityName;
+
 @end

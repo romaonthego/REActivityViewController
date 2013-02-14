@@ -37,6 +37,14 @@ typedef void (^REActivityActionBlock)(REActivity *activity, REActivityViewContro
 @property (copy, readonly, nonatomic) REActivityActionBlock actionBlock;
 @property (strong, nonatomic) REActivityViewController *activityViewController;
 
-- (id)initWithTitle:(NSString *)title image:(UIImage *)image actionBlock:(REActivityActionBlock)actionBlock;
+/*
+ * Configures the activity
+ */
+- (void)configureWithTitle:(NSString *)title image:(UIImage *)image actionBlock:(REActivityActionBlock)actionBlock;
+
+/*
+ * Returns the Activity class name as a string
+ */
+-(NSString*)activityName;
 
 @end

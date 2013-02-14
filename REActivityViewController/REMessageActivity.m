@@ -31,29 +31,35 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Message"
-                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Message"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        NSString *text = [userInfo objectForKey:@"text"];
-                        NSURL *url = [userInfo objectForKey:@"url"];
-                        [activityViewController dismissViewControllerAnimated:YES completion:^{
-                            MFMessageComposeViewController *messageComposeViewController = [[MFMessageComposeViewController alloc] init];
-                            [REActivityDelegateObject sharedObject].controller = activityViewController.presentingController;
-                            messageComposeViewController.messageComposeDelegate = [REActivityDelegateObject sharedObject];
-                            
-                            if (text && !url)
-                                messageComposeViewController.body = text;
-                            
-                            if (!text && url)
-                                messageComposeViewController.body = url.absoluteString;
-                            
-                            if (text && url)
-                                messageComposeViewController.body = [NSString stringWithFormat:@"%@ %@", text, url.absoluteString];
-                            
-                            [activityViewController.presentingController presentViewController:messageComposeViewController animated:YES completion:nil];
-                        }];
-                    }];
+    self=[super init];
+    if(self)
+    {
+        __weak REMessageActivity*weakSelf=self;
+        [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Message.title",@"REActivityViewController",@"Message")
+                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Message"]
+                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
+                        NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
+                         NSString *text = [userInfo objectForKey:@"text"];
+                         NSURL *url = [userInfo objectForKey:@"url"];
+                         [activityViewController dismissViewControllerAnimated:YES completion:^{
+                             MFMessageComposeViewController *messageComposeViewController = [[MFMessageComposeViewController alloc] init];
+                             [REActivityDelegateObject sharedObject].controller = activityViewController.presentingController;
+                             messageComposeViewController.messageComposeDelegate = [REActivityDelegateObject sharedObject];
+                             
+                             if (text && !url)
+                                 messageComposeViewController.body = text;
+                             
+                             if (!text && url)
+                                 messageComposeViewController.body = url.absoluteString;
+                             
+                             if (text && url)
+                                 messageComposeViewController.body = [NSString stringWithFormat:@"%@ %@", text, url.absoluteString];
+                             
+                             [activityViewController.presentingController presentViewController:messageComposeViewController animated:YES completion:nil];
+                         }];
+                     }];
+    }
+    return self;
 }
 
 @end
