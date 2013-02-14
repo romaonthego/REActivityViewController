@@ -58,7 +58,7 @@ Edit your Podfile and add `REActivityViewController`:
 ``` bash
 $ edit Podfile
 platform :ios, '5.0'
-pod 'REActivityViewController', '~> 1.1'
+pod 'REActivityViewController', '~> 1.2'
 ```
 
 Install into your Xcode project:
@@ -162,7 +162,7 @@ twitterActivity.userInfo = @{@"image": [UIImage imageNamed:@"Flower.jpg"],
 
 ### Presentation Notes
 
-On the iPhone, you must present `REActivityViewController` from the window's root controller (top level controller), otherwise you'll be getting black background underneath `REActivityViewController`. 
+On the iPhone, you must present `REActivityViewController` from the window's root controller (top level controller), otherwise you'll be getting black background underneath `REActivityViewController`.
 It has something to do with `UIModalPresentationCurrentContext` as it requires presenting view to be full screen.
 
 For example, if your controller is contained in `UINavigationController` you could use the following code to present `REActivityViewController`:
