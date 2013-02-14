@@ -32,9 +32,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            _textField = [[UITextField alloc] initWithFrame:CGRectMake(120, 0, self.frame.size.width - 140, 44)];
+            _textField = [[UITextField alloc] initWithFrame:CGRectMake(140, 0, self.frame.size.width - 160, 44)];
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            _textField = [[UITextField alloc] initWithFrame:CGRectMake(140, 0, self.frame.size.width - 180, 44)];
+            _textField = [[UITextField alloc] initWithFrame:CGRectMake(160, 0, self.frame.size.width - 200, 44)];
         
         _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
