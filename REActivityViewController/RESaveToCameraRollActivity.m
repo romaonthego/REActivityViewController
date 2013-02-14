@@ -33,12 +33,12 @@
 {
     self=[super init];
     if(self)
-    {
+    {   __weak RESaveToCameraRollActivity*weakSelf=self;
         [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Camera.title",@"REActivityViewController",@"Save to Camera Roll")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Photos"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                        NSDictionary *userInfo = activityViewController.userInfo;
+                        NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                         UIImage *image = [userInfo objectForKey:@"image"];
                         
                         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];

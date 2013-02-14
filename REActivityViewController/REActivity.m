@@ -34,4 +34,9 @@
     _actionBlock = [actionBlock copy];
 }
 
+-(NSString*)activityName
+{
+    return NSStringFromClass([self class]);
+}
+
 @end

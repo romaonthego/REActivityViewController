@@ -41,7 +41,7 @@
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Instapaper"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
-                        NSDictionary *userInfo = activityViewController.userInfo;
+                        NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                         if (![[NSUserDefaults standardUserDefaults] objectForKey:@"REInstapaperActivity_Username"]) {
                             [activityViewController dismissViewControllerAnimated:YES completion:^{
                                 REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];

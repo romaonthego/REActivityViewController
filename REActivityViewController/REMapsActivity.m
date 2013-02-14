@@ -33,12 +33,12 @@
     self=[super init];
     if(self)
     {
+         __weak REMapsActivity*weakSelf=self;
         [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Maps.title",@"REActivityViewController",@"Open in Maps")
                            image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Maps"]
                      actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                          [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                         
-                         NSDictionary *userInfo = activityViewController.userInfo;
+                         NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                          NSString *url;
                          
                          if ([userInfo objectForKey:@"coordinate"]) {

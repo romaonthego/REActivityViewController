@@ -33,10 +33,11 @@
     self=[super init];
     if(self)
     {
+        __weak REPrintActivity*weakSelf=self;
         [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Print.title",@"REActivityViewController",@"Print")
                            image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Print"]
                      actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                         NSDictionary *userInfo = activityViewController.userInfo;
+                         NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                          [activityViewController dismissViewControllerAnimated:YES completion:^{
                              UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
                              

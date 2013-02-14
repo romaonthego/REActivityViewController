@@ -39,7 +39,7 @@
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Pocket"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                        NSDictionary *userInfo = activityViewController.userInfo;
+                        NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                         [[PocketAPI sharedAPI] setConsumerKey:consumerKey];
                         if ([PocketAPI sharedAPI].username) {
                             [weakSelf saveURL:[userInfo objectForKey:@"url"]];

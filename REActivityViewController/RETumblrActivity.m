@@ -41,7 +41,7 @@
     [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Tumblr.title",@"REActivityViewController",@"Tumblr")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Tumblr"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        NSDictionary *userInfo = activityViewController.userInfo;
+                        NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                         if (![[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"]) {
                             [weakSelf showAuthDialogWithActivityViewController:activityViewController];
                         } else {

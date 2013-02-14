@@ -33,10 +33,11 @@
 {
     self=[super init];
     if(self){
-        [super configureWithTitle:NSLocalizedStringFromTable(@"activity.Mail.title",@"REActivityViewController",@"Mail")
+           __weak REMailActivity*weakSelf=self;
+        [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Mail.title",@"REActivityViewController",@"Mail")
                             image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Mail"]
                       actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                          NSDictionary *userInfo = activityViewController.userInfo;
+                          NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                           NSString *subject = [userInfo objectForKey:@"subject"];
                           NSString *text = [userInfo objectForKey:@"text"];
                           UIImage *image = [userInfo objectForKey:@"image"];

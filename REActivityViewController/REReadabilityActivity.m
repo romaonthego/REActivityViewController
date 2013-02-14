@@ -40,7 +40,7 @@
         [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Readability.title",@"REActivityViewController",@"Save to Readability")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Readability"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        NSDictionary *userInfo = activityViewController.userInfo;
+                        NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                         if (![[NSUserDefaults standardUserDefaults] objectForKey:@"REReadabilityActivity_Key"]) {
                             [weakSelf showAuthDialogWithActivityViewController:activityViewController];
                         } else {

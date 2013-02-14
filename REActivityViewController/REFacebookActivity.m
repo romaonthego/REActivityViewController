@@ -38,7 +38,7 @@
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Facebook"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
-                        NSDictionary *userInfo = activityViewController.userInfo;
+                        NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                         
                         [activityViewController dismissViewControllerAnimated:YES completion:^{
                             [weakSelf shareFromViewController:presenter

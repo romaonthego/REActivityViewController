@@ -64,7 +64,7 @@
 - (void)share
 {
     UIViewController *presenter = self.activityViewController.presentingController;
-    NSDictionary *userInfo = self.activityViewController.userInfo;
+    NSDictionary *userInfo = [self.activityViewController userInfoFor:[self activityName]];
     
     NSString *text = [userInfo objectForKey:@"text"];
     NSURL *url = [userInfo objectForKey:@"url"];

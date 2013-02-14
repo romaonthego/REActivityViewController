@@ -34,12 +34,12 @@
     self=[super init];
     if(self)
     {
+         __weak RETwitterActivity*weakSelf=self;
         [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Twitter.title",@"REActivityViewController",@"Twitter")
                            image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Twitter"]
                      actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                          UIViewController *presenter = activityViewController.presentingController;
-                         NSDictionary *userInfo = activityViewController.userInfo;
-                         
+                         NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                          [activityViewController dismissViewControllerAnimated:YES completion:^{
                              TWTweetComposeViewController *composeController = [[TWTweetComposeViewController alloc] init];
                              NSString *text = [userInfo objectForKey:@"text"];

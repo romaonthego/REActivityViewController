@@ -33,10 +33,11 @@
     self=[super init];
     if(self)
     {
+           __weak REDiigoActivity*weakSelf=self;
         [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Diigo.title",@"REActivityViewController",@"Save to Diigo")
                            image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Diigo"]
                      actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                         //NSDictionary *userInfo = activityViewController.userInfo; // Warning temporary removal
+                          NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                          [activityViewController dismissViewControllerAnimated:YES completion:^{
                          }];
                      }];

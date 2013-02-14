@@ -32,11 +32,12 @@
 {
     self=[super init];
     if(self){
+        __weak RECopyActivity *weakSelf=self;
         [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Copy.title",@"REActivityViewController",@"Copy")
                            image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Copy"]
                      actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                          [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                         NSDictionary *userInfo = activityViewController.userInfo;
+                         NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                          
                          NSString *text = [userInfo objectForKey:@"text"];
                          UIImage *image = [userInfo objectForKey:@"image"];

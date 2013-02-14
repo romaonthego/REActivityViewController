@@ -34,10 +34,11 @@
     self=[super init];
     if(self)
     {
+        __weak REMessageActivity*weakSelf=self;
         [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Message.title",@"REActivityViewController",@"Message")
                            image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Message"]
                      actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                         NSDictionary *userInfo = activityViewController.userInfo;
+                        NSDictionary *userInfo = [activityViewController userInfoFor:[weakSelf activityName]];
                          NSString *text = [userInfo objectForKey:@"text"];
                          NSURL *url = [userInfo objectForKey:@"url"];
                          [activityViewController dismissViewControllerAnimated:YES completion:^{
