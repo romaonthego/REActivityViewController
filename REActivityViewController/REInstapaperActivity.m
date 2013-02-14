@@ -33,7 +33,11 @@
 
 - (id)init
 {
-    return [super initWithTitle:NSLocalizedStringFromTable(@"activity.Instapaper.title",@"REActivityViewController",@"Send to Instapaper")
+    self=[super init];
+    if(self)
+    {
+        __weak REInstapaperActivity*weakSelf=self;
+        [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Instapaper.title",@"REActivityViewController",@"Send to Instapaper")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Instapaper"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
@@ -45,11 +49,11 @@
                                 controller.title =NSLocalizedStringFromTable(@"dialog.Instapaper.title",@"REActivityViewController",@"Instapaper") ;
                                 controller.labels = @[NSLocalizedStringFromTable(@"Username",@"REActivityViewController",@"Username"), NSLocalizedStringFromTable(@"Password",@"REActivityViewController",@"Password"), NSLocalizedStringFromTable(@"slogan.never.store.password",@"REActivityViewController",@"We never store your password")];
                                 controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
-                                    [self authenticateUsername:username password:password success:^{
+                                    [weakSelf authenticateUsername:username password:password success:^{
                                         [controller dismissViewControllerAnimated:YES completion:nil];
                                         [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"REInstapaperActivity_Username"];
                                         [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"REInstapaperActivity" updateExisting:YES error:nil];
-                                        [self saveURL:[userInfo objectForKey:@"url"] title:[userInfo objectForKey:@"text"]];
+                                        [weakSelf saveURL:[userInfo objectForKey:@"url"] title:[userInfo objectForKey:@"text"]];
                                     } error:^{
                                         [controller showLoginButton];
                                         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"authentication.Instapaper.title",@"REActivityViewController",@"Instapaper Log In") message:NSLocalizedStringFromTable(@"authentication.Instapaper.check.credentials",@"REActivityViewController",@"Please check your username and password. If you're sure they're correct, Instapaper may be temporarily experiencing problems. Please try again in a few minutes.") 
@@ -64,9 +68,11 @@
                             }];
                         } else {
                             [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                            [self saveURL:[userInfo objectForKey:@"url"] title:[userInfo objectForKey:@"text"]];
+                            [weakSelf saveURL:[userInfo objectForKey:@"url"] title:[userInfo objectForKey:@"text"]];
                         }
                     }];
+    }
+    return self;
 }
 
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password success:(void (^)(void))onSuccess error:(void (^)(void))onError

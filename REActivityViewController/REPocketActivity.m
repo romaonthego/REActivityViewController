@@ -31,21 +31,27 @@
 
 - (id)initWithConsumerKey:(NSString *)consumerKey
 {
-    return [super initWithTitle:NSLocalizedStringFromTable(@"activity.Pocket.title",@"REActivityViewController",@"Save to Pocket")
+    self=[super init];
+    if(self)
+    {
+        __weak REPocketActivity*weakSelf=self;
+        [self configureWithTitle:NSLocalizedStringFromTable(@"activity.Pocket.title",@"REActivityViewController",@"Save to Pocket")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Pocket"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];
                         NSDictionary *userInfo = activityViewController.userInfo;
                         [[PocketAPI sharedAPI] setConsumerKey:consumerKey];
                         if ([PocketAPI sharedAPI].username) {
-                            [self saveURL:[userInfo objectForKey:@"url"]];
+                            [weakSelf saveURL:[userInfo objectForKey:@"url"]];
                         } else {
                             [[PocketAPI sharedAPI] loginWithHandler:^(PocketAPI *api, NSError *error) {
                                 if (!error)
-                                    [self saveURL:[userInfo objectForKey:@"url"]];
+                                    [weakSelf saveURL:[userInfo objectForKey:@"url"]];
                             }];
                         }                        
                     }];
+    }
+    return self;
 }
 
 - (void)saveURL:(NSURL *)url
