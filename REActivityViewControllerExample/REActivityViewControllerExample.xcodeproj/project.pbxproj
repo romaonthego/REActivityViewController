@@ -19,7 +19,6 @@
 		3003A85216BAD909000E48B9 /* Flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3003A85116BAD909000E48B9 /* Flower.jpg */; };
 		3003A85716BAE680000E48B9 /* RootViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A85416BAE680000E48B9 /* RootViewController_iPad.m */; };
 		3003A85816BAE680000E48B9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A85616BAE680000E48B9 /* RootViewController.m */; };
-		30A7A69D16CD9EBF0012749A /* REActivityViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A7A69916CD9EBF0012749A /* REActivityViewController.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,9 +40,6 @@
 		3003A85416BAE680000E48B9 /* RootViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController_iPad.m; sourceTree = "<group>"; };
 		3003A85516BAE680000E48B9 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		3003A85616BAE680000E48B9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		30A7A69A16CD9EBF0012749A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/REActivityViewController.strings; sourceTree = "<group>"; };
-		30A7A69B16CD9EBF0012749A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/REActivityViewController.strings; sourceTree = "<group>"; };
-		30A7A69C16CD9EBF0012749A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/REActivityViewController.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +92,6 @@
 				3003A85416BAE680000E48B9 /* RootViewController_iPad.m */,
 				3003A85516BAE680000E48B9 /* RootViewController.h */,
 				3003A85616BAE680000E48B9 /* RootViewController.m */,
-				30A7A69816CD9EBF0012749A /* Localizations */,
 				3003A83516BAD54C000E48B9 /* Supporting Files */,
 			);
 			path = REActivityViewControllerExample;
@@ -115,15 +110,6 @@
 				3003A85116BAD909000E48B9 /* Flower.jpg */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		30A7A69816CD9EBF0012749A /* Localizations */ = {
-			isa = PBXGroup;
-			children = (
-				30A7A69916CD9EBF0012749A /* REActivityViewController.strings */,
-			);
-			name = Localizations;
-			path = ../../Localizations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +171,6 @@
 				3003A84316BAD54C000E48B9 /* Default@2x.png in Resources */,
 				3003A84516BAD54C000E48B9 /* Default-568h@2x.png in Resources */,
 				3003A85216BAD909000E48B9 /* Flower.jpg in Resources */,
-				30A7A69D16CD9EBF0012749A /* REActivityViewController.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,16 +214,6 @@
 				3003A83816BAD54C000E48B9 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		30A7A69916CD9EBF0012749A /* REActivityViewController.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30A7A69A16CD9EBF0012749A /* en */,
-				30A7A69B16CD9EBF0012749A /* fr */,
-				30A7A69C16CD9EBF0012749A /* ru */,
-			);
-			name = REActivityViewController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
