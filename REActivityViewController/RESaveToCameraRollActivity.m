@@ -31,7 +31,7 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Save to Camera Roll"
+    return [super initWithTitle:NSLocalizedStringFromTable(@"activity.Camera.title",@"REActivityViewController",@"Save to Camera Roll") 
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Photos"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         [activityViewController dismissViewControllerAnimated:YES completion:nil];

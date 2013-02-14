@@ -1,0 +1,132 @@
+/*
+ REActivityViewController.strings
+ Created by Benoit Pereira da Silva on 13/02/13.
+ http://www.pereira-da-silva.com
+*/
+
+/////////////////////
+// ACTIVITIES TITLES
+/////////////////////
+
+/* Mail */
+"activity.Mail.title"="Mail";
+
+/* Copy */
+"activity.Copy.title"="Copy";
+
+/* Save to Diigo */
+"activity.Diigo.title"="Save to Diigo";
+
+/* Facebook */
+"activity.Facebook.title"="Facebook";
+
+/* Send to Instapaper */
+"activity.Instapaper.title"="Send to Instapaper";
+
+/* Open in Maps */
+"activity.Maps.title"="Open in Maps";
+
+/* Message */
+"activity.Message.title"="Message";
+
+/* Save to Pocket */
+"activity.Pocket.title"="Save to Pocket";
+
+/* Print */
+"activity.Print.title"="Print";
+
+/* Save to Readability */
+"activity.Readability.title"="Save to Readability";
+
+/* Open in Safari */
+"activity.Safari.title"="Open in Safari";
+
+/* Save to Camera Roll */
+"activity.Camera.title"="Save to Camera Roll";
+
+/* Tumblr */
+"activity.Tumblr.title"="Tumblr";
+
+/* Twitter */
+"activity.Twitter.title"="Twitter";
+
+/* VKontakte */
+"activity.VKontakte.title"="VKontakte";
+
+
+/////////////////////
+// Instapaper
+/////////////////////
+
+
+/* Instapaper */
+"dialog.Instapaper.title"="Instapaper";
+
+/* Instapaper Log In */
+"authentication.Instapaper.title"="Instapaper Log In";
+
+/* Please check your username and password ... */
+"authentication.Instapaper.check.credentials"="Please check your username and password. If you're sure they're correct, Instapaper may be temporarily experiencing problems. Please try again in a few minutes.";
+
+
+/////////////////////
+// Readability
+/////////////////////
+
+
+/* Readability */
+"dialog.Readability.title"="Readability";
+
+/* Readability Log In */
+"authentication.Readability.title"="Readability Log In";
+
+/* Please check your username and password ... */
+"authentication.Readability.check.credentials"="Please check your username and password. If you're sure they're correct, Readability may be temporarily experiencing problems. Please try again in a few minutes.";
+
+/////////////////////
+// Tumblr
+/////////////////////
+
+
+/* Tumblr */
+"dialog.Tumblr.title"="Readability";
+
+/* Readability Log In */
+"authentication.Tumblr.title"="Tumblr Log In";
+
+/* Please check your username and password ... */
+"authentication.Tumblr.check.credentials"="Please check your username and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.";
+
+
+
+/////////////////////
+// Errors
+/////////////////////
+
+/* An error occured while printing format */
+"error.printing.format"="An error occured while printing: %@";
+
+
+/////////////////////
+// GENERIC
+/////////////////////
+
+/* Username */
+"Username"="Username";
+
+/* Password */
+"Password"="Password";
+
+/* Username */
+"Username"="Username";
+
+/* Dismiss */
+"Dismiss"="Dismiss";
+
+/* We never store your password. */
+"slogan.never.store.password"="We never store your password";
+
+/* We save your password in a safe place. */
+"slogan.password.storage.is.safe"="We store your password in a safe place.";
+
+

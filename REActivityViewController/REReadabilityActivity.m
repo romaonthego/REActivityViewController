@@ -34,7 +34,7 @@
 
 - (id)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret
 {
-    self = [super initWithTitle:@"Save to Readability"
+    self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Readability.title",@"REActivityViewController",@"Save to Readability")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Readability"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         NSDictionary *userInfo = activityViewController.userInfo;
@@ -62,8 +62,8 @@
     [activityViewController dismissViewControllerAnimated:YES completion:^{
         REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-        controller.title = @"Readability";
-        controller.labels = @[NSLocalizedString(@"Username", @"Username"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We never store your password.", @"We never store your password.")];
+        controller.title = NSLocalizedStringFromTable(@"dialog.Readability.title",@"REActivityViewController",@"Readability") ;;
+        controller.labels = @[NSLocalizedStringFromTable(@"Username",@"REActivityViewController",@"Username"), NSLocalizedStringFromTable(@"Password",@"REActivityViewController",@"Password"), NSLocalizedStringFromTable(@"slogan.never.store.password",@"REActivityViewController",@"We never store your password")];
         controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
             [self authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
                 [[NSUserDefaults standardUserDefaults] setObject:client.token.key forKey:@"REReadabilityActivity_Key"];
@@ -74,7 +74,7 @@
                 }];
             } failure:^(NSError *error) {
                 [controller showLoginButton];
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Readability Log In", @"Readability Log In") message:NSLocalizedString(@"Please check your username and password. If you're sure they're correct, Readability may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"authentication.Readability.title",@"REActivityViewController",@"Instapaper Log In")  message:NSLocalizedStringFromTable(@"authentication.Readability.check.credentials",@"REActivityViewController",@"Please check your username and password. If you're sure they're correct, Readability may be temporarily experiencing problems. Please try again in a few minutes.") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"Dismiss",@"REActivityViewController",@"Dismiss") otherButtonTitles:nil];
                 [alertView show];
             }];
         };

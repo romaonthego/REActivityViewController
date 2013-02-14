@@ -30,10 +30,10 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Save to Diigo"
+    return [super initWithTitle:NSLocalizedStringFromTable(@"activity.Diigo.title",@"REActivityViewController",@"Save to Diigo")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Diigo"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        NSDictionary *userInfo = activityViewController.userInfo;
+                        //NSDictionary *userInfo = activityViewController.userInfo; // Warning temporary removal
                         [activityViewController dismissViewControllerAnimated:YES completion:^{
                         }];
                     }];

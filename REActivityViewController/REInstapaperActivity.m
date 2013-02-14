@@ -33,7 +33,7 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Send to Instapaper"
+    return [super initWithTitle:NSLocalizedStringFromTable(@"activity.Instapaper.title",@"REActivityViewController",@"Send to Instapaper")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Instapaper"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
                         UIViewController *presenter = activityViewController.presentingController;
@@ -42,8 +42,8 @@
                             [activityViewController dismissViewControllerAnimated:YES completion:^{
                                 REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
                                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-                                controller.title = @"Instapaper";
-                                controller.labels = @[NSLocalizedString(@"Username", @"Username"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We never store your password.", @"We never store your password.")];
+                                controller.title =NSLocalizedStringFromTable(@"dialog.Instapaper.title",@"REActivityViewController",@"Instapaper") ;
+                                controller.labels = @[NSLocalizedStringFromTable(@"Username",@"REActivityViewController",@"Username"), NSLocalizedStringFromTable(@"Password",@"REActivityViewController",@"Password"), NSLocalizedStringFromTable(@"slogan.never.store.password",@"REActivityViewController",@"We never store your password")];
                                 controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
                                     [self authenticateUsername:username password:password success:^{
                                         [controller dismissViewControllerAnimated:YES completion:nil];
@@ -52,7 +52,9 @@
                                         [self saveURL:[userInfo objectForKey:@"url"] title:[userInfo objectForKey:@"text"]];
                                     } error:^{
                                         [controller showLoginButton];
-                                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Instapaper Log In", @"Instapaper Log In") message:NSLocalizedString(@"Please check your username and password. If you're sure they're correct, Instapaper may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
+                                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"authentication.Instapaper.title",@"REActivityViewController",@"Instapaper Log In") message:NSLocalizedStringFromTable(@"authentication.Instapaper.check.credentials",@"REActivityViewController",@"Please check your username and password. If you're sure they're correct, Instapaper may be temporarily experiencing problems. Please try again in a few minutes.") 
+                                                                  delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"Dismiss",@"REActivityViewController",@"Dismiss")
+                                                                 otherButtonTitles:nil];
                                         [alertView show];
                                     }];
                                 };
