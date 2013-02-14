@@ -40,7 +40,7 @@
     __weak __block __typeof(&*self)weakSelf = self;
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
         UIViewController *presenter = activityViewController.presentingController;
-        NSDictionary *userInfo = activityViewController.userInfo;
+        NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         [activityViewController dismissViewControllerAnimated:YES completion:^{
             [weakSelf shareFromViewController:presenter
                                      text:[userInfo objectForKey:@"text"]

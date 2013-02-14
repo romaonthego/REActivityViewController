@@ -42,7 +42,7 @@
     __weak __block __typeof(&*self)weakSelf = self;
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
         UIViewController *presenter = activityViewController.presentingController;
-        NSDictionary *userInfo = activityViewController.userInfo;
+        NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         if (![[NSUserDefaults standardUserDefaults] objectForKey:@"REInstapaperActivity_Username"]) {
             [activityViewController dismissViewControllerAnimated:YES completion:^{
                 REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];

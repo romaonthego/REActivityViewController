@@ -30,36 +30,44 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Print"
+    self = [super initWithTitle:@"Print"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Print"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        [activityViewController dismissViewControllerAnimated:YES completion:^{
-                            UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
-                            
-                            UIPrintInfo *printInfo = [UIPrintInfo printInfo];
-                            printInfo.outputType = UIPrintInfoOutputGeneral;
-                            printInfo.jobName = [userInfo objectForKey:@"text"];
-                            pc.printInfo = printInfo;
-                            
-                            pc.printingItem = [userInfo objectForKey:@"image"];
-                            
-                            void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) =
-                            ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
-                                if (!completed && error) {
-                                    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error."
-                                                                                 message:[NSString stringWithFormat:@"An error occured while printing: %@", error]
-                                                                                delegate:nil
-                                                                       cancelButtonTitle:@"OK"
-                                                                       otherButtonTitles:nil, nil];
-                                    
-                                    [av show];
-                                }
-                            };
-                            
-                            [pc presentAnimated:YES completionHandler:completionHandler];
-                        }];
-                    }];
+                    actionBlock:nil];
+    
+    if (!self)
+        return nil;
+    
+    __weak __block __typeof(&*self)weakSelf = self;
+    self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
+        NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
+        [activityViewController dismissViewControllerAnimated:YES completion:^{
+            UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
+            
+            UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+            printInfo.outputType = UIPrintInfoOutputGeneral;
+            printInfo.jobName = [userInfo objectForKey:@"text"];
+            pc.printInfo = printInfo;
+            
+            pc.printingItem = [userInfo objectForKey:@"image"];
+            
+            void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) =
+            ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
+                if (!completed && error) {
+                    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error."
+                                                                 message:[NSString stringWithFormat:@"An error occured while printing: %@", error]
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil, nil];
+                    
+                    [av show];
+                }
+            };
+            
+            [pc presentAnimated:YES completionHandler:completionHandler];
+        }];
+    };
+    
+    return self;
 }
 
 @end

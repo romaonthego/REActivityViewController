@@ -44,7 +44,7 @@
     _consumerSecret = consumerSecret;
     __weak __block __typeof(&*self)weakSelf = self;
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
-        NSDictionary *userInfo = activityViewController.userInfo;
+        NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         if (![[NSUserDefaults standardUserDefaults] objectForKey:@"REReadabilityActivity_Key"]) {
             [weakSelf showAuthDialogWithActivityViewController:activityViewController];
         } else {
@@ -62,7 +62,7 @@
     __weak __block __typeof(&*self)weakSelf = self;
     
     UIViewController *presenter = activityViewController.presentingController;
-    NSDictionary *userInfo = activityViewController.userInfo;
+    NSDictionary *userInfo = self.userInfo ? self.userInfo : activityViewController.userInfo;
     [activityViewController dismissViewControllerAnimated:YES completion:^{
         REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];

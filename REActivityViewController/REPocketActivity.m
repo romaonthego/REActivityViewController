@@ -41,7 +41,7 @@
     __weak __block __typeof(&*self)weakSelf = self;
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
         [activityViewController dismissViewControllerAnimated:YES completion:nil];
-        NSDictionary *userInfo = activityViewController.userInfo;
+        NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         [[PocketAPI sharedAPI] setConsumerKey:consumerKey];
         if ([PocketAPI sharedAPI].username) {
             [weakSelf saveURL:[userInfo objectForKey:@"url"]];

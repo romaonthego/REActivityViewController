@@ -30,13 +30,21 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Save to Diigo"
+    self = [super initWithTitle:@"Save to Diigo"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Diigo"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        [activityViewController dismissViewControllerAnimated:YES completion:^{
-                        }];
-                    }];
+                    actionBlock:nil];
+    
+    if (!self)
+        return nil;
+    
+    __weak __block __typeof(&*self)weakSelf = self;
+    self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
+        NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
+        [activityViewController dismissViewControllerAnimated:YES completion:^{
+        }];
+    };
+    
+    return self;
 }
 
 @end

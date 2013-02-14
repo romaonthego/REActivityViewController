@@ -31,18 +31,26 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Save to Camera Roll"
+    self = [super initWithTitle:@"Save to Camera Roll"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Photos"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        UIImage *image = [userInfo objectForKey:@"image"];
-                        
-                        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-                        [library writeImageToSavedPhotosAlbum:image.CGImage
-                                                  orientation:(ALAssetOrientation)image.imageOrientation
-                                              completionBlock:nil];
-                    }];
+                    actionBlock:nil];
+    
+    if (!self)
+        return nil;
+    
+    __weak __block __typeof(&*self)weakSelf = self;
+    self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
+        [activityViewController dismissViewControllerAnimated:YES completion:nil];
+        NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
+        UIImage *image = [userInfo objectForKey:@"image"];
+        
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        [library writeImageToSavedPhotosAlbum:image.CGImage
+                                  orientation:(ALAssetOrientation)image.imageOrientation
+                              completionBlock:nil];
+    };
+    
+    return self;
 }
 
 @end

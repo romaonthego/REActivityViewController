@@ -34,9 +34,7 @@
 {
     self = [super initWithTitle:@"VKontakte"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_VK"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        
-                    }];
+                    actionBlock:nil];
     if (!self)
         return nil;
     
@@ -69,7 +67,7 @@
     __weak __block __typeof(&*self)weakSelf = self;
     
     UIViewController *presenter = self.activityViewController.presentingController;
-    NSDictionary *userInfo = self.activityViewController.userInfo;
+    NSDictionary *userInfo = self.userInfo ? self.userInfo : self.activityViewController.userInfo;
 
     NSString *text = [userInfo objectForKey:@"text"];
     NSURL *url = [userInfo objectForKey:@"url"];

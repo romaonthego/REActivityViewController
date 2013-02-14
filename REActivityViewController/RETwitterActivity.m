@@ -31,26 +31,34 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Twitter"
+    self = [super initWithTitle:@"Twitter"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Twitter"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        UIViewController *presenter = activityViewController.presentingController;
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        
-                        [activityViewController dismissViewControllerAnimated:YES completion:^{
-                            TWTweetComposeViewController *composeController = [[TWTweetComposeViewController alloc] init];
-                            NSString *text = [userInfo objectForKey:@"text"];
-                            UIImage *image = [userInfo objectForKey:@"image"];
-                            NSURL *url = [userInfo objectForKey:@"url"];
-                            if (text)
-                                [composeController setInitialText:text];
-                            if (image)
-                                [composeController addImage:image];
-                            if (url)
-                                [composeController addURL:url];
-                            [presenter presentModalViewController:composeController animated:YES];
-                        }];
-                    }];
+                    actionBlock:nil];
+    
+    if (!self)
+        return nil;
+    
+    __weak __block __typeof(&*self)weakSelf = self;
+    self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
+        UIViewController *presenter = activityViewController.presentingController;
+        NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
+        
+        [activityViewController dismissViewControllerAnimated:YES completion:^{
+            TWTweetComposeViewController *composeController = [[TWTweetComposeViewController alloc] init];
+            NSString *text = [userInfo objectForKey:@"text"];
+            UIImage *image = [userInfo objectForKey:@"image"];
+            NSURL *url = [userInfo objectForKey:@"url"];
+            if (text)
+                [composeController setInitialText:text];
+            if (image)
+                [composeController addImage:image];
+            if (url)
+                [composeController addURL:url];
+            [presenter presentModalViewController:composeController animated:YES];
+        }];
+    };
+    
+    return self;
 }
 
 @end
