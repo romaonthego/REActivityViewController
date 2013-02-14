@@ -30,7 +30,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Print"
+    self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Print.title", @"REActivityViewController", @"Print")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Print"]
                     actionBlock:nil];
     

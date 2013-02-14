@@ -31,7 +31,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Twitter"
+    self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Twitter.title", @"REActivityViewController", @"Twitter")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Twitter"]
                     actionBlock:nil];
     

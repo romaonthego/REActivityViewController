@@ -30,7 +30,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Save to Diigo"
+    self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Diigo.title", @"REActivityViewController", @"Save to Diigo")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Diigo"]
                     actionBlock:nil];
     

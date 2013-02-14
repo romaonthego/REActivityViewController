@@ -30,7 +30,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Copy"
+    self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Copy.title", @"REActivityViewController", @"Copy")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Copy"]
                     actionBlock:nil];
     

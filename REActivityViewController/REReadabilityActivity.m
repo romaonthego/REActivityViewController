@@ -34,7 +34,7 @@
 
 - (id)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret
 {
-    self = [super initWithTitle:@"Save to Readability"
+    self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Readability.title", @"REActivityViewController", @"Save to Readability")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Readability"]
                     actionBlock:nil];
     if (!self)

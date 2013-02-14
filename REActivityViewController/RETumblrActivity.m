@@ -34,7 +34,7 @@
 
 - (id)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret
 {
-    self = [super initWithTitle:@"Tumblr"
+    self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Tumblr.title", @"REActivityViewController", @"Tumblr")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Tumblr"]
                     actionBlock:nil];
     if (!self)

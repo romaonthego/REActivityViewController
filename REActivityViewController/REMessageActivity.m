@@ -31,7 +31,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Message"
+    self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Message.title", @"REActivityViewController", @"Message")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Message"]
                     actionBlock:nil];
     

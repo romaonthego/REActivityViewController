@@ -33,7 +33,7 @@
 
 - (id)init
 {
-    self = [super initWithTitle:@"Send to Instapaper"
+    self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Instapaper.title", @"REActivityViewController", @"Send to Instapaper")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Instapaper"]
                     actionBlock:nil];
     if (!self)

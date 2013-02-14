@@ -32,7 +32,7 @@
 
 - (id)initWithClientId:(NSString *)clientId
 {
-    self = [super initWithTitle:@"VKontakte"
+    self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.VKontakte.title", @"REActivityViewController", @"VKontakte")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_VK"]
                     actionBlock:nil];
     if (!self)
