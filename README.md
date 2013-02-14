@@ -153,6 +153,13 @@ self.modalPresentationStyle = UIModalPresentationCurrentContext;
 }];
 ```
 
+You can also define per-activity userInfo dictionaries, for instance:
+
+``` objective-c
+twitterActivity.userInfo = @{@"image": [UIImage imageNamed:@"Flower.jpg"],
+                             @"text": @"Hello world! via @myapp"};
+```
+
 ### Presentation Notes
 
 On the iPhone, you must present `REActivityViewController` from the window's root controller (top level controller), otherwise you'll be getting black background underneath `REActivityViewController`. 
