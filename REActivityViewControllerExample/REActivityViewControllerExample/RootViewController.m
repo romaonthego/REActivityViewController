@@ -70,9 +70,10 @@
     
     // Present it using current context
     //
+    __weak __typeof(&*self)weakSelf = self;
     self.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self presentViewController:activityViewController animated:YES completion:^{
-        self.modalPresentationStyle = UIModalPresentationFullScreen;
+        weakSelf.modalPresentationStyle = UIModalPresentationFullScreen;
     }];
 }
 

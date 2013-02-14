@@ -147,9 +147,10 @@ activityViewController.userInfo = @{
 
 // Present it using current context
 //
+__weak __typeof(&*self)weakSelf = self;
 self.modalPresentationStyle = UIModalPresentationCurrentContext;
 [self presentViewController:activityViewController animated:YES completion:^{
-    self.modalPresentationStyle = UIModalPresentationFullScreen;
+    weakSelf.modalPresentationStyle = UIModalPresentationFullScreen;
 }];
 ```
 
@@ -170,9 +171,10 @@ For example, if your controller is contained in `UINavigationController` you cou
 ``` objective-c
 REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self.navigationController activities:activities];
 
+__weak __typeof(&*self)weakSelf = self;
 self.navigationController.modalPresentationStyle = UIModalPresentationCurrentContext;
 [self.navigationController presentViewController:activityViewController animated:YES completion:^{
-    self.navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+    weakSelf.navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
 }];
 ```
 
