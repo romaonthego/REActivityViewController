@@ -36,11 +36,11 @@
 
 /* Print */
 "activity.Print.title"="Imprimer";
-"activity.Print.error.title"="";
-"activity.Print.error.message"="";
+"activity.Print.error.title"="Error.";
+"activity.Print.error.message"="Une erreur c'est produite pendant l'impression : %@";
 
 /* Save to Readability */
-"activity.Readability.title"="Sauvegarder dans Readability";
+"activity.Readability.title"="Readability";
 "activity.Readability.authentication.title"="Readability";
 "activity.Readability.authentication.error"="Veuillez vérifier vos identifiants. Si vous êtes sûr qu'ils sont corrects, il est possible que Readability rencontre des problèmes temporaires. Veuillez réessayer dans quelques minutes.";
 
@@ -48,7 +48,7 @@
 "activity.Safari.title"="Ouvrir dans Safari";
 
 /* Save to Camera Roll */
-"activity.CameraRoll.title"="Sauvegarder dans les images";
+"activity.CameraRoll.title"="Enregistrer l'image";
 
 /* Tumblr */
 "activity.Tumblr.title"="Tumblr";
@@ -69,18 +69,18 @@
 /////////////////////
 
 /* Buttons */
-"button.cancel"="Cancel";
-"button.dismiss"="Annuler";
-"button.login"="Ouverture de session";
+"button.cancel"="Annuler";
+"button.dismiss"="OK";
+"button.login"="Log In";
 
 /* Email */
 "field.email"="Email";
 
 /* Username */
-"field.username"="Nom d'utilisateur";
+"field.username"="User Name";
 
 /* Password */
-"field.password"="Mot de passe";
+"field.password"="Password";
 
 /* We never store your password. */
 "slogan.never.store.password"="Nous ne stockons jamais vos mots de passe";

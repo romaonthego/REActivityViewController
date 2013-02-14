@@ -76,7 +76,7 @@
 "field.email"="E-mail";
 
 /* Username */
-"field.username"="Пользователь";
+"field.username"="Логин";
 
 /* Password */
 "field.password"="Пароль";
