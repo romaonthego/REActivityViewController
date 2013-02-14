@@ -76,11 +76,11 @@
 /* Email */
 "field.email"="Email";
 
-/* Password */
-"field.password"="Password";
-
 /* Username */
 "field.username"="Username";
+
+/* Password */
+"field.password"="Password";
 
 /* We never store your password. */
 "slogan.never.store.password"="We never store your password.";
