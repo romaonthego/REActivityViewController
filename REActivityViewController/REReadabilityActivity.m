@@ -66,8 +66,12 @@
     [activityViewController dismissViewControllerAnimated:YES completion:^{
         REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-        controller.title = @"Readability";
-        controller.labels = @[NSLocalizedString(@"Username", @"Username"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We never store your password.", @"We never store your password.")];
+        controller.title = NSLocalizedStringFromTable(@"activity.Readability.authentication.title", @"REActivityViewController", @"Readability");
+        controller.labels = @[
+                              NSLocalizedStringFromTable(@"field.username", @"REActivityViewController", @"Username"),
+                              NSLocalizedStringFromTable(@"field.password", @"REActivityViewController", @"Password"),
+                              NSLocalizedStringFromTable(@"slogan.never.store.password", @"REActivityViewController", @"We never store your password.")
+                              ];
         controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
             [weakSelf authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
                 [[NSUserDefaults standardUserDefaults] setObject:client.token.key forKey:@"REReadabilityActivity_Key"];
@@ -78,7 +82,11 @@
                 }];
             } failure:^(NSError *error) {
                 [controller showLoginButton];
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Readability Log In", @"Readability Log In") message:NSLocalizedString(@"Please check your username and password. If you're sure they're correct, Readability may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"activity.Readability.authentication.title", @"REActivityViewController", @"Readability")
+                                                                    message:NSLocalizedStringFromTable(@"activity.Readability.authentication.error", @"REActivityViewController", @"Please check your username and password. If you're sure they're correct, Readability may be temporarily experiencing problems. Please try again in a few minutes.")
+                                                                   delegate:nil
+                                                          cancelButtonTitle:NSLocalizedStringFromTable(@"button.dismiss", @"REActivityViewController", @"Dismiss")
+                                                          otherButtonTitles:nil];
                 [alertView show];
             }];
         };

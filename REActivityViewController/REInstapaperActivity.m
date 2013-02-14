@@ -47,8 +47,12 @@
             [activityViewController dismissViewControllerAnimated:YES completion:^{
                 REAuthViewController *controller = [[REAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-                controller.title = @"Instapaper";
-                controller.labels = @[NSLocalizedString(@"Username", @"Username"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We never store your password.", @"We never store your password.")];
+                controller.title = NSLocalizedStringFromTable(@"activity.Instapaper.authentication.title", @"REActivityViewController", @"Instapaper");
+                controller.labels = @[
+                                      NSLocalizedStringFromTable(@"field.username", @"REActivityViewController", @"Username"),
+                                      NSLocalizedStringFromTable(@"field.password", @"REActivityViewController", @"Password"),
+                                      NSLocalizedStringFromTable(@"slogan.never.store.password", @"REActivityViewController", @"We never store your password.")
+                                      ];
                 controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
                     [weakSelf authenticateUsername:username password:password success:^{
                         [controller dismissViewControllerAnimated:YES completion:nil];
@@ -57,7 +61,9 @@
                         [weakSelf saveURL:[userInfo objectForKey:@"url"] title:[userInfo objectForKey:@"text"]];
                     } error:^{
                         [controller showLoginButton];
-                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Instapaper Log In", @"Instapaper Log In") message:NSLocalizedString(@"Please check your username and password. If you're sure they're correct, Instapaper may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
+                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"activity.Instapaper.authentication.title", @"REActivityViewController", @"Instapaper")
+                                                                            message:NSLocalizedStringFromTable(@"activity.Instapaper.authentication.error", @"REActivityViewController", @"Please check your username and password. If you're sure they're correct, Instapaper may be temporarily experiencing problems. Please try again in a few minutes.")
+                                                                           delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"button.dismiss", @"REActivityViewController", @"Dismiss") otherButtonTitles:nil];
                         [alertView show];
                     }];
                 };

@@ -48,9 +48,9 @@
     _username = @"";
     _password = @"";
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"Cancel") style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonPressed)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"button.cancel", @"REActivityViewController", @"Cancel") style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonPressed)];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Log In", @"Log In") style:UIBarButtonItemStyleBordered target:self action:@selector(loginButtonPressed)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"button.login", @"REActivityViewController", @"Log In") style:UIBarButtonItemStyleBordered target:self action:@selector(loginButtonPressed)];
     
     _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     _indicatorView.center = CGPointMake(22, 22);
@@ -73,7 +73,7 @@
 
 - (void)showLoginButton
 {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Log In", @"Log In") style:UIBarButtonItemStyleBordered target:self action:@selector(loginButtonPressed)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"button.login", @"REActivityViewController", @"Log In") style:UIBarButtonItemStyleBordered target:self action:@selector(loginButtonPressed)];
 }
 
 - (void)didReceiveMemoryWarning

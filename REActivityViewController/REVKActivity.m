@@ -84,7 +84,7 @@
         textToShare = [NSString stringWithFormat:@"%@ %@", text, url.absoluteString];
     
     REComposeViewController *controller = [[REComposeViewController alloc] init];
-    controller.title = @"VKontakte";
+    controller.title = NSLocalizedStringFromTable(@"activity.VKontakte.dialog.title", @"REActivityViewController", @"VKontakte");
     controller.navigationBar.tintColor = [UIColor colorWithRed:56/255.0f green:99/255.0f blue:150/255.0f alpha:1.0];
     if (textToShare)
         controller.text = textToShare;
