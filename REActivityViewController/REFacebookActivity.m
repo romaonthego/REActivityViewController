@@ -31,19 +31,25 @@
 
 - (id)init
 {
-    return [super initWithTitle:@"Facebook"
+    self = [super initWithTitle:@"Facebook"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Facebook"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        UIViewController *presenter = activityViewController.presentingController;
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        
-                        [activityViewController dismissViewControllerAnimated:YES completion:^{
-                            [self shareFromViewController:presenter
-                                                     text:[userInfo objectForKey:@"text"]
-                                                      url:[userInfo objectForKey:@"url"]
-                                                    image:[userInfo objectForKey:@"image"]];
-                        }];
-                    }];
+                    actionBlock:nil];
+    if (!self)
+        return nil;
+    
+    __weak __block __typeof(&*self)weakSelf = self;
+    self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
+        UIViewController *presenter = activityViewController.presentingController;
+        NSDictionary *userInfo = activityViewController.userInfo;
+        [activityViewController dismissViewControllerAnimated:YES completion:^{
+            [weakSelf shareFromViewController:presenter
+                                     text:[userInfo objectForKey:@"text"]
+                                      url:[userInfo objectForKey:@"url"]
+                                    image:[userInfo objectForKey:@"image"]];
+        }];
+    };
+    
+    return self;
 }
 
 - (void)shareFromViewController:(UIViewController *)viewController text:(NSString *)text url:(NSURL *)url image:(UIImage *)image

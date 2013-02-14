@@ -36,27 +36,31 @@
 {
     self = [super initWithTitle:@"Save to Readability"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Readability"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        if (![[NSUserDefaults standardUserDefaults] objectForKey:@"REReadabilityActivity_Key"]) {
-                            [self showAuthDialogWithActivityViewController:activityViewController];
-                        } else {
-                            [activityViewController dismissViewControllerAnimated:YES completion:^{
-                                [self bookmark:userInfo];
-                            }];
-                        }
-                    }];
+                    actionBlock:nil];
     if (!self)
         return nil;
     
     _consumerKey = consumerKey;
     _consumerSecret = consumerSecret;
+    __weak __block __typeof(&*self)weakSelf = self;
+    self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
+        NSDictionary *userInfo = activityViewController.userInfo;
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:@"REReadabilityActivity_Key"]) {
+            [weakSelf showAuthDialogWithActivityViewController:activityViewController];
+        } else {
+            [activityViewController dismissViewControllerAnimated:YES completion:^{
+                [weakSelf bookmark:userInfo];
+            }];
+        }
+    };
     
     return self;
 }
 
 - (void)showAuthDialogWithActivityViewController:(REActivityViewController *)activityViewController
 {
+    __weak __block __typeof(&*self)weakSelf = self;
+    
     UIViewController *presenter = activityViewController.presentingController;
     NSDictionary *userInfo = activityViewController.userInfo;
     [activityViewController dismissViewControllerAnimated:YES completion:^{
@@ -65,12 +69,12 @@
         controller.title = @"Readability";
         controller.labels = @[NSLocalizedString(@"Username", @"Username"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We never store your password.", @"We never store your password.")];
         controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
-            [self authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
+            [weakSelf authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
                 [[NSUserDefaults standardUserDefaults] setObject:client.token.key forKey:@"REReadabilityActivity_Key"];
                 [[NSUserDefaults standardUserDefaults] setObject:client.token.secret forKey:@"REReadabilityActivity_Secret"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 [controller dismissViewControllerAnimated:YES completion:^{
-                    [self bookmark:userInfo];
+                    [weakSelf bookmark:userInfo];
                 }];
             } failure:^(NSError *error) {
                 [controller showLoginButton];

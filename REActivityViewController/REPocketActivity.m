@@ -31,21 +31,29 @@
 
 - (id)initWithConsumerKey:(NSString *)consumerKey
 {
-    return [super initWithTitle:@"Save to Pocket"
+    self = [super initWithTitle:@"Save to Pocket"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Pocket"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        [activityViewController dismissViewControllerAnimated:YES completion:nil];
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        [[PocketAPI sharedAPI] setConsumerKey:consumerKey];
-                        if ([PocketAPI sharedAPI].username) {
-                            [self saveURL:[userInfo objectForKey:@"url"]];
-                        } else {
-                            [[PocketAPI sharedAPI] loginWithHandler:^(PocketAPI *api, NSError *error) {
-                                if (!error)
-                                    [self saveURL:[userInfo objectForKey:@"url"]];
-                            }];
-                        }                        
-                    }];
+                    actionBlock:nil];
+    
+    if (!self)
+        return nil;
+    
+    __weak __block __typeof(&*self)weakSelf = self;
+    self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
+        [activityViewController dismissViewControllerAnimated:YES completion:nil];
+        NSDictionary *userInfo = activityViewController.userInfo;
+        [[PocketAPI sharedAPI] setConsumerKey:consumerKey];
+        if ([PocketAPI sharedAPI].username) {
+            [weakSelf saveURL:[userInfo objectForKey:@"url"]];
+        } else {
+            [[PocketAPI sharedAPI] loginWithHandler:^(PocketAPI *api, NSError *error) {
+                if (!error)
+                    [weakSelf saveURL:[userInfo objectForKey:@"url"]];
+            }];
+        }
+    };
+    
+    return self;
 }
 
 - (void)saveURL:(NSURL *)url

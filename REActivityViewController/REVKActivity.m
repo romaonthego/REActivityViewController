@@ -35,31 +35,39 @@
     self = [super initWithTitle:@"VKontakte"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_VK"]
                     actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        UIViewController *presenter = activityViewController.presentingController;
-                        [activityViewController dismissViewControllerAnimated:YES completion:^{
-                            
-                            NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"REVKActivity_Token"];
-                            if (token) {
-                                [self share];
-                            } else {
-                                REVKActivityViewController *vkController = [[REVKActivityViewController alloc] initWithClientId:_clientId];
-                                vkController.activity = self;
-                                UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vkController];
-                                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-                                    navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
-                                
-                                [presenter presentViewController:navigationController animated:YES completion:nil];
-                            }
-                        }];
+                        
                     }];
-    if (self) {
-        self.clientId = clientId;
-    }
+    if (!self)
+        return nil;
+    
+    _clientId = clientId;
+    __weak __block __typeof(&*self)weakSelf = self;
+    self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
+        UIViewController *presenter = activityViewController.presentingController;
+        [activityViewController dismissViewControllerAnimated:YES completion:^{
+            
+            NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"REVKActivity_Token"];
+            if (token) {
+                [weakSelf share];
+            } else {
+                REVKActivityViewController *vkController = [[REVKActivityViewController alloc] initWithClientId:weakSelf.clientId];
+                vkController.activity = weakSelf;
+                UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vkController];
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+                    navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+                
+                [presenter presentViewController:navigationController animated:YES completion:nil];
+            }
+        }];
+    };
+    
     return self;
 }
 
 - (void)share
 {
+    __weak __block __typeof(&*self)weakSelf = self;
+    
     UIViewController *presenter = self.activityViewController.presentingController;
     NSDictionary *userInfo = self.activityViewController.userInfo;
 
@@ -93,9 +101,9 @@
         
         if (result == REComposeResultPosted) {
             if (image) {
-                [self shareText:composeViewController.text image:image];
+                [weakSelf shareText:composeViewController.text image:image];
             } else {
-                [self shareText:composeViewController.text];
+                [weakSelf shareText:composeViewController.text];
             }
         }
     };
@@ -176,10 +184,12 @@
 
 - (void)shareText:(NSString *)text image:(UIImage *)image
 {
+    __weak __block __typeof(&*self)weakSelf = self;
+    
     [self requestPhotoUploadURLWithSuccess:^(NSString *uploadURL) {
-        [self uploadImage:image toURL:uploadURL success:^(NSString *hash, NSString *photo, NSString *server) {
-            [self saveImageToWallWithHash:hash photo:photo server:server success:^(NSString *wallPhotoId) {
-                [self shareOnWall:text photoId:wallPhotoId completion:nil];
+        [weakSelf uploadImage:image toURL:uploadURL success:^(NSString *hash, NSString *photo, NSString *server) {
+            [weakSelf saveImageToWallWithHash:hash photo:photo server:server success:^(NSString *wallPhotoId) {
+                [weakSelf shareOnWall:text photoId:wallPhotoId completion:nil];
             }];
         }];
     }];

@@ -36,37 +36,41 @@
 {
     self = [super initWithTitle:@"Tumblr"
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Tumblr"]
-                    actionBlock:^(REActivity *activity, REActivityViewController *activityViewController) {
-                        NSDictionary *userInfo = activityViewController.userInfo;
-                        if (![[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"]) {
-                            [self showAuthDialogWithActivityViewController:activityViewController];
-                        } else {
-                            [activityViewController dismissViewControllerAnimated:YES completion:^{
-                                NSString *email = [[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"];
-                                NSString *password = [SFHFKeychainUtils getPasswordForUsername:email andServiceName:@"RETumblrActivity" error:nil];
-                                
-                                [self authenticateWithUsername:email
-                                                      password:password success:^(AFXAuthClient *client) {
-                                                          [self shareUserInfo:userInfo client:client];
-                                                      } failure:^(NSError *error) {
-                                                          [self showAuthDialogWithActivityViewController:activityViewController];
-                                                          
-                                                          UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tumblr Log In", @"Tumblr Log In") message:NSLocalizedString(@"Please check your e-mail and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
-                                                          [alertView show];
-                                                      }];
-                            }];
-                        }
-                    }];
+                    actionBlock:nil];
     if (!self)
         return nil;
     
     _consumerKey = consumerKey;
     _consumerSecret = consumerSecret;
+    __weak __block __typeof(&*self)weakSelf = self;
+    self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
+        NSDictionary *userInfo = activityViewController.userInfo;
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"]) {
+            [weakSelf showAuthDialogWithActivityViewController:activityViewController];
+        } else {
+            [activityViewController dismissViewControllerAnimated:YES completion:^{
+                NSString *email = [[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Email"];
+                NSString *password = [SFHFKeychainUtils getPasswordForUsername:email andServiceName:@"RETumblrActivity" error:nil];
+                
+                [weakSelf authenticateWithUsername:email
+                                      password:password success:^(AFXAuthClient *client) {
+                                          [weakSelf shareUserInfo:userInfo client:client];
+                                      } failure:^(NSError *error) {
+                                          [weakSelf showAuthDialogWithActivityViewController:activityViewController];
+                                          
+                                          UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tumblr Log In", @"Tumblr Log In") message:NSLocalizedString(@"Please check your e-mail and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
+                                          [alertView show];
+                                      }];
+            }];
+        }
+    };
+    
     return self;
 }
 
 - (void)showAuthDialogWithActivityViewController:(REActivityViewController *)activityViewController
 {
+    __weak __block __typeof(&*self)weakSelf = self;
     UIViewController *presenter = activityViewController.presentingController;
     NSDictionary *userInfo = activityViewController.userInfo;
     [activityViewController dismissViewControllerAnimated:YES completion:^{
@@ -75,7 +79,7 @@
         controller.title = @"Tumblr";
         controller.labels = @[NSLocalizedString(@"Email", @"Email"), NSLocalizedString(@"Password", @"Password"), NSLocalizedString(@"We store your password in a safe place.", @"We store your password in safe place.")];
         controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {            
-            [self authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
+            [weakSelf authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
                 NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"/v2/user/info" parameters:nil];
                 AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                     NSDictionary *blog = [[[[JSON objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"blogs"] objectAtIndex:0];
@@ -87,7 +91,7 @@
                     [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"RETumblrActivity" updateExisting:YES error:nil];
                     
                     [controller dismissViewControllerAnimated:YES completion:^{
-                        [self shareUserInfo:userInfo client:client];
+                        [weakSelf shareUserInfo:userInfo client:client];
                     }];
                 } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tumblr Log In", @"Tumblr Log In") message:NSLocalizedString(@"Please check your e-mail and password. If you're sure they're correct, Tumblr may be temporarily experiencing problems. Please try again in a few minutes.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"Dismiss") otherButtonTitles:nil];
@@ -124,6 +128,7 @@
 
 - (void)shareUserInfo:(NSDictionary *)userInfo client:(AFXAuthClient *)client
 {
+    __weak __block __typeof(&*self)weakSelf = self;
     UIViewController *presenter = self.activityViewController.presentingController;
     
     NSString *text = [userInfo objectForKey:@"text"];
@@ -155,9 +160,9 @@
         presenter.modalPresentationStyle = UIModalPresentationFullScreen;
         if (result == REComposeResultPosted) {
             if (image) {
-                [self shareUsingClient:client text:composeViewController.text image:image];
+                [weakSelf shareUsingClient:client text:composeViewController.text image:image];
             } else {
-                [self shareUsingClient:client text:composeViewController.text];
+                [weakSelf shareUsingClient:client text:composeViewController.text];
             }
         }
     };
