@@ -153,6 +153,8 @@ self.modalPresentationStyle = UIModalPresentationCurrentContext;
 }];
 ```
 
+You can also define per-activity userInfo dictionaries.
+
 ### Presentation Notes
 
 On the iPhone, you must present `REActivityViewController` from the window's root controller (top level controller), otherwise you'll be getting black background underneath `REActivityViewController`. 
