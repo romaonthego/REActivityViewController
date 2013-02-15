@@ -39,7 +39,7 @@
         return nil;
     
     _clientId = clientId;
-    __weak __typeof(&*self)weakSelf = self;
+    __typeof(&*self) __weak weakSelf = self;
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
         UIViewController *presenter = activityViewController.presentingController;
         [activityViewController dismissViewControllerAnimated:YES completion:^{
@@ -64,7 +64,7 @@
 
 - (void)share
 {
-    __weak __typeof(&*self)weakSelf = self;
+    __typeof(&*self) __weak weakSelf = self;
     
     UIViewController *presenter = self.activityViewController.presentingController;
     NSDictionary *userInfo = self.userInfo ? self.userInfo : self.activityViewController.userInfo;
@@ -182,7 +182,7 @@
 
 - (void)shareText:(NSString *)text image:(UIImage *)image
 {
-    __weak __typeof(&*self)weakSelf = self;
+    __typeof(&*self) __weak weakSelf = self;
     
     [self requestPhotoUploadURLWithSuccess:^(NSString *uploadURL) {
         [weakSelf uploadImage:image toURL:uploadURL success:^(NSString *hash, NSString *photo, NSString *server) {
