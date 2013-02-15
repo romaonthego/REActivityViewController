@@ -39,7 +39,7 @@
     
     __typeof(&*self) __weak weakSelf = self;
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
-        NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
+        //NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         [activityViewController dismissViewControllerAnimated:YES completion:^{
         }];
     };
