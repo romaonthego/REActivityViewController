@@ -16,6 +16,9 @@
 
 /* Save to Diigo */
 "activity.Diigo.title"="Sauvegarder dans Diigo";
+"activity.Diig.dialog.title"="Diigo";
+"activity.Diigo.authentication.title"="Diigo";
+"activity.Diigo.authentication.error"="Veuillez vérifier vos identifiants. Si vous êtes sûr qu'ils sont corrects, il est possible que Diigo rencontre des problèmes temporaires. Veuillez réessayer dans quelques minutes.";
 
 /* Facebook */
 "activity.Facebook.title"="Facebook";
@@ -52,7 +55,7 @@
 
 /* Tumblr */
 "activity.Tumblr.title"="Tumblr";
-"activity.Tumblr.dialog.Tumblr.title"="Tumblr";
+"activity.Tumblr.dialog.title"="Tumblr";
 "activity.Tumblr.authentication.title"="Tumblr";
 "activity.Tumblr.authentication.error"="Veuillez vérifier vos identifiants. Si vous êtes sûr qu'ils sont corrects, il est possible que Tumblr rencontre des problèmes temporaires. Veuillez réessayer dans quelques minutes.";
 

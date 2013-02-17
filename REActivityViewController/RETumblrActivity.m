@@ -156,7 +156,7 @@
         textToShare = [NSString stringWithFormat:@"%@ %@", text, url.absoluteString];
     
     REComposeViewController *controller = [[REComposeViewController alloc] init];
-    controller.title = NSLocalizedStringFromTable(@"activity.Tumblr.dialog.Tumblr.title", @"REActivityViewController", @"Tumblr");
+    controller.title = NSLocalizedStringFromTable(@"activity.Tumblr.dialog.title", @"REActivityViewController", @"Tumblr");
     controller.navigationBar.tintColor = [UIColor colorWithRed:56/255.0f green:86/255.0f blue:114/255.0f alpha:1.0];
     if (textToShare)
         controller.text = textToShare;

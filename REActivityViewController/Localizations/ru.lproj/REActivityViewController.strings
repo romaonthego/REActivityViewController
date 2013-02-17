@@ -15,6 +15,9 @@
 
 /* Save to Diigo */
 "activity.Diigo.title"="Сохранить в Diigo";
+"activity.Diigo.dialog.title"="Diigo";
+"activity.Diigo.authentication.title"="Diigo";
+"activity.Diigo.authentication.error"="Пожалуйста, проверьте имя пользователя и пароль. Если они верны, возможно Diigo недоступен в данный момент, повторите через несколько минут.";
 
 /* Facebook */
 "activity.Facebook.title"="Facebook";
@@ -51,7 +54,7 @@
 
 /* Tumblr */
 "activity.Tumblr.title"="Tumblr";
-"activity.Tumblr.dialog.Tumblr.title"="Tumblr";
+"activity.Tumblr.dialog.title"="Tumblr";
 "activity.Tumblr.authentication.title"="Tumblr";
 "activity.Tumblr.authentication.error"="Пожалуйста, проверьте e-mail и пароль. Если они верны, возможно Tumblr недоступен в данный момент, повторите через несколько минут.";
 
