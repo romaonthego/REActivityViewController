@@ -37,3 +37,4 @@
 #import "REInstapaperActivity.h"
 #import "REPocketActivity.h"
 #import "REReadabilityActivity.h"
+#import "REDiigoActivity.h"

@@ -18,6 +18,8 @@
 "activity.Diigo.dialog.title"="Diigo";
 "activity.Diigo.authentication.title"="Diigo";
 "activity.Diigo.authentication.error"="Пожалуйста, проверьте имя пользователя и пароль. Если они верны, возможно Diigo недоступен в данный момент, повторите через несколько минут.";
+"activity.Diigo.error.title"="Ошибка.";
+"activity.Diigo.error.text"="Пожалуйста, введите название ссылки.";
 
 /* Facebook */
 "activity.Facebook.title"="Facebook";

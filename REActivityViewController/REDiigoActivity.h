@@ -27,4 +27,8 @@
 
 @interface REDiigoActivity : REActivity
 
+@property (copy, nonatomic) NSString *apiKey;
+
+- (id)initWithAPIKey:(NSString *)apiKey;
+
 @end
