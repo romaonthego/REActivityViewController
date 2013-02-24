@@ -37,6 +37,6 @@
 @property (weak, nonatomic) UIPopoverController *presentingPopoverController;
 @property (weak, nonatomic) UIViewController *presentingController;
 
-- (id)initWithViewController:(UIViewController *)viewController activities:(NSArray *)activities;
+- (id)initWithActivities:(NSArray *)activities;
 
 @end

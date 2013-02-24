@@ -34,12 +34,12 @@
 
 @implementation REActivityViewController
 
-- (id)initWithViewController:(UIViewController *)viewController activities:(NSArray *)activities
+- (id)initWithActivities:(NSArray *)activities
 {
     self = [super init];
     if (self) {
         self.view.frame = CGRectMake(0, 0, 320, 417);
-        self.presentingController = viewController;
+        self.presentingController = [UIApplication sharedApplication].keyWindow.rootViewController;
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
             _backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];

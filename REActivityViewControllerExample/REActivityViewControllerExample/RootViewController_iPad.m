@@ -66,7 +66,7 @@
     
     // Create REActivityViewController controller and assign data source
     //
-    REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self activities:activities];
+    REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithActivities:activities];
     activityViewController.userInfo = @{
                                         @"image": [UIImage imageNamed:@"Flower.jpg"],
                                         @"text": @"Hello world!",
