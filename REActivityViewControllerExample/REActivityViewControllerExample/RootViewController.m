@@ -36,6 +36,7 @@
     REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
     REReadabilityActivity *readabilityActivity = [[REReadabilityActivity alloc] initWithConsumerKey:@"CONSUMER KEY" consumerSecret:@"CONSUMER SECRET"];
     REDiigoActivity *diigoActivity = [[REDiigoActivity alloc] initWithAPIKey:@"ed3f4751e5fe5271"];
+    REKipptActivity *kipptActivity = [[REKipptActivity alloc] init];
     RESaveToCameraRollActivity *saveToCameraRollActivity = [[RESaveToCameraRollActivity alloc] init];
     REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
     REPrintActivity *printActivity = [[REPrintActivity alloc] init];
@@ -56,7 +57,7 @@
     //
     NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity,
                             messageActivity, mailActivity, safariActivity, pocketActivity,
-                            instapaperActivity, readabilityActivity, diigoActivity,
+                            instapaperActivity, readabilityActivity, diigoActivity, kipptActivity,
                             saveToCameraRollActivity, mapsActivity, printActivity,
                             copyActivity, customActivity];
     
