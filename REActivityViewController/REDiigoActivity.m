@@ -74,7 +74,7 @@
         controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {
             [weakSelf authenticateWithUsername:username password:password success:^ {
                 [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"REDiigoActivity_Username"];
-                [[NSUserDefaults standardUserDefaults] setObject:password forKey:@"REDiigoActivity_Password"];
+                [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"REDiigoActivity" updateExisting:YES error:nil];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 [controller dismissViewControllerAnimated:YES completion:^{
                     [weakSelf bookmark:userInfo];
@@ -135,8 +135,10 @@
                 presenter.modalPresentationStyle = UIModalPresentationFullScreen;
                 
                 AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://secure.diigo.com"]];
-                [client setAuthorizationHeaderWithUsername:[[NSUserDefaults standardUserDefaults] objectForKey:@"REDiigoActivity_Username"]
-                                                  password:[[NSUserDefaults standardUserDefaults] objectForKey:@"REDiigoActivity_Password"]];
+                NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"REDiigoActivity_Username"];
+                NSString *password = [SFHFKeychainUtils getPasswordForUsername:username andServiceName:@"REDiigoActivity" error:nil];
+                [client setAuthorizationHeaderWithUsername:username
+                                                  password:password];
                 [client postPath:@"/api/v2/bookmarks"
                      parameters:@{@"key": _apiKey, @"title": composeViewController.text, @"url": url.absoluteString}
                         success:nil
@@ -149,7 +151,6 @@
                             [alertView show];
                             
                             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"REDiigoActivity_Username"];
-                            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"REDiigoActivity_Password"];
                             [[NSUserDefaults standardUserDefaults] synchronize];
                             [weakSelf showAuthDialogWithActivityViewController:weakSelf.activityViewController];
                         }];
