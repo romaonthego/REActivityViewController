@@ -18,6 +18,7 @@ It allows to create custom activites with ease, you control their apperance and 
 * Send to Instapaper
 * Save to Readability
 * Save to Diigo
+* Save to Kippt
 * Save to Album
 * Open in Maps
 * Print
@@ -114,6 +115,7 @@ REPocketActivity *pocketActivity = [[REPocketActivity alloc] initWithConsumerKey
 REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
 REReadabilityActivity *readabilityActivity = [[REReadabilityActivity alloc] initWithConsumerKey:@"CONSUMER KEY" consumerSecret:@"CONSUMER SECRET"];
 REDiigoActivity *diigoActivity = [[REDiigoActivity alloc] initWithAPIKey:@"API KEY"];
+REKipptActivity *kipptActivity = [[REKipptActivity alloc] init];
 RESaveToCameraRollActivity *saveToCameraRollActivity = [[RESaveToCameraRollActivity alloc] init];
 REMapsActivity *mapsActivity = [[REMapsActivity alloc] init];
 REPrintActivity *printActivity = [[REPrintActivity alloc] init];
@@ -134,8 +136,8 @@ REActivity *customActivity = [[REActivity alloc] initWithTitle:@"Custom"
 //
 NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity,
 messageActivity, mailActivity, safariActivity, pocketActivity, instapaperActivity,
-readabilityActivity, diigoActivity, saveToCameraRollActivity, mapsActivity, printActivity,
-copyActivity, customActivity];
+readabilityActivity, diigoActivity, kipptActivity, saveToCameraRollActivity, mapsActivity,
+printActivity, copyActivity, customActivity];
 
 // Create REActivityViewController controller and assign data source
 //
