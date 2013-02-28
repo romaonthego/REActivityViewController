@@ -1,5 +1,5 @@
 //
-// REActivities.h
+// REKipptActivity.h
 // REActivityViewController
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
@@ -23,19 +23,12 @@
 // THE SOFTWARE.
 //
 
-#import "REFacebookActivity.h"
-#import "RETwitterActivity.h"
-#import "REMessageActivity.h"
-#import "REMailActivity.h"
-#import "REPrintActivity.h"
-#import "RECopyActivity.h"
-#import "RESafariActivity.h"
-#import "REMapsActivity.h"
-#import "RESaveToCameraRollActivity.h"
-#import "RETumblrActivity.h"
-#import "REVKActivity.h"
-#import "REInstapaperActivity.h"
-#import "REPocketActivity.h"
-#import "REReadabilityActivity.h"
-#import "REDiigoActivity.h"
-#import "REKipptActivity.h"
+#import "REActivity.h"
+
+@interface REKipptActivity : REActivity
+
+@property (copy, nonatomic) NSString *apiKey;
+
+- (id)initWithAPIKey:(NSString *)apiKey;
+
+@end
