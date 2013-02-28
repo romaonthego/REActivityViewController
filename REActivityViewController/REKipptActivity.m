@@ -34,7 +34,7 @@
 - (id)initWithAPIKey:(NSString *)apiKey
 {
     self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Kippt.title", @"REActivityViewController", @"Save to Kippt")
-                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Custom"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Kippt"]
                     actionBlock:nil];
     
     if (!self)
