@@ -22,6 +22,14 @@
 "activity.Diigo.error.title"="Error.";
 "activity.Diigo.error.text"="Please enter title.";
 
+/* Save to Kippt */
+"activity.Kippt.title"="Sauvegarder dans Kippt";
+"activity.Kippt.dialog.title"="Kippt";
+"activity.Kippt.authentication.title"="Kippt";
+"activity.Kippt.authentication.error"="Veuillez vérifier vos identifiants. Si vous êtes sûr qu'ils sont corrects, il est possible que Kippt rencontre des problèmes temporaires. Veuillez réessayer dans quelques minutes.";
+"activity.Kippt.error.title"="Error.";
+"activity.Kippt.error.text"="Please enter title.";
+
 /* Facebook */
 "activity.Facebook.title"="Facebook";
 

@@ -21,6 +21,14 @@
 "activity.Diigo.error.title"="Ошибка.";
 "activity.Diigo.error.text"="Пожалуйста, введите название ссылки.";
 
+/* Save to Kippt */
+"activity.Kippt.title"="Сохранить в Kippt";
+"activity.Kippt.dialog.title"="Kippt";
+"activity.Kippt.authentication.title"="Kippt";
+"activity.Kippt.authentication.error"="Пожалуйста, проверьте имя пользователя и пароль. Если они верны, возможно Kippt недоступен в данный момент, повторите через несколько минут.";
+"activity.Kippt.error.title"="Ошибка.";
+"activity.Kippt.error.text"="Пожалуйста, введите название ссылки.";
+
 /* Facebook */
 "activity.Facebook.title"="Facebook";
 
