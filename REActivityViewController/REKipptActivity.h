@@ -27,8 +27,6 @@
 
 @interface REKipptActivity : REActivity
 
-@property (copy, nonatomic) NSString *apiKey;
-
-- (id)initWithAPIKey:(NSString *)apiKey;
+- (id)init;
 
 @end

@@ -31,7 +31,7 @@
 
 @implementation REKipptActivity
 
-- (id)initWithAPIKey:(NSString *)apiKey
+- (id)init
 {
     self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Kippt.title", @"REActivityViewController", @"Save to Kippt")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Kippt"]
@@ -40,7 +40,6 @@
     if (!self)
         return nil;
     
-    _apiKey = apiKey;
     __typeof(&*self) __weak weakSelf = self;
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
