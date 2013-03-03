@@ -57,7 +57,9 @@
                     [weakSelf authenticateUsername:username password:password success:^{
                         [controller dismissViewControllerAnimated:YES completion:nil];
                         [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"REInstapaperActivity_Username"];
-                        [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"REInstapaperActivity" updateExisting:YES error:nil];
+                        if ([SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"REInstapaperActivity" updateExisting:YES error:nil]) {
+                            [[NSUserDefaults standardUserDefaults] synchronize];
+                        }
                         [weakSelf saveURL:[userInfo objectForKey:@"url"] title:[userInfo objectForKey:@"text"]];
                     } error:^{
                         [controller showLoginButton];
