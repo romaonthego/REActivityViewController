@@ -65,8 +65,7 @@
 - (void)share
 {
     __typeof(&*self) __weak weakSelf = self;
-    
-    UIViewController *presenter = self.activityViewController.presentingController;
+
     NSDictionary *userInfo = self.userInfo ? self.userInfo : self.activityViewController.userInfo;
 
     NSString *text = [userInfo objectForKey:@"text"];
@@ -94,9 +93,6 @@
     }
     controller.completionHandler = ^(REComposeViewController *composeViewController, REComposeResult result) {
         [composeViewController dismissViewControllerAnimated:YES completion:nil];
-        
-        presenter.modalPresentationStyle = UIModalPresentationFullScreen;
-        
         if (result == REComposeResultPosted) {
             if (image) {
                 [weakSelf shareText:composeViewController.text image:image];
@@ -105,8 +101,7 @@
             }
         }
     };
-    presenter.modalPresentationStyle = UIModalPresentationCurrentContext;
-    [presenter presentViewController:controller animated:YES completion:nil];
+    [controller presentFromRootViewController];
 }
 
 #pragma mark -

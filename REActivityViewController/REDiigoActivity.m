@@ -111,7 +111,6 @@
 - (void)bookmark:(NSDictionary *)userInfo
 {
     __typeof(&*self) __weak weakSelf = self;
-    UIViewController *presenter = self.activityViewController.presentingController;
     
     NSString *text = [userInfo objectForKey:@"text"];
     NSURL *url = [userInfo objectForKey:@"url"];
@@ -132,7 +131,6 @@
                 [alert show];
             } else {
                 [composeViewController dismissViewControllerAnimated:YES completion:nil];
-                presenter.modalPresentationStyle = UIModalPresentationFullScreen;
                 
                 AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://secure.diigo.com"]];
                 NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"REDiigoActivity_Username"];
@@ -157,11 +155,9 @@
             }
         } else {
             [composeViewController dismissViewControllerAnimated:YES completion:nil];
-            presenter.modalPresentationStyle = UIModalPresentationFullScreen;
         }
     };
-    presenter.modalPresentationStyle = UIModalPresentationCurrentContext;
-    [presenter presentViewController:controller animated:YES completion:nil];
+    [controller presentFromRootViewController];
 }
 
 @end
