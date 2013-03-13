@@ -86,12 +86,13 @@ The following framework must be added as optional (weak reference):
 
 Dependencies:
 
-* [AFNetworking](https://github.com/AFNetworking/AFNetworking) ~> 1.0
-* [Facebook-iOS-SDK](https://github.com/facebook/facebook-ios-sdk) ~> 3.1.1
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking) ~> 1.1
+* [Facebook-iOS-SDK](https://github.com/facebook/facebook-ios-sdk) ~> 3.2
 * [DEFacebookComposeViewController](https://github.com/sakrist/FacebookSample) ~> 1.0.0
-* [REComposeViewController](https://github.com/romaonthego/REComposeViewController) ~> 1.1
-* [PocketAPI](https://github.com/Pocket/Pocket-ObjC-SDK) ~> 1.0.1
-* [AFXAuthClient](https://github.com/romaonthego/AFXAuthClient) ~> 1.0.3
+* [REComposeViewController](https://github.com/romaonthego/REComposeViewController) ~> 2.0
+* [PocketAPI](https://github.com/Pocket/Pocket-ObjC-SDK) ~> 1.0.2
+* [SFHFKeychainUtils](https://github.com/ldandersen/scifihifi-iphone/tree/master/security) ~> 0.0.1
+* [AFXAuthClient](https://github.com/romaonthego/AFXAuthClient) ~> 1.0.5
 
 ## Example Usage
 
@@ -149,13 +150,7 @@ activityViewController.userInfo = @{
     @"coordinate": @{@"latitude": @(37.751586275), @"longitude": @(-122.447721511)}
 };
 
-// Present it using current context
-//
-__typeof(&*self) __weak weakSelf = self;
-self.modalPresentationStyle = UIModalPresentationCurrentContext;
-[self presentViewController:activityViewController animated:YES completion:^{
-    weakSelf.modalPresentationStyle = UIModalPresentationFullScreen;
-}];
+[activityViewController presentFromRootViewController];
 ```
 
 You can also define per-activity userInfo dictionaries, for instance:
@@ -163,23 +158,6 @@ You can also define per-activity userInfo dictionaries, for instance:
 ``` objective-c
 twitterActivity.userInfo = @{@"image": [UIImage imageNamed:@"Flower.jpg"],
                              @"text": @"Hello world! via @myapp"};
-```
-
-### Presentation Notes
-
-On the iPhone, you must present `REActivityViewController` from the window's root controller (top level controller), otherwise you'll be getting black background underneath `REActivityViewController`.
-It has something to do with `UIModalPresentationCurrentContext` as it requires presenting view to be full screen.
-
-For example, if your controller is contained in `UINavigationController` you could use the following code to present `REActivityViewController`:
-
-``` objective-c
-REActivityViewController *activityViewController = [[REActivityViewController alloc] initWithViewController:self.navigationController activities:activities];
-
-__typeof(&*self) __weak weakSelf = self;
-self.navigationController.modalPresentationStyle = UIModalPresentationCurrentContext;
-[self.navigationController presentViewController:activityViewController animated:YES completion:^{
-    weakSelf.navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
-}];
 ```
 
 ### iPad specific
