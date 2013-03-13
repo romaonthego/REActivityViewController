@@ -34,11 +34,21 @@
 
 @implementation REActivityViewController
 
+- (void)loadView
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+        self.view = [[UIView alloc] initWithFrame:rootViewController.view.bounds];
+        self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    } else {
+        [super loadView];
+    }
+}
+
 - (id)initWithViewController:(UIViewController *)viewController activities:(NSArray *)activities
 {
     self = [super init];
     if (self) {
-        self.view.frame = CGRectMake(0, 0, 320, 417);
         self.presentingController = viewController;
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
@@ -47,6 +57,8 @@
             _backgroundView.backgroundColor = [UIColor blackColor];
             _backgroundView.alpha = 0;
             [self.view addSubview:_backgroundView];
+        } else {
+            self.view.frame = CGRectMake(0, 0, 320, 417);
         }
         
         _activities = activities;
@@ -67,13 +79,16 @@
 - (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
 {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        __typeof (&*self) __weak weakSelf = self;
         [UIView animateWithDuration:0.4 animations:^{
             _backgroundView.alpha = 0;
             CGRect frame = _activityView.frame;
             frame.origin.y = [UIScreen mainScreen].bounds.size.height;
             _activityView.frame = frame;
         } completion:^(BOOL finished) {
-            [super dismissViewControllerAnimated:NO completion:completion];
+            [weakSelf.view removeFromSuperview];
+            [weakSelf removeFromParentViewController];
+            //[super dismissViewControllerAnimated:NO completion:completion];
         }];
     } else {
         [self.presentingPopoverController dismissPopoverAnimated:YES];
@@ -84,8 +99,17 @@
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)presentFromRootViewController
 {
+    UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+    [rootViewController addChildViewController:self];
+    [rootViewController.view addSubview:self.view];
+    [self didMoveToParentViewController:rootViewController];
+}
+
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+    [super didMoveToParentViewController:parent];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [UIView animateWithDuration:0.4 animations:^{
             _backgroundView.alpha = 0.4;
@@ -95,13 +119,6 @@
             _activityView.frame = frame;
         }];
     }
-    
-     [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear: animated];
 }
 
 - (NSInteger)height

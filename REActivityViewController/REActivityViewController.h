@@ -38,5 +38,6 @@
 @property (weak, nonatomic) UIViewController *presentingController;
 
 - (id)initWithViewController:(UIViewController *)viewController activities:(NSArray *)activities;
+- (void)presentFromRootViewController;
 
 @end
