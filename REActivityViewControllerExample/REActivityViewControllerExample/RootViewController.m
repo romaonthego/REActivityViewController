@@ -71,13 +71,7 @@
                                         @"coordinate": @{@"latitude": @(37.751586275), @"longitude": @(-122.447721511)}
                                         };
     
-    // Present it using current context
-    //
-    __weak __typeof(&*self)weakSelf = self;
-    self.modalPresentationStyle = UIModalPresentationCurrentContext;
-    [self presentViewController:activityViewController animated:YES completion:^{
-        weakSelf.modalPresentationStyle = UIModalPresentationFullScreen;
-    }];
+    [activityViewController presentFromRootViewController];
 }
 
 #pragma mark -
