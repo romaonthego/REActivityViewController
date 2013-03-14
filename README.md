@@ -60,7 +60,7 @@ Edit your Podfile and add `REActivityViewController`:
 ``` bash
 $ edit Podfile
 platform :ios, '5.0'
-pod 'REActivityViewController', '~> 1.4'
+pod 'REActivityViewController', '~> 1.5'
 ```
 
 Install into your Xcode project:
