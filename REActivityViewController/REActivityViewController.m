@@ -88,7 +88,8 @@
         } completion:^(BOOL finished) {
             [weakSelf.view removeFromSuperview];
             [weakSelf removeFromParentViewController];
-            //[super dismissViewControllerAnimated:NO completion:completion];
+            if (completion)
+                completion();
         }];
     } else {
         [self.presentingPopoverController dismissPopoverAnimated:YES];
