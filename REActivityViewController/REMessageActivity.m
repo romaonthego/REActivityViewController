@@ -44,6 +44,9 @@
         NSString *text = [userInfo objectForKey:@"text"];
         NSURL *url = [userInfo objectForKey:@"url"];
         [activityViewController dismissViewControllerAnimated:YES completion:^{
+            if (![MFMessageComposeViewController canSendText])
+                return;
+            
             MFMessageComposeViewController *messageComposeViewController = [[MFMessageComposeViewController alloc] init];
             [REActivityDelegateObject sharedObject].controller = activityViewController.presentingController;
             messageComposeViewController.messageComposeDelegate = [REActivityDelegateObject sharedObject];
