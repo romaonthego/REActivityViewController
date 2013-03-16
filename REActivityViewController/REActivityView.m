@@ -78,8 +78,10 @@
         [_pageControl addTarget:self action:@selector(pageControlValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:_pageControl];
         
-        if (_pageControl.numberOfPages <= 1)
+        if (_pageControl.numberOfPages <= 1) {
             _pageControl.hidden = YES;
+            _scrollView.scrollEnabled = NO;
+        }
         
         _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_cancelButton setBackgroundImage:[[UIImage imageNamed:@"REActivityViewController.bundle/Button"] stretchableImageWithLeftCapWidth:22 topCapHeight:47] forState:UIControlStateNormal];
