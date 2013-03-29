@@ -121,7 +121,7 @@
     [label setNumberOfLines:0];
     [label sizeToFit];
     CGRect frame = label.frame;
-    frame.origin.x = round((view.frame.size.width - frame.size.width) / 2.0f);
+    frame.origin.x = roundf((view.frame.size.width - frame.size.width) / 2.0f);
     label.frame = frame;
     [view addSubview:label];
     
