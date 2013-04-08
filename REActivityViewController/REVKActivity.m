@@ -194,7 +194,7 @@
 }
 
 #pragma mark -
-#pragma Helper
+#pragma mark Helper
 
 - (NSString *)URLEncodedString:(NSString *)str
 {
