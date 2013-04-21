@@ -28,6 +28,8 @@
 
 @interface REActivityViewController ()
 
+@property (strong, readonly, nonatomic) UIView *backgroundView;
+
 - (NSInteger)height;
 
 @end
@@ -118,14 +120,15 @@
 {
     [super didMoveToParentViewController:parent];
     _backgroundView.frame = self.rootViewController.view.bounds;
+    
+    __typeof (&*self) __weak weakSelf = self;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [UIView animateWithDuration:0.4 animations:^{
-            _backgroundView.alpha = 0.4;
+            weakSelf.backgroundView.alpha = 0.4;
             
-            NSLog(@"size = %f, %f", self.view.frame.size.height, self.rootViewController.view.frame.size.height);
-            CGRect frame = _activityView.frame;
-            frame.origin.y = self.rootViewController.view.frame.size.height - self.height;
-            _activityView.frame = frame;
+            CGRect frame = weakSelf.activityView.frame;
+            frame.origin.y = weakSelf.rootViewController.view.frame.size.height - self.height;
+            weakSelf.activityView.frame = frame;
         }];
     }
 }
