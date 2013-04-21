@@ -173,7 +173,8 @@
             }
         }
     };
-    [controller presentFromViewController:self.activityViewController.rootViewController];
+    UIViewController *presentingViewController = self.activityViewController.rootViewController ? self.activityViewController.rootViewController : self.activityViewController.presentingController;
+    [controller presentFromViewController:presentingViewController];
 }
 
 - (void)shareUsingClient:(AFXAuthClient *)client text:(NSString *)text

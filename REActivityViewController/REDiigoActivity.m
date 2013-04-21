@@ -157,7 +157,8 @@
             [composeViewController dismissViewControllerAnimated:YES completion:nil];
         }
     };
-    [controller presentFromViewController:self.activityViewController.rootViewController];
+    UIViewController *presentingViewController = self.activityViewController.rootViewController ? self.activityViewController.rootViewController : self.activityViewController.presentingController;
+    [controller presentFromViewController:presentingViewController];
 }
 
 @end

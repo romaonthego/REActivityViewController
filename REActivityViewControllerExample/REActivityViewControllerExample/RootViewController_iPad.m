@@ -79,7 +79,6 @@
     //
     _activityPopoverController = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
     activityViewController.presentingPopoverController = _activityPopoverController;
-    activityViewController.rootViewController = self.navigationController;
     [_activityPopoverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem
                                        permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
