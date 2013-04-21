@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = 'REActivityViewController'
-  s.version     = '1.5.3'
+  s.version     = '1.5.4'
   s.authors     = { 'Roman Efimov' => 'romefimov@gmail.com' }
   s.homepage    = 'https://github.com/romaonthego/REActivityViewController'
   s.summary     = 'Open source alternative to UIActivityViewController, highly customizable and compatible with iOS 5.0.'
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.ios.weak_frameworks = 'Social'
 
   s.dependency 'AFNetworking', '~> 1.2.0'
-  s.dependency 'Facebook-iOS-SDK', '~> 3.2.1'
+  s.dependency 'Facebook-iOS-SDK', '~> 3.5.0'
   s.dependency 'DEFacebookComposeViewController', '~> 1.0.0'
   s.dependency 'REComposeViewController', '~> 2.0.1'
   s.dependency 'SFHFKeychainUtils', '~> 0.0.1'
