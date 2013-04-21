@@ -103,20 +103,28 @@
 - (void)presentFromRootViewController
 {
     UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-    [rootViewController addChildViewController:self];
-    [rootViewController.view addSubview:self.view];
-    [self didMoveToParentViewController:rootViewController];
+    [self presentFromViewController:rootViewController];
+}
+
+- (void)presentFromViewController:(UIViewController *)controller
+{
+    self.rootViewController = controller;
+    [controller addChildViewController:self];
+    [controller.view addSubview:self.view];
+    [self didMoveToParentViewController:controller];
 }
 
 - (void)didMoveToParentViewController:(UIViewController *)parent
 {
     [super didMoveToParentViewController:parent];
+    _backgroundView.frame = self.rootViewController.view.bounds;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [UIView animateWithDuration:0.4 animations:^{
             _backgroundView.alpha = 0.4;
             
+            NSLog(@"size = %f, %f", self.view.frame.size.height, self.rootViewController.view.frame.size.height);
             CGRect frame = _activityView.frame;
-            frame.origin.y = self.view.frame.size.height - self.height;
+            frame.origin.y = self.rootViewController.view.frame.size.height - self.height;
             _activityView.frame = frame;
         }];
     }

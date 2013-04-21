@@ -173,7 +173,7 @@
             }
         }
     };
-    [controller presentFromRootViewController];
+    [controller presentFromViewController:self.activityViewController.rootViewController];
 }
 
 - (void)shareUsingClient:(AFXAuthClient *)client text:(NSString *)text

@@ -36,8 +36,10 @@
 @property (strong, nonatomic) REActivityView *activityView;
 @property (weak, nonatomic) UIPopoverController *presentingPopoverController;
 @property (weak, nonatomic) UIViewController *presentingController;
+@property (weak, nonatomic) UIViewController *rootViewController;
 
 - (id)initWithViewController:(UIViewController *)viewController activities:(NSArray *)activities;
 - (void)presentFromRootViewController;
+- (void)presentFromViewController:(UIViewController *)controller;
 
 @end

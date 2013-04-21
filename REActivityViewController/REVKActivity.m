@@ -101,7 +101,8 @@
             }
         }
     };
-    [controller presentFromRootViewController];
+    
+    [controller presentFromViewController:self.activityViewController.rootViewController];
 }
 
 #pragma mark -
