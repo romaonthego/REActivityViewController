@@ -49,25 +49,27 @@
         
         [activityViewController dismissViewControllerAnimated:YES completion:^{
             MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
-            [REActivityDelegateObject sharedObject].controller = activityViewController.presentingController;
-            mailComposeViewController.mailComposeDelegate = [REActivityDelegateObject sharedObject];
-            
-            if (text && !url)
-                [mailComposeViewController setMessageBody:text isHTML:YES];
-            
-            if (!text && url)
-                [mailComposeViewController setMessageBody:url.absoluteString isHTML:YES];
-            
-            if (text && url)
-                [mailComposeViewController setMessageBody:[NSString stringWithFormat:@"%@ %@", text, url.absoluteString] isHTML:YES];
-            
-            if (image)
-                [mailComposeViewController addAttachmentData:UIImageJPEGRepresentation(image, 0.75f) mimeType:@"image/jpeg" fileName:@"photo.jpg"];
-            
-            if (subject)
-                [mailComposeViewController setSubject:subject];
-            
-            [activityViewController.presentingController presentViewController:mailComposeViewController animated:YES completion:nil];
+			if (mailComposeViewController) {
+				[REActivityDelegateObject sharedObject].controller = activityViewController.presentingController;
+				mailComposeViewController.mailComposeDelegate = [REActivityDelegateObject sharedObject];
+				
+				if (text && !url)
+					[mailComposeViewController setMessageBody:text isHTML:YES];
+				
+				if (!text && url)
+					[mailComposeViewController setMessageBody:url.absoluteString isHTML:YES];
+				
+				if (text && url)
+					[mailComposeViewController setMessageBody:[NSString stringWithFormat:@"%@ %@", text, url.absoluteString] isHTML:YES];
+				
+				if (image)
+					[mailComposeViewController addAttachmentData:UIImageJPEGRepresentation(image, 0.75f) mimeType:@"image/jpeg" fileName:@"photo.jpg"];
+				
+				if (subject)
+					[mailComposeViewController setSubject:subject];
+				
+				[activityViewController.presentingController presentViewController:mailComposeViewController animated:YES completion:nil];
+			}
         }];
     };
     
