@@ -82,7 +82,7 @@
                               ];
         controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {            
             [weakSelf authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
-                NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"/v2/user/info" parameters:nil];
+                NSMutableURLRequest *request = [client requestWithMethod:@"GET" path:@"/v2/user/info" parameters:nil];
                 AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                     NSDictionary *blog = [[[[JSON objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"blogs"] objectAtIndex:0];
                     NSURL *url = [NSURL URLWithString:[blog objectForKey:@"url"]];
