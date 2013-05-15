@@ -55,7 +55,11 @@
 - (void)shareFromViewController:(UIViewController *)viewController text:(NSString *)text url:(NSURL *)url image:(UIImage *)image
 {
     DEFacebookComposeViewController *facebookViewComposer = [[DEFacebookComposeViewController alloc] init];
-    viewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        viewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    else
+        [UIApplication sharedApplication].delegate.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    
     if (text)
         [facebookViewComposer setInitialText:text];
     if (url)
