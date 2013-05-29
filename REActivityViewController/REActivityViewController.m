@@ -127,17 +127,38 @@
             weakSelf.backgroundView.alpha = 0.4;
             
             CGRect frame = weakSelf.activityView.frame;
-            frame.origin.y = weakSelf.rootViewController.view.frame.size.height - self.height;
+            
+            UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+            if (UIInterfaceOrientationIsPortrait(interfaceOrientation) || UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+                frame.origin.y = weakSelf.rootViewController.view.frame.size.height - self.height;
+            } else {
+                if (_activities.count <= 4) {
+                    frame.origin.y = weakSelf.rootViewController.view.frame.size.width - self.height;
+                } else {
+                    frame.origin.y = -10;
+                }
+            }
+            
             weakSelf.activityView.frame = frame;
+            
         }];
     }
 }
 
 - (NSInteger)height
-{   
-    if (_activities.count <= 3) return 214;
-    if (_activities.count <= 6) return 317;
-    return 417;
+{
+    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    if (UIInterfaceOrientationIsPortrait(interfaceOrientation) || UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (_activities.count <= 3) return 214;
+        if (_activities.count <= 6) return 317;
+        if (IS_IPHONE_5 && _activities.count > 9) {
+            return 517;
+        }
+        return 417;
+    } else {
+        if (_activities.count <= 4) return 214;
+        return 310;
+    }
 }
 
 - (void)viewDidLoad
@@ -165,23 +186,38 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        return UIInterfaceOrientationMaskAll;
-    return UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationMaskAll;
 }
 
 - (BOOL)shouldAutorotate
 {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        return YES;
-    return NO;
+    return YES;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        return YES;
-    return (orientation == UIInterfaceOrientationPortrait);
+    return YES;
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        __typeof (&*self) __weak weakSelf = self;
+        CGRect frame = weakSelf.activityView.frame;
+    
+        if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+            frame.origin.y = weakSelf.rootViewController.view.frame.size.height - self.height;
+        } else {
+            if (_activities.count <= 4) {
+                frame.origin.y = weakSelf.rootViewController.view.frame.size.width - self.height;
+            } else {
+                frame.origin.y = -10;
+            }
+        }
+    
+        frame.size.height = self.height;
+        weakSelf.activityView.frame = frame;
+    }
 }
 
 @end

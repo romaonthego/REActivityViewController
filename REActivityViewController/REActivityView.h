@@ -26,6 +26,9 @@
 #import <UIKit/UIKit.h>
 #import "REActivity.h"
 
+// Check is iPhone5 screen
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 @interface REActivityView : UIView <UIScrollViewDelegate> {
     UIPageControl *_pageControl;
 }
