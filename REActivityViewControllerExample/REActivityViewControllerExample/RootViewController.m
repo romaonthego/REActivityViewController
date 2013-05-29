@@ -79,17 +79,20 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscape;
+    //return UIInterfaceOrientationMaskPortrait;
 }
 
 - (BOOL)shouldAutorotate
 {
-    return NO;
+    return YES;
+    //return NO;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-    return (orientation == UIInterfaceOrientationPortrait);
+    return YES;
+    //return (orientation == UIInterfaceOrientationPortrait);
 }
 
 @end
