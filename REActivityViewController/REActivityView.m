@@ -29,20 +29,19 @@
 @implementation REActivityView
 
 - (id)initWithFrame:(CGRect)frame activities:(NSArray *)activities
-{
+{    
     self = [super initWithFrame:frame];
     if (self) {
         self.clipsToBounds = YES;
         _activities = activities;
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 417)];
+            _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, (IS_IPHONE_5)? 517 :417)];
             _backgroundImageView.image = [UIImage imageNamed:@"REActivityViewController.bundle/Background"];
             _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             [self addSubview:_backgroundImageView];
         }
     
-        
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 39, frame.size.width, self.frame.size.height - 104)];
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
@@ -58,9 +57,16 @@
             
             col = index%3;
             if (index % 3 == 0) row++;
-            if (index % 9 == 0) {
-                row = 0;
-                page++;
+            if (IS_IPHONE_5) {
+                if (index % 12 == 0) {
+                    row = 0;
+                    page++;
+                }
+            } else {
+                if (index % 9 == 0) {
+                    row = 0;
+                    page++;
+                }
             }
 
             UIView *view = [self viewForActivity:activity
@@ -132,10 +138,99 @@
 {
     [super layoutSubviews];
     
-    CGRect frame = _cancelButton.frame;
-    frame.origin.y = self.frame.size.height - 47 - 16;
-    frame.origin.x = (self.frame.size.width - frame.size.width) / 2.0f;
-    _cancelButton.frame = frame;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        // For iPhone and iPod
+        CGRect scrollViewFrame = _scrollView.frame;
+        CGRect cancelButtonFrame = _cancelButton.frame;
+        UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+        
+        if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
+            scrollViewFrame.origin.y = 39;
+            
+            cancelButtonFrame.size.width = 276;
+            cancelButtonFrame.origin.y = self.frame.size.height - 47 - 16;
+            cancelButtonFrame.origin.x = (self.frame.size.width - cancelButtonFrame.size.width) / 2.0f;
+        } else {
+            scrollViewFrame.origin.y = 29;
+            
+            cancelButtonFrame.size.width = 236;
+            cancelButtonFrame.origin.y = self.frame.size.height - 47 - 18;
+            cancelButtonFrame.origin.x = (self.frame.size.width - cancelButtonFrame.size.width) / 2.0f;
+        }
+        
+        _scrollView.frame = scrollViewFrame;
+        _cancelButton.frame = cancelButtonFrame;
+        
+        NSInteger index = 0;
+        NSInteger row = -1;
+        NSInteger page = -1;
+        for (UIView *view in [_scrollView subviews]) {
+            NSInteger col;
+            CGRect frame = view.frame;
+            
+            if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
+                col = index%3;
+                if (index % 3 == 0) row++;
+                if (IS_IPHONE_5) {
+                    if (index % 12 == 0) {
+                        row = 0;
+                        page++;
+                    }
+                } else {
+                    if (index % 9 == 0) {
+                        row = 0;
+                        page++;
+                    }
+                }
+                
+                frame.origin.x = (20 + col*80 + col*20) + page * self.frame.size.width;
+                
+            } else {
+                col = index%4;
+                if (index % 4 == 0) row++;
+                if (index % 8 == 0) {
+                    row = 0;
+                    page++;
+                }
+                
+                if (IS_IPHONE_5) {
+                    frame.origin.x = (48 + col*80 + col*50) + page * self.frame.size.width;
+                } else {
+                    frame.origin.x = (20 + col*80 + col*40) + page * self.frame.size.width;
+                }
+            }
+            
+            frame.origin.y = row*80 + row*20;
+            view.frame = frame;
+            
+            index++;
+        }
+        
+        _scrollView.contentSize = CGSizeMake((page +1) * self.frame.size.width, _scrollView.frame.size.height);
+        _scrollView.pagingEnabled = YES;
+        
+        CGRect pageControlFrame = _pageControl.frame;
+        pageControlFrame.origin.y = self.frame.size.height - 84;
+        pageControlFrame.size.width = self.frame.size.width;
+        _pageControl.frame = pageControlFrame;
+        _pageControl.numberOfPages = page + 1;
+        
+        if (_pageControl.numberOfPages <= 1) {
+            _pageControl.hidden = YES;
+            _scrollView.scrollEnabled = NO;
+        } else {
+            _pageControl.hidden = NO;
+            _scrollView.scrollEnabled = YES;
+        }
+        
+        [self pageControlValueChanged:_pageControl];
+    } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        // For iPad
+        CGRect frame = _cancelButton.frame;
+        frame.origin.y = self.frame.size.height - 47 - 16;
+        frame.origin.x = (self.frame.size.width - frame.size.width) / 2.0f;
+        _cancelButton.frame = frame;
+    }
 }
 
 #pragma mark -

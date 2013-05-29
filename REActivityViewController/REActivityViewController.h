@@ -27,6 +27,9 @@
 #import "REActivityView.h"
 #import "REActivities.h"
 
+// Check is iPhone5 screen
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 @interface REActivityViewController : UIViewController {
     UIView *_backgroundView;
 }
