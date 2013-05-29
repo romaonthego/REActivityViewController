@@ -151,6 +151,9 @@
     if (UIInterfaceOrientationIsPortrait(interfaceOrientation) || UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if (_activities.count <= 3) return 214;
         if (_activities.count <= 6) return 317;
+        if (IS_IPHONE_5 && _activities.count > 9) {
+            return 517;
+        }
         return 417;
     } else {
         if (_activities.count <= 4) return 214;
@@ -183,25 +186,16 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    //if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    //    return UIInterfaceOrientationMaskAll;
-    //return UIInterfaceOrientationMaskPortrait;
     return UIInterfaceOrientationMaskAll;
 }
 
 - (BOOL)shouldAutorotate
 {
-    //if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    //    return YES;
-    //return NO;
     return YES;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-    //if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    //    return YES;
-    //return (orientation == UIInterfaceOrientationPortrait);
     return YES;
 }
 

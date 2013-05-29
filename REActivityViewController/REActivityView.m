@@ -36,7 +36,7 @@
         _activities = activities;
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 417)];
+            _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, (IS_IPHONE_5)? 517 :417)];
             _backgroundImageView.image = [UIImage imageNamed:@"REActivityViewController.bundle/Background"];
             _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             [self addSubview:_backgroundImageView];
@@ -57,9 +57,16 @@
             
             col = index%3;
             if (index % 3 == 0) row++;
-            if (index % 9 == 0) {
-                row = 0;
-                page++;
+            if (IS_IPHONE_5) {
+                if (index % 12 == 0) {
+                    row = 0;
+                    page++;
+                }
+            } else {
+                if (index % 9 == 0) {
+                    row = 0;
+                    page++;
+                }
             }
 
             UIView *view = [self viewForActivity:activity
@@ -164,9 +171,16 @@
             if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
                 col = index%3;
                 if (index % 3 == 0) row++;
-                if (index % 9 == 0) {
-                    row = 0;
-                    page++;
+                if (IS_IPHONE_5) {
+                    if (index % 12 == 0) {
+                        row = 0;
+                        page++;
+                    }
+                } else {
+                    if (index % 9 == 0) {
+                        row = 0;
+                        page++;
+                    }
                 }
                 
                 frame.origin.x = (20 + col*80 + col*20) + page * self.frame.size.width;
