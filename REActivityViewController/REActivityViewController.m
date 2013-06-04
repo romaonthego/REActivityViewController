@@ -135,7 +135,7 @@
                 if (_activities.count <= 4) {
                     frame.origin.y = weakSelf.rootViewController.view.frame.size.width - self.height;
                 } else {
-                    frame.origin.y = -10;
+                    frame.origin.y = [parent isKindOfClass:[UINavigationController class]] ? 20 : -10;
                 }
             }
             
@@ -211,7 +211,7 @@
             if (_activities.count <= 4) {
                 frame.origin.y = weakSelf.rootViewController.view.frame.size.width - self.height;
             } else {
-                frame.origin.y = -10;
+                frame.origin.y = [weakSelf.rootViewController isKindOfClass:[UINavigationController class]] ? 20 : -10;
             }
         }
     
