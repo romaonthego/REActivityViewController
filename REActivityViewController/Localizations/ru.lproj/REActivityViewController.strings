@@ -89,6 +89,7 @@
 "button.cancel"="Отмена";
 "button.dismiss"="ОК";
 "button.login"="Войти";
+"button.ok"="OK";
 
 /* Email */
 "field.email"="E-mail";

@@ -90,6 +90,7 @@
 "button.cancel"="Cancel";
 "button.dismiss"="Dismiss";
 "button.login"="Log In";
+"button.ok"="OK";
 
 /* Email */
 "field.email"="Email";
