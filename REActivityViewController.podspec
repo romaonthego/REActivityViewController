@@ -18,10 +18,10 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'QuartzCore', 'AssetsLibrary', 'MessageUI', 'Twitter'
   s.ios.weak_frameworks = 'Social'
 
-  s.dependency 'AFNetworking', '~> 1.2.1'
+  s.dependency 'AFNetworking', '~> 1.3.0'
   s.dependency 'Facebook-iOS-SDK', '~> 3.5.1'
   s.dependency 'DEFacebookComposeViewController', '~> 1.0.0'
-  s.dependency 'REComposeViewController', '~> 2.0.3'
+  s.dependency 'REComposeViewController', '~> 2.1.1'
   s.dependency 'SFHFKeychainUtils', '~> 0.0.1'
   s.dependency 'PocketAPI', '~> 1.0.2'
   s.dependency 'AFXAuthClient', '~> 1.0.5'
