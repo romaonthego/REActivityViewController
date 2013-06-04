@@ -32,6 +32,7 @@
     REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
     REMailActivity *mailActivity = [[REMailActivity alloc] init];
     RESafariActivity *safariActivity = [[RESafariActivity alloc] init];
+    REChromeActivity *chromeActivity = [[REChromeActivity alloc] init];
     REPocketActivity *pocketActivity = [[REPocketActivity alloc] initWithConsumerKey:@"11708-5a8fa563a3485a5133ef1b56"];
     REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
     REReadabilityActivity *readabilityActivity = [[REReadabilityActivity alloc] initWithConsumerKey:@"CONSUMER KEY" consumerSecret:@"CONSUMER SECRET"];
@@ -56,7 +57,7 @@
     // REActivityViewController on the next step
     //
     NSArray *activities = @[facebookActivity, twitterActivity, vkActivity, tumblrActivity,
-                            messageActivity, mailActivity, safariActivity, pocketActivity,
+                            messageActivity, mailActivity, safariActivity, chromeActivity, pocketActivity,
                             instapaperActivity, readabilityActivity, diigoActivity, kipptActivity,
                             saveToCameraRollActivity, mapsActivity, printActivity,
                             copyActivity, customActivity];
