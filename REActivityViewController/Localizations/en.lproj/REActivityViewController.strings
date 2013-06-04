@@ -60,6 +60,11 @@
 /* Open in Safari */
 "activity.Safari.title"="Open in Safari";
 
+/* Open in Chrome */
+"activity.Chrome.title"="Open in Chrome";
+"activity.Chrome.dialog.appstore.title"="Chrome in App Store";
+"activity.Chrome.dialog.appstore.message"="Would you like to be taken to the App Store to install Google Chrome?";
+
 /* Save to Camera Roll */
 "activity.CameraRoll.title"="Save to Camera Roll";
 
