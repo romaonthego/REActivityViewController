@@ -89,8 +89,8 @@
 /* Buttons */
 "button.cancel"="Annuler";
 "button.dismiss"="OK";
-"button.ok"="OK";
 "button.login"="Log In";
+"button.ok"="OK";
 
 /* Email */
 "field.email"="Email";
