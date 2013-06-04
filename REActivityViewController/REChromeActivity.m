@@ -18,7 +18,7 @@
 - (id)init
 {
     self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Chrome.title", @"REActivityViewController", @"Open in Chrome")
-                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Safari"]
+                          image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Chrome"]
                     actionBlock:nil];
     
     if (!self)
