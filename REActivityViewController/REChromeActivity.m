@@ -24,7 +24,7 @@
     if (!self)
         return nil;
     
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"googlechrome://"]]) {
+    if (![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"googlechrome://"]]) {
         __typeof(&*self) __weak weakSelf = self;
         self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
             
