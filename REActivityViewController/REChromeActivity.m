@@ -39,7 +39,7 @@
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
                                                                 message:message
                                                                delegate:weakSelf cancelButtonTitle:NSLocalizedStringFromTable(@"button.cancel", @"REActivityViewController", @"Cancel")
-                                                      otherButtonTitles:NSLocalizedStringFromTable(@"button.dismiss", @"REActivityViewController", @"OK"), nil];
+                                                      otherButtonTitles:NSLocalizedStringFromTable(@"button.ok", @"REActivityViewController", @"OK"), nil];
             [alertView show];
         };
     }
