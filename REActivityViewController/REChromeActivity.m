@@ -17,6 +17,11 @@
 
 - (id)init
 {
+    return [self initWithCallbackURL:nil];
+}
+
+- (id)initWithCallbackURL:(NSURL *)callbackURL
+{
     self = [super initWithTitle:NSLocalizedStringFromTable(@"activity.Chrome.title", @"REActivityViewController", @"Open in Chrome")
                           image:[UIImage imageNamed:@"REActivityViewController.bundle/Icon_Chrome"]
                     actionBlock:nil];
@@ -34,7 +39,7 @@
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
                                                                 message:message
                                                                delegate:weakSelf cancelButtonTitle:NSLocalizedStringFromTable(@"button.cancel", @"REActivityViewController", @"Cancel")
-                                                      otherButtonTitles:NSLocalizedStringFromTable(@"button.ok", @"REActivityViewController", @"OK"), nil];
+                                                      otherButtonTitles:NSLocalizedStringFromTable(@"button.dismiss", @"REActivityViewController", @"OK"), nil];
             [alertView show];
         };
     }
@@ -49,26 +54,47 @@
                 NSURL *URL = [userInfo objectForKey:@"url"];
                 NSString *scheme = URL.scheme;
                 
-                // Replace the URL Scheme with the Chrome equivalent.
-                NSString *chromeScheme = nil;
-                if ([scheme isEqualToString:@"http"]) {
-                    chromeScheme = @"googlechrome";
-                } else if ([scheme isEqualToString:@"https"]) {
-                    chromeScheme = @"googlechromes";
-                }
-                
-                // Proceed only if a valid Google Chrome URI Scheme is available.
-                if (chromeScheme) {
-                    NSString *absoluteString = [URL absoluteString];
-                    NSRange rangeForScheme = [absoluteString rangeOfString:@":"];
-                    NSString *urlNoScheme =
-                    [absoluteString substringFromIndex:rangeForScheme.location];
-                    NSString *chromeURLString =
-                    [chromeScheme stringByAppendingString:urlNoScheme];
-                    NSURL *chromeURL = [NSURL URLWithString:chromeURLString];
+                if (callbackURL && [[UIApplication sharedApplication] canOpenURL:
+                                    [NSURL URLWithString:@"googlechrome-x-callback://"]]) {
+                    NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
                     
-                    // Open the URL with Chrome.
-                    [[UIApplication sharedApplication] openURL:chromeURL];
+                    // Proceed only if scheme is http or https.
+                    if ([scheme isEqualToString:@"http"] ||
+                        [scheme isEqualToString:@"https"]) {
+                        NSString *chromeURLString = [NSString stringWithFormat:
+                                                     @"googlechrome-x-callback://x-callback-url/open/?x-source=%@&x-success=%@&url=%@",
+                                                     encodeByAddingPercentEscapes(appName),
+                                                     encodeByAddingPercentEscapes([callbackURL absoluteString]),
+                                                     encodeByAddingPercentEscapes([URL absoluteString])];
+                        NSURL *chromeURL = [NSURL URLWithString:chromeURLString];
+                        
+                        // Open the URL with Google Chrome.
+                        [[UIApplication sharedApplication] openURL:chromeURL];
+                    }
+                }
+                else {
+                    
+                    // Replace the URL Scheme with the Chrome equivalent.
+                    NSString *chromeScheme = nil;
+                    if ([scheme isEqualToString:@"http"]) {
+                        chromeScheme = @"googlechrome";
+                    } else if ([scheme isEqualToString:@"https"]) {
+                        chromeScheme = @"googlechromes";
+                    }
+                    
+                    // Proceed only if a valid Google Chrome URI Scheme is available.
+                    if (chromeScheme) {
+                        NSString *absoluteString = [URL absoluteString];
+                        NSRange rangeForScheme = [absoluteString rangeOfString:@":"];
+                        NSString *urlNoScheme =
+                        [absoluteString substringFromIndex:rangeForScheme.location];
+                        NSString *chromeURLString =
+                        [chromeScheme stringByAppendingString:urlNoScheme];
+                        NSURL *chromeURL = [NSURL URLWithString:chromeURLString];
+                        
+                        // Open the URL with Chrome.
+                        [[UIApplication sharedApplication] openURL:chromeURL];
+                    }
                 }
             }
         };
@@ -83,6 +109,18 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:
                                                     @"itms-apps://itunes.apple.com/us/app/chrome/id535886823"]];
     }
+}
+
+// Method to escape parameters in the URL.
+static NSString * encodeByAddingPercentEscapes(NSString *input) {
+    NSString *encodedValue =
+    (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                                                          kCFAllocatorDefault,
+                                                                          (CFStringRef)input,
+                                                                          NULL,
+                                                                          (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                          kCFStringEncodingUTF8));
+    return encodedValue;
 }
 
 @end
