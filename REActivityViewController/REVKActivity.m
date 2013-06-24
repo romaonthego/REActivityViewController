@@ -200,11 +200,11 @@
 
 - (NSString *)URLEncodedString:(NSString *)str
 {
-    NSString *result = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                    (CFStringRef)str,
-                                                                                    NULL,
-                                                                                    CFSTR("!*'();:@&=+$,/?%#[]"),
-                                                                                    kCFStringEncodingUTF8);
+    NSString *result = (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+																							 (CFStringRef)str,
+																							 NULL,
+																							 CFSTR("!*'();:@&=+$,/?%#[]"),
+																							 kCFStringEncodingUTF8);
 	return result;
 }
 
