@@ -1,0 +1,109 @@
+/*
+ REActivityViewController.strings
+ Created by Benoit Pereira da Silva on 02/13/13.
+ http://www.pereira-da-silva.com
+*/
+
+/////////////////////
+// ACTIVITIES
+/////////////////////
+
+/* Mail */
+"activity.Mail.title"="Mail";
+
+/* Copy */
+"activity.Copy.title"="Kopieren";
+
+/* Save to Diigo */
+"activity.Diigo.title"="An Diigo senden";
+"activity.Diigo.dialog.title"="Diigo";
+"activity.Diigo.authentication.title"="Diigo";
+"activity.Diigo.authentication.error"="Bitte überprüfe deinen Benutzernamen oder dein Passwort. Wenn du dir sicher bist, dass diese korrekt sind, liegt der Fehler an Diigo. Bitte versuch es in wenigen Minuten noch ein mal.";
+"activity.Diigo.error.title"="Fehler.";
+"activity.Diigo.error.text"="Bitte gib einen Titel ein.";
+
+/* Save to Kippt */
+"activity.Kippt.title"="An Kippt senden";
+"activity.Kippt.dialog.title"="Kippt";
+"activity.Kippt.authentication.title"="Kippt";
+"activity.Kippt.authentication.error"="Bitte überprüfe deinen Benutzernamen oder dein Passwort. Wenn du dir sicher bist, dass diese korrekt sind, liegt der Fehler an Kippt. Bitte versuch es in wenigen Minuten noch ein mal.";
+"activity.Kippt.error.title"="Fehler.";
+"activity.Kippt.error.text"="Bitte gib einen Titel ein.";
+
+/* Facebook */
+"activity.Facebook.title"="Facebook";
+
+/* Send to Instapaper */
+"activity.Instapaper.title"="An Instapaper senden";
+"activity.Instapaper.authentication.title"="Instapaper";
+"activity.Instapaper.authentication.error"="Bitte überprüfe deinen Benutzernamen oder dein Passwort. Wenn du dir sicher bist, dass diese korrekt sind, liegt der Fehler an Instapaper. Bitte versuch es in wenigen Minuten noch ein mal.";
+
+/* Open in Maps */
+"activity.Maps.title"="Öffnen in Karten";
+
+/* Message */
+"activity.Message.title"="Nachricht";
+
+/* Save to Pocket */
+"activity.Pocket.title"="An Pocket senden";
+
+/* Print */
+"activity.Print.title"="Drucken";
+"activity.Print.error.title"="Fehler.";
+"activity.Print.error.message"="Beim Drucken ist ein Fehler aufgetreten: %@";
+
+/* Save to Readability */
+"activity.Readability.title"="An Readability senden";
+"activity.Readability.authentication.title"="Readability";
+"activity.Readability.authentication.error"="Bitte überprüfe deinen Benutzernamen oder dein Passwort. Wenn du dir sicher bist, dass diese korrekt sind, liegt der Fehler an Readability. Bitte versuch es in wenigen Minuten noch ein mal.";
+
+/* Open in Safari */
+"activity.Safari.title"="In Safari öffnen";
+
+/* Open in Chrome */
+"activity.Chrome.title"="In Chrome öffnen";
+"activity.Chrome.dialog.appstore.title"="Chrome im App Store";
+"activity.Chrome.dialog.appstore.message"="Möchtest du in den App Store weitergeleitet werden, um Google Chrome zu installieren?";
+
+/* Save to Camera Roll */
+"activity.CameraRoll.title"="Bild speichern";
+
+/* Tumblr */
+"activity.Tumblr.title"="Tumblr";
+"activity.Tumblr.dialog.title"="Tumblr";
+"activity.Tumblr.authentication.title"="Tumblr";
+"activity.Tumblr.authentication.error"="Bitte überprüfe deinen Benutzernamen oder dein Passwort. Wenn du dir sicher bist, dass diese korrekt sind, liegt der Fehler an Tumblr. Bitte versuch es in wenigen Minuten noch ein mal.";
+
+/* Twitter */
+"activity.Twitter.title"="Twitter";
+
+/* VKontakte */
+"activity.VKontakte.title"="VKontakte";
+"activity.VKontakte.dialog.title"="VKontakte";
+"activity.VKontakte.authentication.title"="VKontakte";
+
+/////////////////////
+// GENERIC
+/////////////////////
+
+/* Buttons */
+"button.cancel"="Abbrechen";
+"button.dismiss"="Schließen";
+"button.login"="Einloggen";
+"button.ok"="OK";
+
+/* Email */
+"field.email"="E-Mail";
+
+/* Username */
+"field.username"="Benutzername";
+
+/* Password */
+"field.password"="Passwort";
+
+/* We never store your password. */
+"slogan.never.store.password"="Wir werden dein Passwort nie speichern.";
+
+/* We save your password in a safe place. */
+"slogan.password.storage.is.safe"="Wie bewahren dein Passwort an einem sicheren Platz auf.";
+
