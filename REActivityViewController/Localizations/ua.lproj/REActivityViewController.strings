@@ -1,0 +1,107 @@
+/*
+ REActivityViewController.strings
+ Created by Mykhailo Oleksiuk
+*/
+
+/////////////////////
+// ACTIVITIES
+/////////////////////
+
+/* Mail */
+"activity.Mail.title"="Mail";
+
+/* Copy */
+"activity.Copy.title"="Копіювати";
+
+/* Save to Diigo */
+"activity.Diigo.title"="Зберегти в Diigo";
+"activity.Diigo.dialog.title"="Diigo";
+"activity.Diigo.authentication.title"="Diigo";
+"activity.Diigo.authentication.error"="Будь ласка, перевірте ім'я користувача та пароль. Якщо вони вірні, можливо Diigo недоступний в даний момент, спробуйте через кілька хвилин.";
+"activity.Diigo.error.title"="Помилка.";
+"activity.Diigo.error.text"="Будь ласка, введіть назву посилання.";
+
+/* Save to Kippt */
+"activity.Kippt.title"="Зберегти в Kippt";
+"activity.Kippt.dialog.title"="Kippt";
+"activity.Kippt.authentication.title"="Kippt";
+"activity.Kippt.authentication.error"="Будь ласка, перевірте ім'я користувача та пароль. Якщо вони вірні, можливо Kippt недоступний в даний момент, спробуйте через кілька хвилин.";
+"activity.Kippt.error.title"="Помилка.";
+"activity.Kippt.error.text"="Будь ласка, введіть назву посилання.";
+
+/* Facebook */
+"activity.Facebook.title"="Facebook";
+
+/* Send to Instapaper */
+"activity.Instapaper.title"="Зберегти в Instapaper";
+"activity.Instapaper.authentication.title"="Instapaper";
+"activity.Instapaper.authentication.error"="Будь ласка, перевірте ім'я користувача та пароль. Якщо вони вірні, можливо Instapaper недоступний в даний момент, спробуйте через кілька хвилин.";
+
+/* Open in Maps */
+"activity.Maps.title"="Відкрити в Картах";
+
+/* Message */
+"activity.Message.title"="Повідомлення";
+
+/* Save to Pocket */
+"activity.Pocket.title"="Зберегти в Pocket";
+
+/* Print */
+"activity.Print.title"="Друкувати";
+"activity.Print.error.title"="Помилка.";
+"activity.Print.error.message"="Виникла помилка при друку: %@";
+
+/* Save to Readability */
+"activity.Readability.title"="Зберегти в Readability";
+"activity.Readability.authentication.title"="Readability";
+"activity.Readability.authentication.error"="Будь ласка, перевірте ім'я користувача та пароль. Якщо вони вірні, можливо Readability недоступний в даний момент, спробуйте через кілька хвилин.";
+
+/* Open in Safari */
+"activity.Safari.title"="Відкрити в Safari";
+
+/* Open in Chrome */
+"activity.Chrome.title"="Відкрити в Chrome";
+"activity.Chrome.dialog.appstore.title"="Chrome в App Store";
+"activity.Chrome.dialog.appstore.message"="Чи бажаєте Ви встановити Google Chrome з App Store?";
+
+/* Save to Camera Roll */
+"activity.CameraRoll.title"="Фотопотік";
+
+/* Tumblr */
+"activity.Tumblr.title"="Tumblr";
+"activity.Tumblr.dialog.title"="Tumblr";
+"activity.Tumblr.authentication.title"="Tumblr";
+"activity.Tumblr.authentication.error"="Будь ласка, перевірте ім'я користувача та пароль. Якщо вони вірні, можливо Tumblr недоступний в даний момент, спробуйте через кілька хвилин.";
+
+/* Twitter */
+"activity.Twitter.title"="Twitter";
+
+/* VKontakte */
+"activity.VKontakte.title"="ВКонтакті";
+"activity.VKontakte.dialog.title"="ВКонтакті";
+"activity.VKontakte.authentication.title"="ВКонтакті";
+
+/////////////////////
+// GENERIC
+/////////////////////
+
+/* Buttons */
+"button.cancel"="Скасувати";
+"button.dismiss"="ОК";
+"button.login"="Ввійти";
+"button.ok"="OK";
+
+/* Email */
+"field.email"="E-mail";
+
+/* Username */
+"field.username"="Логін";
+
+/* Password */
+"field.password"="Пароль";
+
+/* We never store your password. */
+"slogan.never.store.password"="Ми ніколи не зберігаємо Ваш пароль.";
+
+/* We save your password in a safe place. */
+"slogan.password.storage.is.safe"="Ми зберігаємо Ваш пароль в надійному місці.";
