@@ -1,2 +1,2 @@
 platform :ios, '5.0'
-pod 'REActivityViewController', '~> 1.6.2'
+pod 'REActivityViewController', '~> 1.6.3'
