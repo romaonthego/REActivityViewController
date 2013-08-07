@@ -26,6 +26,14 @@
 #import "REActivityView.h"
 #import "REActivityViewController.h"
 
+#ifdef __IPHONE_6_0 // iOS6 and later
+#   define UITextAlignmentCenter    NSTextAlignmentCenter
+#   define UITextAlignmentLeft      NSTextAlignmentLeft
+#   define UITextAlignmentRight     NSTextAlignmentRight
+#   define UILineBreakModeTailTruncation     NSLineBreakByTruncatingTail
+#   define UILineBreakModeMiddleTruncation   NSLineBreakByTruncatingMiddle
+#endif
+
 @implementation REActivityView
 
 - (id)initWithFrame:(CGRect)frame activities:(NSArray *)activities
