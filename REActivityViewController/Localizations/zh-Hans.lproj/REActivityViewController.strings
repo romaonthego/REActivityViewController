@@ -9,10 +9,10 @@
 /////////////////////
 
 /* Mail */
-"activity.Mail.title"="Mail";
+"activity.Mail.title"="邮件";
 
 /* Copy */
-"activity.Copy.title"="Copy";
+"activity.Copy.title"="拷贝";
 
 /* Save to Diigo */
 "activity.Diigo.title"="Save to Diigo";
@@ -34,11 +34,11 @@
 "activity.Facebook.title"="Facebook";
 
 /* Sina Weibo */
-"activity.SinaWeibo.title"="Sina Weibo";
+"activity.SinaWeibo.title"="微博";
 
 /* WeiChat */
-"activity.WeChat.title"="WeiChat";
-"activity.WeChatTimeline.title"="WeiChatTimeline";
+"activity.WeChat.title"="微信";
+"activity.WeChatTimeline.title"="朋友圈";
 
 /* Send to Instapaper */
 "activity.Instapaper.title"="Send to Instapaper";
@@ -46,18 +46,18 @@
 "activity.Instapaper.authentication.error"="Please check your username and password. If you're sure they're correct, Instapaper may be temporarily experiencing problems. Please try again in a few minutes.";
 
 /* Open in Maps */
-"activity.Maps.title"="Open in Maps";
+"activity.Maps.title"="地图";
 
 /* Message */
-"activity.Message.title"="Message";
+"activity.Message.title"="信息";
 
 /* Save to Pocket */
 "activity.Pocket.title"="Save to Pocket";
 
 /* Print */
-"activity.Print.title"="Print";
-"activity.Print.error.title"="Error.";
-"activity.Print.error.message"="An error occured while printing: %@";
+"activity.Print.title"="打印";
+"activity.Print.error.title"="错误.";
+"activity.Print.error.message"="打印时出错: %@";
 
 /* Save to Readability */
 "activity.Readability.title"="Save to Readability";
@@ -65,7 +65,7 @@
 "activity.Readability.authentication.error"="Please check your username and password. If you're sure they're correct, Readability may be temporarily experiencing problems. Please try again in a few minutes.";
 
 /* Open in Safari */
-"activity.Safari.title"="Open in Safari";
+"activity.Safari.title"="用 Safari 打开";
 
 /* Open in Chrome */
 "activity.Chrome.title"="Open in Chrome";
@@ -73,7 +73,7 @@
 "activity.Chrome.dialog.appstore.message"="Would you like to be taken to the App Store to install Google Chrome?";
 
 /* Save to Camera Roll */
-"activity.CameraRoll.title"="Save to Camera Roll";
+"activity.CameraRoll.title"="保存到相册";
 
 /* Tumblr */
 "activity.Tumblr.title"="Tumblr";
@@ -94,23 +94,23 @@
 /////////////////////
 
 /* Buttons */
-"button.cancel"="Cancel";
-"button.dismiss"="Dismiss";
-"button.login"="Log In";
-"button.ok"="OK";
+"button.cancel"="取消";
+"button.dismiss"="关闭";
+"button.login"="登陆";
+"button.ok"="确定";
 
 /* Email */
-"field.email"="Email";
+"field.email"="邮件";
 
 /* Username */
-"field.username"="Username";
+"field.username"="用户名";
 
 /* Password */
-"field.password"="Password";
+"field.password"="密码";
 
 /* We never store your password. */
-"slogan.never.store.password"="We never store your password.";
+"slogan.never.store.password"="我们不会保存您的密码.";
 
 /* We save your password in a safe place. */
-"slogan.password.storage.is.safe"="We store your password in a safe place.";
+"slogan.password.storage.is.safe"="我们会安全地保存您的密码.";
 
