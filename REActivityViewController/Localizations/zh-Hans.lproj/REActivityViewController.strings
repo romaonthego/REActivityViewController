@@ -33,6 +33,9 @@
 /* Facebook */
 "activity.Facebook.title"="Facebook";
 
+/* Sina Weibo */
+"activity.SinaWeibo.title"="微博";
+
 /* Send to Instapaper */
 "activity.Instapaper.title"="Send to Instapaper";
 "activity.Instapaper.authentication.title"="Instapaper";
