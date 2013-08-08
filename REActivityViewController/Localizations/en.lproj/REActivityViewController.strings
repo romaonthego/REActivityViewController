@@ -36,6 +36,10 @@
 /* Sina Weibo */
 "activity.SinaWeibo.title"="Sina Weibo";
 
+/* WeiChat */
+"activity.WeChat.title"="WeiChat";
+"activity.WeChatTimeline.title"="WeiChatTimeline";
+
 /* Send to Instapaper */
 "activity.Instapaper.title"="Send to Instapaper";
 "activity.Instapaper.authentication.title"="Instapaper";

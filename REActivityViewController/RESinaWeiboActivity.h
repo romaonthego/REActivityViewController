@@ -1,6 +1,6 @@
 //
-// OWSinaWeiboActivity.h
-// OWActivityViewController
+// RESinaWeiboActivity.h
+// REActivityViewController
 //
 // Copyright (c) 2013 Jason Hao (https://github.com/hjue )
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego )

@@ -1,8 +1,8 @@
 //
-// REActivities.h
+// REWeChatActivity.h
 // REActivityViewController
 //
-// Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
+// Copyright (c) 2013 Jason Hao (https://github.com/hjue )
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,22 +23,29 @@
 // THE SOFTWARE.
 //
 
-#import "REFacebookActivity.h"
-#import "RETwitterActivity.h"
-#import "REMessageActivity.h"
-#import "REMailActivity.h"
-#import "REPrintActivity.h"
-#import "RECopyActivity.h"
-#import "RESafariActivity.h"
-#import "REChromeActivity.h"
-#import "REMapsActivity.h"
-#import "RESaveToCameraRollActivity.h"
-#import "RETumblrActivity.h"
-#import "REVKActivity.h"
-#import "REInstapaperActivity.h"
-#import "REPocketActivity.h"
-#import "REReadabilityActivity.h"
-#import "REDiigoActivity.h"
-#import "REKipptActivity.h"
-#import "RESinaWeiboActivity.h"
-#import "REWeChatActivity.h"
+#import "REActivity.h"
+
+
+enum WXMessageType {
+    
+    WXMessageTypeText   = 0,
+    WXMessageTypeImage = 1,
+    WXMessageTypeNews = 2,
+    WXMessageTypeMusic = 3,
+    WXMessageTypeVideo = 4,
+    WXMessageTypeApp = 5,
+    WXMessageTypeEmoticon = 6
+    
+};
+
+@interface REWeChatActivity : REActivity
+
+@property (copy, nonatomic) NSString *appId;
+
+@property (nonatomic, assign) int scene;
+
+@property (nonatomic,assign) int messageType;
+
+- (id)initWithAppId:(NSString *)appId messageType:(int)messageType scene:(int)scene;
+
+@end
