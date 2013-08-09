@@ -60,7 +60,7 @@ Edit your Podfile and add `REActivityViewController`:
 ``` bash
 $ edit Podfile
 platform :ios, '5.0'
-pod 'REActivityViewController', '~> 1.6.3'
+pod 'REActivityViewController', '~> 1.6.4'
 ```
 
 Install into your Xcode project:
@@ -86,13 +86,13 @@ The following framework must be added as optional (weak reference):
 
 Dependencies:
 
-* [AFNetworking](https://github.com/AFNetworking/AFNetworking) ~> 1.3.0
-* [Facebook-iOS-SDK](https://github.com/facebook/facebook-ios-sdk) ~> 3.5.1
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking) >= 1.3.0
+* [Facebook-iOS-SDK](https://github.com/facebook/facebook-ios-sdk) >= 3.6
 * [DEFacebookComposeViewController](https://github.com/sakrist/FacebookSample) ~> 1.0.0
-* [REComposeViewController](https://github.com/romaonthego/REComposeViewController) ~> 2.1.1
+* [REComposeViewController](https://github.com/romaonthego/REComposeViewController) ~> 2.1.2
 * [SFHFKeychainUtils](https://github.com/ldandersen/scifihifi-iphone/tree/master/security) ~> 0.0.1
 * [PocketAPI](https://github.com/Pocket/Pocket-ObjC-SDK) ~> 1.0.2
-* [AFXAuthClient](https://github.com/romaonthego/AFXAuthClient) ~> 1.0.5
+* [AFXAuthClient](https://github.com/romaonthego/AFXAuthClient) ~> 1.0.7
 
 ## Example Usage
 
