@@ -41,4 +41,3 @@
 #import "REDiigoActivity.h"
 #import "REKipptActivity.h"
 #import "RESinaWeiboActivity.h"
-#import "REWeChatActivity.h"
