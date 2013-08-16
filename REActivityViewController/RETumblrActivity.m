@@ -82,7 +82,7 @@
                               ];
         controller.onLoginButtonPressed = ^(REAuthViewController *controller, NSString *username, NSString *password) {            
             [weakSelf authenticateWithUsername:username password:password success:^(AFXAuthClient *client) {
-                NSMutableURLRequest *request = [client requestWithMethod:@"GET" path:@"/v2/user/info" parameters:nil];
+                NSMutableURLRequest *request = [client requestWithMethod:@"GET" path:@"http://api.tumblr.com/v2/user/info" parameters:nil];
                 AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                     NSDictionary *blog = [[[[JSON objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"blogs"] objectAtIndex:0];
                     NSURL *url = [NSURL URLWithString:[blog objectForKey:@"url"]];
@@ -122,7 +122,7 @@
 
 - (void)authenticateWithUsername:(NSString *)username password:(NSString *)password success:(void (^)(AFXAuthClient *client))success failure:(void (^)(NSError *error))failure
 {
-    AFXAuthClient *client = [[AFXAuthClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.tumblr.com"]
+    AFXAuthClient *client = [[AFXAuthClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://www.tumblr.com"]
                                                                key:_consumerKey
                                                             secret:_consumerSecret];
     
@@ -182,7 +182,7 @@
     NSString *hostName = [[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Blog"];    
     NSDictionary *parameters = @{@"type": @"text", @"body": text};
     
-    NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:[NSString stringWithFormat:@"/v2/blog/%@/post", hostName] parameters:parameters];
+    NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:[NSString stringWithFormat:@"http://api.tumblr.com/v2/blog/%@/post", hostName] parameters:parameters];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:nil failure:nil];
     [client enqueueHTTPRequestOperation:operation];
@@ -195,7 +195,7 @@
     
     NSDictionary *parameters = @{@"type": @"photo", @"caption": text};
     
-    NSMutableURLRequest *request = [client multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"/v2/blog/%@/post", hostName] parameters:parameters
+    NSMutableURLRequest *request = [client multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"http://api.tumblr.com/v2/blog/%@/post", hostName] parameters:parameters
                                                     constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
                                                         [formData appendPartWithFileData:imageData name:@"data" fileName:@"photo.jpg" mimeType:@"image/jpg"];
                                                     }];
