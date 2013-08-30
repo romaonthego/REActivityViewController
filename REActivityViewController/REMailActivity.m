@@ -44,7 +44,7 @@
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         NSString *subject = [userInfo objectForKey:@"subject"];
         NSString *text = [userInfo objectForKey:@"text"];
-        UIImage *image = [userInfo objectForKey:@"image"];
+        id attachment = [userInfo objectForKey:@"attachment"];
         NSURL *url = [userInfo objectForKey:@"url"];
         
         [activityViewController dismissViewControllerAnimated:YES completion:^{
@@ -62,8 +62,40 @@
 				if (text && url)
 					[mailComposeViewController setMessageBody:[NSString stringWithFormat:@"%@ %@", text, url.absoluteString] isHTML:YES];
 				
-				if (image)
-					[mailComposeViewController addAttachmentData:UIImageJPEGRepresentation(image, 0.75f) mimeType:@"image/jpeg" fileName:@"photo.jpg"];
+				if (attachment) {
+                    if ([attachment isKindOfClass:[NSString class]] || [attachment isKindOfClass:[NSURL class]]) {
+                        NSURL *attachmentURL = nil;
+                        if ([attachment isKindOfClass:[NSString class]]) {
+                            attachmentURL = [NSURL URLWithString:attachment];
+                        } else {
+                            attachmentURL = attachment;
+                        }
+                        
+                        NSURLRequest *attachmentURLRequest = [NSURLRequest requestWithURL:attachmentURL];
+                        NSError *error = nil;
+                        NSURLResponse *response = nil;
+                        
+                        NSData *attachmentData = [NSURLConnection sendSynchronousRequest:attachmentURLRequest
+                                                                       returningResponse:&response
+                                                                                   error:&error];
+                        if (!error) {
+                            NSString *attachmentMimeType = [response MIMEType];
+                            NSString *attachmentFileName = [attachmentURL lastPathComponent];
+                            
+                            [mailComposeViewController addAttachmentData:attachmentData mimeType:attachmentMimeType fileName:attachmentFileName];
+                        } else {
+                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"activity.Mail.error.title", @"REActivityViewController", @"Error.")
+                                                                                message:NSLocalizedStringFromTable(@"activity.Mail.error.message", @"REActivityViewController", error)
+                                                                               delegate:nil
+                                                                      cancelButtonTitle:@"OK"
+                                                                      otherButtonTitles:nil, nil];
+                            
+                            [alertView show];
+                        }
+                    } else if ([attachment isKindOfClass:[UIImage class]]) {
+                        [mailComposeViewController addAttachmentData:UIImageJPEGRepresentation(attachment, 0.75f) mimeType:@"image/jpeg" fileName:@"image.jpg"];
+                    }
+                }
 				
 				if (subject)
 					[mailComposeViewController setSubject:subject];
