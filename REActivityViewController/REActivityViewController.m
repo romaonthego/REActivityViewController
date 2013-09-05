@@ -205,7 +205,7 @@
         __typeof (&*self) __weak weakSelf = self;
         CGRect frame = weakSelf.activityView.frame;
     
-        if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+        if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
             frame.origin.y = weakSelf.rootViewController.view.frame.size.height - self.height;
         } else {
             if (_activities.count <= 4) {
