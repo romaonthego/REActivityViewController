@@ -67,4 +67,9 @@
     return self;
 }
 
+-(NSString *)activityType
+{
+    return UIActivityTypeMessage;
+}
+
 @end

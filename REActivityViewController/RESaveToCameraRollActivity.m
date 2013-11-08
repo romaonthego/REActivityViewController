@@ -53,4 +53,9 @@
     return self;
 }
 
+-(NSString *)activityType
+{
+    return UIActivityTypeSaveToCameraRoll;
+}
+
 @end

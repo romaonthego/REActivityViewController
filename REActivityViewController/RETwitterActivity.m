@@ -61,4 +61,9 @@
     return self;
 }
 
+-(NSString *)activityType
+{
+    return UIActivityTypePostToTwitter;
+}
+
 @end

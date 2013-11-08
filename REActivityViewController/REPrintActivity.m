@@ -70,4 +70,9 @@
     return self;
 }
 
+-(NSString *)activityType
+{
+    return UIActivityTypePrint;
+}
+
 @end

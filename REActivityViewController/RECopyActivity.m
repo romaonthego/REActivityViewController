@@ -59,4 +59,9 @@
     return self;
 }
 
+-(NSString *)activityType
+{
+    return UIActivityTypeCopyToPasteboard;
+}
+
 @end

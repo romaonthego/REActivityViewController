@@ -108,4 +108,9 @@
     return self;
 }
 
+-(NSString *)activityType
+{
+    return UIActivityTypeMail;
+}
+
 @end

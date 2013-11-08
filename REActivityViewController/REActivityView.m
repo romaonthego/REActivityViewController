@@ -247,6 +247,10 @@
 - (void)cancelButtonPressed
 {
     [_activityViewController dismissViewControllerAnimated:YES completion:nil];
+    UIActivityViewControllerCompletionHandler completionHandler = [_activityViewController completionHandler];
+    if(completionHandler) {
+        completionHandler(nil, NO);
+    }
 }
 
 - (void)buttonPressed:(UIButton *)button
@@ -255,6 +259,10 @@
     activity.activityViewController = _activityViewController;
     if (activity.actionBlock) {
         activity.actionBlock(activity, _activityViewController);
+    }
+    UIActivityViewControllerCompletionHandler completionHandler = [_activityViewController completionHandler];
+    if(completionHandler) {
+        completionHandler([activity activityType], YES);
     }
 }
 

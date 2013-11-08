@@ -71,4 +71,9 @@
         [viewController presentViewController:sinaWeiboViewComposer animated:YES completion:nil];
 }
 
+-(NSString *)activityType
+{
+    return UIActivityTypePostToWeibo;
+}
+
 @end

@@ -38,4 +38,9 @@
     return self;
 }
 
+-(NSString *)activityType
+{
+    return [self class];
+}
+
 @end
