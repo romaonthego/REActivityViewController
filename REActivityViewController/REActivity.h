@@ -30,7 +30,7 @@
 
 typedef void (^REActivityActionBlock)(REActivity *activity, REActivityViewController *activityViewController);
 
-@interface REActivity : NSObject
+@interface REActivity : NSObject <NSCoding>
 
 @property (readonly) NSString *activityType;
 @property (strong, readonly, nonatomic) NSString *title;
