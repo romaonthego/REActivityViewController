@@ -1,0 +1,116 @@
+/*
+ REActivityViewController.strings
+ Created by Benoit Pereira da Silva on 02/13/13.
+ http://www.pereira-da-silva.com
+*/
+
+/////////////////////
+// ACTIVITIES
+/////////////////////
+
+/* Mail */
+"activity.Mail.title"="Mail";
+
+/* Copy */
+"activity.Copy.title"="Copia";
+
+/* Save to Diigo */
+"activity.Diigo.title"="Salva su Diigo";
+"activity.Diigo.dialog.title"="Diigo";
+"activity.Diigo.authentication.title"="Diigo";
+"activity.Diigo.authentication.error"="Per favore controlla la tua username e password. Se sei sicuro siano corrette, forse Diigo potrebbe avere qualche problema temporaneo. Per favore riprova tra qualche minuto.";
+"activity.Diigo.error.title"="Errore.";
+"activity.Diigo.error.text"="Inserisci un titolo per favore.";
+
+/* Save to Kippt */
+"activity.Kippt.title"="Salva su Kippt";
+"activity.Kippt.dialog.title"="Kippt";
+"activity.Kippt.authentication.title"="Kippt";
+"activity.Kippt.authentication.error"="Per favore controlla la tua username e password. Se sei sicuro siano corrette, forse Kippt potrebbe avere qualche problema temporaneo. Per favore riprova tra qualche minuto.";
+"activity.Kippt.error.title"="Errore.";
+"activity.Kippt.error.text"="Inserisci un titolo per favore.";
+
+/* Facebook */
+"activity.Facebook.title"="Facebook";
+
+/* Sina Weibo */
+"activity.SinaWeibo.title"="Sina Weibo";
+
+/* WeiChat */
+"activity.WeChat.title"="WeiChat";
+"activity.WeChatTimeline.title"="WeiChatTimeline";
+
+/* Send to Instapaper */
+"activity.Instapaper.title"="Salva su Instapaper";
+"activity.Instapaper.authentication.title"="Instapaper";
+"activity.Instapaper.authentication.error"="Per favore controlla la tua username e password. Se sei sicuro siano corrette, forse Instapaper potrebbe avere qualche problema temporaneo. Per favore riprova tra qualche minuto.";
+
+/* Open in Maps */
+"activity.Maps.title"="Apri in Maps";
+
+/* Message */
+"activity.Message.title"="Messaggio";
+
+/* Save to Pocket */
+"activity.Pocket.title"="Salva su Pocket";
+
+/* Print */
+"activity.Print.title"="Stampa";
+"activity.Print.error.title"="Errore.";
+"activity.Print.error.message"="E' stato riscontrato un errore stampando: %@";
+
+/* Save to Readability */
+"activity.Readability.title"="Salva su Readability";
+"activity.Readability.authentication.title"="Readability";
+"activity.Readability.authentication.error"="Per favore controlla la tua username e password. Se sei sicuro siano corrette, forse Readability potrebbe avere qualche problema temporaneo. Per favore riprova tra qualche minuto.";
+
+/* Open in Safari */
+"activity.Safari.title"="Apri in Safari";
+
+/* Open in Chrome */
+"activity.Chrome.title"="Apri in Chrome";
+"activity.Chrome.dialog.appstore.title"="Chrome nell'App Store";
+"activity.Chrome.dialog.appstore.message"="Vuoi accedere all'App Store per installare Google Chrome?";
+
+/* Save to Camera Roll */
+"activity.CameraRoll.title"="Salva nel Rullino";
+
+/* Tumblr */
+"activity.Tumblr.title"="Tumblr";
+"activity.Tumblr.dialog.title"="Tumblr";
+"activity.Tumblr.authentication.title"="Tumblr";
+"activity.Tumblr.authentication.error"="Per favore controlla la tua username e password. Se sei sicuro siano corrette, forse Tumblr potrebbe avere qualche problema temporaneo. Per favore riprova tra qualche minuto.";
+
+/* Twitter */
+"activity.Twitter.title"="Twitter";
+
+/* VKontakte */
+"activity.VKontakte.title"="VKontakte";
+"activity.VKontakte.dialog.title"="VKontakte";
+"activity.VKontakte.authentication.title"="VKontakte";
+
+/////////////////////
+// GENERIC
+/////////////////////
+
+/* Buttons */
+"button.cancel"="Cancella";
+"button.dismiss"="Annulla";
+"button.login"="Log In";
+"button.ok"="OK";
+
+/* Email */
+"field.email"="E-mail";
+
+/* Username */
+"field.username"="Username";
+
+/* Password */
+"field.password"="Password";
+
+/* We never store your password. */
+"slogan.never.store.password"="Non salviamo mai la tua password.";
+
+/* We save your password in a safe place. */
+"slogan.password.storage.is.safe"="Salviamo la tua password in un luogo sicuro.";
+
