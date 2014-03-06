@@ -163,6 +163,10 @@
         controller.hasAttachment = YES;
         controller.attachmentImage = image;
     }
+
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+	NSString* activityType = self.activityType;
+
     controller.completionHandler = ^(REComposeViewController *composeViewController, REComposeResult result) {
         [composeViewController dismissViewControllerAnimated:YES completion:nil];
         if (result == REComposeResultPosted) {
@@ -172,6 +176,12 @@
                 [weakSelf shareUsingClient:client text:composeViewController.text];
             }
         }
+		else
+		{
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+				if(sharingCompletion) sharingCompletion(activityType, NO);
+			}];
+		}
     };
     UIViewController *presentingViewController = self.activityViewController.rootViewController ? self.activityViewController.rootViewController : self.activityViewController.presentingController;
     [controller presentFromViewController:presentingViewController];
@@ -183,24 +193,46 @@
     NSDictionary *parameters = @{@"type": @"text", @"body": text};
     
     NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:[NSString stringWithFormat:@"http://api.tumblr.com/v2/blog/%@/post", hostName] parameters:parameters];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:nil failure:nil];
+
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+	NSString* activityType = self.activityType;
+
+	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, YES);
+		}];
+	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, NO);
+		}];
+	}];
     [client enqueueHTTPRequestOperation:operation];
 }
 
 - (void)shareUsingClient:(AFXAuthClient *)client text:(NSString *)text image:(UIImage *)image
 {
     NSString *hostName = [[NSUserDefaults standardUserDefaults] objectForKey:@"RETumblrActivity_Blog"];
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.8f);
+    NSData *imageData = UIImagePNGRepresentation(image);
     
     NSDictionary *parameters = @{@"type": @"photo", @"caption": text};
     
     NSMutableURLRequest *request = [client multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"http://api.tumblr.com/v2/blog/%@/post", hostName] parameters:parameters
                                                     constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
-                                                        [formData appendPartWithFileData:imageData name:@"data" fileName:@"photo.jpg" mimeType:@"image/jpg"];
+                                                        [formData appendPartWithFileData:imageData name:@"data" fileName:@"photo.png" mimeType:@"image/png"];
                                                     }];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:nil failure:nil];
+
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+	NSString* activityType = self.activityType;
+
+	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, YES);
+		}];
+	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, NO);
+		}];
+	}];
     [client enqueueHTTPRequestOperation:operation];
 }
 

@@ -90,6 +90,7 @@
                 [alertView show];
             }];
         };
+
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
             navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
         [presenter presentViewController:navigationController animated:YES completion:nil];
@@ -124,7 +125,20 @@
     NSURL *url = [userInfo objectForKey:@"url"];
     NSDictionary *parameters = @{@"url": url.absoluteString};
     NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"/api/rest/v1/bookmarks" parameters:parameters];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:nil failure:nil];
+
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+	NSString* activityType = self.activityType;
+
+	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, YES);
+		}];
+	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, NO);
+		}];
+	}];
+
     [client enqueueHTTPRequestOperation:operation];
 }
 

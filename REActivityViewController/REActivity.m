@@ -40,7 +40,7 @@
 
 -(NSString *)activityType
 {
-    return [self class];
+    return NSStringFromClass([self class]);
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder

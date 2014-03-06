@@ -50,7 +50,7 @@
         if (url)
             [UIPasteboard generalPasteboard].URL = url;
         if (image) {
-            NSData *imageData = UIImageJPEGRepresentation(image, 0.75f);
+            NSData *imageData = UIImagePNGRepresentation(image);
             [[UIPasteboard generalPasteboard] setData:imageData
                                     forPasteboardType:[UIPasteboardTypeListImage objectAtIndex:0]];
         }

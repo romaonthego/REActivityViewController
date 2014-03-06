@@ -59,7 +59,17 @@
         if (!sinaWeiboViewComposer) {
             return;
         }
-        
+
+		UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+		NSString* activityType = self.activityType;
+
+		sinaWeiboViewComposer.completionHandler = ^(SLComposeViewControllerResult result)
+		{
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+				if(sharingCompletion) sharingCompletion(activityType, result == SLComposeViewControllerResultDone);
+			}];
+		};
+
         viewController.modalPresentationStyle = UIModalPresentationCurrentContext;
         if (text)
             [sinaWeiboViewComposer setInitialText:text];

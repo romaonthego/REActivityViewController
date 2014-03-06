@@ -260,10 +260,10 @@
     if (activity.actionBlock) {
         activity.actionBlock(activity, _activityViewController);
     }
-    UIActivityViewControllerCompletionHandler completionHandler = [_activityViewController completionHandler];
+    /*UIActivityViewControllerCompletionHandler completionHandler = [_activityViewController completionHandler];
     if(completionHandler) {
         completionHandler([activity activityType], YES);
-    }
+    }*/
 }
 
 #pragma mark -

@@ -42,9 +42,20 @@
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
         UIViewController *presenter = activityViewController.presentingController;
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
-        
+
+		UIActivityViewControllerCompletionHandler sharingCompletion = activityViewController.completionHandler;
+		NSString* activityType = activity.activityType;
+
         [activityViewController dismissViewControllerAnimated:YES completion:^{
             TWTweetComposeViewController *composeController = [[TWTweetComposeViewController alloc] init];
+
+			composeController.completionHandler = ^(SLComposeViewControllerResult result)
+			{
+				[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+					if(sharingCompletion) sharingCompletion(activityType, result == SLComposeViewControllerResultDone);
+				}];
+			};
+
             NSString *text = [userInfo objectForKey:@"text"];
             UIImage *image = [userInfo objectForKey:@"image"];
             NSURL *url = [userInfo objectForKey:@"url"];
