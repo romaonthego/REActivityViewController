@@ -43,11 +43,19 @@
         [activityViewController dismissViewControllerAnimated:YES completion:nil];
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         UIImage *image = [userInfo objectForKey:@"image"];
-        
+
+		UIActivityViewControllerCompletionHandler sharingCompletion = activityViewController.completionHandler;
+		NSString* activityType = activity.activityType;
+
         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
         [library writeImageToSavedPhotosAlbum:image.CGImage
                                   orientation:(ALAssetOrientation)image.imageOrientation
-                              completionBlock:nil];
+                              completionBlock:^(NSURL *assetURL, NSError *error)
+		{
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+				if(sharingCompletion) sharingCompletion(activityType, error == nil);
+			}];
+		}];
     };
     
     return self;
