@@ -27,6 +27,10 @@
 #import "REActivityViewController.h"
 #import "DEFacebookComposeViewController.h"
 
+@interface REFacebookActivity()
+
+@end
+
 @implementation REFacebookActivity
 
 - (id)init
@@ -41,11 +45,13 @@
     self.actionBlock = ^(REActivity *activity, REActivityViewController *activityViewController) {
         UIViewController *presenter = activityViewController.presentingController;
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
+		
         [activityViewController dismissViewControllerAnimated:YES completion:^{
+			
             [weakSelf shareFromViewController:presenter
-                                     text:[userInfo objectForKey:@"text"]
-                                      url:[userInfo objectForKey:@"url"]
-                                    image:[userInfo objectForKey:@"image"]];
+										 text:[userInfo objectForKey:@"text"]
+										  url:[userInfo objectForKey:@"url"]
+										image:[userInfo objectForKey:@"image"]];
         }];
     };
     
@@ -66,6 +72,17 @@
         [facebookViewComposer addURL:url];
     if (image)
         [facebookViewComposer addImage:image];
+	
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+	NSString* activityType = self.activityType;
+	
+	facebookViewComposer.completionHandler = ^(DEFacebookComposeViewControllerResult result)
+	{
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, result == DEFacebookComposeViewControllerResultDone);
+		}];
+	};
+	
     [viewController presentViewController:facebookViewComposer animated:YES completion:nil];
 }
 
