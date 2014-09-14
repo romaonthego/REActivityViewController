@@ -1,5 +1,7 @@
 # REActivityViewController
 
+**This project is not maintained anymore, please use UIActivityViewController since it provides richer functionality in iOS 8**
+
 Open source alternative to UIActivityViewController, highly customizable and compatible with iOS 5.0.
 It allows to create custom activites with ease, you control their apperance and behavior and no longer restricted to single-color icons as with the default `UIActivity`.
 
