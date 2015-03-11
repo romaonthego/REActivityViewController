@@ -49,7 +49,10 @@
             pc.printInfo = printInfo;
             
             pc.printingItem = [userInfo objectForKey:@"image"];
-            
+
+			UIActivityViewControllerCompletionHandler sharingCompletion = activityViewController.completionHandler;
+			NSString* activityType = activity.activityType;
+
             void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) =
             ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
                 if (!completed && error) {
@@ -61,6 +64,10 @@
                     
                     [av show];
                 }
+
+				[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+					if(sharingCompletion) sharingCompletion(activityType, !completed && error);
+				}];
             };
             
             [pc presentAnimated:YES completionHandler:completionHandler];
@@ -68,6 +75,11 @@
     };
     
     return self;
+}
+
+-(NSString *)activityType
+{
+    return UIActivityTypePrint;
 }
 
 @end

@@ -59,7 +59,16 @@
 - (void)saveURL:(NSURL *)url
 {
     if (!url) return;
-    [[PocketAPI sharedAPI] saveURL:url handler:nil];
+
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+	NSString* activityType = self.activityType;
+
+    [[PocketAPI sharedAPI] saveURL:url handler:^(PocketAPI *api, NSURL *url, NSError *error)
+	{
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, error == nil);
+		}];
+	}];
 }
 
 @end

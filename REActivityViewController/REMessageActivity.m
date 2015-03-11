@@ -43,6 +43,8 @@
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         NSString *text = [userInfo objectForKey:@"text"];
         NSURL *url = [userInfo objectForKey:@"url"];
+		id attachment = [userInfo objectForKey:@"image"];
+		
         [activityViewController dismissViewControllerAnimated:YES completion:^{
             if (![MFMessageComposeViewController canSendText])
                 return;
@@ -59,12 +61,54 @@
             
             if (text && url)
                 messageComposeViewController.body = [NSString stringWithFormat:@"%@ %@", text, url.absoluteString];
-            
+
+			if (attachment) {
+				if ([attachment isKindOfClass:[NSString class]] || [attachment isKindOfClass:[NSURL class]]) {
+					NSURL *attachmentURL = nil;
+					if ([attachment isKindOfClass:[NSString class]]) {
+						attachmentURL = [NSURL URLWithString:attachment];
+					} else {
+						attachmentURL = attachment;
+					}
+					
+					NSURLRequest *attachmentURLRequest = [NSURLRequest requestWithURL:attachmentURL];
+					NSError *error = nil;
+					NSURLResponse *response = nil;
+					
+					NSData *attachmentData = [NSURLConnection sendSynchronousRequest:attachmentURLRequest
+																   returningResponse:&response
+																			   error:&error];
+					if (!error) {
+						NSString *attachmentFileName = [attachmentURL lastPathComponent];
+						
+						[messageComposeViewController addAttachmentData:attachmentData typeIdentifier:@"public.data" filename:attachmentFileName];
+					} else {
+						UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"activity.Message.error.title", @"REActivityViewController", @"Error.")
+																			message:NSLocalizedStringFromTable(@"activity.Mail.error.message", @"REActivityViewController", error)
+																		   delegate:nil
+																  cancelButtonTitle:@"OK"
+																  otherButtonTitles:nil, nil];
+						
+						[alertView show];
+					}
+				} else if ([attachment isKindOfClass:[UIImage class]]) {
+					[messageComposeViewController addAttachmentData:UIImagePNGRepresentation(attachment) typeIdentifier:@"public.data" filename:@"image.png"];
+				}
+			}
+			
+			[REActivityDelegateObject sharedObject].sharingCompletion = activityViewController.completionHandler;
+			[REActivityDelegateObject sharedObject].activityType = activity.activityType;
+
             [activityViewController.presentingController presentViewController:messageComposeViewController animated:YES completion:nil];
         }];
     };
     
     return self;
+}
+
+-(NSString *)activityType
+{
+    return UIActivityTypeMessage;
 }
 
 @end

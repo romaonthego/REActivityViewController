@@ -44,7 +44,7 @@
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         NSString *subject = [userInfo objectForKey:@"subject"];
         NSString *text = [userInfo objectForKey:@"text"];
-        id attachment = [userInfo objectForKey:@"attachment"];
+        id attachment = [userInfo objectForKey:@"image"];
         NSURL *url = [userInfo objectForKey:@"url"];
         
         [activityViewController dismissViewControllerAnimated:YES completion:^{
@@ -60,7 +60,7 @@
 					[mailComposeViewController setMessageBody:url.absoluteString isHTML:YES];
 				
 				if (text && url)
-					[mailComposeViewController setMessageBody:[NSString stringWithFormat:@"%@ %@", text, url.absoluteString] isHTML:YES];
+					[mailComposeViewController setMessageBody:[NSString stringWithFormat:@"%@ <a href=\"%@\">%@</a>", text, url.absoluteString, url.absoluteString] isHTML:YES];
 				
 				if (attachment) {
                     if ([attachment isKindOfClass:[NSString class]] || [attachment isKindOfClass:[NSURL class]]) {
@@ -93,19 +93,36 @@
                             [alertView show];
                         }
                     } else if ([attachment isKindOfClass:[UIImage class]]) {
-                        [mailComposeViewController addAttachmentData:UIImageJPEGRepresentation(attachment, 0.75f) mimeType:@"image/jpeg" fileName:@"image.jpg"];
+                        [mailComposeViewController addAttachmentData:UIImagePNGRepresentation(attachment) mimeType:@"image/png" fileName:@"image.png"];
                     }
                 }
 				
 				if (subject)
 					[mailComposeViewController setSubject:subject];
-				
+
+				[REActivityDelegateObject sharedObject].sharingCompletion = activityViewController.completionHandler;
+				[REActivityDelegateObject sharedObject].activityType = activity.activityType;
+
 				[activityViewController.presentingController presentViewController:mailComposeViewController animated:YES completion:nil];
+			}
+			else
+			{
+				UIActivityViewControllerCompletionHandler sharingCompletion = activityViewController.completionHandler;
+				NSString* activityType = activity.activityType;
+
+				[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+					if(sharingCompletion) sharingCompletion(activityType, NO);
+				}];
 			}
         }];
     };
     
     return self;
+}
+
+-(NSString *)activityType
+{
+    return UIActivityTypeMail;
 }
 
 @end

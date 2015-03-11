@@ -40,6 +40,7 @@
 @property (weak, nonatomic) UIPopoverController *presentingPopoverController;
 @property (weak, nonatomic) UIViewController *presentingController;
 @property (weak, nonatomic) UIViewController *rootViewController;
+@property (nonatomic,copy) UIActivityViewControllerCompletionHandler completionHandler;  // set to nil after call
 
 - (id)initWithViewController:(UIViewController *)viewController activities:(NSArray *)activities;
 - (void)presentFromRootViewController;

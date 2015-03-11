@@ -81,7 +81,10 @@
     
     if (text && url)
         textToShare = [NSString stringWithFormat:@"%@ %@", text, url.absoluteString];
-    
+
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+	NSString* activityType = self.activityType;
+
     REComposeViewController *controller = [[REComposeViewController alloc] init];
     controller.title = NSLocalizedStringFromTable(@"activity.VKontakte.dialog.title", @"REActivityViewController", @"VKontakte");
     controller.navigationBar.tintColor = [UIColor colorWithRed:56/255.0f green:99/255.0f blue:150/255.0f alpha:1.0];
@@ -100,6 +103,12 @@
                 [weakSelf shareText:composeViewController.text];
             }
         }
+		else
+		{
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+				if(sharingCompletion) sharingCompletion(activityType, NO);
+			}];
+		}
     };
     
     UIViewController *presentingViewController = self.activityViewController.rootViewController ? self.activityViewController.rootViewController : self.activityViewController.presentingController;
@@ -113,12 +122,19 @@
 {
     NSString *serverURL = [NSString stringWithFormat:@"https://api.vk.com/method/photos.getWallUploadServer?owner_id=%@&access_token=%@", self.ownerId, self.token];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:serverURL]];
-    
+
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+	NSString* activityType = self.activityType;
+
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         if (success) {
             success([[JSON objectForKey:@"response"] objectForKey:@"upload_url"]);
         }
-    } failure:nil];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, NO);
+		}];
+	}];
     [operation start];
 }
 
@@ -126,22 +142,23 @@
 {
     NSURL *url = [NSURL URLWithString:urlString];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.75f);
+    NSData *imageData = UIImagePNGRepresentation(image);
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"" parameters:nil
                                                     constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
-        [formData appendPartWithFileData:imageData name:@"photo" fileName:@"photo.jpg" mimeType:@"image/jpg"];
+        [formData appendPartWithFileData:imageData name:@"photo" fileName:@"photo.png" mimeType:@"image/png"];
     }];
-    
+	
     void (^parseJSON)(id JSON) = ^(id JSON){
         if (success)
             success([JSON objectForKey:@"hash"], [JSON objectForKey:@"photo"], [JSON objectForKey:@"server"]);
     };
-    
+
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         parseJSON(JSON);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         parseJSON(JSON);
     }];
+	
     [operation start];
 }
 
@@ -150,11 +167,18 @@
     NSString *serverURL = [NSString stringWithFormat:@"https://api.vk.com/method/photos.saveWallPhoto?owner_id=%@&access_token=%@&server=%@&photo=%@&hash=%@", self.ownerId, self.token, server, photo, hash];
     NSString *escapedURL = [serverURL stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:escapedURL]];
-    
+
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+	NSString* activityType = self.activityType;
+
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         if (success)
             success([[[JSON objectForKey:@"response"] objectAtIndex:0] objectForKey:@"id"]);
-    } failure:nil];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, NO);
+		}];
+	}];
     [operation start];
 }
 
@@ -168,12 +192,23 @@
         serverURL = [NSString stringWithFormat:@"https://api.vk.com/method/wall.post?owner_id=%@&access_token=%@&message=%@", self.ownerId, self.token, [self URLEncodedString:text]];
     }
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:serverURL]];
-        
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        if (completion)
+
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.activityViewController.completionHandler;
+	NSString* activityType = self.activityType;
+
+	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, YES);
+		}];
+
+		if (completion)
             completion();
-    } failure:nil];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, NO);
+		}];
+	}];
     [operation start];
 }
 

@@ -29,6 +29,8 @@
 @interface REActivityDelegateObject : NSObject <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) UIViewController *controller;
+@property (strong, nonatomic) UIActivityViewControllerCompletionHandler sharingCompletion;
+@property (strong, nonatomic) NSString* activityType;
 
 + (REActivityDelegateObject *)sharedObject;
 

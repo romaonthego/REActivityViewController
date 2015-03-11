@@ -46,12 +46,32 @@ static REActivityDelegateObject *_sharedObject = nil;
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
 {
-    [self.controller dismissViewControllerAnimated:YES completion:nil];
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.sharingCompletion;
+	NSString* activityType = self.activityType;
+	self.sharingCompletion = nil;
+	self.activityType = nil;
+
+    [self.controller dismissViewControllerAnimated:YES completion:^(void)
+	{
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, result == MessageComposeResultSent);
+		}];
+	}];
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
-    [self.controller dismissViewControllerAnimated:YES completion:nil];
+	UIActivityViewControllerCompletionHandler sharingCompletion = self.sharingCompletion;
+	NSString* activityType = self.activityType;
+	self.sharingCompletion = nil;
+	self.activityType = nil;
+
+    [self.controller dismissViewControllerAnimated:YES completion:^(void)
+	{
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if(sharingCompletion) sharingCompletion(activityType, (result == MFMailComposeResultSent) && (error == nil));
+		}];
+	}];
 }
 
 @end
