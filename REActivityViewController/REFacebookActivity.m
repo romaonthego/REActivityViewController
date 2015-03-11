@@ -69,4 +69,9 @@
     [viewController presentViewController:facebookViewComposer animated:YES completion:nil];
 }
 
+-(NSString *)activityType
+{
+    return UIActivityTypePostToFacebook;
+}
+
 @end

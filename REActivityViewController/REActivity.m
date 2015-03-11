@@ -38,4 +38,24 @@
     return self;
 }
 
+-(NSString *)activityType
+{
+    return NSStringFromClass([self class]);
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+//    [aCoder encodeObject:self.title forKey:@"title"];
+//    [aCoder encodeObject:self.image forKey:@"image"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    if(self) {
+//        self.title = [aDecoder decodeObjectForKey:@"title"];
+    }
+    return self;
+}
+
 @end
